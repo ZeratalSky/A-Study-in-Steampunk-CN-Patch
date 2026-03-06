@@ -1,0 +1,1944 @@
+*comment é
+
+*image Chapter03.png
+		
+*comment This vignette provides the second beat in the your-relationship-with-the-revolution story, the second beat in the love-arc-with-Grace story, introduces Taggart and the clergy as players, and depending on your interaction with them, provides the second beat of the you-join-the-clergy story. 
+
+*comment Goal - discover the saboteur. Might succeed, might fail. 
+
+*comment So I don't forget it - we're going to do a callback to "two things can be true at once" if you decide in NewLife to persuade T to integrate tech into the temple. Quoting T to himself will make him twitch a smile and acknowledge you have a point.
+
+*temp WCSturns 0
+*temp InvestigationTurns 0
+*temp bombings 1
+*temp MerrillTurns 0
+*temp InvestigatedFirstResponders false
+*temp KnowAboutTemple false
+*temp InvestigatedHealers false
+*temp RussianFront false
+*temp TalkedWithWorkers false
+*temp ExaminedSaboteur false
+*temp GotWorkerInTrouble false
+*temp Gotpamphlet false
+*temp InvestigatedRuins false
+*temp InterviewedMerrill false
+*temp KnowBooks false
+*temp HealersArrested false
+
+*temp RightTarget false
+*set CaughtHer false
+*set LetHerGo false
+*set MissedHer false
+*temp ACaptured false
+
+*label Intro
+A low boom breaks the city's sleeping silence, and you jerk awake, heart pounding. 
+
+That [i]could not possibly have been cannon-fire[/i], because cannon-fire is not something one experiences in Kingsford, no matter how precisely the noise matches your memory of distant artillery. You listen hard, but no second boom follows; nor is there shouting and screaming in the streets outside. The city still seems to be sleeping. 
+
+The scratched pocket watch on your bedside table shows the time to be thirty-five minutes past two.
+*page_break
+The flat is silent.
+*if KnowFinchAway
+	Finch is still away on his northern tour.
+	
+	*goto Intro2
+*else
+	Finch is away, sent by his editor on a tour of small country villages to the north, there to take photographs to accompany a series of travel articles. 
+	
+	*goto Intro2
+	
+*label Intro2
+You had an entirely ordinary day. Worked your usual shift. Came home to your usual meal.
+*if DatingGrace
+	Spent the evening with Grace Chandler, in the small parlor her employer kindly allows her to use when you come to call. 
+A typical day in Kingsford. And cannon-fire is not something one hears in Kingsford.
+
+But that [i]really[/i] sounded like cannon-fire.
+
+You get up and dress, intending to… 
+
+*fake_choice
+
+	#…go to Woodward's office. If something's afoot, he'll know what.
+	
+	#…go to police headquarters. I might be needed in a professional capacity.
+	
+	#…investigate for myself what has occurred.
+	
+You are still knotting your tie when a messenger comes pounding at Mrs. Larrimer's door. A gas main blew in a factory on the river, he says, and Mr. Woodward wishes to see you at once. 
+		
+*page_break
+
+Woodward's building is dark and silent, but Woodward and Miss Lawrence are both as neat and alert as if it were nine o'clock in the morning instead of five. Woodward indicates you should help yourself to tea.
+
+"You're familiar with Merrill Steamworks?" he asks. It's a rhetorical question. Everyone is familiar with Merrill Steamworks. They make the mechs used to defend the borders of the Empire. "They have a new line of mechanical soldiers forthcoming. Built along the same lines as the Army model, but shrunken down to fit through city streets—they've finally managed to make the boiler efficient enough to require only a three-man team, pilot and two stokers. We field-tested the prototypes in Loegria, and the Kingsford police were to be outfitted with them later this year."
+
+That's the first you've heard of such a plan. You contemplate the image of police officers patrolling the streets inside miniaturized mechs. 
+
+*choice
+
+	#Wonderful! The constabulary deserves the best protection we can give them, and perhaps this will enable a meaningful patrol in the dangerous East End.
+	
+		*set conventional %+15
+		*goto Intro4
+	
+	#Using mechs on a battlefield is all well and good, but I dislike the idea of battlefield equipment marching through my city. 
+	
+		Wasn't the point of the battlefield to make these things unnecessary at home?
+	
+		*goto Intro4
+	
+	#I find it a little troubling that I have heard nothing of this up until now. They field-tested the prototypes in Loegria? How, exactly? It sounds ominous.
+	
+		*set conventional %-15
+		*goto Intro4
+	
+*label Intro4
+"At least," Woodward amends with a grimace, "that [i]was[/i] the plan. A few hours ago, saboteurs planted an explosive device in Merrill's secondary factory." He waits for your reaction.
+
+*label WoodwardConversationStack
+*if WCSturns >=2
+	*goto Lawrence
+*else
+
+	*choice
+
+		*hide_reuse #"So it wasn't a gas main explosion."
+	
+			Woodward lifts his eyes briefly to the ceiling, apparently finding your question insipid. "No."
+			*set WCSturns +1
+			*goto WoodwardConversationStack
+		
+		*hide_reuse #"Secondary factory?"
+	
+			"Merrill bought out his next-door neighbor, and intended the manufacture of the smaller mechanical soldiers to take place in this new second factory. His original factory was untouched; the smaller one was effectively destroyed."
+			*set WCSturns +1
+			*goto WoodwardConversationStack
+		
+		*hide_reuse #"Were there fatalities?"
+	
+			"No–fortunately no one was in the building."
+			*set WCSturns +1
+			*goto WoodwardConversationStack
+		
+		*hide_reuse #"What clues do we have so far as to the culprits?"
+		
+			"The type of device is similar to what the Loegrian bombers were using three years ago, before we shut down their operations. Other than that–" Woodward shrugs. "–one imagines the culprits to be those who do not want to see an increased police presence in the East End. Criminals, in other words."
+			*set WCSturns +1
+			*goto WoodwardConversationStack
+	
+
+*label Lawrence
+
+There is a tap at the door. "Mr. Woodward?" calls Miss Lawrence's voice. 
+
+"Yes?" Woodward says, and the opportunity to ask him anything else is gone. You suppose it is a useful lesson to always secure the most crucial pieces of information first. In this investigation, time will be of the essence, and it may not always be possible to be completely thorough.
+
+Miss Lawrence comes in. "Excuse me, sir, but there is an urgent communication–" She waves an envelope.
+
+"One moment." Woodward turns back to you. "Briefly, then, here's the rest of the situation. Two men were seen leaving the building at a run just as it exploded behind them. We caught one; he's unconscious in hospital. I need you to find the other. Your cover as a police surgeon will get you in the door–I've arranged for you to be assigned to the case. There's no crying need for a surgeon, I admit, but that can be glossed over. With any luck, they'll all be too busy to ask. Now–" Woodward pushes himself out of his chair. "–you to your work, I to mine." 
+
+Right. Where do you want to start?
+*label InvestigationStack
+*set InvestigationTurns +1
+
+*if InvestigationTurns = 4
+	
+	You glance up, and are surprised to see the day so far advanced. You'll have time for only one or two more stops today.
+	
+	*goto InvestigationStack2
+	
+*elseif InvestigationTurns = 6
+	*goto SecondBombing
+
+	
+*else
+	*goto InvestigationStack2
+	
+	
+*label InvestigationStack2
+*choice
+
+	*hide_reuse #I look at the scene of the explosion.
+	
+		*goto SceneOfTheCrime
+
+	
+	*hide_reuse #I talk with the factory owner, Mr. Merrill.
+	
+		*goto Merrill			
+						
+	*hide_reuse #I interview the men who reported seeing the saboteurs flee the scene. 
+		
+		*goto FirstResponders
+	
+	*if ExaminedSaboteur = false
+		*hide_reuse #I visit the hospital for a look at the first saboteur.
+	
+			*set ExaminedSaboteur true
+			*gosub Saboteur
+		
+			*goto InvestigationStack
+		
+	*if KnowAboutTemple
+		*hide_reuse #I investigate the Sun Temple three streets away.
+			
+			*set Investigatedhealers true
+			
+			A potentially dangerous thing to do, if it is indeed a nest of light-eaters or at least a nest of saboteurs.
+			*if healpierce or healmorris
+				Even more dangerous if the sun-worshippers have a way of seeing your…hidden talent.
+			But it must be done. 
+			
+			How do you intend to launch your investigation?
+		
+			*choice
+		
+				#I convince the Inspector in charge of the Merrill investigation that there is reason to suspect the people at the temple, then tag along when his team kicks their door down. 
+					*set conventional %+25
+					*gosub KickDownDoor
+					*goto InvestigationStack
+			
+				#I go by myself, quietly and politely. I have no reason to believe that I am actually entering a light-eater nest, just a Temple of the Sun.
+				
+					*set conventional %-25
+					*set RelTaggart %+25
+					*goto PoliteTemple
+					
+				#I wish I could just go myself, but I don't dare let my superiors suspect I have any sun-worship sympathies. I convince the Inspector to break down the door, instead.
+				
+					*set conventional %+25
+					*set charisma %+15
+					*set compassionate %-15
+					*gosub KickDownDoor
+					*goto InvestigationStack
+			
+	*if InvestigationTurns >= 3
+	
+		#I am ready to go report to Woodward.
+		
+			*goto WoodwardReport
+			
+	*if InvestigatedFirstResponders and Investigatedhealers
+	
+		*hide_reuse #I ask Frank and David Brown about the Sun Temple. David spoke so vehemently about it–does he know of something evil going on there?  
+			
+			*goto FirstRespondersReTemple
+			
+	*if (InterviewedMerrill = true) and (TalkedWithWorkers = false)
+	
+		*hide_reuse #I waylay one of Merrill's workers to find out more about the factory.
+			
+			*set TalkedWithWorkers true
+			*goto WorkerConversation2
+			
+	*if ((TalkedWithWorkers and ExaminedSaboteur) and (GotWorkerInTrouble = false))
+		
+		*hide_reuse #I waylay the female factory worker I talked with before, and take her to the hospital to see if she recognizes the saboteur. 
+			
+			She is willing to come along with you.
+			*goto WorkerSaboteur
+			
+
+			
+*label SceneOfTheCrime
+*set InvestigatedRuins true
+*set KnowAboutTemple true
+The constables at the remains of the factory assure you there are no injured inside. The factory's grand opening was planned for this morning, and the explosive was placed in the very brief time between the departure of the construction crew and the expected arrival of the factory laborers. However, the constables allow you to go and check for yourself. 
+		
+You note the infernal device was placed in the bowels of the building, where the actual manufacture of small mechs would take place (and where it will certainly not be taking place now). 
+		
+A further chat with the constables outside elicits the information that the explosive was made using lignine dynamite–"just like those Loegrian bombers three years ago," one volunteers. "Mark my words, sir, it's them again." 
+		
+"No doubt of it," his partner confirms. "There's a lot of them in this neighborhood. The light-eater temple three streets over attracts them."
+
+Now what?
+		
+*goto InvestigationStack		
+
+
+*label Merrill
+*set InterviewedMerrill true
+		
+Despite the mess next door, Merrill's main factory has opened for business as usual, and you seek him out there. 
+		
+The front office is empty except for a single clerk at a desk. Behind him are two doors, which he guards with the air of a cynical dragon. He greets you politely, asks your business, looks at your police credentials, and says he will take your card to Mr. Merrill. Waving you to a straight-backed chair opposite his desk, he vanishes through the left-hand door. You can hear his footsteps receding up a flight of stairs. 
+		
+From behind the other door comes a babble of voices, and then the thump and creak of heavy machinery–so the right-hand door must lead into the factory proper.
+		
+*choice
+		
+	#I take the straight-backed chair and await Mr. Merrill's attention.
+		*set conventional %+15
+		*goto MerrillConversation
+
+	#I circle around the desk to examine the clerk's paperwork.
+		*set conventional %-15
+		*set perception %+15
+		*goto MerrillFinancials
+				
+	#I open the right-hand door to take a look at the factory.
+		*set conventional %-15
+		*set perception %+15
+				
+		*goto FactoryFloor	
+
+						
+*label MerrillFinancials
+*set KnowBooks true
+The clerk has been working on ledgers of business expenses. You flip through them quickly. They note the wages of the workers–which are not terribly high, since Merrill employs more women and children than men–and the cost of raw materials, which represents a substantially higher percentage of the expenditures. The profits for each quarter seem healthy–or at least, they were until Merrill started funneling them all into the preparations for opening a new factory. This quarter's results will not be so pleasant.
+				
+Footsteps on the left-hand stairway warn you of the clerk's return. You nip back to the straight-backed chair, and are sitting there as calm and polite as you please when Mr. Merrill follows his clerk through the door.
+*goto MerrillConversation						
+
+*label FactoryFloor
+The first thing to strike you is the temperature–literally strike you, a blast of heat like opening an oven. The second thing you notice is the noise, the deafening clamor of a hundred thousand moving gears.
+				
+The door opens onto a catwalk. Below you, the layers go on and on and down and down. On each layer, a group of workers is doing a task, the same task over and over, riveting or polishing or attaching. Rising up through the middle of the factory is an Army mech, three-quarters completed.
+				
+Peering over the railing, you see a red glow in the deepest depths. Down there, men shovel coal to keep the furnaces going, which keeps the gears of the various tool machines functioning. A clockwork mechanism lifts a sheet of steel and holds it in place against the mech's leg, and a small army of women rush about on three levels to rivet the steel into place. Higher up, a slightly smaller contingent of women huddles over a half-finished arm, doing some precise detailed work, heads bent close to the metal. The light is terrible down there; you can't imagine how they can see what they are doing. Nearly at your own level, children crawl in and out of the open cavern of the unfinished head, attaching wires. You can't see much of their work, but the inside of the head seems to glow a sickly green. 
+				
+You haven't much longer before the clerk returns. What do you want to do with the remaining few moments?
+				
+*choice
+				
+	#I waylay a worker and talk to her. 
+						
+		*set TalkedWithWorkers true
+						
+		One of the women on the detail-work team goes to a cupboard just below your level of the catwalk, and fetches rags out of it. You hurry down the steps fast enough to catch her as she returns.
+						
+		*goto WorkerConversation1
+						
+	#I go closer to get a better look at the head.
+
+		It is a cavern of glowing wires. Where the half-light catches them, they gleam like jewels. There is something miraculous in the intricacy of this construction—so many tiny things come together to create the mechs that kept you and your comrades safe out on the warfront. 
+
+		A child pops out of the head and goes to fetch a tool from a nearby locker. He–you think it is a he–can surely be no more than ten. His eyes are red-rimmed, his hands red and swollen, but even more disturbingly, his jaw is distended by huge lumps and hair clings to his skull only in patches. The skin of his face seems to glow green in the dim light.
+	
+		*if medicine > 50
+			It takes you only a moment to put those symptoms together. Phosphorus poisoning—or "phossy jaw," to use East End slang. 
+		*comment endif
+		
+		The child glances up, sees you, and scuttles back to work with one fearful backward glance. 
+		
+		Reminded that you are not where you are supposed to be, you hastily return to the outer office.
+		*page_break
+		*goto nipback
+		
+	#I close the door and get back to my chair before I'm caught.
+
+		*label nipback
+		You are sitting there as calm and polite as you please when Mr. Merrill follows his clerk down the left-hand stairs.
+						
+		*goto MerrillConversation
+
+
+*label MerrillConversation
+
+Mr. Merrill is a solidly-built man, well-dressed, but his clothing has the rumpled appearance of having been hastily donned, and his eyes have the look of one routed out of his bed in the middle of the night. He looks from your card to you. "Dr. $!{lastname}? I think there must have been some mistake, sir. No one was injured in last night's…incident."
+		
+How do you respond?
+		
+*fake_choice
+
+	#"Oh, I am sorry, there must have been a miscommunication at the station. Would you mind if we just went through the formalities anyhow?"
+
+		A clever response–even if the Inspector were to hear of this, he would believe a misunderstanding, given the chaos of the morning. And Mr. Merrill accepts it readily. "Anything I can do to help, of course. Come upstairs."
+		
+	#"Actually, there were one or two points the Inspector wished me to clarify." 
+	
+		A risky response–Mr. Merrill might mention it to the Inspector later, and the Inspector would know he instructed you to do no such thing. But for the moment, it works very well. Mr. Merrill nods. "Anything I can do to help, of course. Come upstairs."
+	
+	#"Shock alone can cause injury, sir, so I wanted to see that you were quite well. I served in the Army, you see; I owe you and your mechs quite a lot."
+	
+		"Oh, I see." Mr. Merrill looks pleased. "You are very welcome, I'm sure, and very kind of you. Do come upstairs."
+*comment endif
+		
+His office is well-kept, comfortably if not grandly furnished. It contains a desk stacked with business papers, cushioned chairs for visitors, and a draftsman's table to which are pinned sketches and diagrams of the insides of machines.
+	
+What Merrill tells you confirms what you already know. The factory was empty only for a few hours, between the time the last construction crew left and the first day's workers were due to arrive. The damage was so severe as to require complete rebuilding–no miniaturized mechs will be produced for some time now. "What else can I tell you, Dr. $!{lastname}?"
+
+*label MerrillConversationStack
+*set MerrillTurns +1 
+*if MerrillTurns >=4
+	*goto ClerkInterrupts
+*choice
+
+	*hide_reuse #"Who do you think was behind this outrage, Mr. Merrill?"
+
+		Mr. Merrill supposes the culprit to be some criminal who does not want to see the police have proper protection in the East End. "Despite what the Inspector said, I do not think it could have been Vlaski agents," he adds. "They would have attacked the factory that makes mechs for the Army, surely? Why should they care what happens in the East End?"
+	
+		*goto MerrillConversationStack
+	
+	*hide_reuse #"Can you think of anyone who might have wished you harm?"
+	
+		*set KnowAboutTemple true
+
+		"Not personally–I haven't seduced anyone's wife or stolen anyone's patent. But now you mention it…" Merrill's eyes narrow. "Someone ought to look into that nest of meddlesome healers three streets over."
+
+		"Pardon me?"
+
+		"There's a Temple of the Sun on Juniper Street. They have had the audacity to invade my place of business, wishing to discuss with me the 'conditions of my factory'! The conditions here are no worse than anywhere else–you'd think to hear them talk I used slave labor!–but they've singled me out for a campaign of harassment. Written letters about me to [i]The Times[/i] and walked before the factory with signs and generally disturbed the peace."
+
+		"Recently?"
+
+		"Last year. I reported them to the police each time, and the nonsense finally stopped. But they might be at it again." 
+	
+		*goto MerrillConversationStack
+		
+	*hide_reuse #"Do you have any particular business rivals?"
+
+		"Not any longer. The government prefers my firm to Jones & Sedgewick because we use a higher grade of material–of course we do, I wouldn't shortchange the Army lads, not when my own brother died serving the Empire–but we have lower costs overall, so we can charge a bit less."
+		*goto MerrillConversationStack
+
+	*hide_reuse #"Tell me how the new factory was to be organized, Mr. Merrill."
+
+		"Well, mostly as the old one was. We break the manufacture of the mechs–standard or miniature–into the smallest possible components. This removes the requirement for great physical strength–or intelligence, for that matter. All the worker must do is his or her tiny bit, over and over again."
+		*goto MerrillConversationStack
+	
+	*if KnowBooks
+		*hide_reuse #"You seem to employ an unusual number of women and children."
+	
+			"The factory is organized to remove the need for great physical strength, and smaller hands can do more delicate work." And women are less costly than men to employ, and children the least costly of all. Mr. Merrill does not mention this part, but you saw the books; it has to be part of the calculation.
+			*goto MerrillConversationStack
+		
+	#I have no other questions. 
+
+		You thank Mr. Merrill for his time, and he rings for the clerk, who escorts you to the door.
+
+		Now what?
+
+		*goto InvestigationStack
+
+*label ClerkInterrupts
+
+A knock on the door cuts off the next question you were about to ask, and the clerk from the outer office enters. "I apologize for interrupting, sir, but the gentleman from the insurance agency—"
+
+"Yes, of course, I will see him at once." Mr. Merrill rises, forcing you to do the same and effectively ending your interview. "I hope I have given you enough information to be getting on with, Doctor."
+
+Now what?
+
+*goto InvestigationStack
+
+*label WorkerConversation1
+
+Her shoulders are stooped, her head thrust slightly forward. Her eyes are red-rimmed and water slightly as she blinks at you. The hands clutching the rags are red also, chapped and swollen–perhaps from whatever chemicals they are using in the detail work.
+
+You explain you are looking into the explosion that occurred at the other factory, and she is willing to talk with you. What do you want to ask her?
+
+*temp WC1Sturns
+*set WC1Sturns 0
+
+*label WorkerConversation1Stack
+*set WC1STurns +1
+*if WC1Sturns = 4
+	*label Caught
+	*set GotWorkerInTrouble true
+	*set RelWoodward %-15
+	
+	Above you, the door slams open, and the clerk thunders down the stairs, followed by an irate, well-dressed, middle-aged man whom you have no problem identifying as Mr. Merrill.
+	
+	"How dare you come in here and spy upon me!" he shouts, while the clerk berates the woman for talking to intruders, threatening to sack her while she cries and pleads. "You're in league with those meddlesome light-eaters on Juniper Street, aren't you? Inveigling your way in, spying on my confidential processes, corrupting my workers– I'll be having a word with your superior, young man, see if I don't! Out! Out!"
+	
+	(Merrill does indeed speak to the Inspector in charge of the case, and you receive a reprimand from your superior at the police station and an exasperated talking-to from Woodward. But that is in the future. For now, you find yourself standing on the street in front of Merrill's factory. What now?)
+	
+	*goto InvestigationStack
+	
+*elseif WC1STurns = 2
+
+	Behind the woman, a child pops out of the mech head, no doubt attracted by your voices, and comes over to investigate. He–you think it is a he–can surely be no more than ten. His eyes are as red-rimmed as the woman's, his hands as red and swollen, but even more disturbingly, his jaw is distended by huge lumps and hair clings to his skull only in patches. The skin of his face seems to glow green in the dim light.
+	
+	*if medicine > 50
+		It takes you only a moment to put those symptoms together. Phosphorus poisoning—or "phossy jaw," to use East End slang.
+	
+	The woman glances back at him, then returns her attention to you, inquiringly.
+	
+	*goto questions
+*else
+	*label questions
+	*choice
+
+		*hide_reuse #"What do you think happened?"
+		
+			"The foreman said it was the gas boiler, but–" She leans forward confidentially. "–Dana did say she heard it was on purpose. Somebody put a device, like."
+			
+			*goto WorkerConversation1Stack
+		
+		*hide_reuse #"Can you think of anyone who wanted to destroy the factory or hurt Mr. Merrill?"
+		
+			She looks uncomfortable. "Well, there were the sun-worshippers who were all up-in-arms about Old Merrill taking on children, last year. They've a temple on Juniper Street. Enormous fuss they made, in the papers and everything, it was. Maybe them?"
+			
+			*set KnowAboutTemple true
+			*goto WorkerConversation1Stack
+		
+		*hide_reuse #"What is it like to work here?"
+		
+			She looks uncomfortable. "You sound like…like those healers in the temple three streets over, and the others. It's hard work. Hard on the eyes, mostly, and it makes your back hurt. But I'm grateful to have a job."
+			
+			*set KnowAboutTemple true
+			*goto WorkerConversation1Stack
+		
+		*if (WC1Sturns >= 2) and (medicine <= 50)
+			*hide_reuse #"What is wrong with that child?"
+			
+				"Phossy-jaw," she says indifferently. "They use phosphorus in the wiring, you see." 
+				
+				*goto WorkerConversation1Stack
+				
+		*if WC1Sturns >= 2
+			*hide_reuse #"Where do the children come from, the ones who work here?"
+			
+				"The work-house, of course, sir."
+				
+				"So they are orphans?"
+				
+				"Or left there by parents who can't care for them, yes sir. At least they've food to eat this way, right?"
+				
+				*goto WorkerConversation1Stack
+				
+			
+		*if WC1Sturns >= 2
+			#I don't ask any more questions. I have to get back before I'm missed.
+			
+				*goto nipback
+
+	
+	
+*label FirstResponders
+*set InvestigatedFirstResponders true
+		
+Their names are Frank and David Brown–brothers, both middle-aged. Frank drives a hansom cab, and David is a seaman with a merchant marine ship. You locate them in Frank's cramped domicile, which houses Frank, his wife, his three children, and David whenever David's ship is in port. David's ship came in to port late last night, and he and Frank went to the home of one of David's old chums for a drink. Their way back to Frank's home led them past Merrill's.
+		
+"We heard a boom," Frank says. "And so we stop and we look over, and then there's footsteps, and we see two men running lickety-split away from the factory. And then there was a flash of light and a [i]big[/i] boom, and the whole street lit up–"
+
+"–and one of the men, he just went flying," David says. "Lifted off his feet and thrown. He hit the ground and didn't move, and I saw the other one look back and hesitate, but then I think he saw me coming up to his friend, and he took off."
+		
+"Had you ever seen them before?" you ask.
+		
+"I couldn't swear to the one who ran," Frank says. "Too far away to see his face. The one who's in hospital–no, I don't think I ever have."
+		
+Now what?
+		
+*goto InvestigationStack
+
+
+*label FirstRespondersReTemple
+
+He has never seen anything evil with his own eyes–but he's sure they eat children there, or something just as bad. "You know what goes on in these places, sir." And you do. You still dream about Pierce's prison cell.
+			
+But Frank accompanies you as you leave, explaining to his wife that he needs to buy tobacco. 
+			
+"David's seen more of the world than I have," he says as you walk up the street together. "He's seen light-eaters in port cities that used to be ruled by Vlask. And I've no doubt the same things happened here, years ago–in the stories, you know. But they're…not all like that. I don't think the ones in this temple are like that. I wouldn't want David to hear me say this–all he's seen has left him wary–but my wife's sister Ellie would have died after her first baby if it hadn't been for a woman from the temple. Childbed fever, Ellie had, and no one could do anything for her–her husband fetched the doctor, had to borrow money for the fee and it took him months to pay it back, and even the doctor's draught didn't help at all. Then he went to the temple–desperate, you know, I think he would have made a bargain with the Vlaski Tsar himself–and the old woman Alice came back with him, and whatever she did cured Ellie. She charged a fee, too, of course, but he was glad to pay that. They're good neighbors, that's all I'm saying, sir." 
+			
+What now?
+			
+*goto InvestigationStack
+
+
+*label WorkerConversation2
+
+You waylay one of the women as she leaves the factory gates at shift change. She is willing enough to speak with you when you explain you are looking into the explosion, though she is so weary she sways on her feet. Her shoulders are stooped, her head thrust slightly forward. Her eyes are red-rimmed and water slightly as she blinks at you.
+
+*temp WC2Sturns
+*set WC2Sturns 0
+
+*label WorkerConversation2Stack
+*set WC2Sturns +1
+*if WC2Sturns = 2
+	Behind the woman, a child shuffles through the gate. He–you think it is a he–can surely be no more than ten. His eyes are as red-rimmed as the woman's, his hands as red and swollen, but even more disturbingly, his jaw is distended by huge lumps and hair clings to his skull only in patches. The skin of his face seems to glow green in the evening light.
+	
+	*if medicine > 50
+		It takes you only a moment to put those symptoms together. Phosphorus poisoning—or "phossy jaw," to use East End slang. 
+	*comment endif
+	
+	The woman glances back at him, then returns her attention to you, inquiringly.
+
+What do you want to ask her?
+*choice
+
+	*hide_reuse #"What do you think happened?"
+		
+		"The foreman said it was the gas boiler, but–" She leans forward confidentially. "–Dana did say she heard it was on purpose. Somebody put a device, like."
+		*goto WorkerConversation2Stack
+		
+	*hide_reuse #"Can you think of anyone who wanted to destroy the factory or hurt Mr. Merrill?"
+		
+		She looks uncomfortable. "Well, there were the sun-worshippers who were all up-in-arms about Old Merrill taking on children, last year. Enormous fuss they made, in the papers and everything, it was. Maybe them?"
+		
+		*goto WorkerConversation2Stack
+		
+	*hide_reuse #"What is it like to work here?"
+		
+		She looks uncomfortable. "You sound like…like those healers, and the others. It's hard work. Hard on the eyes, mostly, and it makes your back hurt. But I'm grateful to have a job."
+		
+		*goto WorkerConversation2Stack
+		
+	*if (WC2Sturns >= 2) and (medicine <= 50)
+		*hide_reuse #"What is wrong with that child?"
+			
+			"Phossy-jaw," she says indifferently. "They use phosphorus in the wiring, you see." 
+			
+			*goto WorkerConversation2Stack
+				
+	*if WC2Sturns >= 2
+		*hide_reuse #"Where do the children come from, the ones who work here?"
+			
+			"The work-house, of course, sir."
+				
+			"So they are orphans?"
+				
+			"Or left there by parents who can't care for them, yes sir. At least they've food to eat this way, right?"
+			
+			*goto WorkerConversation2Stack
+	
+	*if WC2Sturns >= 2			
+		*hide_reuse #"Will you come with me to the hospital? We think we caught one of the men who planted the device, and I wonder if you've ever seen him loitering about the factory."
+	
+			She agrees. 
+		
+			*goto WorkerSaboteur
+		
+	*if WC2Sturns >= 1
+		#I don't have any other questions. I thank her and move on.
+			
+			Now what?
+			*goto InvestigationStack
+
+
+	
+*label WorkerSaboteur
+*if ExaminedSaboteur = false
+	*gosub Saboteur
+	*goto WorkerID
+*else
+	*label WorkerID
+	*set ExaminedSaboteur true
+	*set GotWorkerInTrouble true
+	*comment You didn't get the worker in trouble, but this sets the right flag - quick fix for 74
+	*page_break
+	The factory worker stares down at the saboteur, brows furrowed. "He is familiar," she says.
+	
+	"Is he from the temple?"
+	
+	"No…not one of them. I saw him more recently than that. He and another lad about the same age, they hung about the factory gate during the mornings. They talked great big words and tried to give us all pamphlets they had printed."
+	
+	"Do you have the pamphlet?"
+	
+	"Maybe somewhere…"
+	
+	*page_break
+	
+	She is able to find it in her boarding-house room, and is more than willing that you should take it. "I can't read it," she confesses.
+	
+	The pamphlet earnestly promotes the benefits of trade unions for all laborers, despite the unequivocal laws that prohibit workers from so organizing. The author declares the threatened punishments for breaking this law to be insignificant in comparison to the possible benefits—and further points out that if all laborers across all industries truly stood together, it would be impossible for the law to be enforced. The machinery of the Empire would collapse without labor to run it.
+	*comment The universe's version of the Combination Act was not repealed in 1824, obviously.
+	
+	Printed across the bottom in huge letters are the words, "FREE MERCIA."
+	
+	You've heard that phrase before.
+				
+	Now what?
+			
+	*goto InvestigationStack
+
+	
+
+
+
+				
+*label PoliteTemple
+	
+You walk to the temple.
+					
+Three hundred years ago it would have stood alone, gleaming white stone rising out of green and golden fields. The Sun Temples once owned a huge percentage of the land of Mercia. In the Vlaski Empire, they still do today.
+					
+But the Mercian government confiscated the land when it broke the power of the Sun Temples, and in the past three hundred years, the city of Kingsford has crept farther and farther east. Now the temple is penned in on all sides by the factories that make the Empire run and the tenements of the people who work in them. 
+					
+*choice
+
+	#For a moment, the dingy white tower looks like a flower choked by brown weeds.
+	
+		*set conventional %-15
+		
+		You shake off the fancy and pull the bell.
+		*goto PoliteTemple2
+	
+	#It was probably a prettier scene in times past, but that is a small price to pay. By breaking the power of the Temples, the government freed the serfs to choose their own destinies. 
+	
+		*set conventional %+15
+		You mount the steps and pull the bell.
+		*goto PoliteTemple2
+	
+	#I look from the temple that once caged the serfs to the factories that cage their workers now. I'm not sure there's a halfpenny worth of difference between them. 
+		
+		*set conventional %-15
+		Shaking off the thought, you mount the steps and pull the bell.
+		*goto PoliteTemple2
+	
+
+*label PoliteTemple2
+					
+A slit in the door slides open, and a man with flaming red hair and a truculent expression looks out at you. You identify yourself as belonging to the police, and explain you need to see the man in charge of the temple. The guard's lips press together, but he lets you in. 
+					
+It is like stepping three centuries back in time.
+*comment should be 350, rounding up - okay by you, Becky?
+The only light comes from torches guttering in wall sconces. The walls and floor are stone. The narrow hallway traps you as effectively as any moat-bridge. The guard calls through the inner doorway, and a boy of perhaps ten runs off with the message, exactly like a medieval castle page.
+					
+Well, to be fair, like a modern page-boy as well. But modern page-boys have other options when they are grown, and this child is being groomed for a life within the temple, as once pages were groomed for knighthood. You remember hearing about a bill currently before Parliament that would prohibit the sun-worshippers from running orphanages and thus from indoctrinating the children they take in.
+					
+The child returns to lead you down one of the four long corridors that surround the inner quadrangle. Very like a page of the old days bringing a humble petitioner before the lord of the castle…
+					
+*fake_choice
+					
+	#…which I find most irritating. Once the Temple healers lived as grandly as the lords of the land, but those days are long gone.
+		
+		*set conventional %+15
+		
+		It is somewhat of a surprise when he takes you to a room that looks like a modern office or study. 			
+		
+		*goto PoliteTemple3
+		
+	#…which is probably due to the archaic and inconvenient layout of the temple. Old-fashioned architecture begets old-fashioned customs.
+		
+		*set perception %+15
+		
+		It is therefore something of a surprise when he takes you to a room that looks like a modern office or study. 
+		
+		*goto PoliteTemple3
+		
+	#…and very like my landlady's pageboy conducting visitors up the stairs to my sitting-room.
+		
+		*set conventional %-15
+		
+		The room he takes you to looks like an office. 
+		
+		*goto PoliteTemple3
+		
+*label PoliteTemple3
+The walls and floor are stone, of course, but the papers and ledgers piled on the desk are mundane enough. The man sitting behind them is balding, tired-looking, and well into middle age, dressed in everyday clothing such as a shopkeeper might wear but with an obvious sun medallion around his neck. His hands are smudged with ink, and he must have been rubbing his forehead, because there is also a smudge just above his left eye. 
+
+He rises as you enter, dismissing the page with a smiled thanks, then turning the smile to you. "Police Surgeon $!{lastname}?" he inquires in a faintly Loegrian-accented baritone. "Christopher Taggart." He does not offer his hand, perhaps thinking you would not wish to take it, but only gestures you to the room's other straight-backed chair. It creaks as you sit. "What may I do for you?"
+
+*choice
+
+	#I speak in a simple and friendly manner. This man is no doubt harrassed by law officials on an everyday basis; I would like him to know he has at least one friend.
+	
+		*set compassionate %+15
+		*set RelTaggart %+15
+		"I come upon a somewhat delicate errand, Mr. Taggart. You are aware of the explosion that took place at Merrill Steelworks in the small hours of this morning?"
+		
+		"I am."
+	
+		"Are you also aware that it was due to a deliberately planted device, rather than an accident or gas main fault?"
+
+		The smile has faded completely from Taggart's face, but he continues to meet your eyes steadily. "Rumor to that effect has reached my door, yes."
+	
+		"It is only a matter of time before the police note your proximity to the factory and speculate as to your involvement."
+	
+		"I have been expecting them since first light. To be honest, I am somewhat surprised they sent only one police surgeon."
+		*goto PoliteTemple4
+		
+	#I speak in a simple and friendly manner. I may not exactly be a friend, but I am open to the possibility (or I would not have come alone), and in the meantime, one catches more flies with honey.
+	
+		*comment Taggart can tell you're faking, but still appreciates the courtesy
+		
+		*set charisma %+15
+		*set RelTaggart %+5
+		
+		"I come upon a somewhat delicate errand, Mr. Taggart. You are aware of the explosion that took place at Merrill Steelworks in the small hours of this morning?"
+		
+		"I am."
+	
+		"Are you also aware that it was due to a deliberately planted device, rather than accident or gas main fault?"
+
+		The smile has faded completely from Taggart's face, but he continues to meet your eyes steadily. "Rumor to that effect has reached my door, yes."
+	
+		"It is only a matter of time before the police note your proximity to the factory and speculate as to your involvement."
+	
+		"I have been expecting them since first light. To be honest, I am somewhat surprised they sent only one police surgeon."
+		*goto PoliteTemple4
+	
+	#I speak in a cool, professional manner. No need to be too cozy before I have a better sense of the terrain.
+	
+		"I am here on behalf of the police, Mr. Taggart. I wish to ask you some questions regarding the explosive device placed at Merrill's factory in the small hours of this morning."
+		
+		The smile has faded completely from Taggart's face, but he continues to meet your eyes steadily. "I expected that to be your errand, Doctor. To be honest, I am somewhat surprised the police sent only yourself."
+		*goto PoliteTemple4
+		
+		
+	#I speak in a distant, antagonistic manner. They are probably only sun-worshippers rather than light-eaters, but I don't want to betray any weakness or too much familiarity, just in case.
+	
+		*comment Minus compassionate because this is a tactic. Minus RelTaggart because he can tell.
+		
+		*set compassionate %-15
+		*set RelTaggart %-15
+	
+		"I am here on behalf of the police, Mr. Taggart. We have reason to believe you or someone of your temple was involved in placing the explosive device at Merrill's factory in the small hours of this morning."
+	
+		The smile fades from Taggart's face.
+		*goto PoliteTemple4
+		
+*label PoliteTemple4
+He meets your eyes. "Dr. $!{lastname}, I give you my word–for what it may be worth to you–that none of my people had anything to do with this morning's sabotage. It is true that we have been involved many times in protests against unjust laws and unsafe working conditions. It is true that we recently attempted to educate the public as to precisely what goes on in Merrill Steelworks; those who have never seen a child die of phosphorus poisoning ought to be educated on the subject. But our protests and campaigns have always been peaceful."
+
+"You do not preach violence to your people?"
+	
+"I do not [i]permit[/i] violence to be done by my people," Taggart says, unexpected steel in his voice. More mildly, he continues, "And I would be more than happy to prove that to you. Suppose I take you on a tour of the temple, Doctor, and then you may search with more attention any part of it you wish? We have nothing to hide, and you will see we have no tools for violent acts. With any luck, you will so inform your superiors, and they will not consider it necessary to break down my door this time. Repairs are costly." 
+
+*page_break
+	
+His office proves to be the most modern-looking room in the temple, save perhaps for the library, which contains not only religious tracts, but also books on law and government, as well as carefully-indexed copies of [i]The Times[/i] and a few rather frivolous modern novels. 
+	
+The rest of the temple and its attached cloister operate just as they did in medieval times. There are no gaslights or modern conveniences in the kitchen, nor in the laundry where two red-faced women are laboring, nor in the schoolroom where the orphans have their lessons, nor the dormitory where they and the adult members of the community sleep, nor in the inner courtyard where an older woman is tending what you recognize from your grandmother's garden as medicinal herbs. Oddly healthy-looking medicinal herbs; you wouldn't have thought anything could grow in Kingsford's poisoned soil and smoke-choked air. 
+
+Is there anything you wish to investigate further?
+	
+*label PoliteTempleStack
+*set workedwithhim true
+*choice
+	
+	*hide_reuse #I am sure incriminating materials would not be present anywhere Taggart willingly takes me. I insist on examining every closet, back room, and loose floorboard we come across.
+		
+		*set conventional %+15
+			
+		Taggart nods as though he expected nothing else, and allows you to go where you will. You search beneath beds, command locked boxes to be opened, knock against walls in search of false doors. The sun-worshippers you encounter eye you with fear or anger, but in obedience to Taggart's quiet instructions, stand aside and allow you to search, subsequently answering every question you put to them.
+			
+		Only one offers more resistance. The red-haired guard of the postern gate is outraged when you begin to go through his tiny chamber. He turns on Taggart. "I've done nothing wrong! Why should I allow that police officer to paw through my things?"
+			
+		"Because we have nothing to hide," the senior healer says evenly. "Because it is a refreshing change to be asked for our cooperation rather than having our door kicked in, and I wish to encourage the behavior–"
+			
+		"Because you'll bend over and take it from those–" the red-haired guard mutters.
+			
+		"–because we are subject to the laws of the land," Taggart speaks over him, steel in his voice again, "or because I said so; take your pick." The guard subsides, grumbling. 
+			
+		You find absolutely nothing incriminating. No printing presses. No traitorous literature, or in fact pamphlets of any kind. There are signs used in various protests, and wood and paint to make more, but no chemistry equipment, and nothing else that could be used to fashion an explosive. Nor is there any indication that anyone here is being tortured with light-eating magic as Pierce was. 
+				
+		Are you satisfied?
+				
+		*fake_choice
+				
+			#Yes, I am confident these people had nothing to do with the explosion at Merrill Steelworks.
+					
+			#They could still be hiding relevant evidence–I am sure I did not find all the secret places. But at least for the moment, I have done all the searching I can.
+					
+		Now what?
+		*goto PoliteTempleStack
+
+		
+	*hide_reuse #I want to know more about those herbs.
+
+		"Ah." Taggart smiles a little. "Trick of the trade." He raises one hand–careful to keep it well away from you–and wiggles the fingers. "Healing is beneficial to plants as well as people."
+			
+		Do you ask him more about healing, or do you drop the subject?
+			
+		*choice
+			
+			#I drop it like a hot coal.
+					
+				*set conventional %+10
+				
+				What do you do next?
+					
+				*goto PoliteTempleStack
+					
+			#I want to know more.
+					
+				He looks surprised, but is more than willing to continue the conversation. 
+				*goto TaggartSermon
+				
+			#I wish I could learn more, but I don't dare betray too much interest.
+			
+				*set conventional %+10
+				
+				What do you do next?
+					
+				*goto PoliteTempleStack
+					
+	*hide_reuse #I ask Taggart if his temple eschews modern technology on principle, or is only unable to afford it.
+	
+		*goto TaggartTech			
+				
+	*hide_reuse #The newspapers and books on government have a somewhat sinister appearance. I want to know more about those.
+		
+		*goto TaggartBooks
+		
+	*hide_reuse #I'd like to observe the schoolroom, to see what lessons they are teaching these children. (And whether the poor things show any signs of having been drained by a light-eater.)
+
+		*goto Schoolroom
+		
+	*hide_reuse #I want to know how in the world Taggart is managing to feed and clothe all these people.
+		
+		*goto TaggartEconomics
+		
+	*hide_reuse #I want to see their inner temple, the place where they perform their rituals. 
+
+		*set conventional %-10
+		*goto InnerTemple
+						
+	#I'm ready to leave.
+	
+		*if RussianFront = false
+			Taggart walks you to the gate, shooting little quirked-eyebrow looks at you along the way. You wonder if he can somehow tell your bloodline, your secret… But when he speaks, it is with a nod to your old war wound. "Are you a veteran, Doctor?"
+	
+			"Yes." You brace for whatever is coming. "I suppose you are going to tell me you don't approve of the taking of life, the extension of the Empire's borders, the occupation of Loegria, the conflict with Vlask, or some such?"
+	
+			"I [i]don't[/i] approve of the Empire extending its borders," Taggart replies, "the occupation of Loegria–I was born there–or, with rare exception, the taking of life. But I am grateful to have brave men standing between me and the light-eaters who ravage the Vlaski Empire." By the look on his face, he means it. "Thank you for your service, sir." He leaves you at the postern gate and the truculent red-haired guard sees you out.
+			
+			Now what? 
+			*goto InvestigationStack
+				
+		*else
+			
+			Taggart walks you to the postern gate and the truculent red-haird guard sees you out.
+
+			Now what?
+	
+			*goto InvestigationStack
+	
+*label TaggartSermon
+*set PlantKnowledge true
+"The same light of the Sun," he begins, in a tone that makes you think these are words he says often, perhaps when teaching children, "is found in every living creature. It is the spark that makes life possible–without it, there is no life, even if the heart beats and the blood pumps a while longer. Some people have been blessed with the ability to give of their own light to others." He pauses, perhaps waiting for your reaction. Do you have anything to say?
+
+*fake_choice
+
+	#"My grandmother was one such."
+	
+		"Was she?" Taggart regards you with interest—but, you somehow think, not with surprise.
+	#"I know this part."
+	
+		"Do you?" Taggart regards you with interest for a moment before continuing. 
+	#"It's not a blessing. It's been scientifically proven to be a hereditary trait–like height, or hair color, or susceptibility to some diseases. It runs in bloodlines."
+	
+		Taggart inclines his head. "A hereditary trait, a blessing, or both at once," he says in a voice of agreement. 
+"When light is given to a human or animal, it increases their physical health. It enables the recipient's body to heal rapidly of wounds inflicted upon it
+*if healpierce or healmorris
+	–" 
+	
+	In your mind's eye, you see the flesh beneath your fingers knitting together–
+	
+	"–
+and to fight off disease. Plants are much simpler creatures, so light given to plants merely makes them grow."
+
+Do you ask anything further?
+
+*choice
+
+	#"Those 'blessed' people you mention also take the light of others, do they not?"
+	
+		*set RussianFront true
+		Taggart replies evenly, "Yes, we who have this talent can take as well as give." He regards you for a moment. "I venture to guess you were on the Vlaski front, Doctor? Let me say first thank you for your service; and second, that I am sure you have seen horrible things, things that would engender a very natural mistrust of anyone who could possibly be a light-eater. I can understand that. All I can ask is that you judge me by the work of my hands, instead of what is done by the hands of others.
+		
+		"We who are able to give light weaken ourselves when we do it–that which goes to sustain another no longer sustains us. But it is possible for us to take in portions of light from others, and husband it against the next moment of need. So there are ceremonies in which the fideles–the members of the community that worships at the temple—allow their healer to take from them a bit of their light. In this way, the entire community participates in the healing of its sick and injured.
+				
+		"So, yes, I personally can and do take the light of others. When they consent, only. Those pictures you have doubtless seen, of the Vlaski court? of 'healers' battening on the lives of kneeling serfs, corpulent with stolen light they never see fit to return through healing? That is [i]repulsive[/i]. It is [i]blasphemous[/i]. And the way the ritual is twisted into torture in the prison camps is worse." Taggart pauses for breath.
+				
+		Then he rubs a hand over his forehead, leaving another ink smudge. He smiles a little. "Forgive me, Doctor, I got rather heated. It's a sensitive subject. Perhaps I can show you something else of the way we live here?"
+				
+		*goto PoliteTempleStack
+			
+	
+	#"In the case of healing people…what happens if the giver does not have enough light to answer the need?"
+	
+		"It is possible for a healer to take in portions of light from others, and husband it against the next moment of need. So there are ceremonies in which the fideles—the members of the community that worships at the temple—allow their healer to take from them a bit of their light. In this way, the entire community participates in the healing of its sick and injured.
+				
+		"In Mercian Sun worship, we do not take from children, we do not take from the unaware or unwilling, and we do not take by force." He amends, "If lives are in danger from an attacker, it is considered permissible to drain just enough to render him unconscious. But even then, we don't kill.  Those pictures you have doubtless seen, of the Vlaski court? of 'healers' battening on the lives of kneeling serfs, corpulent with stolen light they never see fit to return through healing? That is [i]repulsive[/i]. It is [i]blasphemous[/i]. And the way the ritual is twisted into torture in the prison camps is worse." Taggart pauses for breath.
+				
+		Then he rubs a hand over his forehead, leaving another ink smudge. He smiles a little. "Forgive me, Doctor, I got rather heated. It's a sensitive subject. Perhaps I can show you something else of the way we live here?"
+				
+		*goto PoliteTempleStack		
+	
+	#I change the subject. I'm done with this disquieting topic.
+	
+		As you wish. What's next?
+		*goto PoliteTempleStack
+
+*label TaggartTech
+*set DoneWithOnesHands true
+"We eschew anything that replaces the work of our hands. Hands are important, theologically." Taggart lifts his own in illustration. "As you might imagine."
+			
+For a moment you can see the handprint on Pierce's skin
+*if healpierce or healmorris	
+	–flesh knitting back together under your own hands
+–
+			
+"For everyone of the faith, not just for the healers. We have a saying–worship is done with one's hands. The hands that till the field, that care for the child, that tend the sick, that protect the helpless, serve the Sun with their actions. The hands that take what is not theirs, or do violence against another for any reason but to stop violence being done, are poor servants. These modern conveniences you mention would separate my hands from their rightful work, were I to use them."
+			
+How do you respond?
+			
+*choice
+			
+	#I don't. The topic doesn't interest me, so I change the subject.
+	
+		As you wish. Now what?
+		*goto PoliteTempleStack
+				
+	#"You can't till fields in the center of Kingsford."
+				
+		Taggart grins briefly. "Well, no, and that's one of the challenges with following ancient principles in a modern world. But one can buy flour and make one's own bread, instead of buying a loaf ready-baked or taking supper in a tavern."
+					
+		*choice
+					
+			#"I don't see why baking bread is a virtue."
+			
+				Taggart shrugs easily, not pressing the point. "It connects the work of your hands to the food that sustains you? The metaphor doesn't work for everyone, of course. What else can I show you, Doctor?"
+				
+				*goto PoliteTempleStack
+						
+			#"I'm surprised you're not out in the country somewhere, then."
+						
+				"Ideally," Taggart says, "everyone would be out in the country somewhere, tilling their own fields, but we who worship the Sun have a mandate to live in the world. This world, not the one we wish we had. The work of my hands in particular is needed by the people who live in this city." He shifts topics easily. "What else can I show you of the work we do here, Doctor?"
+				*goto PoliteTempleStack
+			
+			#I'm done with this topic. I change the subject.
+			
+				As you wish. Now what?
+				*goto PoliteTempleStack
+
+	
+	#"But healers don't till their own fields or defend their own borders or bake their own bread. Their followers do those things for them. Aren't your hands taking what is not yours, then?"
+	
+		"It is true," Taggart says evenly, "that there was a time when the faith drifted rather far from its central tenet. Before Mercia broke the power of the Sun Temples, there were far too many healers who sat with their hands folded, owning land they did not work, being served rather than living lives of service. It was just as well the Crown broke our temporal power. I am not proud of my ancestors in this matter." After a beat, he adds, "I do not think you can justly accuse my temple here and now of that particular sacrilege. What else can I show you of the work we do here, Doctor?"
+		
+		*goto PoliteTempleStack
+
+*label TaggartBooks
+"Old-fashioned appearances to the contrary," Taggart says, indicating the stone walls and the guttering torches, "my order lives in this world, not in the ideal world we wish we had. We need to understand not only the ideals of our faith–" He taps a ancient-looking cloth-bound tome. "–but also the way it is to be practiced here, now, within modern life." He nods to the newspapers. "When we understand what is needed, we can then determine what we must do." He takes a breath, and turns to meet your eyes, unflinching. "And our world, here and now, includes laws and practices actively harmful to the subjects of the Empire. Therefore, one part of the work undertaken by my temple is the attempt to change those laws and those practices."
+
+Is that a partial admission of guilt? 
+
+*choice
+
+	#No, I don't think it is. The words sound sincere to me.
+			
+		*set RelTaggart %+10
+		Now what?
+		*goto PoliteTempleStack
+	
+	#I think it is. I look at Taggart and wait. 
+			
+		He sighs, and clarifies, "Through protests, letters to the editor of [i]The Times[/i], lectures, attempts to interest influential people in the problems to be solved. Not violence. Not ever."
+		
+		Now what?
+		*goto PoliteTempleStack
+	
+	#I'm not sure. I need more information. "Through what methods?" I ask.
+	
+		Taggart meets your eyes without flinching. "Protests. Letters to the editors of [i]The Times[/i]. Lectures. Attempts to interest influential people in the problems to be solved. Not violence. Not ever."
+				
+		Now what?
+		*goto PoliteTempleStack
+	
+	#Of course it is. I pounce. "So that's your justification for planting the bomb."
+	
+		*set RelTaggart %-10
+		Taggart flushes, but his voice stays even. "I did no such thing, and nor did any member of my temple. We seek to change the world through protests, letters to the editor of [i]The Times[/i], attempts to interest influential people in the problems to be solved. Not violence. Not ever."
+				
+		Now what?
+				
+		*goto PoliteTempleStack
+
+
+*label Schoolroom
+
+You stand with Taggart in the back of the room while the schoolmistress, eyeing you occasionally, goes on with the lesson.
+
+The children range from quite little to mostly-grown. They look healthy enough. Certainly they display no sign of having been drained by a light-eater: no pallor or lethargy, no fingerprint marks marring their skin.
+
+Have you seen enough, or do you want to settle in for a longer observation session?
+
+*choice
+
+	#I've seen what I came to see. 
+	
+		Now what?
+		*goto PoliteTempleStack
+	
+	#I'm interested in more than the physical health of the children. When Taggart tilts his head toward the door and raises inquiring eyebrows, I shake my head, fold my arms, and lean against the wall.
+	
+		The schoolmistress hesitates. Beside you, Taggart speaks quietly. "Go on with your usual routine. We have nothing to hide from our visitor."
+		
+		The lessons follow the same sort of pattern one sees in village schools everywhere–spelling recitation, arithmetic done at the blackboard, little voices stumbling through reading lessons. The books used for the latter are not the readers you remember from your schooldays, but morality tales set in times gone by, in which all the heroes seem to be healers. While the children are reading, you pick up one of the books and flip through it. Definitely all healers, all supported by a populace honored to allow the healer to drain light from them. The story read by the children today is of a wandering holy man, who travels the land helping all those in need—never mind that in those days, healers actually stayed stationary at a temple, which meant that anyone who could not reach the temple could not benefit from their healing. 
+
+		After the younger children complete their reading, the older ones have a history lesson. The lesson focuses on Mercia four hundred years ago, before the power of the Sun Temples was broken. It describes a simpler, happier time in which the common folk worked the land and ate the food they grew, before the rise of industry poisoned the air and the water. This is true as far as it goes, but the lesson neglects to mention what else was going on during that time. During the late 1400s, the Sun Temples were at the peak of their power. They ate more of the food grown by their serfs than the serfs ever kept for themselves. And they violently suppressed the beginnings of scientific thought, declaring it blasphemous. For some reason, these facts don't make it into the lesson.
+		
+		After this, the children are dismissed for recess, and you and Taggart resume your walk.
+		
+		What do you say to him?
+		
+		*choice
+					
+			#"I thought the stories in the reader were very nice. I like the ideals they present, even if they do not accurately reflect the time period in which they are set."
+			
+				*set RelTaggart %+15
+				*set conventional %-15
+				
+				"Yes," Taggart says, "you see the point exactly.
+				*gosub CommunicateTheIdeal
+				*goto PoliteTempleStack
+						
+			#"That first story wasn't quite accurate, was it? It seems to me it would be more honest to teach both the benefits and drawbacks of the days when healers stayed in temples and those who needed healing had to come to them."
+			
+				*comment You're challenging, but not rudely. RelTaggart stays the same. Conventional stays the same too.
+				
+				"The stories communicate an ideal rather than strive to be an accurate reflection of the time period," Taggart says. "
+				*gosub CommunicateTheIdeal
+				*goto PoliteTempleStack
+				
+			#"Do any of the stories you use for reading lessons feature ordinary men as heroes? Or show problems being solved by scientific methods rather than healing?"
+			
+				*comment You're challenging, just a little rudely. RelTaggart stays the same. Conventional increases slightly.
+				
+				*set conventional %+10
+				
+				Taggart smiles a little. "I have only so long a window in which to teach them our ideals, Doctor. Every time they set foot outside this temple they are bombarded by stories that trumpet the superiority of the man who solves problems with technology over the man blessed with holy power. And which, incidentally, call all such as myself evil or at least foolish. I have to say my piece while I can. Now then, what else can I show you?"
+
+				*goto PoliteTempleStack
+				
+			#"That was an amusing fairytale your schoolmistress was presenting as a history lesson. Unless tomorrow she'll be telling them about the Inquisition and what it did to the early Rationalist Movement?"
+			
+				*set RelTaggart %-10
+				*set conventional %+10
+				
+				Taggart sighs. "No. That was a…difficult period in our history, and perhaps if we had handled it better, the backlash would have been less disastrous. Much occurred in those years of which we cannot be proud—but much occurred that is worthy of pride. Two things can be true at once, but children are not skilled at handling nuance. They'll have many years to struggle to come to terms with it all as adults. Now then, what else can I show you, Doctor?"
+				
+				*goto PoliteTempleStack
+		
+			#"I feel sorry for those poor children. You're stuffing their heads full of all sorts of nonsense. They'll never learn to think for themselves."
+			
+				*set RelTaggart %-15
+				*set conventional %+15
+						
+				"Well, at least they're not starving in the street, Doctor," Taggart retorts. "Or losing their lives caged in factories. A child who dies by age ten from malnutrition or phossy-jaw doesn't grow up to think for himself either, does he?" Then he forces his breath out and continues, more calmly, "I'm sorry, that was discourteous. Let me phrase it another way. 
+				
+				"I have only so long a window in which to teach them our ideals. Every time they set foot outside this temple they are bombarded by stories that trumpet the superiority of the man who solves problems with technology over the man blessed with holy power. And which, incidentally, call all such as myself evil or at least foolish. I have to say my piece while I can. Now then, what else can I show you?"
+
+				*goto PoliteTempleStack
+						
+				
+
+*label InnerTemple
+
+Taggart leads you to a heavy wooden door under a stone arch, and you both pause in the shadows while he fumbles the correct key out of his pocket. You are reminded for a moment of the dark shadows that overlaid the entrance to Pierce's prison cell, though of course that air was dry rather than damp.
+			
+Taggart turns a concerned look upon you–though you didn't think you physically shivered or flinched–then returns his attention to the lock. The door creaks open, revealing a room about the size of the library.
+			
+Within, candles wait in wall sconces and candelabras, and straight-backed chairs are arranged in a double semi-circle. That is all there is to be seen, except for a trunk pushed against the wall.
+
+*choice
+
+	#I instruct Taggart to open the trunk.
+	
+		*set RelTaggart %-10
+		*label Trunk
+		
+		He does so without a change in expression. Inside is a plain, thick woollen rug, and two masks.
+		
+		You've seen masks like this before–in paintings, and in cities that were occupied by the Vlaskesari. But those masks were beautifully made, glazed with gold and studded with gems, and these have been cut out of cloth and decorated only with ribbon. 
+		
+		"Two important rituals are enacted in our faith," Taggart says. "In one, light is gathered by a healer from a willing donor. For that ceremony, the healer wears the mask with the green design, and the donor wears the one with the gold. In the other, when the healer heals one injured or ill, the healer wears gold and the recipient green."
+				
+		"And the rugs?"
+				
+		"The floor is cold, and kneeling is uncomfortable for any length of time. The ceremonies can take quite a while, if there are many willing to donate or many in need." He replaces the masks and rug and turns the key. "What else may I show you, Doctor?"
+
+		*goto PoliteTempleStack 
+	
+	#I ask Taggart to open the trunk, if it is permissible to show the contents to an outsider.
+		
+		*set RelTaggart %+10
+		*goto Trunk
+		
+	#I've seen enough.
+	
+		As you wish. What's next?
+		*goto PoliteTempleStack
+
+	
+*label TaggartEconomics
+
+*set knoweconomics true
+
+"At one time, all temples were self-sufficient," Taggart replies, "growing their own food, making their own tools and candles, weaving their own cloth, and so forth. Obviously, the model no longer works–not in the modern era in the middle of a city. We are mandated to live in this world as it is now, not in the ideal world we wish we had, and so we have changed with the times. Each member of this temple still has a vital role to play in keeping the community alive–but now many of those who live here work elsewhere during the day, for the coin we need to keep the wheels turning. What else would you like to know, Doctor?"
+
+*goto PoliteTempleStack
+
+
+
+*label WoodwardReport
+"Interesting," Woodward says after listening to your report. "But you can't give me a name or a house to raid?"
+
+"No, sir, not yet."
+
+"Well, go and get some sleep. We'll start fresh in the morning."
+*goto SecondBombing2
+
+*label SecondBombing
+While trying to determine your next move, you find your head swimming. Only then do you realize you haven't stopped for food or rest since early this morning, and it's nearly dark. You can't do any more today. You stumble home, eat something, and fall asleep.
+
+*label SecondBombing2
+*set bombings +1
+*page_break
+You are woken in the small hours of the morning by a messenger from Woodward, bringing the news that there has been another explosion. Also clearly sabotage, also in a factory making armament for the Empire. 
+
+Cleary & Sons, located only a short distance from Merrill Steelworks, is famous for two things: one, the manufacture of the miniaturized cannons strapped to the arms of Merrill's mechs; and two, the unusual number of fatal accidents that have befallen its workers. You knew about the latter in a vague sort of way, from the papers. Now you discover that fatalities were so numerous that Cleary's workers had all sorts of jokes and superstitions about them. Fortunately, none of them were injured in this particular explosion; the device was once again planted when no one was inside.
+
+This time a pamphlet is found amidst the ruins. It decries the conditions at Cleary's and everywhere like it, exhorting workers to strikes and sabotage until the owners of these factories mend their ways. Printed across the bottom in huge letters are the words FREE MERCIA.
+
+*if InvestigatedHealers = false
+	*page_break
+	"I understand there is a Temple of the Sun within easy distance of both Merrill's and Cleary's," Woodward says. "Inspector Lockwood is taking a team this morning, and I want you to accompany them. Ten to one this sedition originated within temple walls."
+	
+	*page_break
+	*gosub KickDownDoor
+	*goto WarCouncil
+
+*else		
+	*label WarCouncil
+	*page_break
+	Woodward calls you in, and you and he and two other of his operatives sit down in his office for a council of war. 
+
+	"This is suggestive," says Albert Stoker, tapping the bedraggled FREE MERCIA pamphlet. "But not conclusive. We know the Free Mercia group was there, handing out literature to the factory workers. This could have been dropped by one of the workers as easily as by the man who planted the device."
+
+	"My money's on the device coming from 'Free Mercia,'" Woodward says, articulating the name as though it tastes unpleasant. "Not that it matters; it's not as though they've written down an address to raid."
+
+	"I'd wager on the temple," James Morris counters. "Blood-sucking bastards."
+
+	"What do you think, $!{lastname}?" Woodward asks. "Are the sun-worshippers involved?"
+
+	What do you say?
+	*choice
+		#"I don't think they had anything to do with it, sir. There's no evidence linking them to the bombings at all. They may be disturbing the peace with their protests, but they're not doing anything worse."
+	
+			*set RelTaggart %+25
+			*set conventional %-15
+			
+			"Hmph." It's not what Woodward wants to hear. 
+			*goto Wager
+		
+		#"Even if there's no direct evidence, they're a corrupting influence on the neighborhood. You probably want to pull some of them in–charge them with disturbing the peace, then see what else they know."
+		
+			*set RelWoodward %+15
+			*set compassionate %-15
+			*set RelTaggart %-25
+			*set HealersArrested true
+			
+			*comment Not sure how much this should anger Taggart. It is, actually, a reasonable tactic if you left the temple thinking the sun-worshippers might still be hiding something.
+			
+			"A reasonable tactic."	Woodward makes a note, summons Miss Lawrence, and hands her the folded paper. She nods and departs to set those wheels in motion. 
+		
+			*goto Wager
+
+		#"I'm certain if one went through that temple very carefully, one would…discover evidence linking the light-eaters to the crime. Evidence that was…carelessly missed during our previous visit. Should I see to that, sir?"
+			
+			*set RelWoodward %+25
+			*set RelTaggart %-50
+			*set ManufacturedEvidence true
+			*set HealersArrested true 
+			*set compassionate %-25
+		
+			Woodward smiles a little. "How…enterprising of you, $!{lastname}. Yes, perhaps you and Morris could organize that this afternoon."	
+		
+			*goto Wager
+
+
+*label Wager
+
+"It really is time we stopped reacting and took the initiative, sir," Stoker says urgently. "They've struck twice in two nights; we should assume there will be another explosion tomorrow, and we should be lying in wait for them."
+
+"Lying in wait exactly where?" Morris scoffs. "It's a big city!"
+
+"No, Stoker's quite right," Woodward says, reaching for the case dossier. "The two targets had many similarities." Woodward is very good at spotting patterns. "Here, Stoker, take note for me: located on the river, empty at night, doors secured with McMaster locks…"
+
+By the time Woodward leans back again, Stoker has an impressive list. Woodward runs an eye over it, eliminates a few factors that he declares are "obviously trivial," then sets about discovering what other factories share the remaining traits.
+*page_break
+There are two: Williams & Wilson Meatpacking, which supplies tinned food to Imperial troops; and the East River Match Company, which makes matchsticks for household use. You've heard of Williams & Wilson Meatpacking, of course; you ate quite a bit of their food while you were in the service. You do not exactly remember the taste fondly, but at least Williams & Wilson deals honestly with its customers and workers, providing tinned beef of a quality that will not sicken soldiers and working conditions that are actually unusually good. 
+
+Its prices were consequently higher than its competitor Alger & Swift, which caused the Army to prefer Alger & Swift's products…until the scandal some five years before you joined the service, where a great many soldiers sickened and died because of Alger & Swift's improperly preserved food. Since then, Her Majesty's Imperial Army has been willing to pay Williams & Wilson what it costs for a quality product–and if Williams & Wilson's production were to be disrupted, you shudder to think how the Army would be fed. 
+
+Come to think of it, speaking of scandals, you've heard of the East River Match Company as well. You can't recall the details, but you seem to remember something about a record number of fatalities from phosphorus poisoning.
+
+"You've been handling the legwork of the investigation, $!{lastname}," Woodward says. "Which do you think is more likely?"
+
+What do you say?
+
+*choice
+
+	#"Williams & Wilson."
+	
+		*set RelWoodward %-20
+		
+		"You're probably right," Woodward agrees. "So far, the targets have all provided direct support to the military arm of the Empire, and if William & Wilson's production is disrupted, it's as good as cutting the Army's supply lines. We'll arrange an ambush at Williams & Wilson tonight."
+		
+		*page_break
+		*gosub Ambush 
+		*gosub AmbushFail		
+		*page_break
+		
+		"Good work," Woodward says acidly to you some hours later. "You guessed wrong. Fortunately for us, the perpetrator was hurt this time–not fatally, but enough to slow her down. It was Alexandra Townsend again. The police have her in custody. It's a shame we couldn't manage that before the third factory went up in flames, but I suppose we should be thankful for the victories we do manage to stumble into."
+		
+		*goto Aftermath
+		
+	#"The East River Match Company."
+		
+		*set RelWoodward %+20
+		
+		"You're probably right," Woodward says thoughtfully, looking at the pamphlet and its passionate language about worker safety. "We'll arrange an ambush at the East River Match Company tonight."
+
+		*set RightTarget true
+		*gosub Ambush
+		*gosub AmbushSuccess 
+		
+		*goto AlexandraConfrontation
+	
+	#"I'm not sure…but we don't have to be constrained to those two choices. By creatively using the press, we might be able to lure the criminals to us."
+						
+		Woodward starts to smile. "Very clever indeed, $!{lastname}. How quickly can you write me an appropriate article?"
+			
+		Your article appears in the evening edition of [i]The Times[/i]. It having proved implausible to report either Merrill's or Cleary's factory undamaged enough to return to normal operations, the article instead reports that Jones & Sedgewick, on the other side of the river, is loaning factory space to Merrill to get the latter's miniaturized mech program started. 
+			
+		The article quotes Mr. Jones as declaring his firm must stand shoulder-to-shoulder with its erstwhile rival to get the better of the hooligans who threaten all Mercian patriots. Mr. Sedgewick is similarly quoted as declaring the brave constables who patrol dangerous streets should not have to wait a day longer than necessary for their protection. 
+			
+		Privately, Mr. Sedgewick and Mr. Jones both told Woodward that they agree to this only because their factory might otherwise be targeted when no ambush team is present to defuse the device. And because Her Imperial Majesty's government pledged to underwrite all costs of rebuilding and lost business should Woodward's team bungle the matter. 
+			
+		"So I expect you all to take great care not to bungle it," Woodward tells your team in a growl, and sends you off to await the bomber.
+		*page_break
+		*if charisma > 60
+			*set RelWoodward %+25
+			*set RightTarget true
+			*gosub Ambush
+			*gosub AmbushSuccess
+			*achieve usepress
+			*goto AlexandraConfrontation
+			
+		*else
+			*set RelWoodward %-25
+			*gosub Ambush 
+			*gosub AmbushFail		
+			*page_break
+		
+			"Good work," Woodward says acidly to you some hours later. "Your article slathered on the patriotism with a rather heavy hand, and our perpetrator guessed something was amiss. She kept to her original plan. Fortunately, she was hurt–not fatally, but enough to slow her down–and the police have her in custody. It was Alexandra Townsend again. It's a shame we couldn't manage that before the third factory went up in flames, but I suppose we should be thankful for the victories we do manage to stumble into."
+		
+			*goto Aftermath
+			
+		
+*label AlexandraConfrontation
+*set MetHer true
+"Stop!" you say, and the dark-clad figure freezes, one leg over the sill, eyes on the light glinting off your revolver.
+
+"Take off your cap and mask," you order. "Slowly."
+
+An infinitesimal pause. Then the figure inclines its head–a salute? mockery?–reaches up, and lets cap and mask fall to the floor.
+
+It is Alexandra Townsend, the woman from the dirigible. Even in the mediocre light, you recognize the angle of her cheekbones and the gloss of her severely-coiled hair. (That hair must look magnificent when she lets it down.)
+
+"Let me go," she says, her eyes on your face. "You want to. You know I'm right."
+
+How do you respond to that?
+
+*choice
+
+	#"The hell you are! You are destroying factories that make protection for soldiers of the Empire!"
+	
+		*set conventional %+15
+		*set compassionate %-15
+		
+		"Which they wear when they raid the temples of people who are only trying to help, and the tenements of people who have no defense against them."
+		
+		"Which they wear while defending you against the Vlaskesari!"
+		
+		She dips her head again, forced to acknowledge the point, but continues, "But have you seen the price paid? 
+		
+		*goto AlexandraConfrontation2
+		
+	#"I have a duty."
+	
+		*set conventional %+15
+		
+		"To serve your country–yes." There's no mockery in her voice. "You think you're serving it by protecting those who make protection for soldiers of the Empire. But they wear it when they raid the tenements of people who have no defense against them. The temples of those who are only trying to help. And have you seen the price paid? 
+	
+		*goto AlexandraConfrontation2
+		
+	#"Your principles may be defensible, but your tactics are abhorent."
+	
+		*set compassionate %+15
+		
+		"No one has died!" she protests. "We've made sure of that! And that's more than they can say." She waves a hand, encompassing this factory and every place like it. "The Empire sends its soldiers against its own people. They raid the tenements of those who have no defense against them and the temples of sun-worshippers only trying to help. And have you seen the price paid?
+				
+		*goto AlexandraConfrontation2
+	
+*label AlexandraConfrontation2
+	
+"Have you ever seen a child with phossy-jaw, Doctor? Their hair falls out in clumps, their skin glows green, by the end their faces are so swollen they can't chew. Have you seen the men who die coughing out their lungs, drowning in their own blood, or the women who go blind after a lifetime working in the bowels of these places? This is wrong. You [i]know[/i] this is wrong. As a doctor and a patriot, how can you let your country do this?" She pauses a beat, then says, "I'm on the right side. You know I am. Let me go."
+		
+You don't answer immediately, and she sighs. "Let me go," she says, "and in exchange I pledge that my organization will set off no more bombs. We already have a branch working toward improving the labor laws; we'll focus all our attention there instead."
+
+Footsteps thunder down the corridor that stretches behind you. "$!{lastname}?" someone calls.
+
+Alexandra's eyes flick to look past you, anxious. Then her gaze returns to your face.	
+
+*choice
+
+	#I lower the weapon.
+		
+		*set RelAlexandra %+35
+		*set RelWoodward %-25
+		*set LetHerGo true
+		*set conventional %-25
+		
+		
+		She flashes you a blinding smile. "Free Mercia," she whispers, and backflips out of the window.
+		
+		Your colleagues rush into the room. The ones in front see her fall, and run forward, shouting, but too late. (Some of them may have caught a glimpse of your lowered revolver in the instant before you jerked it back upright. You're not sure.) 
+		*gosub Chase
+		*achieve alexandraescape
+		*goto Aftermath
+		
+	#I nod once and mouth "Go," but keep the weapon trained on her, for appearances.
+	
+		*set RelAlexandra %+30
+		*set RelWoodward %-15
+		*set MissedHer true
+		*set conventional %-15
+		*set marksmanship %+15
+
+		
+		She hesitates, but then the running feet reach the doorway behind you, and she backflips out of the window at the same time you press the trigger. Your bullet hits the brick to the side of the window, shattering it.
+		
+		Your colleagues rush into the room. The ones in front see her fall, and run forward, shouting. 
+		*gosub Chase
+		*achieve alexandraescape
+		*goto Aftermath
+		
+	#I shoot to wound.
+	
+		*set RelAlexandra %-25
+		*set RelWoodward %+25
+		*set CaughtHer true
+		*set conventional %+15
+		*set marksmanship %+15
+		
+		
+		She must see the decision in your eyes, because her expression hardens and she backflips out the window as your finger presses the trigger. Your bullet takes her cleanly through the calf.
+		
+		*gosub Capture
+		*achieve capturedalexandra
+		*goto Aftermath
+		
+	#I shoot to kill.
+	
+		*set RelAlexandra %-35
+		*set RelWoodward %+25
+		*set CaughtHer true
+		*set compassionate %-25
+		*set marksmanship %+15
+		*set conventional %+15
+		
+	
+		She must see the decision in your eyes, because her expression hardens and she backflips out the window as your finger presses the trigger. She moves so fast she spoils your shot; your bullet takes her through the calf instead of the heart.
+		
+		But that winds up working out fine anyhow.
+		*gosub Capture
+		*achieve capturedalexandra
+		*goto Aftermath
+
+		
+*label Aftermath
+*page_break
+No further devices are planted in Kingsford factories–or anywhere else in the city.
+
+*if healersArrested and ManufacturedEvidence
+
+	You are called to give evidence at the trial of Christopher Taggart and two members of his temple. The prosecutor is not able to prove the charge of creating or planting the explosives, but is able to "prove" the temple gave aid and comfort to the bombers. Taggart and the other two are sentenced to six months hard labor. When the sentence is read, Taggart turns his head and locks eyes with you across the courtroom–not smiling, not scowling, but making it clear he knows who set him up.
+	
+	*goto Aftermath2
+	
+*elseif healersArrested
+
+	Christopher Taggart and two members of his temple are convicted of distributing seditious literature and given thirty days for disturbing the peace–about the greatest punishment one could hope for in lieu of actual evidence connecting them with the bombers. (Woodward looks as though he might regret not manufacturing some.)
+	
+	*goto Aftermath2
+	
+*else
+
+	*goto Aftermath2
+	
+*label Aftermath2
+*if CaughtHer or ACaptured
+	The trial of Alexandra Townsend and her fellow saboteur, John Tobias, is a miscarriage of justice by anyone's standards. They somehow manage to acquire the services of Sir Godfrey Norton, one of Kingsford's most brilliant barristers, and Sir Godfrey's arguments are so convincing the jury acquits them of everything. 
+	*goto Aftermath3
+*else
+	The trial of the captured saboteur (whose name proves to be John Tobias) is miscarriage of justice by anyone's standards. He somehow manages to acquire the services of Sir Godfrey Norton, one of Kingsford's most brilliant barristers, and Sir Godfrey's arguments are so convincing the jury acquits Tobias of everything. 
+	*goto Aftermath3
+	
+*label Aftermath3
+Afterwards, you and some of the others meet in Woodward's office for a gloomy drink. Finch is there, having returned from his country jaunt before the trial, as are Stoker and Morris.
+
+"How could someone from that walk of life possibly [i]afford[/i] Sir Godfrey's services?" Stoker asks the room at large, disgruntled.
+
+"That was the most interesting aspect of this entire case," Finch muses, settling back in his chair. "I think someone else arranged that on  
+*if CaughtHer
+	their behalf. We assumed Tobias and Townsend to be leaders of their 'organization,' but I think they are emissaries  
+	*goto Aftermath4
+*else
+	his behalf. That means Tobias is the emissary
+	*label Aftermath4
+	of someone more powerful. Someone pulling the strings." He swirls the amber liquid in his glass as he lists the points. "Someone who obtained detailed information regarding the interiors of both factories. Who learned the construction schedule and the work schedules. Who acquired lignine dynamite and either possessed the skill to use it or was able to find someone who did. Who ensures that his operatives carry nothing that can be traced back to him if they are captured, and who arranges the city's most brilliant barrister to speak in their defense if they are arrested. 
+	
+	"These are not the actions of an amateur. This is an intelligent, deliberate, careful, and skilled criminal at work. There is a spider in the web of the East End."
+
+	"A Vlaski agent," Woodward mutters.
+
+	"Or one of those light-eaters in that temple," Morris counters. 
+	
+	*if healersArrested
+		"One wonders why a similarly brilliant barrister was not hired in their defense, then," murmurs Finch.
+	
+	"Splitting hairs, aren't you, Morris?" says Stoker. "No difference between a light-eater and a Vlaski agent that I can see."
+
+	*choice
+
+		#I clink my glass to his in agreement.
+		
+			*set conventional %+15
+			"No matter who he is," Woodward says, "we have to find him."
+	
+			*goto SaveGameText
+			
+		#I object. "There are plenty of sun-worshippers who do the Empire no greater harm than to believe in superstitious nonsense."
+		
+			*set conventional %-15
+			Morris snorts. "Naive for a war-hero, aren't you, Doctor?"
+			
+			"No matter who the spider is," Woodward interposes, "we have to find him."
+			
+			*goto SaveGameText
+			
+		#"No," I say slowly, "it's not splitting hairs. I think this spider is home-grown, not Vlaski or light-eater at all."
+		
+			*set perception %+15
+			"So do I," Finch says. "And that makes it even more interesting, doesn't it?"
+		
+			"No matter who the spider is," Woodward says, "we have to find him."
+			*goto SaveGameText
+			
+*label SaveGameText
+*line_break
+*line_break
+*line_break
+Here ends Part 1 of Choice by Gaslight. Before proceeding to Part 2, please provide a unique name for this save point. 
+*save_game Part2Screen
+
+*finish Proceed To Part Two
+
+*comment ******Subroutines*******
+*label Saboteur
+The saboteur is still unconscious, but a wave of your police credentials gets you past his guards to take a look at him.
+		
+He is younger than you were assuming–not much over twenty, at a guess. Light brown hair. The hands of a scholar rather than a laborer: no callouses, ink under the nails. Nasty bruising and some broken ribs from the collision with the cobblestones, but the real trouble is the head injury. He might wake soon, or never.
+		
+His personal effects have been stowed in a cubbyhole nearby. No identifying information. No watch or jewelry or anything else of value. No letters. A set of lockpicks. A map of the factory interior.
+		
+So it's a good bet neither of the men were members of the construction crew, if they needed a map showing them where to go. The presence of the lockpicks may suggest that this member of the partnership was responsible for the burglary that got them inside, while the other was responsible for the device itself. 
+
+*return		
+
+
+
+*label Ambush
+*page_break
+You shift as quietly as possible, trying to give some ease to your cramped muscles without betraying your hiding place behind a stack of crates. Elsewhere in the room, you know Stoker, Stevenson, and Morris are doing the same. You rather wish Finch were there to make a fifth.
+
+*return
+
+*label AmbushSuccess
+
+Your ears just catch the tinkle of broken glass, followed by a single set of quick footsteps. 
+
+*page_break
+*achieve steel
+
+A slim, black-clad form steps into the square of sickly light that falls through the window. It stops in the middle of the factory floor, bends over to set down a box–you catch a glimpse of its face, hidden by a black domino mask–and carefully unscrews the top. It straightens at once, and leaves the way it came–not running, but walking briskly.
+
+Stevenson lunges for the device, and the rest of you lunge for the culprit.
+
+The black-clad figure gasps in shock, but recovers almost at once. It dodges Stoker's grasping hand, and sprints.
+
+*page_break
+
+The three of you pound after it, through the obstacle course of the factory floor, dodging tables and machines. Morris knocks something over and curses. 
+*if injury = "leg"
+	You step wrong, and agony shoots up your bad leg.
+The black-clad figure pulls ahead, vanishing into the darkness. You chase the sound of its footsteps.
+
+A clatter tells you that the figure has reached the catwalk, and the direction of the clatter tells you it is racing up rather than down the stairs. You follow it up one flight, two, all the way to the top level. But that level has multiple offices and storage rooms, most of them with windows, and you can hardly see anything–the culprit vanished into one room, but which?
+
+"Split up," Stoker hisses, and you do. Stoker heads in one direction, Morris in another, and you find yourself facing three doors.
+
+Which do you try first?
+
+*fake_choice
+
+	#The first.
+	
+		Your foot has nearly cleared the threshold when you hear a faint sound next door. 
+		*if perception >= 50
+			It's lucky you're as perceptive as you are.
+		You turn and barrel through the second door instead. 
+	
+	#The second.
+	
+	#The third.
+
+		Your foot has nearly cleared the threshold when you hear a faint sound next door. 
+		*if perception >= 50
+			It's lucky you're as perceptive as you are.
+		You turn and barrel through the second door instead. 
+	
+Clearly outlined by the outdoor gaslight, a slim dark figure is forcing open a window. 
+
+*return
+
+*label Chase
+You all reach the window in time to see her land in a neat crouch on the soft ground of the riverbank, then instantly spring up and run. 
+		
+Woodward's agents pound down the hallways and stairways to the street, but Alexandra has too great a headstart, and even without her mask and cap she is expert at the art of disguise. You and your colleagues don't catch her.
+*return
+
+*label Capture
+Your colleagues rush into the room. The ones in front see her fall, and run forward, shouting. You all reach the window in time to see her land heavily on the soft ground of the riverbank below. She tries to scramble up and run, but collapses. The agents thundering down the corridors and stairways are in plenty of time to catch her.
+
+You watch from the window above, your colleagues shaking your hand and clapping you on the back in congratulations.
+
+*return
+
+*label CommunicateTheIdeal
+The idea is to communicate the ideal while they are young. And…whenever they leave the temple grounds, they are bombarded on all sides with stories that tell them we are evil–or at least foolish. I don't have many years in which to try to counteract that." After a moment, he adds, "The truth of that era is complicated. We were true to our ideals in some ways and terribly false in others. Two things can be true at once, but children are not skilled at handling nuance. They'll have many years to struggle with it all as adults. Now, what else can I show you, Doctor?"
+*return
+
+	
+*label KickDownDoor
+*set RelTaggart %-25
+You join the team to find Sergeant Danby, also a Goráska veteran, instructing his underlings to bundle up in mufflers and gloves, despite the heat. "All they need is one touch," he warns the constables. "Don't give them the chance."
+
+*choice
+
+	#I strenuously approve. The Sergeant and I exchange the grim nods of veterans who now have a responsibility to protect green soldiers.
+	
+		*set conventional %+5
+		*goto KickDownDoor2
+	
+	#It seems an excessive precaution, but I'm not about to be the man who says so.
+	
+		*goto KickDownDoor2
+	
+	#"This surely isn't necessary," I say. "Not all sun-worshippers are light-eaters, after all."
+	
+		*set conventional %-5
+		
+		The Inspector, the Sergeant, and all the constables in the room stop what they are doing and look at you.
+		
+		"That's as may be, Doctor," the Sergeant says after a moment. "You'll do as you see fit, of course. You lads—" He switches his glare to the constables. "—bundle up."
+		
+		*goto KickDownDoor2
+	
+*label KickDownDoor2
+
+A couple of the younger constables also hang pungent wreaths of deadnettles around their necks, earnestly claiming that the dead-mouse smell wards off light-eaters. 
+
+*choice
+
+	#No, no, now that's nonsense. Covering exposed skin is an actual defense, but I can't let these lads believe bad smells make them any safer. 
+	
+		*set compassionate %-15
+		*set medicine %+15
+		
+		Of course you can't. They might rely on deadnettles some other time and not cover their skin, and then where would they be?
+		
+		You explain, citing scientific proof, but the constables keep their disgusting necklaces anyhow. 
+		
+		*goto KickDownDoor3
+		
+	#In my experience, unpleasant odors provide no such protection, but I let the youngsters have their illusion. 
+	
+		*set compassionate %+15
+		
+		You need them to be confident and brave, after all.
+	
+		*goto KickDownDoor3
+		
+	#There's never been any scientific proof that deadnettle helps, but I surreptitiously pluck a nettle leaf from one of the wreaths and hide it in my pocket anyhow.
+	
+		*set medicine %-15
+		*set conventional %-15
+		
+		One can't be too careful.
+	
+		*goto KickDownDoor3
+		
+	#I stay quiet. This entire level of hysteria is unnecessary, but I can't be caught saying so. 
+	
+		*goto KickDownDoor3
+
+*label KickDownDoor3
+Inspector Lockwood looks everyone over with a critical eye. "All ready? Forward march, then."
+
+You take a deep breath and go to raid a light-eater temple.
+*page_break
+The temple on Juniper Street is penned in on all sides by the factories that make the Empire run and the tenements of the people who work in them. Three hundred years ago, it would have stood alone, gleaming white stone rising out of green and golden fields, for the Sun Temples once owned a huge percentage of the land of Mercia. In the Vlaski Empire, they still do today, but the Mercian government confiscated the land when it broke the power of the Temples.
+
+The Sergeant deploys his men in a standard formation around the front door, weapons at the ready. He looks back to be sure you and the Inspector are in position. Lockwood nods.
+
+Then the Sergeant and his men kick the door in, and for just a moment, you are back in Goráska, shouting with rage as you burst into the prison.
+
+*choice
+
+	#I shake off the memory. We are not on the warfront; there is no reason to suspect these particular sun-worshippers of light-eating.
+	
+		*set conventional %-5
+		*goto KickDownDoor4
+	
+	#I catch hold of the anger and use it to brace my spine. I triumphed in that confrontation, and I will here as well.
+	
+		*set conventional %+5
+		*goto KickDownDoor4
+	
+	#My blood sings with battle fever. Facing off against a nest of light-eaters on their home ground? Bring it on.
+	
+		*set compassionate %-5
+		*goto KickDownDoor4
+		
+*label KickDownDoor4
+Your team floods into the temple.
+
+It is like stepping three centuries back in time. The only light comes from torches guttering in wall sconces. The walls and floor are stone. The entryway is as narrow as any moat-bridge–and the thought occurs to you that if they really wanted to, a small number of people could hold this chokepoint for quite some time, even with their front door gone.
+
+No one tries to hold it. After one brief shout of defiance from a red-haired man with a fury blazing in his eyes, the members of the temple fall back, crying out but offering no resistance. Your team tears through room after room, herding squealing light-eaters into the center courtyard where they can be watched. 
+
+*choice
+
+	#Every time I ready myself to burst through a door or around a corner, I know there could be a light-eater waiting with hands poised. I don't let the panic choke me.
+	
+		*set conventional %+10
+		*goto KickDownDoor5
+	
+	#I am almost disappointed that none of them try to lay hands on me. I would have relished the fight.
+	
+		*set compassionate %-10
+		*set conventional %-10
+		*goto KickDownDoor5
+	
+	#I am relieved that we seem to be dealing only with a nest of traitors instead of a nest of light-eaters. The lads won't be in so much danger after all.
+	
+		*set compassionate %+10
+		*set conventional %+10
+		*goto KickDownDoor5
+		
+	#I don't like these tactics, but they are necessary.
+	
+		*set conventional %+10
+		*goto KickDownDoor5
+		
+	#I don't like these tactics, but I have to go along with them if I don't want the Inspector to suspect me of sympathizing.
+	
+		*set conventional %+10
+		*set compassionate %-10
+		*goto KickDownDoor5
+		
+	#I find myself wincing at the fear on the faces of the sun-worshippers, trying to lower my voice and gentle my movements as much as possible. Especially when dealing with the children.
+	
+		*set RelTaggart %+15
+		*set RelWoodward %-15
+		*set compassionate %+15
+		*set conventional %-15
+		*goto KickDownDoor5
+	
+	
+*label KickDownDoor5
+One voice cuts through the clamor–a baritone, calm, even, faintly Loegrian-accented, saying the same words over and over. It proves to belong to the man in charge of the temple, who is dressed in everyday clothing such as a shopkeeper might wear but with an obvious sun medallion around his neck, and who identifies himself as Christopher Taggart. He is not physically impressive–balding, tired-looking, well into middle age–and yet he manages to quiet every one of the sun-worshippers in the courtyard, and even exercise something of a calming effect on the agitated younger members of your team. "We have nothing to hide. Do whatever you need to do; no one here will impede you."
+
+"You don't seem surprised to see us," the Inspector says suspiciously.
+
+"I'm not stupid, sir," Taggart says, still evenly but making direct eye contact. "I have been expecting you since the rumor reached my door that the explosion at Merrill Steelworks was sabotage rather than accident. I give you my word–for what it may be worth to you–that no one here had anything to do with it. We protested their working conditions, yes. But no one here raised a hand in violence against them."
+
+How do you respond?
+
+*choice
+	
+	#"That's a lie!" I snap. "You're all filthy traitors or worse, and we'll see you hang for it."
+	
+		*set RelWoodward %+15
+		*set RelTaggart %-15
+		
+		*comment I figure it gets back to Woodward through back channels, and it pleases him.
+		
+		"We are not the culprits you seek," Taggart says quietly, meeting your eyes as steadily as he met Lockwood's. "Go and look where you will, and you will see this for yourself."
+		
+		*goto KickDownDoor6
+		
+	#"In that case," I say coolly, "you should have no objection to our search."
+	
+		*comment This is a neutral response, no effect to either RelTaggart or RelWoodward
+		
+		Taggart meets your eyes as directly as he met Lockwood's. "I have already said I do not. Proceed as you will."
+		
+		*goto KickDownDoor6
+		
+	#"In that case," I say pleasantly, "a simple search should confirm your innocence, and we'll be on our way."
+	
+		*set RelWoodward %-15
+		*set RelTaggart %+15
+		
+		Taggart turns interested eyes in your direction, studying your face as though you have attracted his attention. It must be rare for him to receive even so minimal a courtesy from a representative of the police.
+		
+		*goto KickDownDoor6
+	
+	#I don't say anything. Why would I? The Inspector's in charge.
+	
+		*comment Neutral response, no effect
+		*goto KickDownDoor6
+		
+	#I don't say anything. If I open my mouth, I might betray my discomfort for the role I have been forced to play. 
+	
+		*comment This is too subtle to get back to Woodward, but Taggart catches something from your face.
+		
+		*set RelTaggart %+10
+		
+		Taggart's eyes go briefly to you, interested, assessing—but move on before the Inspector follows his gaze.
+		
+		*goto KickDownDoor6
+		
+*label KickDownDoor6
+*page_break
+The search team finds no traitorous literature, no printing press for creating any, no chemistry equipment, and nothing that could have been used to fashion an explosive. There is no modern equipment at all, in fact–no gaslight or modern conveniences in the kitchen, nor in the laundry, nor in the schoolroom where the orphans taken in by the temple have their lessons, nor the dormitory where they and the adult members of the community sleep, nor in the inner courtyard where grow what you recognize from your grandmother's garden as medicinal herbs. Oddly healthy-looking medicinal herbs; you wouldn't have thought anything could grow in Kingsford's poisoned soil and smoke-choked air. 
+
+You do find signs with protest slogans written upon them, and wood and paint enough to make more, and the library contains books on law and government and current editions of [i]The Times[/i] as well as religious tracts, but those are the only remotely suspicious items. 
+
+Is there anything you want to investigate further? 
+
+*label KickDownDoorStack
+*choice
+
+	*hide_reuse #I want to search for hidden doors and demand the opening of locked trunks. I am sure we didn't find everything to be found.
+	
+		*set RelTaggart %-10
+		The Inspector permits you to make another round, directing the search teams. You find absolutely nothing suspicious. 
+		
+		You return to the center courtyard to hear a low-voiced hissing argument going on between Taggart and one of his people, the red-haired man with the furious expression. 
+		
+		"–we've [i]done[/i] nothing, what right have they–"
+		
+		"We live in this city," Taggart says as though repeating words said often before. "We are subject to the law of the land. And we have spoken against Merrill. Of course we are suspects. The police would be remiss in their duty if they did not search the temple."
+		
+		"And of course you bend over and–"
+		
+		"That's [i]enough[/i]," Taggart says without raising his voice, and the man falls silent.
+		
+		Now what?
+		*goto KickDownDoorStack
+	
+	*hide_reuse #I want to know about those herbs.
+	
+		The Inspector wheels on Taggart, repeating the question. 
+		
+		"Healing is beneficial to plants as well as animals, sir," Taggart replies steadily.
+		
+		"Where do you get the energy for that magic?" you can't help asking. 
+		
+		Taggart's eyes slide to you. "It comes from the one who tends the plants on that day." 
+		
+		Now what?
+		
+		*goto KickDownDoorStack
+	
+	*hide_reuse #The newspapers and books on government have a somewhat sinister appearance. I want to know more about those.
+	
+		"Old-fashioned appearances to the contrary," Taggart says, "we of the faith live in this world. Of course we take [i]The Times[/i], to learn the news of the world in which we live."
+		
+		"Those law books, though–" the Inspector says. 
+		
+		"In order to be sure one complies with the laws of the land, it is useful to know what they are," Taggart says, meeting Lockwood's eyes. 
+		
+		"Are you trying to change the law?" the Inspector demands. 
+		
+		"Yes. That is no secret. We seek to change laws and practices harmful to the subjects of the Empire."
+		
+		"Like religious laws?" asks Sergeant Danby.
+		
+		"Eventually, I hope so," Taggart replies, "but first the laws and practices that govern labor."
+
+		Is that a partial admission of guilt? 
+
+		*choice
+
+			#No, I don't think it is. The words sound sincere to me.
+			
+				They apparently do not sound sincere to Danby. "So that's your justification for planting the bomb."
+	
+				Taggart flushes, but his voice stays even. "I did no such thing, and nor did any member of my temple. We seek to change the world through protests, letters to the editor of [i]The Times[/i], attempts to interest influential people in the problems to be solved. Not violence. Not ever."
+				
+				Now what?
+				
+				*goto KickDownDoorStack
+				
+			#I think it is. I look at Taggart and wait. 
+			
+				He sighs, and clarifies, "Through protests, letters to the editor of [i]The Times[/i], lectures, attempts to interest influential people in the problems to be solved. Not violence. Not ever."
+		
+				Now what?
+				
+				*goto KickDownDoorStack
+	
+			#I'm not sure. I need more information. "Through what methods?" I ask.
+	
+				*set RelTaggart %+10
+				
+				Taggart meets your eyes without flinching. "Protests. Letters to the editors of [i]The Times[/i]. Lectures. Attempts to interest influential people in the problems to be solved. Not violence. Not ever."
+				
+				Now what?
+				
+				*goto KickDownDoorStack
+	
+			#Of course it is. I pounce. "So that's your justification for planting the bomb."
+	
+				*set RelTaggart %-10
+				*set RelWoodward %+10
+				Taggart flushes, but his voice stays even. "I did no such thing, and nor did any member of my temple. We seek to change the world through protests, letters to the editor of [i]The Times[/i], attempts to interest influential people in the problems to be solved. Not violence. Not ever."
+				
+				Now what?
+				
+				*goto KickDownDoorStack
+		
+	*hide_reuse #I want to know how in the world Taggart is managing to feed and clothe all these people. 
+	
+		"Not through theft, if that was the question." His voice has gone dry. "Most of those who live here have employment in the city, and the coin is pooled to meet the necessities of the community."
+		
+		Now what?
+		
+		*goto KickDownDoorStack
+			
+			
+	#There's nothing else I need to see. I'm ready to leave when the Inspector is ready to leave. 
+	
+		Your team leaves the place in shambles–drawers overturned, books pulled from shelves, closets pawed through–and some of the residents in tears, but you don't arrest anyone. You haven't found evidence enough to justify such an action. 
+		
+		The red-haired man turns a look of blinding hatred at you as you leave. Taggart's face stays calm.
+		
+		So that was a dead end. Now what?
+		
+		*return
+		
+*label AmbushFail
+*set ACaptured true
+And wait. 
+		
+And wait.
+		
+Shortly after two o'clock in the morning, a distant boom reaches your ears and the floor rumbles slightly under your feet.
+		
+From across the room, Stoker breaks the six-hour silence with a vicious curse. 
+		
+Morris jumps to his feet, knocking over a crate in his haste, and leads the charge out the door. 
+
+*return

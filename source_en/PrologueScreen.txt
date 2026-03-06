@@ -1,0 +1,5 @@
+
+*image 4_prologue.png
+*temp blank ""
+${blank}
+*finish Begin The Game

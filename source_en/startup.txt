@@ -1,0 +1,389 @@
+*title A Study in Steampunk: Choice by Gaslight
+*author Heather Albano
+*scene_list
+	startup
+	PrologueScreen
+	OpeningScene
+	Part1Screen
+	BrucePartingtonPlans
+	HerMajestysDirigible
+	$ Murchinson
+	$ Part2Screen
+	$ SpiderHunt
+	$ Reichenbach
+	$ Part3Screen
+	$ CrossroadsMarkTwo
+	$ NewLifeMark2
+	$ TheReturn
+	$ Part4Screen
+	$ TheFinalProblem
+	$ Endgame
+	$ WrapUp
+
+*create healpierce false
+*create firstchoice "marksmanship"
+*create secondchoice "medicine"
+*create lastname "lastname"
+*create firstname "firstname"
+*create initial "i"
+*create healing 50
+*create charisma 50
+*create marksmanship 50
+*create medicine 50
+*create athleticism 50
+*create injury "none"
+*create conventional 50
+*create compassionate 50
+*create stealthy 50
+*create perception 50
+*create healmorris false
+*create relwoodward 50
+*create gay false
+*create loadedlifeboats false
+*create datinggrace false
+*create knowfinchaway false
+*create plantknowledge false
+*create donewithoneshands false
+*create knoweconomics false
+*create engaged false
+*create married false
+*create withfinch false
+*create alliance "government"
+*create kills 0
+*create reltaggart 50
+*create relalexandra 50
+*create healersarrested false
+*create manufacturedevidence false
+*create mythmaker false
+*create mether false
+*create lethergo false
+*create missedher false
+*create caughther false
+*create drainedguards false
+*create toldfinchguards false
+*create toldgraceguards false
+*create workedwithher false
+*create workedwithhim false
+*create divorced false
+*create gracedead false
+*create letter false
+*create taggartchoice false
+*create alexandrachoice	false
+*create callahaninterview false
+*create callahanmisstep 0
+*create withalexandra false
+*create alertcounter 0
+*create usedknife false
+*create patrol false
+*create relfinch "neutral"
+*create leftfinchtodie false
+*create healertrained false
+*create lighteater false
+*create donated false
+*create dead false
+*create meantoBradley false
+*create ignoredBradley false
+*create finchdead false
+*create betrayed false
+*create woodwarddeal false
+*create woodwardally false
+*create walkedaway false
+*create healedmargaret false
+*create old "margaret"
+*create o_man "woman"
+*create oldprofession "charwoman"
+*create o_he "she"
+*create o_him "her"
+*create o_his "her"
+*create young "violet"
+*create y_boy "girl"
+*create y_he "she"
+*create y_him "her"
+*create y_his "her"
+*create pm "whitefield"
+*create shandy "captain"
+*create lackofcoal false
+*create leftmorris false
+*create alexandraally false
+
+*achievement finchescape hidden 5 A Bird in Flight
+	hidden
+	Allow Garrett Finch to escape. 
+	
+*achievement finchcapture hidden 5 A Bird in the Hand
+	hidden
+	Capture Garrett Finch. 
+
+*achievement usepress visible 5 A Most Valuable Institution
+	The press is a most valuable institution, if you only know how to use it.	
+	Use the press to catch a criminal.
+
+*achievement lifeforlife visible 5 A Life for a Life
+	You know the price you have to pay.	
+	Sell your life to save Garrett Finch. 
+		
+*achievement balance hidden 10 Balance of Power
+	hidden	
+	The government and the Resistance will balance each other's excesses.
+
+*achievement killhorn visible 5 Blood Sacrifice 
+	How far will you go to save someone else?
+	Kill Horn through light-eating to save Grace's life.
+	
+*achievement brothersinarms visible 5 Brothers in Arms 
+	The ties that bind.
+	Save the life of a former comrade-in-arms.
+	
+*achievement killedfinch hidden 5 Brother's Keeper
+	hidden
+	Kill Garrett Finch through light-eating.
+	
+*achievement bridges visible 5 Building Bridges
+	One man can bridge two worlds.
+	Build a bridge between the Sun Temples and the conventional world.
+
+*achievement cmythmaker visible 5 Callahan's Mythmaker
+	The stories we tell shape the world.
+	Use fiction to promote Sean Callahan's ends.
+
+*achievement warehouseescape visible 10 Daring Escape
+	Never underestimate a former soldier.
+	Rescue Finch and yourself from Colonel Fearnley.
+
+*achievement deception visible 5 Deception at the Temple
+	Teach the healer spycraft.
+	Pretend to break with Taggart, in order to stop the Rising.
+
+*achievement destroycoal visible 5 Destruction in Bretagne
+	To make an omelet, you must break an egg.
+	Destroy the Bretagne coal mine.
+
+*achievement steel visible 5 Eliminate the Impossible
+	Whatever remains must be the truth.
+	Identify the steelworks saboteur's final target.
+	
+*achievement capturedalexandra visible 5 Enemy of the State
+	Face to face with a dangerous criminal, what will you do?
+	Capture Alexandra Townsend.
+	
+*achievement mistress visible 10 Fencing Salon
+	Some battles are fought with words and innuendo instead of blades.
+	Secure the attention of the Prince's mistress.
+	
+*achievement starbuck visible 5 Fight Them Til We Can't
+	Resist the Vlaski occupation of Mercia.
+	Join the new Resistance.
+	
+*achievement wantnail hidden 20 For Want of a Nail
+	hidden
+	Foil the Rising by disrupting communications.
+	
+*achievement resistance visible 5 Freedom Fighter 
+	Join the rebellion.
+	Join Free Mercia.
+		
+*achievement temple visible 5 Healer
+	Embrace your heritage.
+	Become a Sun Temple healer.
+	
+*achievement hearth visible 10 Hearth & Home
+	Happily ever after means different things to different people.
+	Marry the love of your life.
+
+*achievement presshero visible 5 Hero of the Press
+	Every disaster needs a hero. 
+	Dubbed a hero by the press.
+	
+*achievement infiltrate visible 10 Infiltration 
+	Penetrate to the center of the Professor's lair.
+	Infiltrate the Resistance.
+	
+*achievement labor visible 100 Labor Reform 
+	A steady hand on the rudder turns the ship.
+	Pass the Labor Reform Bill.
+	
+*achievement neutral visible 5 Lone Wolf 
+	Follow only your conscience.
+	Become an independent player. 
+	
+*achievement prince visible 100 Long Live His Highness 
+	The Crown Prince is in danger.
+	Save the Prince's life. 
+	
+*achievement loveandwar visible 10 Love & War 
+	Star-crossed lovers.
+	Begin a relationship with Alexandra Townsend.
+
+*achievement poison hidden 20 Marching on Its Stomach 
+	hidden
+	Foil the Rising by contaminating the food supply.
+
+*achievement merciafalls hidden 10 Mercia Falls
+	hidden
+	Mercia falls to Vlask.
+	
+*achievement midair visible 5 Mid-air Repair 
+	Can you repair the plummeting dirigible?
+	Repair the sabotaged dirigible.
+	
+*achievement bedfellows visible 100 My Enemy's Enemy  
+	Danger makes strange bedfellows.
+	The government and the Resistance band together to fight off the Vlaski invasion.
+
+*achievement noliveslost visible 5 No Lives Lost  
+	Can you get everyone safely off the plummeting dirigible?
+	Colossus returns safely with no lives lost.
+
+*achievement savepierce visible 5 One Man's Life
+	Save the life of an injured comrade.
+	Save James Pierce.
+	
+*achievement twohundred visible 100 Primum Non Nocere 
+	End the cholera epidemic with minimal casualties.
+	End the cholera epidemic with fewer than 200 lives lost.
+	
+*achievement addict visible 5 Recovery 
+	It takes courage to turn aside from a disastrous path.
+	Fight your way back from light-eater addiction.
+
+*achievement goraska visible 5 Return to Goráska 
+	Danger calls you back to the warfront.
+	Save the Goráska coal mine.
+
+*achievement sanctifier visible 10 Sanctifier 
+	The Sun Temples police their own.
+	Bring down the East End Ripper.
+	
+*achievement alexandraescape visible 5 Shades of Gray 
+	A private investigator does not always work within the law.
+	Allow Alexandra Townsend to escape.
+
+*achievement govtripper visible 10 Steam & Sorcery  
+	A light-eater threatens the East End.
+	Bring down the East End Ripper with no injury to yourself or your companions.
+	
+*achievement interrogate visible 10 Tables Turned  
+	Captured and helpless, how much can you learn?
+	Interrogate your interrogator and learned all he had to tell.
+	
+*achievement tmythmaker visible 5 Taggart's Mythmaker  
+	The stories we tell shape the world.
+	Use fiction to promote Christopher Taggart's ends.
+
+*achievement bard hidden 20 The Bard's Weapon   
+	hidden
+	Foil the Rising through storytelling.
+
+*achievement govtreturn visible 5 The Empire's Man   
+	Return to the fold.
+	Return to work for Arthur Woodward.
+
+*achievement killcallahan visible 10 The Greater Good  
+	Sometimes one man must be sacrificed for the good of many.
+	Kill Sean Callahan.
+
+*achievement lighteater visible 5 The Monster in the Mirror  
+	Give in to your darkest desires. Become your worst fear.
+	Become a light-eater.
+
+*achievement savepm visible 10 The Prime Minister's Honor 
+	Scandal threatens the Empire.
+	Preserve the Prime Minister's reputation.
+
+*achievement destroypm visible 10 The Prime Minister's Dishonor 
+	Craft a scandal to threaten the Empire.
+	Scandal forces the Prime Minister from office.
+
+*achievement singleshot hidden 20 The Shot Heard Round the Empire 
+	hidden
+	Foil the Rising with a single shot.
+
+*achievement bloodtaste visible 5 The Taste of Blood
+	How far will you go to save yourself?
+	Kill an attacker through light-eating.
+
+*achievement walls visible 100 The Watcher on the Walls
+	The Vlaskesari are marching on Mercia.
+	Foil the Vlaski invasion.
+
+*achievement uncompromising visible 5 Uncompromising
+	Remain true to your principles in the face of death.
+	Choose to die rather than kill through light-eating.
+
+*achievement vigilante visible 5 Vigilante
+	Someone has to clean up the East End.
+	Become a light-eater vigilante.
+
+*achievement walkedaway visible 5 Walked Away
+	Enough is enough.
+	Leave government service.
+
+*achievement wintersoldier hidden 5 Winter Soldier
+	hidden
+	Brainwashed into Arthur Woodward's light-eater army.
+
+*achievement dirigible visible 5 Wolf in Sheep's Clothing
+	One of these people is not what they seem…
+	Identify the dirigible saboteur.
+
+*achievement wmythmaker visible 5 Woodward's Mythmaker
+	The stories we tell shape the world.
+	Use fiction to promote Arthur Woodward's ends.
+
+*achievement yourstruly visible 20 Yours Truly, Jack the Ripper
+	They'll never suspect.
+	Conceal your Ripper identity from Arthur Woodward.
+
+	
+
+*image 1_title.png
+
+*temp discount_ends "Dec 1"
+*temp time_stamp timestamp("${discount_ends}, 2015")
+*if not(choice_is_web or choice_is_steam)
+	*temp skip_description
+	*config skip_description false
+	*if skip_description
+
+		*goto purchased
+*check_purchase adfree
+*if choice_purchase_supported and not(choice_purchased_adfree)
+	Steam-powered mechs meet forbidden sorcery! Inspired by Sherlock Holmes, Dracula, Jekyll & Hyde, and Jack the Ripper, "A Study in Steampunk: Choice by Gaslight" is an epic 277,000-word interactive mystery novel by Heather Albano, co-author of "Choice of Broadsides," "Choice of Zombies," and "Choice of Romance: Affairs of the Court." Your choices control the story. It's entirely text-based--without graphics or sound effects--and fueled by the vast, unstoppable power of your imagination.
+
+	The game is afoot! In a world of gaslit streets, mysteriously long-lived foreign nobles, and master criminals, will you defend your Empire from spies or overthrow it from within? Advocate science and reason or learn forbidden magic? Romance men, women, both, or neither? End as a healer, a freedom fighter, a vigilante, or a traitor?
+
+	The fate of the Empire is in your hands!
+
+	[i]You can play the first three chapters of the game for free. Purchase the rest of the game below.[/i]
+	*if choice_is_advertising_supported
+		[i]Purchasing the rest of the game will also turn off in-game advertisements.[/i]
+	*comment endif
+
+	*print_discount adfree 2015-12-01 [b]On sale until ${choice_discount_ends}! Buy now before the price increases![/b]
+	*if choice_time_stamp < time_stamp
+		*purchase adfree $6.99 purchased
+		*goto page_break
+	*else
+
+		*purchase adfree $6.99 purchased
+	*label page_break
+	*if choice_is_advertising_supported
+		*page_break_advertisement
+	*if not(choice_is_advertising_supported)
+		*page_break Play Now for Free
+
+
+*label purchased
+
+*label Start
+
+*choice
+	#Start a new game.
+		*goto_scene PrologueScreen
+	*if not(choice_randomtest)
+		#Restore a saved game.
+			*restore_game
+			*goto start
+
+
+

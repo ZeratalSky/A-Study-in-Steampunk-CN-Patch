@@ -1,0 +1,3666 @@
+*comment é
+
+*image Chapter06.png
+
+
+*comment Goal - save as many as possible from the cholera epidemic. 
+
+*comment http://books.google.com/books?id=iSiFb2ANrG8C&pg=PA113#v=onepage&q&f=false
+
+*comment http://www.choleraandthethames.co.uk/cholera-in-london/cholera-in-soho/
+
+*comment https://archive.org/stream/39002086311645.med.yale.edu/39002086311645.med.yale.edu_djvu.txt
+
+*comment The first half of this vignette (previously a separate vignette, "GraceDies") provides the third beat in the you-become-Jack-the-Ripper-story or the you-join-the-clergy story. 
+
+*comment When kills => 2, you can't control your compulsion. When kills = 2, set lighteater true.
+
+*comment When kills = 0, Taggart welcomes you as a junior healer.
+
+*comment When lighteater is true, Taggart treats you as an addict
+
+*comment When kills = 1 or 2 but lighteater is false (so you go to him immediately upon killing the second person, before lighteater can be set true) Taggart has a third, middle-ground, response. 
+
+
+*temp DeadCounter 127
+*temp MapDone 0
+*temp Survivor1 "none"
+*temp assistance "none"
+*temp AlexandraCholeraAlly false
+*temp AlexandraGrace false
+*temp TaggartCholeraAlly false
+*temp WoodwardCholeraAlly false
+*temp GoodMap false
+*temp doctoring false
+*temp drinking false
+*temp GraceTaggartEncounter false
+
+*label Intro
+
+The air shakes with the shouts of the protesting crowd three streets over, and the ground shakes with the footsteps of the approaching mech. Even miniaturized to fit through Kingsford's old and twisting byways, a mech's footfall is still more than enough to make cobblestones tremble and people jerk around in fear. 
+
+You watch the metal giant stomp along the cross-street, steam pouring from its ears to join Kingsford's ever-present fog. It is on its way to support the constables who are attempting to restore order to the crowd in the park—the crowd shouting for Prime Minister Whitefield's resignation.
+
+It is the year 1889, and Garrett Finch has been dead for twenty-two months. 
+
+*page_break
+The first fierceness of that grief has eased; it's less of a deafening waterfall roar these days, and more of constant rumbling subterranean river. The life of adventure you once led, first on the battlefield and then as Woodward's spy, seems to belong to some other universe than the one you currently inhabit. Now you are a general practitioner with 
+*if married
+	a quietly happy marriage and
+a small practice in the poorer part of Kingsford. 
+
+In fact, you are currently hurrying to the bedside of a protester hurt in the fracas in the park, in response to a plea for help brought by his young son.
+
+Why are you hastening to this man's aid?
+
+*choice
+
+	#His anger was justified. If Whitefield actually did authorize the recent violence in Loegria, the Prime Minister deserves to be removed from his post.
+	
+		*set conventional %-20
+		
+		You felt sick when you saw the photographs in the [i]Daily Yell[/i] three days ago. Civil unrest [i]often[/i] occurs in Dunleitir on Remembrance Day, the Loegrian holiday that honors those who died in the famine two generations ago. The people demonstrating in the city square this year could surely never have posed a danger sufficient to justify the Loegrian Viceroy's response. He sent mechs stampeding through the streets of Dunleitir, leaving men, women, and children crushed beneath their feet or pierced by their bullets. 
+		
+		You wish you could soothe yourself with the idea that the accounts might be inflated—but there are the photographs. Rumor has it the [i]Daily Yell[/i] obtained the photographs from the group that calls itself Free Mercia, and that Free Mercia managed to steal them from the home of the government functionary to whom they had been entrusted, the burglars getting away clean except for the bullet wound one took in the shoulder. 
+		
+		*goto protester
+	
+	#It is unimportant how the injury was received. I am known as the doctor to whom anyone can go for help.
+	
+		*set compassionate %+20
+		
+		Anyone can, and everyone does. Respectable shopkeepers and anything-but-respectable members of the oldest profession. Confirmed Rationalists and those whose sympathies tend toward sun-worship. Agitators hurt in demonstrations in the park and police constables hurt in the same confrontations. 
+		
+		*gosub Usually
+		
+		*gosub LoegriaExposition
+		
+		*goto protester
+	
+	#A doctor's duty is to treat the patient in front of him, no matter his opinion on the patient's politics, and the patient's son came to me. 
+	
+		*set medicine %+20
+		
+		The boy came to you; the man is therefore your patient; nothing more needs to be said. 
+		
+		Though you would have to be a hopeless imbecile not to know what he was protesting. You saw the photographs three days ago just like everyone else. 
+		
+		*gosub LoegriaExposition
+		
+		*goto protester
+	
+	#I treat as many protesters as I can, so that I may encourage them to keep their approach nonviolent.
+	
+		*set compassionate %+20
+		*set conventional %-20
+		
+		An unusual response. One of which a Sun Temple healer might approve.
+		
+		*gosub Usually
+		
+		*gosub LoegriaExposition
+		
+		*goto Protester
+		
+	#I treat as many protesters as I can so that I know who they are. Someone has to keep track of these troublemakers.
+	
+		*set compassionate %-20
+		*set conventional %+20
+
+		You are no longer Woodward's informant, but old habits die hard. 
+		
+		*gosub Usually 
+		
+		*gosub LoegriaExposition
+		
+		*goto protester
+		
+		
+*label protester
+*page_break
+
+The protester, Tom O'Brien, is suffering from a mild fever and reddened swelling of his shoulder.
+ 
+*if (medicine > 50) or (perception > 50)
+	He didn't receive that wound today in the park. It's a few days old at least.
+	
+	You think of the burglar who was shot in the shoulder as he escaped with the photographs.
+	
+	He sees you notice, and looks up with challenge in his fever-bright eyes.
+	
+	*fake_choice
+	
+		#I say nothing. I don't want to know how he was injured.
+		
+			*set conventional %+10
+			*goto Rounds
+			
+		#I say nothing. If he was the man who stole the photographs, he did Mercia a service.
+		
+			*set conventional %-15
+			*goto Rounds
+			
+		#I accuse him of being the man who stole the photographs.
+		
+			*set conventional %+15
+			
+			"I was somewhere else entirely that night," he says. "I can prove it, and there's no use in you telling anyone anything. That said," he adds, "do you really think it so bad a thing that everyone knows now what those bastards did in Dunleitir?"
+			*page_break
+			*goto Rounds
+			
+		#I say, "Thank you," and let him interpret it as he will.
+		
+			*set conventional %-20
+			*goto Rounds
+	
+*else	
+
+	You are surprised the police are using more than birdshot to scatter the crowd.
+	
+	*goto Rounds
+	
+*label Rounds
+
+By the time you finish treating the protester, the crowd in the park has dispersed, leaving a sullen sort of quiet in its wake. They had their fun, Kingsford's implacable equilibrium seems to say, and now it is time for us all to be done with that nonsense and go home for tea. 
+
+It is the last day of summer in the year 1889, and nothing disturbs you as you start to walk your evening rounds. 
+
+*page_break
+
+*if conventional < 50
+
+	You see the usual collection of ailments. An injured laborer who is not yet healed enough to return to work, but has no choice. A woman expecting her first child and experiencing some complications, who ought to spend the rest of her pregnancy in bed, but cannot afford to give up her factory job. Children with rickets, who might be easily cured with a healthier diet and life in clear country air, and you might as well propose their parents learn to fly.
+	
+	By far the worst is a woman of about thirty-five in the last stages of phosphorus poisoning. The flesh along her jawbone has largely rotted away, and dead bone is visible beneath. Earlier in the course of the disease, you might have saved her by putting her under chloroform and surgically removing her jawbone, but she refused the operation. You understand a friend brought one of the Juniper Street healers to see her, but she likewise refused healing. Now there is nothing anyone can do; she will die in agony. All you can do is prescribe laudanum to ease her pain.
+	
+	*goto Rounds2
+	
+*else
+	
+	You see the usual collection of ailments among your relatively-wealthier patients, the shopkeepers and such. Mrs. Robertson's children are recovering from measles. They will recover faster in clean country air, and she promises she will send them to stay with a farmer cousin in the north. Old Mr. Pollack has a recurring digestive complaint, but is responding well to the dietary changes you prescribed. Mrs. Smith, the tavern-keeper's wife, is expecting her first child and experiencing some complications, but when you speak with her husband, he promises to engage a maid so that she may spend the rest of her pregnancy in bed. 
+	
+	It is a peaceful enough set of evening rounds. A peaceful enough existence.
+
+	*goto Rounds2
+	
+*label Rounds2
+	
+*if married
+	At home, Grace is waiting for you. She'll have had similar experiences today, walking her own rounds with Mrs. Anstruther's nursing band. Talking with her is always the best part of the day.
+	
+How do you feel?
+	
+*fake_choice
+	
+	#Philosophical. My work now is not as exciting as it once was, but all lives have their phases.
+
+	#Glad I can be of use to the people of Kingsford. Grief for Finch aside, this is the ever-after I wanted.
+
+	#Depressed by the depth of the need and my inability to do anything meaningful to meet it.
+	
+	#Worried about the tensions simmering beneath the surface of the East End. 
+	
+	#I really just feel numb.
+	
+	#Far in the back of my mind, something is screaming to be let out to do something real. I ignore it.
+
+As you reach the small house that adjoins your practice, the last of the light fades, closing the last day of summer. 
+
+*page_break
+The first day of autumn begins abruptly, with a frantic knocking on your door. It is little Tommy O'Brien, the lad who came to fetch you yesterday for his father the injured laborer. He says his father is worse than he was yesterday. Fearfully ill.
+	
+You try to ask for more detail as you follow the child, but he cannot provide any. He only keeps repeating "fearfully ill." You notice that there seems to be something amiss in other households you pass—a sense of disorder and agitation—but you haven't time now to investigate.
+	
+*page_break
+Your patient is, as his son said, fearfully ill, and with something more ominous than fever from an infected injury. When you enter the room, Tom O'Brien is curled up on his pallet, knees drawn up to chest and arms wrapped around them, groaning. He is surrounded by evidence that he has been vomiting uncontrollably for hours; the stench in the little room is terrible.
+
+You turn him over, and his skin is clammy under your hand. His face looks waxen, his eyes sunken and glassy. You get him to drink a little water, but he vomits it up almost at once—in gushes, as though the water overflows his mouth.
+
+You were already harboring a hideous suspicion, but that sight removes all doubt. That particular type of vomiting is characteristic of only one illness. 
+
+Cholera.
+	
+What do you do first?
+	
+*fake_choice
+	
+	#I must get him to the charity ward at the hospital. There is no cure for cholera, but the quality of the nursing matters a great deal.
+		
+		You search for the gentlest way to tell the boy.
+		
+	#I must discover where he has spent the last few days, where he could have contracted this. If the source of the infection is not found promptly, Kingsford could be facing an epidemic.
+		
+		"Lad," you say at once, "can you tell me where your father—"
+		
+	#Before any of this, I look for a place to wash my hands—but there is nothing adequate, of course, not in so poor a hovel. 
+		
+		You look up to see the boy biting his nails, tips of his fingers in his mouth.
+			
+		"Lad," you say at once, "you musn't—"
+	
+You are interrupted.
+	
+*page_break
+	
+"Dr. $!{lastname}?" You know that voice. You look over to the doorway to see a patient of yours, Mrs. Jill Symond—called "Mrs" out of courtesy; you don't believe she was ever married to any of her children's fathers. 
+	
+"I thought it was you going by," she says. Her face is drawn with worry. "I came to say could you call upon Jemima Burke when you've finished here? I've just come from her—she's fearfully ill."
+	
+You feel as though you have swallowed ice.
+
+"And her two eldest with her," Jill adds.
+	
+Within the hour, it becomes clear that cholera is abroad in the East End.
+*goto Cholera
+	
+
+*label Cholera
+*page_break
+The disease sweeps like fire through the ramshackle rooming houses. One hundred and twenty-seven people die in the first three days. Among them are Tom O'Brien and his seven-year-old son, and Mrs. Burke and all five of her children.
+
+Whole houses are rendered uninhabited, their former denizens lying dead in their own filth, in tenement after crowded one-room tenement.
+
+"It's a curse," one of your patients moans. Her name is Maggie Wimple, and you know her slightly; she came to you once for the treatment of a hand she injured in Merrill's factory. She is not yet twenty, yesterday she was widowed, and you do not hold out much hope for her small daughter's survival. "It's got to be. Nothin' natural comes on like this. Those folk at that temple down Juniper Street—"
+
+How can you respond to this?
+
+*choice
+
+	#"I know what it looks like, but cholera is caused by drinking contaminated water."
+	
+		*set conventional %+15
+		
+		"Drinking what?"
+		
+		"Dirty water," you amend.
+		
+		"That can't be. I drank the same water I always have done. Why would it change? No, Doctor, it's a curse. My mam always told me light-eaters could do awful things. Four babies she lost to cradle-death, and that's light-eaters too. And this—" She gestures. "This is nothin' natural."
+		
+		*goto Cholera2
+		
+	#"No, no. The healers in the temple are good people, and even if they could do you harm, they would not."
+	
+		*set conventional %-15
+		
+		She looks at you suspiciously. "How can you know? No, Doctor, it's a curse. My mam always told me light-eaters could do awful things. Four babies she lost to cradle-death, and that's light-eaters too. And this—" She gestures. "This is nothin' natural."
+		
+		*goto Cholera2
+		
+	#"I can see why you would think it a curse, but it isn't. Cholera really does act this way."
+	
+		
+		She looks at you suspiciously. "How can you know? No, Doctor, it's a curse. My mam always told me light-eaters could do awful things. Four babies she lost to cradle-death, and that's light-eaters too. And this—" She gestures. "This is nothin' natural."
+		
+		*goto Cholera2
+		
+*label Cholera2	
+		
+It's been known for years that cholera is caused by drinking contaminated water—but you are forced to admit you understand why the uneducated call it "something unnatural." 
+
+If there ever were a disease caused by unnatural means, cholera would surely be it. Sometimes its symptoms are so mild that the victim can go for days without realizing he is infected (and thereby accidentally spread the contagion), and sometimes it hits so hard and so fast that the victim dies within the day.
+*page_break
+You arrive home to find Jed Baker and David Brown both pacing up and down your consulting room. Jed has been your patient since the business with the wine two years ago, but you haven't seen David since he was a witness to the Merrill Steelworks bombing.
+
+"My brother and his wife—" David begins.
+
+"My wife and the baby—" Jed overlaps him.
+
+*if married
+	Grace appears in the doorway. Judging from her attire, she is newly-returned from her rounds with Mrs. Anstruther. She looks anguished and exhausted.
+	
+Before you can say a word, Jill Symond appears at the window. "Doctor, my daughter—"
+
+What are you going to do?
+
+*choice
+
+	#I go with David. His brother's household is a few streets over from the bulk of the cholera cases. If the disease has traveled that far, I need to know.
+
+		*set compassionate %-15
+		
+		"But my son—" Jed says.
+		
+		"But my daughter—" Jill says.
+		
+		*if married
+			"Don't worry," Grace says to Jill. "I can come with you and help with your daughter's care."
+			
+			"And I will call upon you as soon as I am through at the Brown home," you reassure Jed.
+			
+			*page_break
+			The Brown household is indeed suffering from cholera.
+			
+			*goto ReturnHome
+			
+		*else
+			
+			"I shall call upon you both," you reassure them. "I won't be long."
+			
+			The Brown household is indeed suffering from cholera. Anna Brown, Frank's wife, is particularly bad.
+			
+			*goto ReturnHome
+			
+	#I go with Jed. Babies are particularly susceptible to death from cholera complications and only the best of nursing can save them, so I need to be sure Baker and his wife know what to do.
+	
+		*set medicine %+15
+		
+		"But my brother—" David says.
+		
+		"But my daughter—" Jill says.
+		
+		*if married
+			"Don't worry, Mrs. Symond," Grace says. "I can come with you and help with your daughter's care."
+			
+			"And I will call upon your brother's house as soon as I am through at the Bakers'," you reassure David.
+			
+			*page_break
+			
+			Jed's wife and son do indeed both have symptoms of cholera. The baby is very bad.
+			
+			*goto ReturnHome
+			
+		*else
+			
+			"I shall call upon you both," you reassure them. "I won't be long."
+			
+			*page_break
+			
+			Jed's wife and son do indeed both have symptoms of cholera. The baby is very bad.
+			
+			*goto ReturnHome
+			
+	#I go with Jill. She's been trying to help all her afflicted neighbors, and now she needs help herself.
+	
+		*set compassionate %+15
+		
+		"But my brother—" David says.
+		
+		"But my son—" Jed says.
+		
+		*if married
+			"Don't worry," Grace says to Jed. "I can come with you and help with the baby's care."
+			
+			"And I will call upon your brother's house as soon as I am through at the Symonds'," you reassure David.
+			
+			*page_break
+			
+			Jill Symond's eldest daughter is very ill, to be sure, though not the worst you have seen today. She might recover. 
+			
+			*goto ReturnHome
+			
+		*else
+			
+			"I shall call upon you both," you reassure them. "I won't be long."
+			
+			*page_break
+			
+			Jill Symond's eldest daughter is very ill, to be sure, though not the worst you have seen today. She might recover. 
+			
+			*goto ReturnHome
+			
+*label ReturnHome
+
+You do what you can for the household, making sure those inhabitants still well understand what they must do to nurse those who are ill.
+
+You visit another four households after that.
+
+By the time you drag yourself home once more—well after dark—you are so weary you can hardly put one foot in front of the other. Every doctor in the area is in a similar state of exhaustion, and the charity wards at the hospitals are filled to overflowing.
+
+*if married
+
+	Grace enters the sitting room a few minutes after you do, dropping limply into her usual chair without even removing her bonnet and gloves. She lets her head fall back and closes her eyes.
+
+	What do you say to her?
+	
+	*choice
+	
+		#"Did you lose any today?"
+		
+			*set medicine %+15
+			
+			"Yes," she says, tears beginning to trickle through her closed lashes. "Three, this morning. None this afternoon, so I suppose there is that." Angrily, she adds, "We should be able to do something about this. We should be able to do more. We [i]know[/i] what causes it, we ought to be able to— There has to be [i]something[/i] more we can do."
+			
+			*goto ReturnHomeGrace
+			
+		#"You should rest, love."
+		
+			*set compassionate %+15
+			
+			"When it's over," she says, tears beginning to trickle through her closed lashes. "I can't—stay here and do nothing while—while people are dying out there. $!{firstname}, we have to do more to help them. We should be able to do more. We [i]know[/i] what causes it, we ought to be able to— There has to be [i]something[/i] more we can do."
+			
+			*goto ReturnHomeGrace
+			
+		#"I am coming to understand why they call it a curse."
+		
+			*set conventional %-15
+			
+			She opens suddenly angry eyes. "Cholera is an illness, and we can do something about it. There has to be [i]something[/i] more we can do about it. We [i]know[/i] what causes it, we ought to be able to— There has to be something more we can do."
+			
+			*goto ReturnHomeGrace
+
+*else
+		
+	There has to be [i]something[/i] more you can do.
+	
+	*page_break
+	
+	But what? There is no cure. All any doctor can do is treat the symptoms and hope for the best. When the source of the contaminated water is discovered, steps can at least be taken to ensure there are no new cases, but even then—
+	
+	For the first time, you wonder who is creating the map of cholera cases that will suggest the source of the contagion. Probably someone working for the Royal Medical Society or for one of the large hospitals in the better part of Kingsford…
+	
+	…and none of those people are here on the front lines. They won't have all the information they need.
+	
+	Moreover, the doctors who [i]are[/i] here working among the ill are, in large part, indifferently trained. Some of them still subscribe to the idea that crowded living conditions or unhealthful air can spontaneously produce cases of cholera. Others no doubt believe the admittedly-not-completely-disproven theory that cholera can spread through the air. They won't be looking for a common source of contaminated water.
+	*page_break
+	The doctors with the information haven't the training to interpret it, and the doctors with the training do not have the information.
+	
+	If anyone is going to pinpoint the source of the contamination, it looks like it will have to be you. 
+	
+	*goto JonSnow
+
+*label ReturnHomeGrace
+
+"We know what causes it, but there is no cure," you remind her, though she knows this as well as you do. "All we can do is hold the line and treat the symptoms until the source is discovered."
+
+"How long will that take?"
+
+"No doubt it is underway even now," you say. "Someone working for the Royal Medical Society or one of the big hospitals in the West End knows how to map cholera cases and determine a common source of contagion. Although…" you say slowly, thinking about it for the first time,"…they're not here. I doubt they [i]know[/i] where all the cases are clustered. And the doctors who [i]are[/i] here are too focused on treating symptoms to think of doing the analysis themselves. Some of them likely still subscribe to the idea that crowded living conditions can spontaneously produce cases of cholera, or that cholera can spread through the air. They won't be looking for a common source of contaminated water."
+
+You and Grace look at each other.
+*page_break
+"The doctors with the information haven't the training to interpret it, and the doctors with the training do not have the information," she says. "If the source of the contaminated water is to be found…$!{firstname}, I think it's up to us."
+
+*label JonSnow
+
+*comment 50 people die every day. If you spend time in the trenches, you can save some. If you don't (because you are working on the map), it's the full 50. 
+
+*comment When DeadCounter = 50, Jed's baby dies. When DeadCounter = 60, Maggie's daughter dies. When DeadCounter = 70, Frank Brown's wife dies. When DeadCounter = 100, Jill Symond's daughter dies. When DeadCounter = 120, Jed's wife dies. When DeadCounter = 140, Maggie dies. When DeadCounter = 160, Frank Brown dies. When DeadCounter = 180, Jill dies. When DeadCounter = 200, the old sun-worshipper does. When DeadCounter = 220, Jed dies. When DeadCounter = 240, Frank Brown's youngest son dies. When DeadCounter = 240, Jill's second child dies. When DeadCounter = 260, Frank Brown's middle son dies. When DeadCounter = 280, Jill's third child dies. When DeadCounter = 300, Frank's eldest son dies. When DeadCounter = 320, Jill's fourth child dies. When DeadCounter = 340, Jill's last child dies. 
+
+*comment So if you take a day off to do the map, 50 people die, including Jed's baby.
+
+*comment If you do a full day's work, you save 30 out of each day's 50, but it takes you three days to get a full map. 60 people die, including Jed's baby and Maggie Wimple's daughter.
+
+*comment If you try to split the difference, you save 15 each day, but it takes you two days to get to a full map. 70 people die, including Jed's baby, Maggie Wimple's daughter, and Frank Brown's wife.
+
+You realize you face a choice. Outside your door, people are suffering and dying right now. They need your medical skill, right now. Dare you turn your attention away from their needs to grapple with the overall problem?
+
+*choice
+
+	#Yes. Determining the origin of the contagion will save the most lives overall. I devote all my attention to the larger problem.
+		
+		*label DayOffToCompleteMap
+		*set compassionate %-15
+		
+		The following morning, you close your shutters, instruct the maid to tell all callers you are not at home, and sit down with paper and pencils. You begin to map the known cases of cholera with the date of onset noted, hoping some commonality will emerge among the earliest cases.
+		*if married
+			Grace reviews your case notes and adds her own to your pile.
+
+		All morning, you hear the downstairs bell ringing and the maid's voice turning away caller after desperate caller. You can hear a little of the conversations—[i]but my mother has fallen ill, but my father is in such pain, but my child is dying; I don't know what to do; please tell the doctor as soon as he returns; please. [/i]
+		
+		*choice
+		
+			#I do my best not to listen. The best thing I can do for all of them is complete this map as quickly as possible.
+				 
+				*set compassionate %-15
+				*set MapDone +50
+				*set DeadCounter +25
+				*comment You work all morning on the map, so you do half of it. 50 people die a day without your assistance, so 25 die in the morning
+				
+				Shortly after midday, you hear a voice you recognize: Jed Baker. "But the baby—we don't know what to do. Please tell the doctor. Please."
+				
+				*choice
+				
+					#The odds of the baby surviving are low in any case, and there is little I can do to improve them. To benefit the greatest number of people, I have to finish the map.
+						 
+						*set compassionate %-15
+						*set MapDone +50
+						*set DeadCounter +25
+						*comment You complete the other half of the map and the other half of the 50 people die.
+						
+						*if compassionate > 70
+							You set your teeth.
+							
+						You continue with your work.
+						
+						*if married
+							"It's the right thing to do," Grace whispers, but it looks as though she is fighting the impulse to go downstairs and accompany Jed back home. 
+							
+						*goto DayTwo
+				
+					#I throw down my pen, gather my supplies, and go with Jed. If there's even a chance I can help the baby, I have to try.
+						 
+						*set compassionate %+15
+						*set DeadCounter +10
+						*set Survivor1 "baby"
+						*comment no increment to MapDone because you do no further work on the map
+						*comment 50 people die per day without you. 20 with you. 25 would die this afternoon without you, but because you're there, only 10 do.
+						
+						You do what you can for the child.
+					
+						And then you are mobbed by other people needing help for their children, and you spend the rest of the day working among cholera victims. 
+			
+						*gosub OldBeliever
+					
+						You return home and fall into bed, exhausted.
+					
+						*goto DayTwo
+					
+			#I throw down my pen, gather my supplies, and go help the people who need help. I can return to the map when my day's work is done.
+				 
+				*set compassionate %+15
+				*if married
+					Grace nods understanding.
+					
+				*goto FullDaysWork
+			
+			#I gather supplies and go help the people who need help. Just for the morning—I can't spare any more time than that from the map.
+				 
+				*if married
+					Grace nods understanding.
+					
+				*goto HalfDaysWork
+			
+	#No, I can't ignore the smaller pictures for the sake of the larger one. I go and do a full day's work among those suffering, then sit down at night to solve the larger problem. 
+		 
+		*label FullDaysWork
+		*set compassionate %+15
+		*set DeadCounter +20
+		*set MapDone +33
+		*comment 50 people die if you're not there, 20 if you are there. You're there all day, so DC +20. Map complete gets incremented by 33% because I didn't want you to take longer than 3 days to get an initial map, b/c of Grace incubation period.
+		
+		You go out into the streets to work among the cholera victims. You hope the care you provide will make some difference, will save a few of them at least.
+				
+		*gosub OldBeliever
+		
+		*page_break
+						
+		Your muscles ache with fatigue and your eyes are dry and burning as you stumble home at the end of the day. You want nothing more than to collapse into sleep, but instead, you sit down with paper and pencils and begin to map the known cases of cholera with the date of onset noted, hoping some commonality will emerge among the earliest cases.
+		
+		You fall asleep over your notes.
+		
+		*goto DayTwo
+		
+	#I try to split the difference. I work half-days among those currently ill, then retreat home to focus on solving the larger problem.	
+		 
+		*label HalfDaysWork
+		*set DeadCounter +10
+		*comment 25 people would die that morning if you were not there. You should be able to save 15 of the 25. 
+		
+		You go out into the streets to work among the cholera victims. You hope the care you provide will make some difference, will save a few of them at least.
+			
+		*gosub OldBeliever
+				
+		You come home in the afternoon, close your shutters, instruct the maid to tell callers you are not at home, and sit down with paper and pencils. You map the known cases of cholera with the date of onset noted, hoping some commonality will emerge among the earliest cases.
+
+		All afternoon, you hear the downstairs bell ringing and the maid's voice turning away callers who plead to speak with the doctor. You manage to ignore their desperate voices until you hear one you recognize: Jed Baker. 
+		
+		"But the baby—we don't know what to do. Please tell the doctor. Please."
+				
+		*choice
+				
+			#The odds of the baby surviving are low in any case, and there is little I can do to improve them. To benefit the greatest number of people, I have to finish the map.
+				 
+				*set compassionate %-15
+				*set MapDone +50
+				*set DeadCounter +25
+				*comment You finish the rest of the map. 25 people die (half a day's worth) because you're not there.
+						
+				*if compassionate > 70
+					You set your teeth.
+					
+				You keep working.
+				
+				*if married
+					"It's the right thing to do," Grace whispers, but it looks as though she is fighting the impulse to go downstairs and accompany Jed back home. 
+							
+				*goto DayTwo
+				
+			#I throw down my pen, gather my supplies, and go with Jed. If there's even a chance I can help the baby, I have to try.
+				 
+				*if married = false
+					*goto GoWithJed
+					
+				*else
+					"But $!{firstname}—" Grace protests. "This work is important too. It's the best way to help all of them.
+				
+					*choice
+				
+						#She's right. I sit back down. 
+							 
+							*set compassionate %-15
+							*set MapDone +50
+							*set DeadCounter +25
+							*comment You finish the rest of the map. 25 people die (half a day's worth) because you're not there.
+						
+							*if compassionate > 70
+								You set your teeth.
+					
+							You keep working.
+							
+							*goto DayTwo
+						
+						#I can't coldheartedly compile a map when there is a desperate father in my consulting room. I leave the map and go with Jed.
+							 
+							*label GoWithJed
+							*set compassionate %+15
+							*set DeadCounter +10
+							*set MapDone +33
+							*set Survivor1 "baby"
+							*comment 25 people would die that afternoon if you were not there. A half day's work should save 15 out of 25. 
+				
+							You do what you can for the child. And then you are mobbed by other people who need help for their children. 
+						
+							Your muscles ache with fatigue and your eyes are dry and burning as you stumble home at the end of the day. You want nothing more than to collapse into sleep, but instead, you sit down with paper and pencils and begin to map the known cases of cholera with the date of onset noted, hoping some commonality will emerge among the earliest cases.
+		
+							You fall asleep over your notes.
+		
+							*goto DayTwo
+				
+
+*label DayTwo
+
+*page_break
+
+You wake to the news that the death toll is currently somewhere about ${DeadCounter}. 
+*if ((DeadCounter - 127) >= 55) and (Survivor1 != "baby")
+	And that the three-month-old son of Jed and Helen Baker is among them. As are Maggie Wimple's daughter and Frank Brown's wife.
+	*goto DayTwo2
+*elseif (DeadCounter - 127) >= 55
+	And that Maggie Wimple's daughter, Jill Symond's daughter, and Frank Brown's wife are all among them. 
+	*goto DayTwo2
+*elseif ((DeadCounter - 127) >= 50) and (Survivor1 != "baby")
+	And that the three-month-old son of Jed and Helen Baker is among them. As is Maggie Wimple's daughter.
+	*goto DayTwo2
+*elseif (DeadCounter - 127) >= 45
+	And that Maggie Wimple's daughter and Jill Symond's daughter are both among them.
+	*goto DayTwo2
+*elseif ((DeadCounter - 127) >= 40) and (Survivor1 != "baby")
+	And that the three-month-old son of Jed and Helen Baker is among them. 
+	*goto DayTwo2
+*else
+	And that Maggie Wimple's daughter is among them—as you expected, there was not much that could be done for her. 
+	*goto DayTwo2
+
+	
+*label DayTwo2
+
+The tensions that always run beneath the surface of the East End are bubbling over. There were riots last night. They began when a lone healer was attacked by a grief-stricken widower who claimed the healers were spreading the disease, and ended with armed altercations between Loegrian-born and Mercian-born East Enders.
+ 
+*if MapDone >= 95
+
+	But you				
+	*if married
+		and Grace between you 
+	have completed a map showing clusters of cholera cases and the date of onset of each. It is an extraordinary achievement for one day's work.
+	
+	*goto Map
+	
+*else
+
+	You stare at the partially-completed map.
+	
+	*choice
+		#Today I must focus on this, to the exclusion of all else.
+			 
+			*label Day2MapWork
+			*set compassionate %-15
+			*set MapDone +50
+			*set DeadCounter +50
+			
+			You close your shutters, instruct the maid to tell all callers you are not at home, and sit down to complete the map. 
+			*if married
+				Grace assists by organizing your case notes and her own.
+
+			All day, you hear the downstairs bell ringing and the maid's voice turning away caller after desperate caller, but you stay at your desk.
+			
+			*goto DayThree
+							
+		#I can't ignore the suffering in the streets. I will work a full day, then return to the map in the evening.
+			 	
+			*if married = false
+				*goto SecondDayStreets
+			
+			*else
+				"But $!{firstname}—" Grace protests. "This work is important too. It's the best way to help all of them."
+				
+				*choice
+				
+					#She's right. I sit back down. 
+						 
+						*goto Day2MapWork
+								
+					#I can't coldheartedly sit and compile this information when there are people begging my help right here and right now. I go work a full day, intending to get back to the map in the evening.
+						 
+						*label SecondDayStreets
+						
+						*set compassionate %+15
+						*set DeadCounter +20
+						*set MapDone +33
+							
+						Sixteen hours later, you stumble wearily home.
+						
+						You want nothing more than to collapse into sleep, but instead, you sit down with paper and pencils.
+								
+						You fall asleep over your notes.
+							
+						*goto DayThree
+						
+					#I try to split the difference. I'll just go out in the morning, and go back to the map in the afternoon.
+						 
+						*set DeadCounter +35
+						*set MapDone +50
+					
+						*comment 50 people die per day. You save 15 by working in the morning, so 35 people die.
+						
+						You come home in the afternoon, close your shutters, instruct the maid to tell callers you are not at home, and sit down with paper and pencils. 
+
+						All afternoon, you hear the downstairs bell ringing and the maid's voice turning away callers who plead to speak with the doctor, but you stay at your desk.
+					
+						*goto DayThree
+							
+					
+		#I will work among the ill, but in the morning [i]only[/i]. The afternoon will be devoted to the map.
+			 
+			*set DeadCounter +35
+			*set MapDone +50
+					
+			You come home in the afternoon, close your shutters, instruct the maid to tell callers you are not at home, and sit down with paper and pencils. 
+
+			All afternoon, you hear the downstairs bell ringing and the maid's voice turning away callers who plead to speak with the doctor, but you stay at your desk.
+					
+			*goto DayThree
+
+	
+*label DayThree
+
+You wake to the news that the death toll is currently somewhere about ${DeadCounter}. 
+*if ((DeadCounter - 127) >= 85) and (Survivor1 != "baby")
+	It now includes Jed Baker's son, Maggie Wimple's daughter, and Frank Brown's wife.
+	*goto DayThree2
+*elseif ((DeadCounter - 127) >=85)
+	It now includes Maggie Wimple's daughter, Jill Symond's daughter, and Frank Brown's wife. 
+	*goto DayThree2
+*elseif ((DeadCounter - 127) >= 80) and (Survivor1 != "baby")
+	It now includes Jed Baker's son and Maggie Wimple's daughter. 
+	*goto DayThree2
+*else
+	It now includes Maggie Wimple's daughter and Jill Symond's daughter.
+	*goto DayThree2
+
+		
+*label DayThree2
+
+The streets are becoming more dangerous to walk through. Some of those causing disturbances are grief-stricken and hardly responsible for their actions. Others are cold-bloodedly taking advantage of the public disorder to break into untended shops and loot what they can, or to ambush those walking alone and rob them at knifepoint.
+
+*if MapDone >= 95
+
+	But you				
+	*if married
+		and Grace between you 
+	have completed a map showing clusters of cholera cases and the date of onset of each.
+	
+	*goto Map
+	
+*else
+
+	*set DeadCounter +50
+	It takes the rest of the day to complete the map–and during that day, fifty more people die–but finally, it is done. 
+	
+	*goto Map
+
+*label Map
+*page_break
+
+*if (medicine > 70) 
+
+	*comment you put together an exceptionally good map
+	
+	The map is a testament to your medical expertise. Not even hospital researchers could have done better.
+	
+*if (medicine > 70) or (perception > 70)
+
+	*comment Either the map is really good, or you are really perceptive	
+	*set GoodMap true
+	
+	You study it eagerly, looking for a clue to the start of the outbreak.
+	
+	The largest concentration of cases, both initial and later, is situated in the three streets surrounding the Broad Street water pump. That suggests the pump is at fault, but does not prove it, since there are smaller but still significant concentrations on Norris Street and Dearborn Street. You frown at those.
+
+	You are still missing some of the information you need to make an accurate diagnosis. Only by interviewing the people affected can you close the gaps.
+	
+	*goto MapGapsChoice
+	
+*else
+
+	You study it eagerly, looking for a clue to the start of the outbreak.
+	
+	Your painstaking work has at least narrowed the field. You perceive four or five significant concentrations of cases, any one of which could represent the origin. 
+	
+	But you haven't enough information to narrow the options further. To make an accurate diagnosis, you need more information—information you can only get by interviewing the people affected. 
+	
+	*goto MapGapsChoice
+	
+*label MapGapsChoice
+
+*choice
+
+	*if married = false
+		#I have a sufficient rapport with the people who live in the affected areas. I set out to acquire this information on my own.
+		
+			*goto IAlone
+			
+	*if married
+		#Grace and I between us have a sufficient rapport with the people who live in the affected areas. We set out together to acquire the information.
+		
+			*goto GraceAndIAlone
+		
+	*if (((lethergo) or (missedher)) and (workedwithher = false))
+		#I'm not sure they'll all talk to me. But Alexandra Townsend owes me a favor. I ask for her help in acquiring the data.
+		
+			*gosub AskAForHelpFirstTime
+			
+			*page_break
+			*goto AlexandraHelp
+	
+	*if workedwithher
+		#I'm not sure they'll all talk to me. I ask Alexandra Townsend for help in acquiring the data.
+		
+			*label AskAForHelp
+			*if married
+				How do you explain Alexandra to Grace?
+				
+				*choice
+				
+					#I don't. I send Alexandra a note privately, and go to meet her in secret to hear her findings.
+					
+						*goto AlexandraHelp
+						
+					#I tell a white lie, pretending Alexandra is a patient.
+					
+						Alexandra adopts the guise of an old woman and the name "Margaret Lewis," and you and she and Grace assemble in the sitting room to discuss a plan of attack.
+						
+						*goto AlexandraGraceHelp
+						
+					#I tell mostly the truth, that Alexandra is on the wrong side of the law. I don't mention [i] Colossus [/i] specifically.
+					
+						A good decision. Grace has some strong feelings about what happened on [i]Colossus[/i], and now isn't the best time. 
+						
+						Grace assures you that she does not at all mind working with whomever necessary to gather the information required. 
+						
+						Alexandra adopts the guise of an old woman and the name "Margaret Lewis," and you and she and Grace assemble in the sitting room to discuss a plan of attack.
+					
+						*goto AlexandraGraceHelp
+						
+			*else
+				*goto AlexandraHelp
+		
+	*if RelAlexandra <= 50
+		*selectable_if (false) #I'm not sure they'll all talk to me. Alexandra Townsend would be of great help here, but I can't ask her.
+			*finish
+		
+	*if RelTaggart > 45
+		#I'm not sure they'll all talk to me. I ask Christopher Taggart for help in acquiring the data.
+		
+			*if married = false
+				*goto TaggartHelp
+			*else
+				Do you tell Grace what you intend?
+				
+				*choice
+				
+					#No, I know how she feels about the Sun Temples. I contact Taggart privately.
+					
+						*goto TaggartHelp
+					
+					#Yes. I'm sure she only needs a good reason to put aside her prejudices.
+					
+						Grace stares at you. "You want to [i]what[/i]? No—[i]no[/i], $!{firstname}, what are you thinking? We can't work with them!"
+						
+						"I'm not suggesting we abandon a medical approach and ask him to start healing!" you reply. "But he is likely to have the information we need to—"
+						
+						"No." Grace folds her arms. "I won't have one of them in my house."
+						
+						*choice
+
+							#I go to see Taggart secretly. Grace never has to know.
+							
+								*goto TaggartHelp
+							
+							#No, I can't go behind her back when it means this much to her. She and I set out to acquire the information alone.
+							
+								*goto GraceAndIAlone
+							
+							*if (RelAlexandra > 50) and (workedwithher)
+								#I ask Alexandra Townsend for help in acquiring the data.
+								
+									*goto AskAForHelp
+									
+							*if (((missedher) or (lethergo)) and (workedwithher = false))
+								#Alexandra Townsend owes me a favor. I ask for her help.
+									
+									*gosub AskAForHelpFirstTime
+									
+									*page_break
+									*goto AlexandraHelp
+									
+							*if RelAlexandra <= 50
+								*selectable_if (false) #Alexandra Townsend would be of great help here, but I can't ask her.
+								
+									*finish
+
+					*if (RelAlexandra > 50) and (workedwithher)
+						#On second thought, I ask Alexandra Townsend for help in acquiring the data.
+								
+							*goto AskAForHelp
+
+					*if (((lethergo) or (missedher)) and (workedwithher = false))
+						#On second thought, Alexandra Townsend owes me a favor. I ask her for help in acquiring the data.
+						
+							*gosub AskAForHelpFirstTime
+									
+							*page_break
+							*goto AlexandraHelp
+							
+	*if RelTaggart <= 45
+		*selectable_if (false) #Christopher Taggart could almost certainly fill in the gaps, but I can't ask him. 
+			*finish
+		
+*label TaggartHelp
+*set TaggartCholeraAlly true
+*set workedwithhim true
+ 
+*comment This is going to read a little oddly if you burst into T's temple and haven't spoken since. 
+	
+"Doctor," Taggart says tightly, "I am sure you of all people understand me when I say I have neither time nor energy to spare just now. Too many people out there need me."
+	
+Somehow you must convince him. What do you say?
+*choice
+	
+	#I make a passionate speech, attempting to persuade him of my heartfelt determination to save lives. 
+		
+		*if (compassionate > 60) or (charisma > 70)
+		
+			"More will fall ill every day until the cause is discovered," you conclude. "We [i] have [/i] to find a way to save them."
+			
+			Taggart studies you a moment. "I can see that is truly your motivation," he says at last. "And you really believe this map is the best way to do so?"
+			
+			You nod.
+			
+			Taggart hesitates, then turns the map around to see it better. "What is it you need?"
+			
+			*page_break
+			*goto TaggartWholehearted
+			
+		*else
+		
+			*goto TaggartReluctant
+			
+	#I speak logically, attempting to make him understand the science behind my request. 
+	
+		"Do you know what causes cholera?" you begin.
+		
+		"People living cheek-by-jowl in this slum, instead of out in the country away from the noise and the foul air?"
+		
+		"You're right that the city is to blame, but it's not due to the air. The problem is contaminated water—" And you give a careful scientific explanation, with diagrams.
+		
+		*if (medicine > 60) or (charisma > 70)
+			At the end of it, Taggart looks at least partway convinced. "If that truly is how it works, I can see why you are anxious to find the source." He turns the map around to see it better. "What is it you need?"
+			
+			*page_break
+			*goto TaggartWholehearted
+		
+		*else
+
+			*goto TaggartReluctant
+			
+	#I need to persuade him that I am different from other doctors he may have encountered, that I truly want us to work together.
+	
+		"They need both of us," you begin. "They need both our skills. You can cure an individual case completely and at once, whereas I can only provide good care and hope for the best. But I can track down the contamination at its source, and until that source is identified, people will keep falling ill. The same people will fall ill again."
+		
+		*if (conventional < 60) or (charisma > 70)
+			Taggart seems struck by that last point. "It is true I have seen the disease reoccur," he murmurs. "And diseases that are healed usually do no such thing…" He looks up. "All right then, Doctor. A partnership. What is it you need?"
+			
+			*page_break
+			*goto TaggartWholehearted
+			
+		*else
+		
+			Taggart sighs through his teeth, but then runs a hand through his thinning hair in a gesture of acquiesence. "I suppose, if there is even a chance it can help…" He bends to look at your map. "What is it you need?"
+			
+			*goto TaggartReluctant
+			
+*label TaggartWholehearted
+ 
+*gosub Source
+
+*if GoodMap
+	*comment You go back to work, saving 30 people of the 50 who would have died. But Taggart isn't working among the ill, so the 30 people he would have saved die - it's a draw.
+			
+	*set DeadCounter +50
+			
+	It takes him a day to fill in your gaps. 
+			
+	During that time, fifty more people die. 
+			
+	You will never know how many of them the healer could have saved if he had been making his usual rounds instead of pursuing your quest.
+			
+	But at least, you tell yourself when you sit down to add Taggart's information to your map, you've almost arrived at a solution. 
+			
+	*goto CompleteMap
+			
+*else
+		
+	*set DeadCounter +100
+				
+	It takes him two days to fill in your gaps.
+			
+	During that time, a hundred more people die. 
+			
+	You will never know how many of them the healer could have saved if he had been making his usual rounds instead of pursuing your quest.
+			
+	But at least, you tell yourself when you sit down to add Taggart's information to your map, you've almost arrived at a solution. 
+	
+	*goto CompleteMap
+
+*label TaggartReluctant
+ 
+Taggart sighs through his teeth, but then runs a hand through his thinning hair in a gesture of acquiescence. "I suppose, if there is even a chance it can help…" He bends to look at your map. "What is it you need?"
+
+*gosub Source			
+
+*if GoodMap
+	*comment You go back to work, saving 30 people of the 50 who would have died. Taggart goes back to work half time. It takes him twice as long to get your info, but he saves 15 people per day - so 30 total less than the 2-day total above.
+	
+	*set DeadCounter +70
+			
+	It takes him two days to fill in your gaps. 
+			
+	During that time, seventy more people die. 
+					
+	But at least, you tell yourself when you sit down to add Taggart's information to your map, you've almost arrived at a solution. 
+	
+	*goto CompleteMap
+			
+*else
+		
+	*set DeadCounter +140
+				
+	It takes him four days to fill in your gaps.
+			
+	During that time, one hundred and forty more people die. 
+			
+	But at least, you tell yourself when you sit down to add Taggart's information to your map, you've almost arrived at a solution. 
+	
+	*goto CompleteMap			
+	
+*label AlexandraHelp
+*set workedwithher true
+*set AlexandraCholeraAlly true
+*set RelAlexandra %+15
+ 
+
+Alexandra nods with approval when you explain why you have sought her out. "Of course I'll help." She cranes to look at your map. "What is it you need?"
+	
+"I need to know where all the earliest cases got their water. I need to know where the unaffected, or those not affected until much later, got theirs. Start with the names on the map, but there may be gaps I don't know about…"
+			
+Alexandra nods. "I can get that information for you." 
+
+*if GoodMap
+
+	*set DeadCounter +20
+	
+	It only takes her a day to fill in your gaps. Twenty more people die that day—but at least, you tell yourself when you sit down to add Alexandra's information to your map, you've almost arrived at a solution. 
+	
+	*goto CompleteMap
+	
+*else
+
+	*set DeadCounter +40
+	
+	It takes her two days to fill in your gaps. Forty more people die during that time—but at least, you tell yourself when you sit down to add Alexandra's information to your map, you've almost arrived at a solution. 
+	
+	*goto CompleteMap
+	
+
+*label AlexandraGraceHelp
+*set AlexandraGrace true
+
+*page_break
+"Surreal" is an inadequate word for the meeting. But at least all constraint between Grace and "Miss Lewis" vanishes within the first quarter-hour. Both are equally determined to find the source of the problem and save as many lives as possible. By the end of the meeting, they are finishing each other's sentences. 
+
+"There," Grace says, and hands a carefully-copied list to Alexandra. "If you can interview these families, Miss Lewis, my husband and I can speak with the rest."
+
+"Consider it done." Alexandra pushes her chair back from the table.
+
+Perhaps it is the word choice—uncommon for an old woman—or perhaps it was inevitable in any case. Grace pauses, and tilts her head to study Alexandra more closely.
+
+"I…Forgive me for staring, Miss Lewis. It's only—I could swear we've met before."
+
+*fake_choice
+
+	#I strike in quickly. "Miss Lewis has been to the surgery once or twice."
+	
+		All Alexandra has to do is agree, and the brief risk will pass.
+	
+	#I try to speak casually. "Was it during your nursing rounds?" Hopefully Alexandra will take the hint.
+	
+		All Alexandra has to do is agree, and the brief risk will pass. 
+	
+	#I say nothing. Alexandra is an actress. She can handle this. 
+	
+		It's not as disastrous a moment as it briefly appears. Grace works in the East End, after all; it is perfectly reasonable that she might have met the type of woman Alexandra pretends to be. All Alexandra need do is suggest such a thing, and the brief risk will pass.
+
+But Alexandra, damn her, likes risks. 
+
+She smiles at Grace. "I was on that dirigible, dearie, the one that almost fell from the sky. No reason you'd remember me, there were so many of us, but I remember you. The woman who loaded the lifeboats." She reaches a gloved hand to pat Grace's. "Saved me from an awful fate, you did. I never did thank you for that."
+
+When Alexandra takes her leave, Grace watches her go with narrowed, thoughtful eyes.
+
+And then she turns to you.
+
+*page_break
+
+For a moment, it seems as though she has a question forming, but then she shakes her head. "That can wait," she says cryptically. "We've a more urgent problem to solve."
+
+Together, you and she head for the East End to interview families.
+ 
+*page_break
+*if GoodMap
+	*set DeadCounter +50
+	
+	It takes the three of you only a day to work through your separate lists. You and Grace return home from your excursion to find that Alexandra has left a parcel containing her notes, and you sit down at the table to augment the map with the new information.
+	
+	*goto CompleteMap
+	
+*else
+	*set DeadCounter +100
+	It takes the three of you two days to work through your separate lists. On the second day, you and Grace return home from your excursion to find that Alexandra has left a parcel containing her notes, and you sit down at the table to augment the map with the new information.
+	
+	*goto CompleteMap
+
+
+*label GraceAndIAlone
+ 
+*if GoodMap
+
+	*set DeadCounter +50
+	Your medical knowledge left very few gaps to be filled, and your medical expertise means most families you approach think well of you and are willing to answer questions. The ones who do not know you personally often know Grace. Between the two of you, it takes only a day to gather all the information you require.
+	
+	Fifty more people die that day. You will never know if you could have saved some of them—but at least, you tell yourself when you sit down to add the new information to your map, you've almost arrived at a solution. 
+
+	*goto CompleteMap
+	
+*elseif charisma > 70
+
+	*set DeadCounter +100
+	
+	Your charm and ease of manner make people want to talk with you, even when they are struggling with horrific illness or recently bereaved. Those who are not willing to talk with you are often willing to talk with Grace. 
+	
+	Between the two of you, it takes only two days to gather all the information you require.
+	
+	A hundred more people die during that time. You will never know if you could have saved some of them—but at least, you tell yourself when you sit down to add the new information to your map, you've almost arrived at a solution. 
+
+	*goto CompleteMap
+	
+*elseif compassionate > 70
+
+	*set DeadCounter +100
+	
+	Your obvious deep compassion makes people want to talk with you, even when they are struggling with horrific illness or recently bereaved. Those who are not willing to talk with you are often willing to talk with Grace. 
+	
+	Between the two of you, it takes only two days to gather all the information you require.
+	
+	A hundred more people die during that time. You will never know if you could have saved some of them—but at least, you tell yourself when you sit down to add the new information to your map, you've almost arrived at a solution. 
+
+	*goto CompleteMap
+
+*else
+
+	*set DeadCounter +150
+	
+	It is difficult to persuade the ill and recently bereaved to talk with you, but you and Grace persevere. You are very glad to have her with you, since some of the people who are unwilling to talk with you will talk with her. At the end of three days, you have filled in all the gaps in your map.
+	
+	One hundred and fifty people die during that time. You will never know if you could have saved some of them—but at least, you tell yourself when you sit down to add the new information to your map, you've almost arrived at a solution. 
+
+	*goto CompleteMap
+	
+*label IAlone
+
+*if GoodMap
+
+	*set DeadCounter +100
+
+	Your medical knowledge left very few gaps to be filled, and your medical expertise means most families you approach think well of you and are willing to answer questions. It takes only a day to gather all the information you require.
+	
+	One hundred people die during that time. You will never know if you could have saved some of them—but at least, you tell yourself when you sit down to add the new information to your map, you've almost arrived at a solution. 
+	
+	*goto CompleteMap
+
+*elseif charisma > 70
+
+	*set DeadCounter +150 
+	
+	Your charm and ease of manner make people want to talk with you, even when they are struggling with horrific illness or recently bereaved. It takes only three days to gather all the information you require.
+	
+	A hundred and fifty more people die during that time. You will never know if you could have saved some of them—but at least, you tell yourself when you sit down to add the new information to your map, you've almost arrived at a solution. 
+
+	*goto CompleteMap
+	
+*elseif compassionate > 70
+
+	*set DeadCounter +150 
+	
+	Your charm and ease of manner make people want to talk with you, even when they are struggling with horrific illness or recently bereaved. It takes only three days to gather all the information you require.
+	
+	A hundred and fifty more people die during that time. You will never know if you could have saved some of them—but at least, you tell yourself when you sit down to add the new information to your map, you've almost arrived at a solution. 
+
+	*goto CompleteMap
+	
+*else
+
+	*set DeadCounter +200
+	
+	It is difficult to persuade the ill and recently bereaved to talk with you, but you persevere. At the end of four days, you have filled in all the gaps in your map.
+	
+	Two hundred people die during that time. You will never know if you could have saved some of them—but at least, you tell yourself when you sit down to add the new information to your map, you've almost arrived at a solution. 
+
+	*goto CompleteMap
+
+*label CompleteMap
+*page_break
+ 
+Once again, you eagerly scan the map.
+
+With the new data added, the solution at once leaps to the eye. All of the initial cases, and many of the subsequent ones, arose among those who drank water from the Broad Street pump.
+
+You lean back. So that's it. You have it. 
+
+You know how the city can be saved from this epidemic. You can stop this.
+
+To whom do you take this information?
+
+*choice
+
+	#Woodward, of course. 
+	
+		*label InfoToWoodward
+		*set WoodwardCholeraAlly true
+		
+		It takes a little maneuvering to get in to see him, but he immediately grasps the importance of what you show him. "I'll have it shut down," he says at once.
+		
+		"It won't solve the problem immediately," you remind him. "There will still be new cases in the poorest homes where it is not possible to be careful enough when washing linen, and among those who drank the contaminated water but have not yet displayed symptoms—"
+		
+		"But the worst is over," Woodward interrupts. "You've cut off its head. [i] Thank you[/i]."
+		
+		*page_break
+		
+		The Broad Street pump is shut down within the hour.
+		
+		*goto WonTheWar
+		
+	*if RelAlexandra > 50
+		#I'm not sure I can trust Woodward to slice through government bureaucracy fast enough—and each day's delay means more death. I inform Alexandra Townsend, instead.
+			*goto InfoToAlexandra
+		
+	*if RelAlexandra > 50	
+		#Woodward has never made the downtrodden of Kingsford his priority–why would he now? I inform Alexandra Townsend, instead.
+	
+			*label InfoToAlexandra
+			*set AlexandraCholeraAlly true
+			
+			*if workedwithher = false
+				*set workedwithher true
+				*gosub AskAForHelpFirstTime
+				*page_break
+				
+			She looks down at the map, then up at your face. "You're sure?"
+		
+			"I'm sure."
+		
+			"Then I'll take care of it." She lets out a breath. "Thank you."
+		
+			"It won't solve the problem immediately," you tell her. "There will still be new cases in the poorest homes where it is not possible to be careful enough when washing linen, and among those who drank the contaminated water but have not yet displayed symptoms—"
+		
+			"But the worst is over," Alexandra interrupts. "You've cut off its head. [i] Thank you[/i]."
+		
+			*page_break
+		
+			In the early hours of the morning, the Broad Street pump is mysteriously vandalized.
+		
+			*goto WonTheWar
+	
+	*if RelAlexandra <= 50
+		*selectable_if (false) #It occurs to me Alexandra Townsend could probably get it done faster…but I don't have the option of asking for her help.
+			*finish
+		
+	*if RelTaggart > 45
+		#I'm not sure I can trust Woodward to slice through government bureaucracy fast enough—and each day's delay means more death. I inform Christopher Taggart, instead.
+
+			*goto InfoToTaggart
+			
+	*if RelTaggart > 45
+		#Woodward has never made the downtrodden of Kingsford his priority–why would he now? I inform Christopher Taggart, instead.
+		
+			*label InfoToTaggart
+			*set TaggartCholeraAlly true
+			*set workedwithhim true
+		
+			"What were you thinking I could do?" he asks. "Purify it?"
+			
+			"I was thinking the government won't move fast enough," you retort. "Surely we can take some direct action."
+			
+			"Sabotage it, you mean? Doctor—you truly do live in a different world. If sun-worshippers are caught sabotaging a water pump and thereby worsening the suffering of the afflicted, during a horrific epidemic of a disease many associate with light-eating—" He rubs his forehead. "What do you think happens then?"
+			
+			You can imagine. 
+			
+			*choice
+			
+				#I resolve to take the information to Woodward.
+				
+					*gosub TaggartCholeraThanks
+					
+					You head off to see Woodward.
+					*page_break
+					*goto InfoToWoodward
+				
+				*if RelAlexandra > 50
+					#I resolve to take the information to Alexandra. 
+					
+						*gosub TaggartCholeraThanks
+						
+						You head off to see Alexandra.
+						*page_break
+						*goto InfoToAlexandra
+					
+				*if RelAlexandra <= 50
+					*selectable_if(false) #Unfortunately, it is not an option to take the information to Alexandra Townsend.
+					
+						*finish
+			
+			
+
+	*if RelTaggart <= 45
+		*selectable_if (false) #It occurs to me Christopher Taggart could probably get it done faster…but I don't have the option of asking for his help.
+			*finish
+		
+*label WonTheWar
+
+*if DeadCounter < 200
+	*achieve twohundred
+	
+The number of new cases reported each day begins to drop from that moment. Something like ${DeadCounter} people have died already, and there are more deaths to come—but the end is within sight, if not yet within reach. Because of you.
+
+You saved all those who would have contracted the disease tomorrow, or the next day, or the next.
+*if Survivor1 = "baby"
+	Jed Baker's son is still fighting the good fight; you may even have saved him.
+*comment endif
+
+It is a damned good day.
+
+*if married
+	"We did it," Grace murmurs as the two of you fall asleep. "My hero."
+
+	*if AlexandraGrace
+		It occurs to you that, sometime very soon, you will need to tell her who Alexandra really is, and face that music. But not tonight. 
+		
+	*goto GraceFallsIll
+	
+*else
+
+	*goto CrossroadsIntro
+	
+						
+*label GraceFallsIll
+*page_break			
+That night, you wake suddenly from an exhausted sleep. The room around you is dark and silent, no frantic knocking on the door below. For a moment you can't think what disturbed your rest, and then you hear the whimper beside you.
+
+"$!{firstname}?" Grace says in a frightened whisper. 
+
+Before you can answer, she stumbles out of bed and runs for the lavatory. 
+
+And the bottom drops out of the world.
+
+*page_break
+
+"I thought it had been long enough," she whispers, between bouts of vomiting. "I thought I was safe. I…I had a bit to drink from the Broad Street pump, the day before the outbreaks started. I didn't tell you because I…didn't want to worry you when I felt perfectly well."
+
+You try to calm your own breathing. 
+
+*fake_choice
+
+	#All will be well. There isn't a cure, but nursing matters a great deal, and I know what I'm doing. It will be fine. It will.
+		*set conventional %+15
+	
+	#I am gripped by rage at those who should have been properly maintaining the pump and the nearby cesspool. 
+		*set conventional %-15
+		
+	#I find myself wishing I believed in some higher power to pray to.
+		*set conventional %-20
+
+Over the next twelve hours, her attacks increase in frequency and violence. 
+
+*choice
+
+	#I take her to the hospital.
+	
+		*set assistance "hospital"
+		
+		You begin preparations to take her to the hospital, but the note you send by messenger gets a response from one of your colleagues telling you, in essence, not to bother. "We're stacked three deep here. She'll have better care under your hands at home."
+		
+		You knew that already. You return to her bedside.
+		*page_break
+		*goto GraceEndgame
+		
+	#I send to the hospital, asking my colleagues for assistance.
+	
+		*set assistance "hospital"
+		
+		You receive a note back telling you not to bother bringing her in. "We're stacked three deep here. She'll have better care under your hands at home."
+		
+		You knew that already. You return to her bedside.
+		*page_break
+		*goto GraceEndgame
+		
+	#I send to Dr. and Mrs. Anstruther, asking for assistance.
+	
+		*set assistance "Anstruther"
+		
+		You receive a note back that expresses their deepest sympathy and assures you one or the other of them will look in later today or tomorrow. Both are run off their feet caring for those who have no one else to turn to. Grace is safer under your care than anywhere else.
+		
+		You knew that already. You return to her bedside.
+		*page_break
+		*goto GraceEndgame
+		
+	#I go myself to the Sun Temple on Juniper Street, asking Taggart's assistance.
+	
+		Or, at least, you plan to. But when you tell Grace where you are going, she flatly refuses to have a healer enter her house or lay hands on her. You try to reason with her, but she says she is shocked that you would even consider it. You've never seen her this angry.
+		
+		*choice
+		
+			#I abandon the plan. Grace has the right to refuse or accept treatment as she sees fit.
+
+				*goto GraceEndgame
+				
+			#I abandon the plan. Grace is becoming so agitated that it is better I let the matter drop.
+			
+				*goto GraceEndgame
+				
+			#Grace can be as angry at me as she likes—later, after she is well. I go for Taggart despite her protests.
+		
+				*set GraceTaggartEncounter true
+				
+				*if ManufacturedEvidence 
+					The red-haired guard at the Sun Temple's gate recognizes you as the official who manufactured evidence against temple residents. He refuses to let you in.
+			
+					You return home, defeated.
+					
+					*page_break
+					
+					*goto GraceEndgame
+			
+			
+				*else		
+					The red-haired guard at the Sun Temple's gate mocks you for your request, but the clamor wakes Taggart, who comes stumbling into the front hall in clothes he appears to have slept in. He looks half-dead himself—not ill with cholera, those symptoms are unmistakeable, but he's lost a noticeable amount of weight 
+					*if TaggartCholeraAlly
+						since the epidemic started,
+					*if TaggartCholeraAlly = false
+						since you last saw him, 
+					and there are heavy sagging bags under his eyes. 
+			
+					When he understands what has brought you to his gates, he comes with you.
+			
+					*page_break
+					
+					But when Grace shrinks back at the sight of his medallion and vehemently shakes her head, Taggart turns to you with the first real anger you have ever seen him display. "You omitted a rather important fact, did you not? She doesn't want this."
+					
+					"No," Grace confirms weakly. "I don't."
+					
+					"Then I apologize for intruding, madam," Taggart says to her. To you, he adds, "I can't lay hands on someone who has refused her consent. Light-eaters do that, not me."
+					
+					"But if she were incapable of consenting?" you try to bargain. "When a doctor has a patient who cannot consent or refuse, he asks her nearest kin—"
+					
+					"Yes, we do the same. If she were unconscious and I didn't know how she felt about it, you could persuade me—but I know now. Doctor, I'm sorry. I wish you both the best. But you can't choose this for her."
+					
+					*page_break
+					
+					*goto GraceEndgame
+				
+	#No one's assistance will make a difference. I know how to nurse a cholera case.
+
+		*set assistance "none"
+		
+		You sit solitary vigil by her bedside.
+
+		*goto GraceEndgame
+		
+*label GraceEndgame
+
+By the time night falls again, Grace is vomiting in gushes as though the water overflows her mouth. Between attacks she is gripped by muscle spasms, and her face begins to take on the waxen, sunken-eye look that is  characteristic of the end stages of cholera.
+
+*fake_choice
+
+	#I frantically pen a note begging my hospital colleagues for assistance.
+	
+	#I frantically pen a note begging Anstruther for assistance.
+	
+	#I frantically flip through my medical textbooks, looking for anything that might help.
+
+	
+Just then, a hammering at the front door makes you jump.
+
+You go to answer it. 
+*if assistance = "Anstruther"
+	You hope to see Dr. Anstruther or his wife.
+*if assistance = "hospital"
+	You hope to see one of your colleagues from the hospital.
+*if assistance = "none"
+	It is just possible that Dr. Anstruther or his wife might be calling.  
+Not that they can do anything, but you still, irrationally, hope to see a helpful colleague as you unbolt the door.
+
+It is a colleague. But he is not helpful. Dr. Herschel Adolphus Horn, the local hospital's worst incompetent, is more than three sheets to the wind.
+
+*page_break
+
+"They said y'r wife…poor thing…" He peers around the hall as though expecting to find Grace there. "Horrible at t'hospital, y'know, so many…been working day and night m'self, I have. So tired they told me go home, so I did…but I thought…on the way, I'd just stop by–y'know? See if I could help, somehow." He paws against the wall for a moment before achieving an angle that will hold him upright, and beams at you, expecting approval.
+
+You wonder whether he was sent home because he was drunk, or whether he was truly sent home because of fatigue and found a tavern in which to become drunk between the hospital and your house. 
+
+You hear Grace cry out and hasten up the stairs, Horn lumbering in your wake.
+
+*page_break
+
+When the paroxysm of vomiting leaves Grace, she slumps back too weak to open her eyes.
+
+"Not good," Horn mumbles happily behind you. "Clammy skin, temperature dropping, y'know. Not good."
+
+Do you hit him, or do you merely order him out of your house?
+
+*fake_choice
+
+	#I hit him. Hard.
+	
+		Very hard, but in his drink-soaked state he doesn't seem to feel it. He sits down with a thump, ludicrously, like a novice ice-skater losing his footing. "Why'd you do that? That wasn't kind, $!{lastname}, it wasn't." He picks himself up, using the wall for leverage. "Since it seems I can be of no help," he says with an attempt at dignity, mushing the words badly, "I will now take my leave."
+		
+		His steps retreat down the hallway, and you think no more about it. 
+		
+		*gosub Quilt 
+	
+	#Between my teeth, I instruct him to leave.
+	
+		He looks surprised, and hurt. "If that's what y'want, old man…I only wanted to help." To himself, he mutters, "There's gratitude…" You hear his voice fading into the distance, and think no more about it. 
+		
+		*gosub Quilt
+	
+	#Neither. He's apt to go try to minister to some other patient, and probably kill them. I lock him in my spare bedroom, where he can do no one any harm. 
+	
+		Not long after, you pass the door on another errand, and hear snoring.
+*page_break
+The night wears on. A layman might think Grace could get no worse, but her condition continues to deteriorate rapidly. She lies motionless now, her skin clammy, her hands and feet cold and her torso becoming so, her pulse rapid, feeble, flickering. And still the paroxysms of vomiting and purging do not abate.
+
+You hold her in your arms. She slumps against you like a ragdoll. Her skin has begun to take on a bluish tinge. 
+
+The clock strikes three. It hasn't even been twenty-four hours. This is an evil disease if ever there was one.
+
+You have healer's blood, and there could certainly be no more desperate circumstances–
+
+*choice
+	
+	#But I put the thought aside. It seems like a betrayal of Grace, when I know full well she would never consent to it when conscious.
+	
+		*label ModernMedicine
+		
+		You keep her warm and try to make her drink, sip by patient sip, holding her head while she vomits it back up, until at last she is so sunk in lethargy that she cannot swallow or open her eyes. 
+		
+		The coldness creeps from her extremities to her torso.
+		
+		The blue tinge overspreads her skin.
+		
+		She dies in your arms about an hour after sunrise. 
+		
+		Sometime later, you are brought back to yourself by the sound of Horn hammering on the door of the spare bedroom and yowling your name, and you notice the room is full of bright, clean, mocking sunlight.
+		
+		*goto Funeral
+	
+	#It doesn't matter that she would not consent. She never has to know. This situation is so perilous that I must do everything I can, and healing is something I can do.
+		
+		*if (healpierce) or (healmorris)
+		
+			*set healing %+25
+			You look down at your hands pressed against Grace's blue-tinged skin, and try to remember what it was your grandmother told you to do. Close your eyes. Reach out not with your hand but with the flame inside yourself–
+
+			You feel ridiculous.
+
+			But with a suddenness that feels like falling off a cliff, you know when you have succeeded. The moment of connection is like nothing you've ever experienced.  You've shared intimacy with your wife, yes, of course–but nothing like this.
+			
+			What follows is less like reviving a dying flame than pouring water into parched earth.
+			*page_break
+			Or into a cracked flowerpot. 
+			*goto CrackedFlowerpot
+			
+		*else
+			
+			Reviving a fire is the wrong metaphor this time. It's more like pouring water into a cracked flowerpot. 
+			*label CrackedFlowerpot
+			Grace's dying body takes what you have to give–it even keeps a little of what you give it–but most runs through the cracks and seeps into the ground below. Very little of the light you offer does Grace any good. 
+			
+			You can feel your eyelids drooping, your knees turning to water. You reach the point of weakness so great you can hardly stand, and still you've done nothing to meaningfully improve her condition. On your knees beside her bed, you have to face the reality that you could kill yourself and not save her. Perhaps you might be able to manage this if you were trained in the art, but as it is—
+			
+			You need more life than any one person holds.
+			
+			You think of Horn, sodden and snoring behind the closed door. 
+			
+			*page_break
+			You could go and drain what you need from him, and use it to save Grace's life. Light-eating without killing the victim requires finesse and practice, and you don't think you can manage it–but you could tell everyone his overworked heart finally failed him. Everyone would believe it; Horn's indulgent excesses are legendary. 
+			
+			No one would ever need to know how he really died. 
+			
+			You take your hands off your wife's cold skin. You turn for the guest room door. 
+
+			*choice
+
+				#No, I can't do this! I shake off the hideous temptation. I will have to rely on modern medicine after all. 
+	
+					*goto modernmedicine
+	
+				*if GraceTaggartEncounter = false
+					#No, I can't do this! I shake off the hideous temptation. Perhaps Taggart can succeed where I have failed.
+					
+						*goto DeathbedTaggart
+										
+				*if GraceTaggartEncounter
+					#Taggart won't lay hands on a person who has refused her consent, but I have no such qualms. And I'd trade Horn's worthless life for hers in a heartbeat.
+					
+						You unlock the door.
+						*goto bloodsacrifice
+					
+				*if GraceTaggartEncounter = false
+					#How do I know Taggart would come, or would succeed, or is even within the temple right now? I have to do this myself. And I'd trade Horn's worthless life for hers in a heartbeat.
+				
+						You unlock the door.	
+	
+						*goto bloodsacrifice
+					
+	*if GraceTaggartEncounter
+		*selectable_if(false) #I would go beg Taggart's help if I could, but he won't lay hands on a person who has refused her consent.
+		
+			*finish
+	
+	*if GraceTaggartEncounter = false
+		#It doesn't matter that she would not consent; she never has to know. I run for the temple to beg Taggart's help.
+
+			*label DeathbedTaggart
+	
+			*if ManufacturedEvidence 
+				The red-haired guard at the Sun Temple's gate recognizes you as the official who manufactured evidence against temple residents. He refuses to let you in.
+			
+				It doesn't matter. Taggart would have been too late in any case. By the time you return home, Grace has stopped breathing.
+			
+				Sometime later, you are brought back to yourself by the sound of Horn hammering on the door of the spare bedroom and yowling your name, and you notice the room is full of bright, clean, mocking sunlight.
+				
+				*goto Funeral
+			
+			*else		
+			
+				The red-haired guard at the Sun Temple's gate mocks you for your request, but the clamor wakes Taggart, who comes stumbling into the front hall in clothes he appears to have slept in. He looks half-dead himself—not ill with cholera, those symptoms are unmistakeable, but he's lost a noticeable amount of weight 
+				*if TaggartCholeraAlly
+					since the epidemic started,
+				*if TaggartCholeraAlly = false
+					since you last saw him, 
+				and there are heavy sagging bags under his eyes. 
+			
+				But when he understands what has brought you to his gates, he comes with you at once.
+			
+				*page_break
+			
+				The windows of your house are lit with all the lamps you left burning. Behind the spare room door, Horn snores. 
+			
+				But in your bedroom, all is quiet. 
+			
+				Taggart takes one look over your shoulder, then pushes past you, dropping to his knees beside the bed and taking Grace's limp hands in his own. 
+			
+				You reach over him. There is no pulse at her throat.
+			
+				*page_break
+			
+				It seems as though a century passes before Taggart gets slowly and stiffly to his feet. He turns to face you. You're not sure if there are tears in his eyes. "$!{firstname}, I am so, so sorry."
+			
+				You stand there for a long while before you can bring any words up from the back of your throat.
+			
+				Finally, you say,
+			
+				*choice
+
+					#"Would it have worked? The healing. If I'd brought you in time."
+					
+						"I don't know," Taggart says honestly. "I'm…rather tired." A ludicrous understatement. "It might well have taken more from me than I have to give. But…" He hesitates, then apparently decides to give you the whole truth. "But with a willing donor? Then yes, maybe."
+					
+						You nod slowly. 
+					
+						Taggart starts to reach out, then puts both hands behind his back. "Is there someone I can send for, for you?"
+					
+						You shake your head. Once there was Finch. But that was a long time ago.
+					
+						*page_break
+					
+						"Please go," you hear yourself say.
+					
+						Taggart nods. "If there's anything I can do…which is a ridiculous thing to say, but it's all I have. If there's anything I can do, don't hesitate."
+										
+						You don't hear him leave.
+					
+						Sometime later, you are brought back to yourself by the sound of Horn hammering on the door of the spare bedroom and yowling your name, and you notice the room is full of bright, clean, mocking sunlight.
+					
+						*goto Funeral
+					
+					#"None of this would have happened if that water pump had been properly maintained."
+				
+						"No," Taggart agrees, watching you. "None of this."
+					
+						There doesn't seem to be anything else to say.
+					
+						Taggart starts to reach out, then puts both hands behind his back. "Is there someone I can send for, for you?"
+					
+						You shake your head. Once there was Finch. But that was a long time ago.
+					
+						*page_break
+
+						"Please go," you hear yourself say.
+						
+						Taggart nods. "If there's anything I can do…which is a ridiculous thing to say, but it's all I have. If there's anything I can do, don't hesitate."
+										
+						You don't hear him leave.
+					
+						Sometime later, you are brought back to yourself by the sound of Horn hammering on the door of the spare bedroom and yowling your name, and you notice the room is full of bright, clean, mocking sunlight.
+					
+						*goto Funeral
+				
+					#"Please go."
+				
+						"Of course. As you wish." Taggart starts to reach out, then puts both hands behind his back. "Is there someone I can send for, for you?"
+					
+						You shake your head. Once there was Finch. But that was a long time ago.
+					
+						"If there's anything I can do…" Taggart trails off. "Which is a ridiculous thing to say, but it's all I have. If there's anything I can do, don't hesitate."
+					
+						You don't hear him leave.
+				
+						Sometime later, you are brought back to yourself by the sound of Horn hammering on the door of the spare bedroom and yowling your name, and you notice the room is full of bright, clean, mocking sunlight.
+					
+						*goto Funeral
+			
+
+	*if healing <= 50
+		#It literally never occurs to me. It doesn't matter what my grandmother was; I am a doctor of the modern world. I will never take so much as a step down that road. 
+	
+			*goto ModernMedicine
+
+	
+*label bloodsacrifice
+
+He lies on his back on the quilt like a beached whale, feet dangling off the end of the bed, snoring with occasional snorting pauses. 
+
+A light-eater who drains someone slowly and carefully won't leave telltale handprints–or so you've always been told. Maybe fingerprints, but fingerprints might not be noticed, or might be confused with bruising gotten from another source. You resolve to go carefully.
+
+You take a deep breath and rest your hands on Horn's skin. He doesn't stir.
+		
+It feels warm. Like sun on the first day of summer. Like the triumph of knowing you've saved a patient. Like the fiercer satisfaction of bringing down a criminal. Like the rush of joy when you know you've survived a battlefield, that you live to fight another day–
+
+*if drainedguards
+	It's nothing like draining the guards in the warehouse. That was in the heat of the moment, in a desperate bid for survival. This is calmer. Colder. Deliberate.
+		
+Sensation rushes through you like a river, carrying all awareness with it. 
+
+*choice
+
+	#I let myself flow away with the tide.
+	
+		*goto HornIsDead
+		
+	#At the last instant, I jerk away. Shaking, I stare at my hands. What did I almost do?
+	
+		When your knees are strong enough to support you, you drag yourself back to Grace's bedside. 
+		
+		Your only weapon now is modern medicine.
+		
+		*goto ModernMedicine
+		
+	
+*label HornIsDead
+*set divorced true
+*set kills +1
+*set healing %+25
+*set compassionate %-50
+*achieve killhorn
+
+At last you lean back, with the mental equivalent of wiping your mouth–and Horn lies dead on the coverlet before you.
+
+And you feel like you could do anything. Fight off a dozen foes singlehanded, or traverse the city end to end at a dead run, or stay awake for a week–
+
+Or save your wife's life. You jump up and run to her bedside.
+
+*page_break
+
+The light flows from your skin to hers in a rushing tide, and the blue tinge leaves her face. You feel her body warming under your hands. "$!{firstname}," she whispers, opening her eyes.
+
+By morning, she is clearly on her way to recovery. You draw back the curtains and see that the day has dawned bright and clean and sparkling, as though after a hard spring rainstorm. 
+
+Leaving Grace to sleep, you unlock the guest bedroom to deal with Horn's "death from apoplexy." 
+
+The body that lies on the bed has a broken, used quality. Though you could not say what gives that impression–the clothing is hardly more disordered than when he lay down, and true to your efforts, you left only slight fingermarks.
+
+*choice
+
+	#At the sight, remorse slams into my heart so hard my knees nearly buckle.
+		
+		*set compassionate %+15
+		
+		For a moment, you think you are literally going to vomit. You swallow the impulse by sheer willpower. 
+		
+		What have you become? And what can you possibly do now?
+		
+		*label PostHornChoice
+		*choice
+					
+			#I make arrangements for Grace to be cared for. Then I go to Woodward and surrender myself. 
+			
+				*goto WinterSoldierIntro
+			
+			#I make arrangements for Grace to be cared for. Then I throw myself on Taggart's mercy.
+			
+				*goto jtrhealers
+			
+			#I pull myself together. In a state of war, even good men are called upon to do terrible things. 
+			
+				You tell yourself that your action was justified, and you need do nothing to pay for it but resolve to never do it again.
+			
+				*goto notsorry
+	
+	#I am not sorry. I won't be sorry. I did what I had to do. 
+	
+		You stand there, breathing hard, trying to convince yourself.
+		
+		What now?
+		
+		*goto PostHornChoice
+	
+	#Of course I regret it. But I did terrible things during the war, too, for a larger good. One lives with what one must.
+	
+		*goto notsorry
+		
+	#I make careful notes of the side effects of death by light-eating, then set about making it look as though I did all I could to revive him.
+		
+		*set compassionate %-15
+		
+		*label notsorry
+		*set healing %+25
+		*set compassionate %-15
+		*set kills +1
+		*set lighteater true
+
+		You contact the hospital and the undertakers, and count yourself lucky that Horn has no family you need inform. 
+		
+		The undertakers arrive later that day, and you conduct them upstairs to the spare bedroom. You turn–and start at the sight of Grace, supporting herself against the door frame with a white-knuckled grip. She stares at Horn's body. "How did he come to be here?"
+		
+		"He came by to see if he could aid me in caring for you."
+		
+		She nods slowly. You can't interpret the look on her face. "Was it cholera that killed him?" 
+		
+		"No," you say. "Drunkenness. Let's get you back to bed, love."
+
+		She looks over her shoulder at Horn's body as you guide her away, and she is very quiet over the next day or so.
+
+		*fake_choice
+			
+			#I think nothing of it. Convalescence from cholera is often a long process, characterized by fatigue and depression.
+			
+			#I find myself worried by it. Surely healing should have returned her to perfect health? Does it mean something insidious that this weakness lingers?
+			
+			#Does she suspect? She can't possibly suspect, can she? Her silence seems to amplify the guilt pounding in my skull.
+		
+				But she doesn't say anything, and gradually you come to the conclusion that you are worrying needlessly. 
+				
+		You engage a private nurse to stay with her, and go back to your work among the cholera cases of the East End, as is your clear duty.
+		
+		As you walk back from one such case a few nights later, a scream startles you out of your thoughts.
+		
+		Your feet are running toward it before you consciously decide to do so.
+
+		*page_break
+
+		In the little yard behind a rooming house, a large man is using a stick to beat a young woman who sobs and begs for mercy and tries to crawl away. 
+		
+		You are behind him before you have time to think, your hand grabbing his neck almost of its own accord. You slam him up against a handy wall, and your palms close over the
+
+		[i]—bright burning acid of his inner flame, poison overlaid with coal dust, throwing off toxic splatters in every direction—[/i]
+
+		There's nothing here the world needs. You squeeze once, hard, and the venomous light goes out.
+
+		And sharp, clean strength floods your veins. It's like standing atop a mountain in winter, cold air searing your lungs and clearing your head. He was good for something after all, dead if not alive. He was putting the light of his life to no good use, but with this borrowed energy, you could—
+
+		—you could do almost—
+
+		—almost anything.
+
+		You blink down at the dead body. 
+
+		*page_break
+		*achieve lighteater
+		
+		You cannot recollect the precise sequence of steps that led to this moment. Is this what it's like, when a light-eater's hunger begins to grow into a compulsion? Deep down, you know it is.
+		
+		How do you feel?
+		
+		*fake_choice
+		
+			#Horrified and disgusted.
+			
+				*set compassionate %+15
+				
+				Bile tries to crawl up the back of your throat. You are shivering so hard it is as though a huge hand is shaking you. 
+				
+			#Intrigued.
+			
+				*set perception %+15
+				*set compassionate %-15
+			
+			#Wonderful, now that you mention it. I've never felt so strong or so capable.
+				
+				*set compassionate %-25
+		*comment endif
+				
+		Are you ever going to do this again?
+
+		*choice
+
+			#No! No, no, never…
+	
+				So what do you do next?
+		
+				*choice
+		
+					#I go at once to Woodward and surrender myself. 
+			
+						*goto WinterSoldierIntro
+				
+					#I run for Taggart's temple and throw myself on his mercy. 
+			
+						*goto jtrhealers
+				
+					#Neither. Both are throwing my life away, and there is still great good I can do with my life. 
+			
+						You go home firmly resolved never to do this again.
+			 
+						*goto again
+	
+			#Well, I'm certainly not going to do it [i]often[/i], but if I encounter another man who so obviously deserves it, then I might.
+	
+				*goto again
+		
+			#Why, yes. Yes, I am. 
+		
+				*label again
+		
+				You wake a few nights later from what should have been the dead sleep of the physically exhausted, your throat aching as though from feverish thirst. 
+		
+				Water does nothing to quench it. 
+
+				*choice
+		
+					#I roll over and try to ignore it and go back to sleep.
+			
+						To no avail. You lie awake until morning. 
+				
+						The next night, it happens again.
+				
+						*choice
+				
+							#I brew myself hot tea with honey.
+					
+								It doesn't help. Again you lie awake until dawn.
+								*label Nurse
+								That day, you find yourself idly watching Grace's nurse. She's a rosy-cheeked country girl, and the life inside her pulses with a golden glow you can almost—
+						
+								—almost [i]see[/i]?
+						
+								What is happening to you?
+						
+								*choice
+							
+									#I go at once to Woodward and surrender myself. 
+			
+										*goto WinterSoldierIntro
+				
+									#I run for Taggart's temple and throw myself on his mercy. 
+			
+										*goto jtrhealers
+								
+									#I resolve to ignore the odd sensation.
+							
+										Again, you are unable to sleep.
+								
+										*choice
+											*selectable_if(false) #I roll over and ignore the ache.
+									
+												*finish
+									
+											*selectable_if(false) #I get up and make myself tea.
+									
+												*finish
+										
+											#I find myself rising, dressing, and slipping out my front door.
+			
+												*goto FrontDoor
+										
+							#I find myself rising, dressing, and slipping out my front door.
+					
+								*goto FrontDoor
+					#I go and brew myself hot tea with honey.
+			
+						It doesn't help. You lie awake until morning. 
+				
+						The next night, it happens again.
+				
+						*choice
+				
+							#I roll over and try to ignore it and go back to sleep.
+			
+								To no avail. Again you lie awake until dawn.
+						
+								*goto Nurse
+				
+							#I find myself rising, dressing, and slipping out my front door.
+					
+								*goto FrontDoor
+					#I find myself rising, dressing, and slipping out my front door.
+				
+						*goto FrontDoor
+						
+*label FrontDoor
+You walk through the dark streets of the East End in a sort of dreamlike state until you find an appropriate target–a procurer mistreating one of his girls. You satisfy your raging thirst by draining his life, and return home before dawn. Grace and the nurse never know you are gone.
+				
+*choice
+
+	#What am I doing? What have I become? I leave at once to surrender myself to Woodward.
+	
+		*goto WinterSoldier
+					
+	#What am I doing? What have I become? I leave at once to throw myself on Taggart's mercy.
+	
+		*goto jtrhealers
+
+	#I stretch out in bed, physically satiated and as content as a purring cat.		
+				
+		A few nights after that, you do it again.
+		*page_break
+		And again.
+		*page_break		
+		That morning, you return home to find Grace and the nurse have vanished without a trace or a note.
+
+		And there's someone in your house.
+				
+		*page_break
+				
+		Men in full protective gear rush you from every side. You struggle as best you can, but your greatest weapon is foiled by the thick layers of cloth, and there are too many for you to take down any more conventional way. At last you are shackled hand and foot, and lie panting amidst the detritous of your ruined sitting room.
+				
+		Woodward crouches down, carefully out of reach. "Mrs. $!{lastname} came to see me early this morning," he says.
+				
+		*fake_choice
+				
+			#"Of course she did," I whisper, numb. "There is nothing she fears and hates so much as light-eating."
+					
+			#"Of course she did," I whisper, and then something seems to crack inside. "And I think I'm glad she did."
+					
+			#"That traitor, how could she! I only did this to save her life—"
+					
+		Woodward continues as though you had not spoken. "It was clearly a difficult decision. She broke down weeping in my office, and asked many times if there was not something that could be done to treat your…affliction. I told her we would take you to an institution where treatment would be attempted." He rises. "At some point in the future, I will tell her the facility burned to the ground, and show her a corpse she will accept as yours."
+				
+		*page_break
+				
+		*goto WinterSoldier
+				
+*label WinterSoldier
+The facility is somewhere on the northern moors, you think. You never succeed in an escape attempt, so you cannot be sure.
+				
+And then you stop trying to escape.
+				
+Eventually, you forget your own name. The men who surround you—swathed to the eyes in protective clothing—refer to you only as "the asset." Or sometimes by number. You are number 235.
+				
+*page_break
+
+*achieve wintersoldier
+
+The man in the light gray suit triggers something like a faint ripple of memory, but it passes. He is the only one in the room not draped in cloth from head to foot. He stands well back as he regards you. "The treatment is complete?"
+				
+"Yes, sir," says one of the cloth-muffled men. 
+				
+"Good." The man in the gray suit looks you up and down. "He'll be a particularly strong addition to the program—Army-trained, and all. You'll be defending your Empire once again," he adds, raising his voice. He might be addressing you, but you're not sure. "The Vlaski bastards have their light-eaters; now I have mine. War is coming. And Mercia will damn well be ready to defend her borders when it does." He stares at you for a long time as though waiting for a reaction, but of course you have no reaction to demonstrate. 
+				
+The man in gray turns, and walks away with echoing footsteps.
+				
+*image TheEnd.png
+
+*goto_scene WrapUp
+	
+
+*label Funeral
+*set GraceDead true
+*page_break
+
+The sun shines the day she is buried, too—a pale, sullen sunlight more usual for Kingsford.
+
+You stand staring at her grave for a long time.
+
+*fake_choice
+
+	#I can't shake the thought that healing might have saved her. 
+	
+		If it had only been socially acceptable for you to practice the skill–if only modern society wasn't afraid of it–if only. 
+	
+	#Though I know it to be irrational, I can't shake the thought that a better physician could have saved her. 
+	
+		You replay every moment of that night over and over, looking for something you could have done differently.
+	
+	#I am still gripped by fury that she was ever in danger in the first place. 
+	
+		Your fury is completely justified. The cesspool near the water pump should have been kept in better repair. Sewers should have been dug in the East End years ago.
+		
+	#I feel neither guilt nor fury–nor, for that matter, anything else at all. I feel as though I am encased in ice.
+	
+*goto CrossroadsIntro
+	
+*label jtrhealers
+*set alliance "clergy"
+*set conventional %-25
+*if married
+	*set divorced true
+*if lighteater
+			
+	You face Taggart in mute agony, unable to find the words to tell him what you have been doing.
+		
+	But it seems on some level, he already knows. He meets your eyes gravely but without fear. 
+		
+	"I am very glad you have come to me," he says. He motions to someone out of your line of sight, and you hear the door behind you grind shut. A key turns in a lock, and it is just you and Taggart alone. He squares his shoulders. "We have a great deal of work to do."
+	
+	*finish 
+	
+*else
+	You face Taggart in mute agony, unable to find the words to tell him what you have been doing.
+		
+	But it seems on some level, he already knows. He meets your eyes gravely. 
+		
+	"I've…killed a man," you manage at last. "By light-eating."
+		
+	"I am very glad you have come to me," he says. "It is possible for one to take a step down this road you are on–and then turn and walk away from it. Difficult, but possible." He gets up, starts to pace. "Once I could have offered you sanctuary. Those days are gone. If the police realize what you have done and come for you, I cannot prevent them. But this I can promise you: I will never tell them, and in exchange you will stay here with us, as an acolyte, learning how to use your power in a way that does not threaten those around you." 
+	
+	*finish 
+	
+
+		
+*label CrossroadsIntro
+*page_break
+*comment You either return to working for Woodward (choosing not to join the clergy or join the Resistance), join the clergy, join the Resistance, or become Jack the Ripper–the climax of the Ripper, clergy, and Resistance arcs.
+ 
+*set TaggartChoice false
+
+
+The night air hits you like a slap to the face, but it does little to clear your head. You stagger a bit, looking about in an attempt to get your bearings. You are in one of the vilest stews of the East End, and you face a longish walk home.
+
+What are you doing here?
+
+*choice
+
+	#We've broken the back of the epidemic, but it isn't quite over. There are still a few cholera cases to be treated in poor hovels such as this. 
+		
+		*set doctoring true
+		
+		At least there are only a few cases left. You wish you could feel something more than vague satisfaction, but like every other doctor in the area, you are exhausted to the point of collapse. You can't remember the last time you slept for more than a few hours, you can't remember a time when you did not feel bleary-eyed and faintly nauseous, and you are not far off being unable to remember your own name. You set your face homeward, and try not to stumble.
+	
+		*goto AttemptedMugging
+	
+	*if married
+		#I haven't been sober much at all since the funeral. I sought out this tavern because I am profoundly unlikely to encounter a concerned colleague here.
+		
+			*set drinking true
+			
+			"Profoundly" is the word. The whiskey in the tavern behind you was as vile as the company.
+			
+			Now you set your face homeward, putting one careful foot in front of the other, certain you are doing an admirable job of feigning sobriety.	
+	
+			*goto AttemptedMugging 
+		
+	*if married = false
+		#Celebrating, after a fashion. Now that the epidemic is over, I can drink if I wish to, and I wish to.
+		
+			*set drinking true
+			
+			The celebration started with colleagues from the hospital, in a better part of town. You can't remember how you came to be here. The whiskey in the tavern behind you was as vile as the company.
+			
+			Now you set your face homeward, putting one careful foot in front of the other, certain you are doing an admirable job of feigning sobriety.	
+	
+			*goto AttemptedMugging 
+			
+	#Just walking. Despite my exhaustion in the wake of the epidemic, I can't sleep, and so I've walked farther and farther from home each night.
+	
+		Closing your eyes means seeing the faces of those who died in agony. You spend your nights walking in an attempt to tire yourself out enough to sleep without dreaming, but it hasn't worked yet. You can't remember the last time you slept for more than a few hours, you can't remember a time when you did not feel bleary-eyed and faintly nauseous, and you are not far off being unable to remember your own name. You set your face homeward, and try not to stumble.  
+	
+		*goto AttemptedMugging
+
+*label AttemptedMugging
+*page_break
+
+You catch a flash of movement out of the very corner of your eye, but your numbed reflexes are too slow, and you are not able to do anything before the man in the alleyway leaps at you. You crash underneath him to the filthy cobblestones, and his knife blade bites into the skin at your throat.
+
+"Wandered a long way from home, haven't you, lad?" he says in your ear, with a gust of foul breath. 
+
+"Now then, you hand over that watch and your notecase, and then our business is done, see? And you can wander back to where you came from. But give me any trouble–" The knife bites deeper. "–and your fine kin will never discover where we've dumped your body."
+
+When he says "we," you see the others. Five or six menacing shapes are stepping out of the shadows.
+
+It should have been impossible for footpads such as these to take someone like you by surprise. It would have been impossible, had your abilities not been compromised by
+*if drinking
+	drink and
+exhaustion.
+	
+What do you do?
+
+*choice
+
+	#My revolver is in my overcoat pocket. If I can get the tough on top of me to drop his guard even for a moment, I should be able to slip it free. 
+	
+		You slowly pull your watch from its pocket, and his muscles relax a little at the implication you have no plans to fight him. The pressure of the blade eases. 
+		
+		*if stealthy >= 40
+			Unfortunately, your fogged mind and slowed reflexes keep you from moving as fast as you need to, and when you drop your other hand to your revolver, he realizes what you are doing. He strikes you hard with the hand that does not hold the knife, and the revolver skitters away from you.
+		
+			*goto Skitter
+				
+		*else
+			You whip out your revolver.
+
+			Are you attempting to wound, to kill, or only to intimidate?
+			
+			*choice
+			
+				#To wound.
+					
+					*set compassionate %-10
+					
+					*if marksmanship > 70
+					
+						He falls, groaning, effectively incapacitated by the bullet in his leg.
+						
+						*goto MuggingAmbush
+						
+					*else
+					
+						You get the shot off, but the quarters are too narrow for you to effectively aim. He falls, femoral artery pierced, and within seconds has bled out.
+
+						*goto MuggingAmbush
+						
+				#To kill.
+				
+					*set compassionate %-20
+					
+					*if marksmanship > 70
+					
+						You get the shot off, and he drops like a stone.
+						
+						*goto MuggingAmbush
+						
+					*else
+					
+						You get the shot off, but the quarters are too narrow for you to effectively aim. You don't kill him. But he falls, groaning, effectively incapacitated by the bullet in his leg.
+						
+						*goto MuggingAmbush				
+				
+				#To intimidate.
+				
+					*if charisma > 70
+					
+						The balance of power tips at once in your favor. He falls back, hands upraised, face scared.
+						
+						*goto MuggingAmbush
+					
+					*else
+					
+						For an instant he looks scared—and then he smirks. "You're only shamming," he says. "Not really going to use it." He strikes it from your hand. "You're not so good an actor you can fool me."
+									
+						*label Skitter
+						Your hands come up desperately to hold him off, fastening around the bare skin of his neck, but you don't think you can throttle him before he slits your throat.
+						*goto DrainMuggerChoice
+		
+	#I don't think the knife is near enough to the carotid artery to kill me at once. If I jerk free suddenly, I can get away with only a scratch.
+	
+		*if (stealthy >= 40) or (medicine <= 60)
+			
+			Unfortunately, your fogged mind and slowed reflexes are not up to this challenge.
+			*goto Skitter
+		
+		*else
+			You jerk away with no more than a superficial wound, and in his surprise, the footpad lets go of his knife. You catch it up.
+			
+			*goto MuggingAmbush
+			
+
+	#If I can get him to drop his guard even for an instant, I am sure I can bring him down with fisticuffs. 
+	
+		You slowly pull your watch from its pocket, and his muscles relax a little at the implication you have no plans to fight him. The pressure of the blade eases, and in that instant, you strike out.
+	
+		*if (athleticism <= 60) or (stealthy >=40)
+			
+			Unfortunately, your fogged mind and slowed reflexes are not up to this challenge.
+			
+			*goto Skitter
+			
+		*else
+		
+			You strike so hard and so fast he has no chance to respond. You knock the knife from his grip.
+			
+			*goto MuggingAmbush
+		
+	#I expect these are desperate rather than evil men. I am certain I can talk them out of this, if I can only stay alive long enough to do so.
+	
+		*set compassionate %+15
+		
+		You slowly pull your watch from its pocket, and his muscles relax a little at the implication you have no plans to fight him. The pressure of the blade eases.
+		
+		*if charisma <= 60
+			
+			But your attempts to talk the toughs out of robbing you are laughable. Your brain is too fogged to come up with any kind of eloquence. The footpad grins, rolls his eyes, and strikes out.
+			
+			*goto Skitter
+		
+		*else
+			
+			"This isn't the way," you gasp. "If you need help, I can help you."
+			
+			The tough atop you hesitates. 
+		
+			"That's right," you encourage him. "You don't need to do this. Don't turn yourself into this kind of man."
+			
+			The knife tip wavers, and drops.
+			
+			*goto MuggingAmbush
+			
+		
+	*if married
+		#Why in the world would I fight for my life? What good is my life to me?
+				
+			*goto Saved
+			
+*label DrainMuggerChoice
+*page_break
+You have only an instant to decide. Your palms are flat against his bare skin, and you have light-eater blood. You could grasp hold of his inner flame and smother it, right now, this moment, before his blade slices your throat.
+
+*choice
+
+	#He targeted me because he thought I could not defend myself. And how many throats has he slit before tonight? I rip his life brutally from his body.
+
+		*set compassionate %-20
+		*set conventional %-20
+		*set healing %+25
+		As well you should. He deserves it.
+		*goto drainhim
+	
+	*if married
+		#I was helpless to save Finch, I was helpless to save Grace, and I shall never be helpless again. Half-blind with grief and rage, I rip his life from his body.
+		
+			*set compassionate %-20
+			*set healing %+25
+			
+			*goto drainhim
+		
+	*if married
+		#No. I will not become like them. Not even to save my own life. (What good is my life to me, anyhow?)
+
+			*achieve uncompromising
+			What good, indeed?
+			*page_break
+			*goto saved
+		
+	*if married = false
+		#No. I will not become like them. Not even to save my own life.
+	
+			*set compassionate %+20
+			*achieve uncompromising
+			
+			Not even to save your own life. 
+			*page_break
+			*goto saved
+			
+	*if (healing > 70)
+		#I don't exactly decide to do it, but it happens anyhow–half choice and half reflex. I have pulled his life from his body before I can decide whether to stop.
+		
+			*set compassionate %-15
+	
+			Your self-preservation instinct kicks in. It's him or you, and your reflexes know what to do in that situation. 
+	
+			*goto drainhim
+		
+	
+*label drainhim
+
+*achieve bloodtaste
+
+The moment of connection is a bright, sharp jolt of pleasure, and instantly clears the fog from your head. It cannot be literally true that you close your palm around the flame inside him, but it certainly feels that way. He jerks under your grasp, and you wrench hard, and the light that was his life floods through you in a shuddering wave. You feel like you could do anything. Climb a mountain. Fight off a dozen enemies single-handed. Heal a person at the point of death.
+
+*set kills +1
+	
+Your vision clears, and you look at your hands, tensed around the footpad's neck. You take them away, he slumps forward, and you see the imprint of your two palms and ten fingers. The echoes of footsteps frantically running away tell you where the rest of the footpads have gone to.
+	
+*choice
+	
+	#Horror and revulsion flood through me. What have I done?
+		
+		*set compassionate %+15
+			
+		Sick at heart, you stagger to your feet, retrieve your revolver, and stumble your way home.
+			
+		*goto followingmorning
+		
+	#I am frightened. Anyone who finds the body will know he was killed by light-eating. Will I be discovered?
+		
+		*set conventional %+15
+			
+		You drag the body into the alleyway it jumped out of, and hope the cheapness of life in the East End (even more so now in the wake of the epidemic) will prevent any meaningful investigation into this death. Then, feeling sick, you retrieve your revolver and stumble home.
+			
+		*goto followingmorning
+			
+	#I feel calm. He merited death for his actions, and I would have felt no compunction about shooting him. This is no different.
+		
+		*set compassionate %-15
+			
+		You get to your feet, looking around to be sure you have not been observed. The street is quiet. 
+		
+		You drag the body into the alleyway it jumped out of. Life is cheap in the East End, even more so now in the wake of the epidemic, and it is unlikely there will be a meaningful investigation into this death. Then you collect your revolver and make your way home.
+			
+		*goto followingmorning
+		
+	#I feel exhilarated–more alive than I have in a very long time. I should never have hesitated to use this power.
+		
+		*set compassionate %-25
+			
+		You jump to your feet. Looking around the quiet street, you see that no one observed you, but you wouldn't care much if they had. For prudence's sake, you drag the body into the alleyway it jumped out of, though honestly you are too full of good cheer to worry much over it being discovered. You collect your revolver and make your way home, only the vestiges of good sense preventing you from whistling as you go.
+			
+		*goto followingmorning
+			
+	*if married
+		#I feel exhilarated—and furious. I should never have hesitated to use this power. I could have saved her. 
+			
+			*set compassionate %-20
+				
+			At least you have saved whichever innocent this footpad would have attacked tomorrow night. That's something. 
+			
+			You suppose.
+			
+			You drag the body into the alleyway it jumped out of. Life is cheap in the East End, even more so now in the wake of the epidemic, and it is unlikely there will be a meaningful investigation into this death.
+				
+			Then you collect your revolver and make your way home.
+				
+			*goto followingmorning
+				
+	*if married
+		#I kneel in the alleyway sobbing. This power of mine is good for something, at least—I couldn't save her, I couldn't save Finch, but at least this footpad won't attack another innocent.
+			
+			*set compassionate %-10
+				
+			After a long time, you start to come back to yourself. The night seems very black, the sounds of the city far away. You have never felt more alone.
+				
+			You drag the body into the alleyway it jumped out of. Life is cheap in the East End, even more so now in the wake of the epidemic, and it is unlikely there will be a meaningful investigation into this death—though you're not all that sure you would care if there were.
+				
+			Then you retrieve your revolver and stumble home.
+				
+			*goto followingmorning
+	
+*label MuggingAmbush
+
+*page_break
+
+And then the others are upon you. 
+
+You've held your own against worse odds before—but that was some time ago. That was when you were in practice. That was when you were not weighed down by exhaustion.
+*if married
+	And guilt. And grief.
+*if drinking
+	And drink. 
+
+One of them manages to push you back to the pavement, weaponless, a knife once more digging into your throat.
+
+You stare up into his eyes.
+
+*goto DrainMuggerChoice
+
+*label Saved
+
+*if TaggartCholeraAlly
+	*goto TaggartSavesYou
+*elseif AlexandraCholeraAlly
+	*goto AlexandraSavesYou
+*elseif ((RelTaggart > RelAlexandra) and (ManufacturedEvidence = false))
+	*goto TaggartSavesYou
+*elseif RelAlexandra > 50
+	*goto AlexandraSavesYou
+*elseif ((RelTaggart > 40) and (ManufacturedEvidence = false))
+	*goto TaggartSavesYou
+*else
+
+	The knife plunges down.
+	
+	Pain sears through your throat, and then you are choking on a hot salty tide. You can't breathe. 
+	
+	For an instant you fancy you hear footsteps running to your aid–but that proves to be only hallucination. You have no allies among the men and women who might be wandering the streets of the East End at this hour.
+	
+	But at least you have remained true to your principles, even in the face of the strongest temptation. As the darkness submerges you, you have a chance to reflect that it is better to die this way than become a light-eater and live. 
+		
+	*set dead true
+	
+	*image TheEnd.png
+
+	*goto_scene WrapUp
+	
+
+*label TaggartSavesYou
+
+*set TaggartChoice true 
+	
+As the knife plunges down, you think you hear a shout and running footsteps, but then the exploding pain banishes all other thought from your mind. 
+	
+*page_break
+	
+Light seems to spark in your darkening vision, but you are choking on a hot salty tide and can think of nothing else but the desperate desire to breathe.
+	
+*page_break
+	
+You become slowly aware of a warm touch on your throat–not the searing pain, not the smothering hot tide, just a warm touch. 
+	
+And you are breathing. When did you start breathing again?
+	
+"There we are," a voice says, and the touch leaves your throat.
+	
+You open your eyes to see Christopher Taggart sitting back on his heels and looking down at you.
+	
+Casting a frantic look around for the man with the knife, you spot him collapsed into a heap on Taggart's other side. He isn't moving. You can't see if there are finger-marks on his skin or not. The echoes of footsteps frantically running away tell you where the rest of the footpads have gone to.
+	
+What do you say to Taggart?
+	
+*choice
+	
+	#I look with horror upon the body and cry out, "What did you do? Did you drain him?"
+	
+		"Not enough to kill him," Taggart says calmly. "Just enough to render him unconscious, so he'd be no danger to either of us while I was healing you." After a moment, he adds, "I used his energy for the healing, since I had it freshly-gathered. It seemed poetically just." Glancing off in the direction of the retreating running feet, he adds, "The others fled, not wanting to tangle with a light-eater. I just did my order's reputation no good at all, but…it was the right thing to do."
+		
+		*goto SecondLevelTaggart
+		
+	#I touch my no-longer-slit throat and whisper to the healer, "What did you do?"
+		
+		"I used touch to render him unconscious," Taggart says evenly, "so he would be no danger to you or me while I was working. And then I used his energy to heal you, since I had it freshly-gathered. It seemed poetically just." Glancing off in the direction of the retreating running feet, he adds, "The others fled, not wanting to tangle with a light-eater. I just did my order's reputation no good at all, but…it was the right thing to do."
+		
+		*goto SecondLevelTaggart
+			
+	#I blink at him, too astonished to be frightened or awed. "What are you [i]doing [/i]here?"
+		
+		*if doctoring
+			
+			"Same thing you are, Doctor," Taggart says with a ghost of a smile. "Visiting those I have lately cured. We're not so different, you and I. 
+			
+			"I was fortunate enough to come upon your altercation while there was still something I could do about it. I used touch to render him unconscious, so he would be no danger to you or to me while I was working. And then I used his energy to heal you, since I had it freshly-gathered. It seemed poetically just." Glancing off in the direction of the retreating running feet, he adds, "The others fled, not wanting to tangle with a light-eater. I just did my order's reputation no good at all, but…it was the right thing to do."
+			
+			*goto SecondLevelTaggart
+				
+		*else
+			
+			"Calling upon one of my fideles," Taggart answers, "whom I healed of cholera last week."			
+			*if married
+				Taggart gives you a measuring look. "What are you doing here, Doctor?" he says then, but almost without inflection. It's a statement rather than a question; he knows what has driven you to the East End. 
+				
+				You look away.
+
+			*comment endif
+				
+			Taggart goes on, "That's how I came to be in this neighborhood tonight, and then I was fortunate enough to come upon your altercation while there was still something I could do about it. I used touch to render him unconscious, so he would be no danger to you or to me while I was working. And then I used his energy to heal you, since I had it freshly-gathered. It seemed poetically just." Glancing off in the direction of the retreating running feet, he adds, "The others fled, not wanting to tangle with a light-eater. I just did my order's reputation no good at all, but…it was the right thing to do."
+				
+			*goto SecondLevelTaggart
+
+*label SecondLevelTaggart
+
+How do you respond?
+
+*fake_choice
+			
+	#I touch my no-longer-slit throat. "You–healed– Thank you."
+				
+		"My pleasure," Taggart says. "My calling." He gives you a measuring look. "Yours too, I think.
+				
+	#I think of Pierce and feel sick. "You–you did what to me? You tortured him to save me?"
+				
+		"No," Taggart says patiently, "I rendered him unconscious rather than kill him or allow him to kill you, and then I used the energy to save your life. I understand you only saw the worst of us on the Goráskan front, but there is a wide range of ways I can use this power. A wide range of ways you could learn to use it.
+				
+	*if TaggartCholeraAlly = false
+	
+		#I try to scramble backward. "Get away from me."
+				
+			Taggart sighs. "As you wish." He starts to push himself to his feet, then stops, apparently deciding to say one last thing. "I am not your enemy, Dr. $!{lastname}. I would have thought my actions just now would have proven so, but I can see how your experiences on the Goráskan front loom large in your memory. Yes, I have the same talent they do, but I have chosen to use it differently. And you have the same talent they do, but you can choose to use it differently as well, if you like.
+			
+	*if GraceTaggartEncounter
+		#I lash out. "You can drain him, you can heal me, but you couldn't save her?"
+		
+			Taggart closes his eyes briefly. "Yes, I can heal you when you are unable to consent or refuse, because I already know you are amenable to the idea. Yes, I can render unconscious a man who is killing another without needing the consent of anyone involved. And no, I cannot heal a woman who has refused her consent in the clearest possible terms. $!{firstname}, I am so terribly sorry for your loss, but I couldn't have done anything differently. There are lines you wouldn't cross, either. 
+			
+	*if married
+		#I whisper, "Why did you bother?" so softly I'm not sure he can hear.
+			
+			He answers just as quietly. "Because your life need not be over, even though hers is. There is still so much you can do.
+			
+*comment endif
+
+"I saw what you chose not to do there," Taggart goes on, meeting your eyes. "But you can learn to defend yourself without causing death, and you can develop the strength and precision to heal others without danger to yourself. If you want to learn, I want to teach you. 
+
+"You're sun-blessed, I can tell you are. And more than that—$!{firstname}, I believe you have the capacity to be not only a good healer but a great one. You have exactly the right instincts." He shakes his head with a little wondering smile. "You just saved our city from a cholera epidemic. 
+
+*if married
+	"I don't have the words to tell you how sorry I am for your loss. But your life need not be over. 
+*if married = false
+	"If you truly do not wish to walk this path—I can respect that, even if I cannot understand it. Be a great doctor instead, in that case. But don't drift through your life. You have the capacity to do great things.
+This can be the dawning of a new day." He gets to his feet. "You know where to find me. For the moment–are you recovered enough to get home by yourself?"
+
+*choice
+
+	#I speak quietly. "Yes. Thank you."
+	
+		He inclines his head to you. "Then good night, Doctor, and I hope we meet again soon." 
+		
+		As you turn away, you see him reaching for the limp body on the cobblestones, and you hesitate. "What are you doing with him?"
+		
+		*gosub Policestation
+		*goto followingmorning
+	
+	#I speak brusquely. "Yes." And I get away from him as quickly as possible.
+	
+		*set RelTaggart %-15
+		
+		As you turn away, you see him reaching for the limp body on the cobblestones–probably to drain the rest of its life. You beat a hasty retreat.
+		
+		*goto followingmorning
+	
+	#"I…wouldn't mind your company, if you wouldn't mind giving it. Two are better than one, surely?"
+	
+		*set RelTaggart %+15
+		
+		Taggart smiles. "Indeed they are. Very well, then. I can guide you safely out of this maze, but first we need to dispose of him." He gestures at the limp body on the cobblestones.
+		
+		"Dispose of him how?" you ask.
+		
+		*gosub Policestation
+		*goto followingmorning
+	
+	#"I am, thank you, but…" I look curiously at the limp body on the cobblestones. "What are you going to do with him?"
+	
+		*set RelTaggart %+15
+		*gosub Policestation
+		*goto followingmorning
+
+		
+*label AlexandraSavesYou
+
+*set Alexandrachoice true
+	
+You close your eyes as the knife descends toward you–
+	
+–and feel, rather than see, the arm behind it go limp. The rest of the footpad goes limp as well, falling heavily on top of you. You push his body away, and look up to see Alexandra Townsend. She holds a tiny pistol fitted with an extra attachment the like of which you have never seen before, but which appears to have rendered the sound of the shot inaudible.
+
+The echoes of footsteps frantically running away tell you where the rest of the footpads have gone to.
+
+Alexandra raises her eyebrows when she gets a clear view of your face. 
+	
+"You're aways from home, aren't you?" she comments. "What in hell are you doing here?"
+	
+*choice
+	
+	#I don't say anything. 
+	
+		She doesn't ask a second time, just steps back so you can get to your feet.
+		
+		*goto AlexandraTwo
+	
+	#I tell her I was out for a walk. 
+		
+		*if drinking
+			
+			Her eyes flick over you as you get unsteadily to your feet. "Mm-hm." She does not sound convinced. 
+			
+			*goto AlexandraTwo
+			
+		*else	
+			
+			"And this was the best place you could find?" She shakes her head, and steps back so you can get unsteadily to your feet.
+			
+			*goto AlexandraTwo
+			
+	#Stammering a little from the closeness of that shave, I tell her I was called out to see a patient.
+		
+		*if drinking
+			
+			Her eyes flick over you as you get unsteadily to your feet. "Mm-hm." She does not sound convinced. 
+			
+			*goto AlexandraTwo
+				
+		*else
+			
+			"Of course," she says as you get to your feet. "I should have known."
+			
+			*goto AlexandraTwo
+			
+	*if drinking	
+		#I tell her the truth. I've been drinking.
+			
+			"And this was the best place you could find?" She shakes her head, and steps back so you can get unsteadily to your feet.
+			
+			*goto AlexandraTwo
+			
+*label AlexandraTwo
+
+In a businesslike manner, Alexandra goes to prod the body of the footpad with her boot. He is very definitely dead.
+				
+What do you say?
+				
+*fake_choice
+				
+	#"You saved my life. Thank you."
+					
+	*if married
+		#"You shouldn't have bothered."
+		
+			"Horseshit," she says evenly, meeting your eyes. 
+			
+			Then she returns her attention to the footpad.			
+	#"Good shot."
+					
+		"Why, thank you," she says with a brief grin. 					
+	#"You killed him."
+	
+"He had it coming. I know this one. He's slit the throats of other easy marks." 
+
+"Weren't you concerned about his companions?"
+
+"Given who I work for?" Alexandra grins. "Not at all. They know better. The Professor takes care of his own."
+
+Alexandra leaves the body, and comes to lean beside you against a convenient brick wall, one booted foot propped behind her. From the pocket of her trousers, she draws out a packet of the little cigarillos the East Enders call gaspers. She pulls one out for herself, glances at you, and offers you one.
+
+*fake_choice
+
+	#I accept.
+	
+		You strike a match, lighting first hers and then yours.
+		
+		There is something almost dreamlike about this situation.
+	
+	#I shake my head no.
+
+		Alexandra replaces the packet, strikes a match, and lights the gasper. Smoke wreathes around her face.
+		
+	#I decline, but I pull out a matchbox and light hers.
+	
+		Smoke wreaths about both your faces.
+		
+*if married
+	"I heard," she says abruptly. "About your wife." She makes eye contact. "You have my deepest condolences. I'm so sorry."
+	
+	After a brief silence, she goes on, "We could use you, you know. In the Resistance. 
+	*if CaughtHer
+		You've come a long way since our first meeting.
+	You've been walking my streets for quite some time now, Doctor—isn't it time you joined the effort to clean them? The Professor would welcome someone of your skill, and you know the cause is just. You've seen—" She gestures. "—the horrors of the East End. In all their glory. Come help us put them to an end."
+
+	*goto AlexandraThree
+	
+*else
+
+	"So," she says. 
+	*if AlexandraCholeraAlly = false
+		"I understand you just
+	*if AlexandraCholeraAlly
+		"You just
+	saved our city from a cholera epidemic. Thank you, by the way." She takes a drag on the gasper. "Wake you up a bit, did it?"
+	
+	You shoot her a look, and she smiles a little. "You've been drifting through your life. And you should stop that. You're capable of more than treating measles and miner's cough. Or even treating cholera. You could make a big difference, if you wanted to. 
+	
+	"And you've been walking my streets for quite some time now—so isn't it time you joined the effort to clean them? The Professor would welcome someone of your skill, and you know the cause is just. You've seen—" She gestures. "—the horrors of the East End. In all their glory. Come help us put them to an end."
+
+	*goto AlexandraThree
+	
+*label AlexandraThree
+
+When you don't answer immediately, she adds, "There's a meeting tomorrow night. If you want to come, meet me at the Ten Bells at eleven, and I'll bring you along." 
+*if married = false
+	To your astonishment, she leans up to kiss your cheek. 
+*if married
+	She gives you a genuinely friendly smile in farewell.
+"Take care getting home, now," she says, and walks off, leaving the body of the footpad on the cobblestones.
+
+You do not have to make an irrevocable choice just yet, but what is your initial reaction?
+	
+*fake_choice
+	
+	#I am not about to abandon my post as a respected physician and become an outlaw.
+		
+		*set conventional %+15
+			
+	#I never before considered such a course. Now that I am considering it, I hardly know what to think.
+			
+	#Children died under the feet of a mech in Dunleitir. A cholera epidemic just ripped through the laborer quarter because no one could be bothered to properly maintain a cesspool. Yes, it's time I took a hand in ending these horrors.
+	
+		*set conventional %-15
+		*set compassionate %+15
+			
+	#I am tired of my life having so little meaning. I want to feel alive again. Perhaps joining Free Mercia is the way to do that.
+		
+		*set compassionate %-15
+			
+	*if married
+		#I can't see myself doing it—can't see much of a future at all, in fact. Nothing matters.
+*set AlexandraChoice true
+
+*label followingmorning
+*page_break
+You wake the next morning nauseated, bleary-eyed, your head pounding like a steam-engine and your old injury throbbing in a dull counterpoint. You stumble down to the breakfast table. 
+
+*label followingmorning2		
+*if ((((TaggartChoice = false) and (RelTaggart > 45)) and (ManufacturedEvidence = false)) and (workedwithhim))
+	*set letter true
+	Where a letter is waiting for you. The envelope is addressed in an unfamiliar hand, so when you open it, you look at once for the signature. 
+	
+	It is signed, [i]Christopher Taggart[/i].
+
+	You stare at it for a long moment before you begin to read. 
+
+	*page_break
+	
+	[i]Dear Dr. $!{lastname},[/i]
+		
+	[i]You have never shown any inclination to associate with a man of my calling, nor would I expect you to. Your experiences on the Goráskan front showed you the worst of us, and it is understandable you shy away from anything that reminds you of the depredations of the light-eaters.[/i]
+	
+	[i](Though I will say, as I have said before, that those depredations occur because the light-eaters choose to commit them; or perhaps in rare cases, because a person of strong talent spends too long exercising his gift without receiving proper training. We who have the same talent they do may choose to use it differently–to bring light into darkness, to rekindle the flames of lives gone cold. I would teach this to any who wanted to learn it, and so I will say it here though I have no expectation of changing your mind.)[/i]
+
+	[i]Our philosophical differences aside, I would like to believe your work as a doctor is not so different from mine as a healer, and there is a man among my fideles in need of medical advice. Though I can heal the recurring symptoms of his condition, it may be a more scientific approach is needed to bring to an end the underlying cause. If you could spare a few minutes to discuss the case, I would be very grateful. You know where to find me, and my door is always open.[/i]
+	
+	*if married
+		A postscript adds, [i]Please come. I am becoming quite concerned about him–he has lost much recently, and I see the signs of despair darkening his eyes.[/i]
+		
+	*fake_choice
+	
+		#I am perplexed. How can Taggart say we have not associated? We have.
+
+			Upon reading the letter a second time, you understand.
+		#I appreciate Taggart's circumspection. Not one sentence in this letter would compromise my reputation if someone else saw it.
+		
+		#I have to admire Taggart's craftiness in getting his message across.
+		
+		#I find myself moved by Taggart's offer.	
+	It is really very clever–more so than you would have given Taggart credit for. The letter could be safely read even by the inevitable interceptor working for Arthur Woodward. 
+	
+	And yet its true meaning is clear. His open door, his willingness to teach, his warning about those who exercise their untrained gift. He has given you an excuse to go see him, with his story about the fidelis, and he may be offering you hope, with the line about rekindling the flames of a life gone cold. 
+	
+	You do not have to make an irrevocable choice just yet, but what is your initial reaction?
+	*set TaggartChoice true
+	*choice
+	
+		#Give up the position of a respected physician to join his cult? No.
+		
+			*set conventional %+15
+			*goto followingmorning3
+		
+		#To be true to who I really am, to join the fellowship I was always meant for? There's nothing I would rather do.
+		
+			*set compassionate %+15
+			*goto followingmorning3
+			
+		#I am tired of my life having so little meaning. I want to feel alive again. Perhaps joining the temple is the way to do that.
+		
+			*set compassionate %-15	
+			
+			You strike a match to burn the letter. 
+			
+			*goto followingmorning3
+
+		*if married
+			#I have nothing left. To leave behind the trappings of my old life, to go somewhere different and become someone new…Yes. Yes, that's exactly what I want.
+			
+				*set conventional %-15
+				
+				You strike a match to burn the letter. 
+				
+				*goto followingmorning3
+			
+		*if married = false		
+			#If I wished to join the temple, I would have to give up everything I have now…but I'm not at all sure there's anything I want to keep. 
+			
+				*set conventional %-15
+				
+				You strike a match to burn the letter. 
+				
+				*goto followingmorning3
+
+		*if married = false
+			#A cholera epidemic just ripped through the East End, and I know I could have saved more of them if I'd known more of the art of healing. Yes, this is a path I want to pursue.
+			
+				*set compassionate %+15
+				
+				You strike a match to burn the letter. 
+				
+				*goto followingmorning3
+		
+		*if married
+			#I never intend to stand helpless by anyone's bedside ever again. Yes, I want to learn the healer's art.
+			
+				*set compassionate %+15
+				
+				You strike a match to burn the letter. 
+				
+				*goto followingmorning3
+		
+		*if married
+			#I can't see myself doing it—can't see much of a future at all, in fact. Nothing matters.
+			
+				You realize you have been staring at the letter for some time. 
+				
+				You can't say what you were thinking.
+				
+				You strike a match and burn it.
+				
+				*goto followingmorning3
+
+		*if GraceTaggartEncounter
+			#How dare he even ask? He could have saved her and chose not to. I never want to cross paths with him again.
+			
+				Furious, you strike a match and burn the letter.
+				
+				*goto followingmorning3
+*else
+
+	*goto followingmorning3
+	
+	
+*label followingmorning3
+
+*if ((Alexandrachoice = false) and (RelAlexandra > 50))
+	
+	*page_break
+	As you leave the house for your surgery, a tall, slim urchin in ill-fitting clothes and an oversized cap comes running up to you. "Dr. $!{lastname}, sir? I was given this to give to you."
+	
+	"This" is a dirty piece of paper, folded over itself many times. 
+	
+	It reads:
+	
+	[i]Since you've now had plenty of opportunity to walk my streets, isn't it time you joined the effort to clean them? The Professor would welcome someone of your skill, and you know the cause is just.[/i]
+	
+	*if (AlexandraCholeraAlly) and (married = false)
+		[i]And I think we make a good team, don't you? We saved Kingsford from a cholera epidemic. Let's see what else we can do.[/i]
+	
+	[i]If you're ready to fight for the right side, come to tomorrow night's meeting. Meet me at the Ten Bells at eleven and I'll bring you. Alexandra.[/i]
+	
+	You look up from reading the note, and the "urchin"
+	*if married
+		winks,
+	*if married = false
+		winks and blows you a kiss,
+	then whirls to become one of the crowd before you can react. 
+	
+	You do not have to make an irrevocable choice just yet, but what is your initial reaction?
+	*set AlexandraChoice true
+	
+	*choice
+	
+		#I am not about to abandon my post as a respected physician and become an outlaw.
+		
+			*set conventional %+15
+			
+			Once at your surgery, you burn the note.	
+			
+			*goto followingmorning4
+		
+		#I never before considered such a course. Now that I am considering it, I hardly know what to think.
+
+			Tapping the note thoughtfully against your palm, you walk to your surgery. As soon as you are there, you burn it. 
+			
+			*goto followingmorning4
+			
+		#Children died under the feet of a mech in Dunleitir. A cholera epidemic just ripped through the laborer quarter because no one could be bothered to properly maintain a cesspool. Yes, it's time I took a hand in ending these horrors.
+	
+			*set conventional %-15
+			*set compassionate %+15
+			
+			Once at your surgery, you burn the note.
+			
+			*goto followingmorning4
+			
+		#I am tired of my life having so little meaning. I want to feel alive again. Perhaps joining Free Mercia is the way to do that.
+		
+			*set compassionate %-15
+			
+			Tapping the note thoughtfully against your palm, you walk to your surgery. As soon as you are there, you burn it. 
+				
+			*goto followingmorning4
+			
+		*if married
+			#The idea is…irrelevant. It doesn't matter. Nothing matters.
+				
+				Once at your surgery, you burn the note.	
+			
+				*goto followingmorning4
+		
+*else
+	*goto followingmorning4
+	
+*label followingmorning4
+*page_break
+It's a slow morning at the surgery–fortunately, since you have much to think about. You think in circles and spirals, never quite coming to a conclusion before veering away from it.
+
+To your surprise, Arthur Woodward walks into your consulting rooms.
+
+He is not ill, he assures you. 
+
+You offer him a chair, wondering what on earth he wants.
+*page_break
+
+*if married
+	You seem to vaguely remember he was at the funeral. Which at least means he is not here to offer his sympathies, so you will not be obligated to discuss it. 
+
+*if WoodwardCholeraAlly
+	He says, "I wanted to thank you again for that magnificent piece of work you did. It would not be much of an exaggeration to say you saved the city from a cholera epidemic single-handed."
+
+	*if married
+		You almost say, "Not single-handed," but you really don't want to talk about Grace.
+*comment endif
+	
+Woodward rests his elbows on the chair arms and tents his fingers. "Doctor, I want you to come back to work for me. I understand why you resigned when you did, but we move in dangerous times. The threat from Vlask may be dampened at the moment, but it is not extinguished. And meanwhile, matters on the homefront are becoming dire."
+
+*page_break
+
+"I am particularly worried about the growing strength of this 'Free Mercia' group," Woodward goes on. "Some of them write stories for magazines, and articles and whatnot, and they are having annoying success in shaping the perceptions of the everyday person. I have begun to see political cartoons, yellow-backed novels, even children's stories that portray government servants as thugs too quick to use violence, or light-eaters equivalent to ghosts and ghouls from country superstition. Or even light-eaters as misunderstood heroes." Woodward snorts in outrage and contempt. "Dangerous, seditious nonsense. We need something to combat it."
+
+How do you respond?
+
+*fake_choice
+
+	#"And I come into this how?"
+	
+	#"I have been attempting to combat it from here, by encouraging peaceful behavior."
+	
+		"Much appreciated, but I believe you can be more effective working from my office." 	
+	#"I have been attempting to combat it from here. I can tell you who the worst of the agitators are."
+		
+		"Can you? That would be much appreciated—but I still believe you can be more effective working from my office."	
+Woodward leans forward. 	
+*if charisma > 65
+	"Your gift with words is obvious. In addition to retuning to work for me in your previous capacity, I would like you to write a series of stories about your adventures with Finch–defeating light-eaters and Vlaski spies, solving crimes committed against the Empire, and so forth."
+	
+	"About my adventures with Finch in your employ? Doesn't that negate the effectiveness of your secret office?"
+	
+	"Well, we'd have to do something about that. Make him a…police inspector, or some such, and you a police surgeon? Change the names. But I think you see the idea. I have an editor of a popular magazine willing to publish them if you are willing to write them."
+	
+	You are torn between the idea of immortalizing your dead friend and the pain of having to relive it all. "You want me to be the mythmaker for the establishment."
+	
+	*gosub WoodwardConclusion
+		
+	*choice
+	
+		#The idea is insulting. To return to work for the government that has so betrayed its own ideals? Never.
+		
+			*set conventional %-15
+			*goto decisionpoint
+			
+		#The idea is painful. To relive all those glorious days again—and look up from the page to my current barren life? I couldn't.
+		
+			*set compassionate %+15
+			*goto decisionpoint
+			
+		#The idea is…warming. To be part of that fellowship again? To not be alone? It deserves careful thought.
+		
+			*set conventional %+15
+			*goto decisionpoint
+			
+		#The idea is unexpected. I will need to spend time getting used to it before I can ever think about seriously entertaining it. 
+
+			*goto decisionpoint
+			
+		*if married
+			#The idea is…irrelevant. It doesn't matter. Nothing matters.
+			
+				*goto decisionpoint
+	
+*else
+	"I want you back on my payroll. You'd tell me what you hear, positioned as you are–" Woodward waves his hand to indicate your surgery. "–you'd go on missions for me when the circumstances require your skills. I need as many good men as I can find to help me combat this growing rot in the core of the Empire. I need you, Doctor."
+	
+	"You want me to come back," you say slowly. "And have it all be as it was…except without Finch."
+	
+	*gosub WoodwardConclusion
+
+	*choice
+	
+		#The idea is insulting. To return to work for the government that has so betrayed its own ideals? Never.
+		
+			*set conventional %-15
+			*goto decisionpoint
+		
+		#The idea is painful. To return to that exciting and meaningful life—but without the partner whose presence provided half the meaning? I couldn't.
+		
+			*set compassionate %+15
+			*goto decisionpoint
+		
+		#The idea is…warming. To be part of that fellowship again? To not be alone? It deserves careful thought.
+		
+			*set conventional %+15
+			*goto decisionpoint
+		
+		#The idea is unexpected. I will need to spend time getting used to it before I can ever think about seriously entertaining it. 
+		
+			*goto decisionpoint
+			
+		*if married
+			#The idea is…irrelevant. It doesn't matter. Nothing matters.
+			
+				*goto decisionpoint
+	
+
+*label decisionpoint
+*page_break
+You spend the rest of that day feeling as though you stand on a precipice. After a time, you give up on the idea of working and go for a walk, moving slowly through the brisk air.
+
+It is almost as though you can see the paths of your life unfurling under your feet, stretching away from you in all directions.
+
+*if TaggartChoice
+	You could accept Taggart's offer, go to his temple, learn to train your inborn talent. 
+	
+*if AlexandraChoice
+	You could accept Alexandra's offer, join Free Mercia, and work against the Empire you have so long defended.
+	
+You could accept Woodward's offer and return to the fold, supporting the government in its campaign against enemies foreign and domestic. 
+
+Or you could return to the East End, pose as a target, and use your inborn talent to take down as many of the bastards as come after you. You wouldn't last long doing that, but you expect you could drain a great many lives through the palm of your hand before one of them killed you.
+
+This is the moment. Which do you choose?
+
+*choice
+
+	*if TaggartChoice 
+
+		#I accept Taggart's offer and join the healers. 
+		
+			
+			That very evening, you head for the temple. You tell yourself that being ostracized from your former life will not trouble you, because you go to attain something far more valuable.
+			
+			*goto clergymeeting
+	
+	*if AlexandraChoice
+		
+		#I accept Alexandra's offer and join Free Mercia.
+	
+			Once you served the Empire, but the Empress's men have betrayed their own ideals. The best thing a patriot can do for his country now is work against its corrupt government. That night, you turn your back on your old life, and head for the Free Mercia meeting.
+			
+			*goto resistancemeeting
+	
+	#I accept Woodward's offer and return to government service.
+	
+				
+		*goto Woodwardmeeting
+	
+	#I resolve to spend what remains of my life cleaning up the horrors of the East End by draining the lives of those who deserve it.
+	
+		*label frockcoat
+		*set alliance "ripper"
+		*set conventional %-25
+		The next day, you go out and purchase a new frock coat–gaudier than your usual style, something more suited to a young upper-class fop. Before your mirror, you practice the walk of a drunken man. Then, satisfied that you look like a helpless target, you tuck your revolver in your pocket. And go hunting. 
+		
+		*goto vigilante
+		
+		
+*label clergymeeting
+*if (lighteater)
+
+	You walk slowly through the darkening streets to Taggart's temple. 
+	
+	You feel edgy, nervous at the enormity of the step you are taking, uncertain what you will say when you meet Taggart face-to-face.
+	
+	In an effort to regain control of your nerves, you walk somewhat out of your way, away from the dubious streets where the temple sits and into the not-dubious-at-all-just-plain-dangerous streets you were walking last night.
+	
+	*gosub compulsion
+	*finish 
+	
+*else
+
+	*if kills <= 0
+	
+		*label TaggartWelcome
+		*set alliance "clergy"
+		*set conventional %-25
+		*page_break
+		
+		One face-to-face with Taggart, you find yourself mute. You stand before him, trying to articulate your fears, your hopes, your misgivings, but you cannot find the words.
+
+		He seems to understand anyhow. 
+		*if letter
+			"Dr. $!{lastname}," he says, perhaps for the benefit of the acolyte who opened the door to you. "You have come to aid me in my attempt to heal the man of whom I spoke. How very good of you." The door closes behind the acolyte, and Taggart walks around his desk to face you. "I think between the two of us," he says quietly, "we should be able to 
+			*if married
+				save his life." 
+			*if married = false
+				rekindle the flames of his life."
+			And he holds out his hand. "You are very welcome here."
+	
+			*finish 
+		*else
+			"I'm so glad you've come," he says simply, and holds out his hand. "You are very welcome here."
+			*finish 
+		
+	*elseif (kills = 1) and (DrainedGuards)
+	
+		*goto TaggartWelcome
+		
+	*elseif lighteater
+	
+		*label TaggartKills
+		*page_break
+		*set alliance "clergy"
+		*set conventional %-25
+		
+		You face Taggart in mute agony, unable to find the words to tell him what you have been doing.
+		
+		But it seems on some level, he already knows. He meets your eyes gravely but without fear. 
+		
+		"I am very glad you have come to me," he says. He motions to someone out of your line of sight, and you hear the door behind you grind shut. A key turns in a lock, and it is just you and Taggart alone. He squares his shoulders. "We have a great deal of work to do."
+	
+		*finish 
+	*else
+		*page_break
+		*set alliance "clergy"
+		*set conventional %-25
+		
+		Taggart meets your eyes gravely. 
+		
+		"I've…killed a man," you manage at last. "By light-eating."
+		
+		"I am very glad you have come to me," he says. "It is possible for one to take a step down this road you are on–and then turn and walk away from it. Difficult, but possible." 
+		
+		He starts to pace. "Once I could have offered you sanctuary. Those days are gone. If the police realize what you have done and come for you, I cannot prevent them. But this I can promise you: I will never tell them, and in exchange you will stay here with us, as an acolyte, learning how to use your power in a way that does not threaten those around you." 
+	
+		*finish
+	
+	
+*label resistancemeeting
+	
+*if (lighteater) 
+
+	You walk slowly through the darkening streets to the Ten Bells. You feel edgy, nervous at the enormity of the step you are taking, and so you go the long way, calming your nerves by walking fast down the streets you stumbled through last night.
+	
+	*gosub compulsion
+	*finish 
+	
+*else
+
+	*page_break
+	 
+	You slip through the door and into the crowded pub–and then you stand, your back safe against the wall, eyes scanning the crowd through the smoking lamps. 
+	
+	Alexandra is dressed in something dark that does full justice to her figure. She is sitting alone in a table in the corner, black hair gleaming in the lamplight, rebuffing the advances of drunken men with what appears to be barely a quarter of her attention. Her eyes meet yours, and you think you see a flicker of a genuine smile before her expression settles back into its customary irony. 
+	
+	She gets up, drops a coin next to the mostly full glass she has been nursing, and walks away from a still-coaxing sailor as though she doesn't even realize he is there. The noise of the tavern does not cease when she reaches you, but it feels that way for a moment. 
+	
+	"I knew you'd come," Alexandra says. Inclining her head to indicate you should follow her, she slips ahead of you out the door and into the night.
+	
+	*set alliance "resistance"
+	*set conventional %-25
+	*finish 
+	
+*label Woodwardmeeting
+
+*if (lighteater)
+
+	You find yourself ready far in advance of the hour at which Woodward is expecting you, so you go for a walk. Somehow–you couldn't say how–your feet take you away from the West End and toward the East. You find yourself retreading the paths you stumbled through last night. 
+	
+	*gosub compulsion
+	*finish 
+	
+*else
+
+	You arrive punctually at Woodward's fine house, and his servant takes your hat and ushers you straight to the study. Woodward stands up to greet you, reaching out a hand with unusual warmth.
+	
+	"Knew you'd come," he says gruffly. "Welcome back."
+
+	*set alliance "government"
+	*set conventional %+25
+	*if charisma > 65
+		*set mythmaker true
+		*finish 
+	*else
+		*finish
+
+*label vigilante
+*set compassionate %-25
+
+*temp topskill
+*if (athleticism > marksmanship) and (athleticism > medicine)
+	*set topskill "athleticism"
+	*goto vigilante2
+*elseif (marksmanship > athleticism) and (marksmanship > medicine) 
+	*set topskill "marksmanship"
+	*goto vigilante2
+*else
+	*set topskill "medicine"
+	*goto vigilante2
+
+
+*label vigilante2
+*page_break
+First you must pick your hunting ground.
+
+*fake_choice
+
+	#I select a tavern just on the edge of the East End. It is perhaps better not to begin in the true slums.
+	
+	#I select a tavern in the depths of the slums—one I have not been to personally, but one whose reputation is infamous.
+	
+	#I select a tavern in an area I know well, but not one I've been to recently. 
+	
+You stagger in as though already drunk, have a whiskey, draw attention to yourself, and stagger out again. 
+
+You pick up the footsteps of the footpad trailing you when you're no more than halfway down the street. 
+
+You let him thinking he's herding you. But really, you are luring him.
+
+Where do you intend to stage your ambush?
+
+*choice
+
+	#The cross-street just ahead, where there is enough room to allow me to move quickly. 
+
+		At the cross-street, you pretend to stagger.
+		
+		He rushes you, and you whirl to engage him.
+		
+		
+		*if stealthy < 40
+			*goto Vigilante3
+
+		*else
+
+			But you don't move quite fast enough. You can't get your hands positioned properly, and you are forced to 
+			*goto VigilanteFail
+			
+		
+	#The alleyway mouth just before the cross-street, where I can use the shadows to partially conceal my actions from my pursuer. 
+	
+		At the alleyway mouth, you pretend to stagger.
+		
+		He rushes you, and you move smoothly and subtly to engage him. 
+		
+		*if stealthy > 55
+					
+			*goto Vigilante3
+			
+		*else
+			But you don't move quite carefully enough. You can't get your hands positioned properly, and you are forced to
+			*goto VigilanteFail
+	
+	#Here is just fine. I pretend to trip and fall. 
+	
+		*if charisma > 60
+		
+			He rushes you, and you move to engage him. 
+			
+			*goto vigilante3
+			
+		*else
+		
+			Your performance is just a little artificial, however. He senses something wrong, and hesitates a little. Your element of surprise is gone, and you are forced to				
+			*goto VigilanteFail
+				
+					
+*label VigilanteFail
+*if topskill = "marksmanship"
+	shoot him–he's closing too fast to risk anything else.
+
+	Before he bleeds out, you manage to slap your palm to his face.
+	*goto Vigilante4
+*elseif topskill = "medicine"
+	take care of him with your little knife–he's closing too fast to risk anything else.
+	
+	Before he bleeds out, you manage to slap your palm to his face.
+	*goto Vigilante4
+*else
+	use your old hand-to-hand tricks to slam him against a wall and then break his neck–he's closing too fast to risk anything else.
+	
+	Before he is quite dead, you manage to slap your palm to his face.
+	*goto Vigilante4
+	
+*label vigilante3
+*set healing %+25
+*set kills +1
+*set lighteater true
+		
+It's hardly even a contest, and over in a moment. 
+
+You slap your palm to his face.
+*label vigilante4
+You can feel the sickly, spluttering light of his inner flame, and for a moment you wonder if it's even worthwhile to drain him, but then the reflex takes over, and the sharp pleasure jolts through you, leaving you gasping. 
+	
+*fake_choice
+	
+	#The physical pleasure overwhelms me.
+		
+	#After the first jolt, the sensation is more sickening than otherwise. It would make sense that the ill would not provide much sustenance.
+		
+		Still, he gave you something.
+	
+	#My head clears almost at once, and what satisfaction I feel after that is entirely intellectual.
+		
+His life is worth more to you than it ever was to him, that's certain. He did nothing with it but attack those who could not defend themselves. But you have made the streets one tiny bit safer for decent people to walk in.
+*achieve vigilante	
+*fake_choice
+	
+	#Full of energy, I straighten my clothing and head off to do it again.
+		
+	#Resolved to consume a more valuable target next time, I straighten my clothing and head off to do it again.
+		
+	#Grimly satisfied, I straighten my clothing and head off to do it again.
+		
+*set alliance "ripper"
+*set conventional %-25
+*finish 
+
+		
+*label WinterSoldierIntro
+*page_break
+You suppose you cannot be surprised when Woodward silently presses a button on his desk and summons guards. They come rushing into the room in full protective gear, and it doesn't take them very long to subdue you, after that.
+
+*page_break
+
+They take you to a secret facility.
+
+*goto WinterSoldier
+
+
+*comment **********SUBROUTINES****************
+
+*label OldBeliever
+The mood of the East End is turning ugly. More and more of the people you speak to blame the cholera on a light-eater curse, and easily half of them reference the Juniper Street temple with suspicion. In times like these, public opinion always turns against sun-worshippers.
+		
+Except in the Loegrian quarter, where they put a different interpretation on events.
+
+"No, no, don't come in here!" a half-dead old man yowls at you, waving a sun medallion in your direction from his pallet on the floor. "The Sun's sent this curse upon us, because we've turned from the old ways. Only the healers can help us now, and there's not enough of them, are there, and that's because of what we've done, but I won't let one like you touch me, so at least the Sun will see that I want to do as I ought—"
+		
+How do you respond?
+		
+*choice
+		
+	#I conduct a rapid examination despite his protests, advising his daughter on his continued care over his head.
+			
+		*set compassionate %-15
+		*return
+			
+	#I back away, and leave him to his daughter's nursing. My presence is only agitating him; there's nothing I can do here.
+		
+		*set compassionate %+15
+		*return
+			
+	*if RelTaggart > 60
+		#I back away…and later I send a note to Christopher Taggart with the old man's name and address. 
+				
+			*set compassionate %+15
+					
+			The healers must be as run off their feet as the doctors, and it's dangerous for them to be wandering the streets just now, but surely Taggart would want to know that a believer seeks his care.
+					
+			*return
+					
+	#I make one effort to bridge the gap. "My grandmother was a healer. Maybe the Sun wouldn't mind, if I did what I could for you with medicines."
+			
+		*set compassionate %+15 
+		
+		The old man stares at you suspiciously. "A healer? Truly?"
+				
+		You nod.
+				
+		*if charisma > 70
+				
+			You can see him thinking about it. "Well…maybe that would be all right."
+
+			Not, of course, that there is all that much you can do. You conduct a brief examination, you advise his daughter on his care, and you hope for the best.
+			*page_break
+			*return
+				
+		*else
+				
+			You can see him thinking about it. "She was…but you're not, are you? 'Course you're not. No, no, you're temping me into betraying the old faith again, you're here for evil purposes—"
+					
+			It's time to go. You're just making this worse. 
+					
+			You back away, and leave him to his daughter's care. 
+			*page_break
+			*return
+
+*label TaggartCholeraThanks
+
+As you leave the temple, Taggart stops you with a hand on your sleeve. "You've done great work today. It's not over yet, but we've come to the beginning of the end. Thanks to you, Doctor."
+
+*return
+
+*label Quilt
+Until some hours later, when you pass the spare bedroom and see him sprawled asleep and snoring on top of the quilt. Apparently he got no further than that in his quest for a cab. You lock him in to keep him from bothering you when he awakes, and go back to Grace.
+*return
+
+*label Policestation
+
+"I intend to leave him bound and able to do no harm, at the doorstep of the nearest police station." 
+
+"That won't do much good," you object. "They'll let him out again."
+
+"I know," Taggart says. "Working within the law has the occasional disadvantage, but–" He shrugs. "It is still the right thing to do."
+
+*return
+
+
+*label WoodwardConclusion
+
+"Exactly." Woodward heaves himself to his feet. "I don't expect an immediate answer. Give it some thought. If you wish to discuss the matter further, come and dine with me tonight at eight."
+
+*return
+
+
+*label compulsion
+*set healing %+25
+*set compassionate %-25
+*set kills +1
+A scream startles you out of your thoughts. Your feet are running toward it before you consciously decide to do so.
+
+*page_break
+In the little yard behind a rooming house, a large man is using a stick to beat a young woman who sobs and begs for mercy and tries to crawl away. 
+		
+You are behind him before you have time to think, your hand closing over his collar almost of its own accord. You slam him up against a handy wall. 
+
+He half-wrenches free, trying to plant an elbow in your face. You dodge and shift your grip from his collar and sleeve to the bare skin of his neck. Your palms close over the
+
+–bright burning acid of his inner flame, poison overlaid with coal dust, throwing off toxic splatters in every direction. There's nothing here the world needs. You squeeze once, hard, and the venemous light goes out–
+
+–and sharp, clean strength floods your veins. It's like standing on top a mountain in winter, cold air searing your lungs and clearing your head. He was good for something after all, dead if not alive. He was putting the light of his life to no good use, but with this borrowed energy, you could–
+
+–you could do almost–
+
+–almost anything.
+
+You blink down at the dead body. 
+
+*page_break
+You crouch, staring at the dead man and at your hands, and you realize the decision of how to spend the rest of your life is no longer completely yours to make. You cannot recollect the precise sequence of steps tonight that led to this moment. The hunger of the light-eater has begun to take you over.
+	
+As far as you see it, you have three options. You can run to Taggart right now and throw yourself on his mercy. You can run to Woodward and throw yourself on his mercy. Or you can embrace this thing you are becoming and use your new powers to clean up the East End. 
+
+*choice
+
+	#I run for Taggart's temple.
+	
+		*set lighteater true
+		*goto TaggartKills
+	
+	#I run for Woodward's office.
+	
+		*goto WinterSoldierIntro
+		
+	#I will be a vigilante.
+	
+		*goto frockcoat
+	
+	
+*label Source
+
+"I need to know where all the earliest cases got their water. I need to know where the unaffected, or those not affected until much later, got theirs. Start with the names on the map, but there may be gaps I don't know about…"
+			
+Taggart nods. "I can get that information for you."
+
+*return
+
+*label AskAForHelpFirstTime
+*set workedwithher true
+			
+You get a message to her via a patient whom you are fairly certain is involved in Free Mercia, and within a few hours a ragged old woman totters into your surgery. She watches you out of suspicious rheumy eyes until the maid has closed the door behind her. Then the old woman straightens and addresses you with Alexandra Townsend's unmistakable voice. "Good afternoon, Doctor. I understand you wished to speak with me?"
+	
+She has a hand in the pocket of her skirt, no doubt resting upon the concealed pistol she will draw if you attempt to capture her, but her tone of voice is curious rather than aggressive.
+
+*return
+
+*label LoegriaExposition
+*page_break
+Last month, the Loegrian Day of Remembrance was marked by demonstrations, rioting, and looting in Dunleitir. The Day of Remembrance honors those who died in the horrific famine two generations ago—the famine some say was made worse by mismanagement from Kingsford—and so civil unrest on Remembrance Day is not uncommon.
+		
+But this year the Loegrian Viceroy ended it by sending mechs stampeding through the streets of Dunleitir, leaving men, women, and children crushed beneath their feet or pierced by their bullets. You might think the eyewitness accounts inflated, were it not for the photographs. 
+
+Rumor has it the [i]Daily Yell[/i] obtained the photographs from the group that calls itself Free Mercia, and that Free Mercia managed to steal them from the home of the government functionary to whom they had been entrusted, the burglars getting away clean except for the bullet wound one took in the shoulder. 
+
+*choice
+
+	#I am certain Free Mercia is not telling the entire story. For the moment I am reserving judgment, because I cannot know what other provocation may have occurred in Dunleitir that day.
+	
+		*set conventional %+15
+		Very sensible of you.
+		*return
+	
+	#I felt sick when I looked at the pictures. Every Mercian should be ashamed of this. But I can't believe Prime Minister Whitefield authorized it.
+
+		*set conventional %+15
+		*set compassionate %+15
+		
+		It wouldn't be the first time a subordinate exceeded his orders, to be sure. It's easier to believe that than to believe the orders came from Kingsford.
+		*return
+	
+	#When I saw the photographs, a sense of betrayal hit me like a punch to the gut. The Viceroy could only have done this with Her Imperial Majesty's—and therefore Woodward's—knowledge and consent. What has become of the Empire I served?
+	
+		*set conventional %-15
+		*set compassionate %+15
+		
+		You are no longer a member of Woodward's inner circle.
+		*if married = false
+			Your initial leave of absence seems to have extended itself indefinitely.
+		There is no one of whom you can ask this question. 
+		*return
+
+*label Usually
+
+Usually the protesters you treat have been agitating for better working conditions—improved child labor laws, or a day off per week, something like that—but since the Loegrian photographs were published in one of Kingsford's less well-known newspapers three days ago, the demonstrations have become more violent.
+
+*return

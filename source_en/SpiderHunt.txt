@@ -1,0 +1,2791 @@
+*comment é
+
+*image Chapter04.png
+
+*comment This vignette offers you the opportunity to drain someone's life (second beat in the you-become-Jack-the-Ripper story), and pushes the love-arc-with-Grace or love-arc-with-Finch to its, uh, climax. 
+
+*comment Goal - from the PC's perspective, find out about the Professor (and in fact stat checks govern how much you find). From the game's perspective, this is mostly for choosing a lover and having a scary experience that may prompt you to try light-eating. 
+ 
+*temp TeaConversation false
+*temp GraceBreaksUpWithYou false
+*temp role "none"
+*temp KnowPersona false
+*temp ColonelFooled false
+*temp KnowMilitary false
+*temp KnowUnderling false
+*temp KnowGuardNumber false
+*temp FinchLessHurt false
+*temp DestroyedTable false
+*temp ColonelWarned false
+*temp KnowProfessor false
+*temp KnowLoegrian false
+*temp KnowRising false
+*temp ColonelDead true
+*temp OtherMan "the man with the side-whiskers"
+*temp Guard "the guard"
+*temp FinchRescue false
+*temp incompetent 0
+*temp donethisonce false
+*temp GotKnife false
+
+*temp pass true
+
+*label Capture
+[i] The air outside shakes with the sound of cannon, and the ground shakes with the heavy footfalls of steam-powered Vlaski and Mercian mechs. Within the prison walls, you can hear shouting voices and running feet, but none have reached this corridor. Yet. [/i]
+
+[i] You stagger toward daylight as fast as you can, Pierce's arm draped heavily over your shoulders. [/i]
+
+[i] But you don't make it. The blank-eyed face of a mech looms over you, and Pierce's arm slips from your shoulders as you tumble down the ravine, and darkness rises up to swallow you—[/i]
+
+And you come back to yourself, bound and gagged and lying face down on a cold damp stone floor.
+ 
+Somewhere outside your pounding skull, someone is screaming. 
+
+Pierce? 
+
+*page_break
+
+It has to be. You tried to rescue him, but the mech blocked your way and you both were recaptured. Now Pierce is being tormented by the light-eaters, and—
+
+No. No, wait, that's not right. 
+
+*page_break
+
+The air is clammy. When the screamer in the other room pauses for breath, you think you can hear the far-off murmur of water. You can't possibly be in the Goráskan mountains, where the air is thin and sharp and the soil thin and dry. 
+
+And the mission to rescue Pierce was over long ago. You remember how it ended. You made it out of the prison and you brought him with you. You were badly injured almost immediately afterward and invalided home—
+
+And with that, it all comes crashing back. Kingsford. Woodward. Finch. It is the year 1886—[i]1886[/i], not 1881—and you are an honorably discharged veteran of the Mercian Imperial Army. You work (officially) as a police surgeon and (unofficially) as part of Arthur Woodward's irregulars, foiling Vlaskesari spies, saving falling dirigibles, hunting down factory saboteurs. 
+
+And doing—doing—doing something—that has ended with you bound and gagged on a cold stone floor, your head throbbing like a locomotive engine. 
+*page_break
+In the next room, the screaming starts again, and adrenaline jolts through you despite your splitting headache.
+
+You may not be a Vlaskesar's prisoner, but you are [i]someone's[/i] prisoner, and you need to quickly determine how you came to be here. 
+
+What's the last thing you remember?
+
+*label MemoryStack
+*choice
+	
+	*if DatingGrace
+		*hide_reuse #An afternoon tea with Miss Chandler. 
+	
+			*set TeaConversation true
+			*gosub Tea
+			
+			*if GraceBreaksUpWithYOu
+				*gosub BreakUpReactionShot
+				*page_break
+				*goto Urgent
+			*else
+				*gosub YourIntentions
+				*page_break
+				*label Urgent
+				But you have more urgent matters to attend to right now.
+			
+				That teatime conversation [i] did [/i] happen today—you're fairly sure—but it didn't lead to this. You try to dredge up something else, and come up with an image of…
+			
+				*goto MemoryStack
+			
+	#Walking through a narrow street where the cobblestones were broken and treacherous and the street-lamps nonexistent, past taverns where the roar of those within sounded animal-wild. 
+	
+		*gosub EastEndIntro
+		
+		You can see how that moment led to this one. 
+
+		But what were you doing there in the first place?
+
+		Trying to remember, you bring up an image of…
+
+		*choice
+
+			#A briefing in Woodward's office—his voice sharp and annoyed, but not holding the urgency of a true emergency.
+	
+				*gosub WoodwardBriefing	
+
+				Right. Right! And so you and Finch assumed disguises and went to trawl the East End.				
+				*goto ColonelFirstInteraction
+	
+			#Finch sitting cross-legged on the carpet in our flat, surrounded by newspapers, a scrapbook in his lap.
+	
+				*gosub Scrapbook
+				
+				Right. Right! And so you and Finch assumed disguises and went to trawl the East End.
+				
+				*goto ColonelFirstInteraction
+	
+			#Finch drawing gentle fingers along my cheek.
+		
+				*gosub Greasepaints
+				
+				*goto ColonelFirstInteraction
+
+	#Sitting across from a man with a badly scarred face, in a tavern where the smoking lamps obscured rather than illuminated his expression.
+	
+		*gosub HuntingTheSpider
+		
+		Right. Right, so you were in disguise, trying to discover…to discover…
+		
+		Who's "the Professor"?
+		
+		*page_break
+		You cast your mind further back, and come up with an image of…
+		
+		*choice
+		
+			#A briefing in Woodward's office—his voice sharp and annoyed, but not holding the urgency of a true emergency.
+
+				*gosub WoodwardBriefing
+				
+				Right. Right! And so you and Finch assumed disguises and went to trawl the East End.
+				
+				*goto ColonelFirstInteraction
+				
+			#Finch sitting cross-legged on the carpet in our flat, surrounded by newspapers, pasting entries into a scrapbook.
+	
+				*gosub Scrapbook
+				
+				Right. Right! And so you and Finch assumed disguises and went to trawl the East End.
+				
+				*goto ColonelFirstInteraction
+				
+			#Finch drawing gentle fingers along my cheek.
+		
+				*gosub Greasepaints
+				
+				*goto ColonelFirstInteraction
+			
+	#Finch drawing gentle fingers along my cheek.
+	
+		*gosub Greasepaints
+		
+		Right. Right, you were assuming a disguise to…a disguise to…
+		
+		You cudgel your brains, trying to remember.
+		
+		The image that rises is…
+		
+		*choice
+		
+			#A briefing in Woodward's office—his voice sharp and annoyed, but not holding the urgency of a true emergency.
+			
+				*gosub WoodwardBriefing
+				
+				Right. Right! And so you and Finch assumed disguises and went to trawl the East End.
+				
+				*goto ColonelFirstInteraction
+			
+			#Finch sitting cross-legged on the carpet in our flat, surrounded by newspapers, pasting entries into a scrapbook.
+	
+				*gosub Scrapbook
+				
+				Right. Right! And so you and Finch assumed disguises and went to trawl the East End.
+				
+				*goto ColonelFirstInteraction
+		
+*label ColonelFirstInteraction
+
+And then…and then…
+
+*page_break
+
+You can't remember what happened next. Try as you might, the last image you can summon is that of you and Finch walking side by side through the most dangerous part of the city.
+
+Hell and damnation. [i] Where's Finch? [/i]
+
+Next door, the screaming trails off into a gurgle.
+
+You strain your ears, but can hear nothing over your beating heart.
+
+Then behind you, the door clangs open.
+
+*page_break
+
+A little fitful light filters into the blackness, and your eyes tear. Loud footsteps cross the stone with an unhurried tread, bringing more light with them—a candle, you're fairly sure, set on a table behind you. A boot nudges itself under your ribcage and flips you over.
+
+"Finally awake? That took long enough. They must be recruiting weaklings for the Army these days." The man looming over you is tall and burly, and wears slightly out-of-date side-whiskers. He's older than you are, but strongly built and fit, and he paces with the barely-restrained energy of a prowling tiger. 
+
+Is this the spider you've been hunting? Has he hunted down and captured you instead?
+
+He reaches down and rips the gag out of your mouth, and you catch a glimpse of the pistol holstered at his belt. He stands over you, menacing. "Now then. Let us have a conversation. Who do you work for?"
+
+Hell.
+
+*choice
+
+	#I refuse to answer and keep my face blank. I have the self-control to avoid giving anything away, and the more he talks, the more he'll reveal.
+	
+		It's what Woodward would want; it's what Finch would do. 
+		
+		(Where the hell is Finch? Was that him screaming in the other room?)
+		
+		*goto StonewallAttempt1
+		
+	#I have to make him think he's captured the wrong man, someone useless, so he will be more likely to let his guard down. 
+	
+		(Though that will return his attention to—to whomever's in that other room. To Finch? You hope like hell it isn't Finch.)
+		
+		In the candlelight, you can see you are dressed in rough laborer's clothing. Your best tactic is to speak in a manner befitting the disguise you wore to the East End…if you can only remember what that was.
+		
+		*goto BluffAttempt1
+		
+	#The best way to handle an interrogation like this is to speak first, ask questions of my own, do everything possible to take control of the situation.
+	
+		(You [i]must[/i] take control of this situation. Was that Finch screaming? You hope like hell it wasn't Finch.)
+		
+		*goto InterrogateAttempt1
+	
+*label StonewallAttempt1	
+*comment You auto-succeed in your first attempt to keep your face blank; you're pretty bad-ass 
+	
+Your silence does not please your captor at all. He draws back his foot and kicks you hard in the ribs. "Who do you work for?"
+		
+You say nothing. You keep your face blank.                      
+
+*comment You auto-succeed in your second attempt to keep your face blank; you're pretty bad-ass
+			
+The boot connects with your ear, and you see stars. The pounding in your head redoubles. "Who do you work for? A rival organization?"
+		
+*choice
+		
+	#I say nothing and struggle to keep my face blank.
+		
+		*if stealthy > 55
+		
+			*set KnowUnderling true
+			*set KnowProfessor true 
+			
+			This is becoming harder to do as the pain increases, but the same tactics you use to avoid notice when skulking in shadows serve you here as well. When your mission calls for stealth, you can't allow yourself to react to stimuli that might reveal your hiding place. You can't allow yourself to react to this stimulus either.
+			
+			Your captor snarls with frustration, able to read nothing from your face. "Don't think you can horn in on the Professor's territory, not as long as he's got me looking out for him! If I bring him a spy like you he'll take me back, philosophical differences be damned!"
+
+			*goto ColonelFirstInteractionSecondQuestion
+		
+		*else
+		
+			But you are in too much pain to manage it. Through your wavering vision and the candle-smoke, you see your captor grin at whatever he reads from your expression. "[i]Not[/i] a rival organization. Something more interesting, then." The kick to your belly leaves you gasping. "A government spy?"
+			
+			Again you try to deny him a reaction. You can't manage it this time either. "A government spy," he says with satisfaction. Bloody bloody hell.
+					
+			*goto ColonelFirstInteractionSecondQuestion
+				
+	#I'm afraid I won't be able to keep expressionless. But speaking in a manner befitting the disguise I'm wearing would be a good bluff—if I can only remember what it was.
+	
+		*goto BluffAttempt1
+	
+	#It's up to me to change the terms of this interaction. I volley a question back at him.
+			
+		*goto InterrogateAttempt1
+		
+*label BluffAttempt1
+
+*gosub BluffSequence
+
+*if ColonelFooled
+	*set KnowUnderling true
+	*set KnowProfessor true
+	
+	Now your captor paces, furious. "So what were you doing asking about the Professor all over the East End?" he demands. "Think you can just join for the asking? I'll wager you think you can replace me, but you can't. I'm going to make him take me back, differences in philosophy be damned."
+	
+	*goto ColonelFirstInteractionSecondQuestion
+
+*else
+
+	The man with the side-whiskers snorts. "Nice try. You may have convinced those drunken imbeciles in the taverns, but you don't fool me." He draws back his foot, and you're sure that kick snaps ribs. "Let that be a lesson to you. Don't lie to me."
+
+	*goto ColonelFirstInteractionSecondQuestion
+
+*label InterrogateAttempt1
+		
+What do you say?
+		
+*choice
+		
+	#"Who are you?"
+			
+		The man with the sideburns draws his boot back and kicks you hard in the ribs. "I ask the questions. Who do you work for?"
+				
+		"None of your business. Who do [i]you[/i] work for?" you manage through clenched teeth, looking hard for the reaction…looking in particular to see if there is outrage at the implication he takes someone's orders instead of giving his own.
+				
+		*if perception > 65
+		
+			*set KnowUnderling true
+	
+			You think you see a flicker in his eyes. Not outrage, but something closer to pain. He [i]does[/i] take someone's orders…or he did. 
+					
+			The kick to your belly leaves you gasping. "[i]I[/i] ask the questions," your captor repeats.
+			
+			*goto ColonelFirstInteractionSecondQuestion
+						
+		*else
+				
+			But you can't read him at all.
+			
+			The kick to your belly leaves you gasping. "[i]I[/i] ask the questions," your captor repeats.
+			
+			*goto ColonelFirstInteractionSecondQuestion
+				
+	#"Where have you brought me?"
+				
+		The man with the sideburns draws his boot back and kicks you hard in the ribs. "I ask the questions," he clarifies pleasantly. "Who sent you?"
+				
+		"Where are we?" you demand through clenched teeth, watching him closely for a reaction. "Somewhere near the river, right?"
+				
+		*if perception > 65
+				
+			His eyes flicker. You're right.
+			
+			You follow up fast with another question. "Who do you work for?"—watching to see if there is outrage at the implication he takes someone's orders instead of giving his own.
+			
+			What you see is not outrage, but something closer to pain. He [i]does[/i] take someone's orders…or he did.
+				
+			The kick to your belly leaves you gasping. "[i]I[/i] ask the questions," your captor repeats.
+			
+			*goto ColonelFirstInteractionSecondQuestion
+					
+		*else
+				
+			But you perceive no change in his expression.
+			
+			The kick to your belly leaves you gasping. "[i]I[/i] ask the questions," your captor repeats.
+			
+			*goto ColonelFirstInteractionSecondQuestion
+				
+	#"I want to see my friend. Now."
+		
+		The man with the sideburns draws his boot back and kicks you hard in the ribs. "You're in no position to make demands," he says pleasantly. "Who sent you?"
+				
+		"My friend is in the next room, isn't he?" you demand through clenched teeth, watching him closely for a reaction.
+
+		*if perception > 65
+		
+			*set KnowUnderling true
+		
+			You think you see a flicker in his eyes. You're right.
+			
+			You follow up fast with another question. "Who do you work for?"—watching to see if there is outrage at the implication he takes someone's orders instead of giving his own.
+			
+			What you see is not outrage, but something closer to pain. He [i]does[/i] take someone's orders…or he did.
+			
+			The kick to your belly leaves you gasping. "[i]I[/i] ask the questions," your captor repeats.
+			
+			*goto ColonelFirstInteractionSecondQuestion
+					
+		*else
+				
+			But you see none.
+			
+			The kick to your belly leaves you gasping. "[i]I[/i] ask the questions," your captor repeats.			
+			
+			*goto ColonelFirstInteractionSecondQuestion
+
+			
+*label ColonelFirstInteractionSecondQuestion
+*page_break
+The man with the side-whiskers circles you, menacing. "Were there only the two of you?"
+
+You know why he's asking. He wants to know if he should expect reinforcements to come and attempt your rescue. 
+
+Unfortunately, as far as you can remember, you and Finch were indeed the only ones trawling for information on the master criminal. You were watching each other's backs; there was no third man to run and advise Woodward of your capture.
+
+Obviously you don't wish this man to know that.
+
+*choice
+
+	#I refuse to answer and attempt to keep my face expressionless.
+	
+		*if stealthy > 60
+			The same skills that help you hide in shadows render your expression unreadable now. Your captor snarls in frustration and runs a hand through his hair.
+			
+			*gosub Tattoo
+						
+			*goto FinchTaunt
+			
+		*else
+			
+			You are not able to manage it. Your captor smiles. "No reinforcements. Good. I'd hate to be interrupted."
+			
+			*goto FinchTaunt
+			
+	*if KnowPersona 
+		#I answer as befits my assumed persona. Yes, I was drinking with a friend, just the two of us, but I otherwise don't know what he's talking about. 
+		
+			*if charisma > 70
+			
+				The man with the side-whiskers looks uncertain. Good. Anything you can do to keep him off-balance will benefit you.
+				
+				He runs a hand through his hair. 
+				*gosub Tattoo
+						
+				*goto FinchTaunt
+			
+			*else
+			
+				The man with the side-whiskers studies you narrowly for a moment, then rolls his eyes. "You can drop the act. It's wasted on me."
+				
+				*goto FinchTaunt
+		
+	*if KnowPersona = false
+		#I attempt to answer as befits the persona I assumed for my adventures in the East End…first racking my brains to remember what that was.
+	
+			*gosub BluffSequence
+			
+			*if ColonelFooled
+			
+				The man with the side-whiskers looks uncertain, as though actually doubting he captured the right person. Good. Anything you can do to keep him off-balance will benefit you.
+				
+				He runs a hand through his hair. 
+				*gosub Tattoo
+						
+				*goto FinchTaunt
+			
+			*else
+			
+				The man with the side-whiskers rolls his eyes. "Nice try. You may have convinced those drunken imbeciles in the taverns, but you don't fool me." His boot connects with your swimming head. "Don't lie to me."
+				
+				*goto FinchTaunt
+				
+	*if KnowUnderling and KnowProfessor
+		#I respond with a question of my own, watching him carefully for a reaction. "Did the Professor discharge you?"
+
+			*if perception > 70
+				The expression of pain and anger is unmistakeable. Yes, the Professor did. Your captor runs his hand through his hair, as though to hide the expression.
+				
+				*gosub Tattoo
+			
+				The satisfaction of securing that knowledge almost makes the next kick bearable.
+				
+				*goto FinchTaunt
+				
+			*else
+			
+				He says nothing, and you can read nothing from his tight lips and hard eyes.
+				
+				The next kick is almost unbearable.
+				
+				*goto FinchTaunt
+				
+	*if (KnowUnderling = false) or (KnowProfessor = false)
+		#I respond with a question of my own, watching him carefully for a reaction. "Are you all alone here?"
+		
+			*if perception > 70
+				The flash of a smug smile is unmistakeable. No, he has allies in the building. That's not good, but it's good to know. 
+				
+				Your captor runs his hand through his hair.
+				*gosub Tattoo
+				The satisfaction of securing that knowledge almost makes the next kick bearable.
+				
+				*goto FinchTaunt
+				
+			*else
+				He says nothing, and you can read nothing from his tight lips and hard eyes.
+				
+				The next kick is almost unbearable.
+				
+				*goto FinchTaunt
+		
+		
+*label FinchTaunt
+
+*page_break
+
+*if KnowUnderling and KnowMilitary
+	*comment You passed most of the stat checks
+	"To hell with this," your captor mutters. "You're more trouble than you're worth. I'll get my answers from your friend instead. He seems to be willing to do almost anything if it keeps me away from you."
+	
+	*if stealthy > 65
+	
+		It takes iron control, but you manage not to react. The man with the side-whiskers seems disappointed. "And that doesn't trouble you? I'll have to make sure he knows that. What a one-sided friendship you have."
+
+		*goto AloneAgain
+		
+	*else
+	
+		You can't keep the reaction off your face, and the man with the side-whiskers grins. "Thought that would get your attention."
+		
+		*goto AloneAgain
+
+*elseif KnowMilitary or KnowUnderling
+
+	"That's enough for now," your captor opines. "I'll go visit your friend now; he seems to be willing to do almost anything if it keeps me away from you."
+	
+	*if stealthy > 65
+	
+		It takes iron control, but you manage not to react. The man with the side-whiskers seems disappointed. "And that doesn't trouble you? I'll have to make sure he knows that. What a one-sided friendship you have."
+
+		*goto AloneAgain
+		
+	*else
+	
+		You can't keep the reaction off your face, and the man with the side-whiskers grins. "Thought that would get your attention."
+		
+		*goto AloneAgain
+
+*else
+
+	*comment You failed most of the stat checks
+	
+	"You're no challenge," your captor murmurs. "Hardly worth my time. I'll get my answers from your friend instead. He seems to be willing to do almost anything if it keeps me away from you."
+	
+	*if stealthy > 65
+	
+		It takes iron control, but you manage not to react. The man with the side-whiskers seems disappointed. "And that doesn't trouble you? I'll have to make sure he knows that. What a one-sided friendship you have."
+
+		*goto AloneAgain
+		
+	*else
+	
+		You can't keep the reaction off your face, and the man with the side-whiskers grins. "Thought that would get your attention."
+		
+		*goto AloneAgain
+
+
+*label AloneAgain
+
+Your captor smiles and turns on his heel. He takes the candle with him, leaving you in utter blackness after the door slams. 
+		
+And from the next room, Finch's screams resume. 
+
+*choice
+
+	#No. Oh hell and damnation, no, no, no. I should have handled that better—I should have kept him here—
+
+		*set compassionate %+15
+		
+		But you can't surrender to panic or regret now. You are a professional with a job to do—in this case, rescuing your friend and yourself from a prison. (You remind yourself that you've done this before.)
+		*page_break
+		
+		*goto AloneAgain2
+		
+	#"He'll do anything if it keeps me away from you"? That can't be true, can it? What in hell is Finch doing? 
+	
+		*set compassionate %+15
+		
+		It doesn't matter. You can't surrender to panic or regret now. You are a professional with a job to do—in this case, rescuing your friend and yourself from a prison. (You remind yourself that you've done this before.)
+		*page_break
+		
+		*goto AloneAgain2
+
+	#Perhaps it's on purpose, deliberately giving me space in which to act? In that case, I must move quickly, or his sacrifice will be for nothing.
+	
+		*goto AloneAgain2
+	
+	#It's difficult to listen to, but perhaps just as well. If Finch draws all the ill treatment, it at least leaves me whole and able to rescue us both.
+	
+		*set compassionate %-15
+		*goto AloneAgain2
+
+
+*label AloneAgain2
+
+You take a breath and let it out. You try to focus on your thoughts rather than on Finch's screams. You have to think. What do you know?
+
+What did you learn when you were scouring the East End in disguise with Finch?
+
+*if KnowPersona 
+	*goto AloneAgain3
+*else
+	*set KnowPersona true	
+	You strain after a memory. When you and Finch each assumed a persona, you decided to play…
+		
+	*choice
+
+		#A Loegrian recently come to Kingsford in search of work, and loudly bitter about the conditions back home. I've talked with enough Loegrian grooms and maidservants to be able to tell the right kind of story.
+	
+			*set role "Loegrian"
+			*set KnowPersona true
+		
+			You decided to put to use your unconventional habit of talking with maidservants and grooms. After all, a bitter Loegrian is exactly the sort of person who would be recruited by an organization like Free Mercia.
+		
+			And you think Finch took on the role of a safecracker recently released from prison, sullen at the "injustice" of his sentence. 
+		
+			*goto AloneAgain3
+		
+		#A factory laborer injured by improperly maintained machinery.
+	
+			*set role "machinery"
+			
+			You remember deciding that a justifiably bitter factory laborer would be exactly the sort of person who would be recruited by an organization like Free Mercia.
+		
+			If you recall correctly, Finch took on the role of a safecracker recently released from prison, sullen at the "injustice" of his sentence. He decided his character would be Loegrian, and did a masterful job with the lilting accent.
+		
+			*goto AloneAgain3
+	
+		#A factory laborer dismissed for drunkenness. There are, after all, far more of those than the few injured on the job.
+	
+			*set role "drunk"
+		
+			You remember deciding that such a man might well seek to join a criminal organization rather than take responsibility for his own life.
+			
+			If you recall correctly, Finch took on the role of a safecracker recently released from prison, sullen at the "injustice" of his sentence. He decided his character would be Loegrian, and did a masterful job with the lilting accent.
+		
+			*goto AloneAgain3
+			
+		#A former soldier whose life lacks excitement since he left the service. 
+
+			*set role "soldier"
+				
+			You remember, when you decided upon this, reflecting that the mindset was not altogether foreign to your own. You were fortunate enough to find your excitement in defense of the law; it makes sense that others might find it in opposition, and that an organization like Free Mercia would recruit those types.
+		
+			If you recall correctly, Finch took on the role of a safecracker recently released from prison, sullen at the "injustice" of his sentence. He decided his character would be Loegrian, and did a masterful job with the lilting accent.
+		
+			*goto AloneAgain3
+	
+		#A convict recently released from prison, sullen at the "injustice" of his sentence.
+	
+			*set role "convict"
+		
+			You remember deciding that such a man might well seek to join a criminal organization rather than take responsibility for his own life.
+		
+			If you recall correctly, Finch took on the role of a Loegrian recently come to Kingsford looking for work, and did a masterful job with the lilting accent.
+
+			*goto AloneAgain3
+	
+
+*label AloneAgain3	
+
+*if (KnowPersona) and (role = "Loegrian")
+
+	*if (charisma > 60) or ((charisma > 50) and (conventional < 40))
+		
+		*gosub ProfessorIsLoegrian
+		
+		"He says that one day soon, Free Mercia will succeed in its aims," a young Loegrian groom told you with enthusiasm. "And then the lot of all Loegrians—and sun-worshippers, and everybody who's got a boot on their neck now—will be much improved."
+
+		*goto PlanEscape
+
+	*else
+	
+		Unfortunately, the disguise was not a success. Perhaps you didn't effectively duplicate the accent, or perhaps you don't understand enough about Loegrians to convincingly portray one? In any case, you don't remember learning much from your masquerade, certainly nothing that seems as though it will help you now.
+		
+		*goto PlanEscape
+			
+*elseif (KnowPersona) and (role = "machinery")
+
+	*if ((medicine > 60) or (conventional < 40)) or (charisma > 60)
+		
+		*gosub ProfessorIsLoegrian
+		*page_break
+		Some of the laborers with whom you spoke talked of the Professor with awed respect. Apparently this Professor has promised that someday, Free Mercia will succeed in its aims, and the lot of all laborers (and Loegrians, and sun-worshippers, and so forth) will be much improved. 
+		
+		But other laborers spoke of him with fear. They whispered of sabotage compelled by blackmail, of ruthlessness toward any who cross him—and then they looked quickly over their shoulders and changed the subject. 
+		
+		*goto PlanEscape
+	*else
+	
+		Unfortunately, the disguise was not a success. Perhaps you didn't portray the injury correctly, or perhaps you don't know enough about injured factory workers to convincingly assume their mannerisms? In any case, you don't remember learning much from your masquerade, certainly nothing that seems as though it will help you now.
+		
+		*goto PlanEscape
+	
+*elseif (KnowPersona) and (role = "drunk")
+
+	*if charisma > 60
+
+		
+		*gosub ProfessorIsLoegrian 
+		*page_break
+		Some of the laborers with whom you spoke talked of the Professor with awed respect. Apparently this Professor has promised that someday, Free Mercia will succeed in its aims, and the lot of all laborers (and Loegrians, and sun-worshippers, and so forth) will be much improved. 
+		
+		But other laborers spoke of him with fear. They whispered of sabotage compelled by blackmail, of ruthlessness toward any who cross him—and then they looked quickly over their shoulders and changed the subject. 
+		
+		*goto PlanEscape
+	*else
+			
+		Unfortunately, the disguise was not a success. Perhaps you were overplaying the drunkenness, or perhaps you don't know enough about injured factory workers to convincingly portray one? In any case, you don't remember learning much from your masquerade, certainly nothing that seems as though it will help you now.
+
+		*goto PlanEscape
+	
+*elseif (KnowPersona) and (role = "soldier")
+
+	*if marksmanship > 60
+		*set KnowRising true
+		*set KnowLoegrian true
+		*set KnowProfessor true
+		
+		You remember that the role of "soldier" dropped back over you like a second skin. Your only difficulty was in remembering to act as an enlisted man rather than an officer. 
+		*goto SoldierInfoDump
+	
+	*elseif charisma > 60
+		*set KnowLoegrian true
+		*set KnowRising true
+		*set KnowProfessor true
+		
+		You remember that it was odd, to play a part that used to be your second skin. But you called to mind the stance and the habits and the speech patterns, and you deliberately employed each one.
+		*label SoldierInfoDump
+		The tavern regulars readily accepted you as a bored and restless former soldier.		
+		
+		After a time, your new friends began to whisper of ways to get your thrills in Kingsford—lots of them, if only you know where to look. They spoke of a powerful new figure in the Kingsford Underground—a charismatic and well-educated Loegrian known as "the Professor." They told you that the Professor is the man running the group that calls itself "Free Mercia."		
+		*if KnowUnderling = false
+			(Hm. Your captor speaks without accent. He's not Loegrian. Not the Professor himself, then.)
+		They told you that the Professor is hiring.
+		*page_break
+		"It's a good billet," one of your new acquaintances said. He was a soldier too, once upon a time. "He takes good care of us. He says he's doing all this to make it better for the Loegrians and the laborers and the sun-worshippers and anybody who's got a boot on their neck. Sometimes you got to fight a war to do that, he says, and that's why he likes soldiers. Someday there'll be a proper Rising, we'll boot those blood-suckers out of power and take it over ourselves—but we're years away from that.
+		
+		"Meantime, we do what we can, and the Professor takes care of us. Any of us get nabbed in the execution of our duties, he stands the solicitor's fees. So not many land in prison, but those who do, he sees their families taken care of. It's a good billet.
+		
+		"Only—" The old soldier shuddered, and it was no act. "Don't cross him. Don't ever do that."
+		
+		*goto PlanEscape
+	*else
+	
+		You remember it was odd, to play a part that used to be your second skin. But you called to mind the stance and the habits and the speech patterns, and you deliberately employed each one. 
+		
+		Perhaps too deliberately, because something seemed to go wrong. The other former soldiers among the tavern crowds did not accept you as one of them. You don't remember learning much from your masquerade, certainly nothing that seems as though it will help you now.
+		
+		*goto PlanEscape
+	
+*elseif (KnowPersona) and (role = "convict")
+
+	*if (conventional < 40) or (charisma > 60)
+		*set KnowRising true
+		*set KnowLoegrian true
+		*set KnowProfessor true
+		
+		You remember sipping truly horrid beverages in extremely dubious surroundings, and thereby attracting the attention of a number of unsavory types. After a time, your new friends began to mention possible work that might suit someone of your background and talents. They told you of a powerful new figure in the Kingsford Underground—a charismatic and well-educated Loegrian who goes by "the Professor." He's the man running the group that calls itself "Free Mercia."		
+		*if KnowUnderling = false
+			(Hm. Your captor speaks without accent. He's not Loegrian. Not the Professor himself, then.)
+		They told you the Professor was hiring.
+		*page_break
+		"He's a good bloke, the Professor," one of your new friends told you. "Takes good care of us. You get nabbed in the execution of your duty, he stands the solicitor's fees. So not many of us land back in the nick, but those who do, he sees their families taken care of. But—" He shuddered, and it's no act. "Don't cross him. Don't ever do that.
+		
+		"He's got to be a little harsh," your new friend added—quickly, as though afraid of being overheard. "It's a war he's fighting. He says one day we'll have a proper Rising, kick those blood-suckers out of power and take over Mercia for ourselves—and then it'll all be better for the Loegrians and the laborers and the sun-worshippers and anybody who's got a boot on their neck. We're years away from that, but meantime, we do what we can, and the Professor looks after us."
+		
+		*goto PlanEscape
+	*else
+	
+		Unfortunately, the disguise was not a success. Perhaps you don't know as much as you think you do about criminals—not enough to convincingly portray one? In any case, you don't remember learning much from your masquerade, certainly nothing that seems as though it will help you now.
+		
+		*goto PlanEscape
+		
+	
+*label PlanEscape
+*page_break
+Finch's screams cut off, and the silence is far worse than the howls of pain.
+
+You try to breathe.
+
+The man with the side-whiskers indicated he didn't plan to kill Finch—at least, not right away—so likely your friend is only unconscious. 
+
+Likely.
+
+*choice
+
+	#I have to stop this. I have to stop it now. I have to get the man with the side-whiskers back in here and away from Finch.
+	
+		*if charisma > 65
+
+			*set FinchLessHurt true
+			*set DestroyedTable true
+
+			Your assessment of the man suggests he will be unmoved by shouting, but responsive to anything that sounds like an escape attempt. 
+			
+			All you have to work with is the small table on which the candle sat. It takes several minutes of rolling and wiggling, your ribs shrieking with pain all the while, before you are close enough. 
+			
+			You position your legs carefully. 
+			
+			You ignore the pain in your ribs.
+			
+			You kick out.
+			
+			The table crashes over with a sound loud enough to wake the dead.
+			
+			*goto ColonelSecondEncounter
+	
+		*else
+		
+			But none of your shouted threats or insults or pleas do the slightest bit of good. 
+			
+			After a time you fall silent, throat raw and ribs in agony, feeling gone from your hands and feet, trying not to picture what might be going on next door.
+			
+			*goto ColonelSecondEncounter
+			
+	#I have to stop this. I have to get in there and stop this now. Despite my injuries, I struggle to free myself from the ropes.
+	
+		*if athleticism > 65
+			*goto RopesVictory
+		*elseif athleticism > 50
+			*goto RopesSemiVictory
+		*else
+			*goto RopesFailure
+
+	#I need more information before I can form a plan. I use all my senses in an effort to discover something about this prison.
+	
+		You take a breath, let it out, and go still.
+		
+		From what you could see when you had a light, the room is small and windowless. Your skin touches cold damp stone, suggesting a cellar of some sort. You cannot smell anything—so a disused cellar? 
+		
+		You lie still and listen.
+		
+		*if perception > 65
+			*set KnowGuardNumber true
+			On the other side of the door, feet tramp up and down the corridor. You hear five distinct voices, and a possible sixth—none belonging to the man with the side-whiskers, and none belonging to Finch. 
+			
+			So the man with the side-whiskers has at least five—maybe six—associates whose presence will make escape more difficult.
+			
+			That's not good, but it's good to know.
+			
+			*if (perception > 70) and (KnowMilitary = false)
+				*set KnowMilitary true
+				*page_break
+				One of the voices comes close enough for you to pick out words, and you hear it say something about "the Colonel's prisoners."
+
+				The Colonel. Is that an actual title? Was he an officer in Her Imperial Majesty's Army?
+				
+			*goto ColonelSecondEncounter
+				
+		*else
+			On the other side of the door, feet tramp up and down the corridor. You hear a jumble of voices—voices other than the man with the side-whiskers and Finch—but you can't tell how many. Three, maybe? So the man with the side-whiskers has at least three associates whose presence will make escape more difficult.
+
+			*goto ColonelSecondEncounter
+			
+
+*label RopesVictory
+
+They bite into your flesh, expertly tied—but you are a man of unusual strength and dexterity, not to mention a high pain threshold, and you persevere.
+			
+Finally you manage to ease them off your raw wrists, and with your hands free, it is easy to undo the other knots. 
+			
+Your head is pounding, your side is aching with sharp bursts that suggest broken ribs, and your extremities are so cramped from the bonds you can hardly stand. 
+			
+But you're free. And now you can act.
+			
+*choice
+			
+	#There's no time to lose. I rush from the room and head to rescue Finch.
+				
+		*set OtherMan "the man with the side-whiskers"
+		*set Guard "the guard"
+		*goto BurstClimax
+				
+	#I arrange myself behind the door, where I can ambush our captor as soon as he returns.
+				
+		*goto WaitByDoor
+		
+	#I want to get him away from Finch [i]now[/i], not later. I make noise to attract his attention and lure him in—even knowing that if he is prepared, the fight will be harder—then arrange myself behind the door.
+	
+		*set ColonelWarned true
+		*set FinchLessHurt true
+		
+		You take one deep breath, feeling it catch around your broken ribs, then pick up the little table and hurl it to the floor. It makes enough noise to wake the dead. Surely that will lure your captor to you.
+		
+		You grab a table leg and dart behind the door.
+		
+		*goto WaitByDoor
+		
+					
+*label WaitByDoor
+
+You wait in the shadows, taking slow, shallow breaths. Listening. 
+
+Finally you hear footsteps in the corridor outside. 
+
+A key scrapes in the lock.
+
+A little dim light filters in from the corridor. 
+
+You step forward and bring your clasped hands down as hard as you can on your captor's shoulder.
+*page_break
+*if (ColonelWarned) and (stealthy > 75)
+	*goto ColonelDrops
+*elseif stealthy > 65
+	*label ColonelDrops
+	He drops—not unconscious, but definitely taken at a disadvantage.
+	
+	You leap on him before he can recover his initiative. 
+	*page_break
+	*goto FightVictory
+	
+*else
+
+	He whirls, and your blow glances.
+	
+	*goto Fight
+
+*label RopesSemiVictory
+			
+They bite into your flesh, expertly tied—but you are a man of unusual strength and dexterity, not to mention a high pain threshold, and you persevere.
+			
+Finally you manage to ease them off your raw wrists, and with your hands free, it is easy to undo the other knots. 
+			
+Your head is pounding, your side aching with sharp bursts that suggest broken ribs, and your extremities are so cramped from the bonds you can hardly stand. 
+			
+But you're free. And now you can act. You look about, deciding on a course of action—
+			
+—and the door slams open. 	
+	
+*page_break
+			
+It's hard to read the expression on the face of the man with the side-whiskers, given the poor light filtering from the corridor, but you think he looks genuinely surprised.
+			
+You leap on him before he can recover his initiative. 
+			
+*page_break
+*label Fight
+*if KnowMilitary and (athleticism > 55)
+
+	*set GotKnife true
+	He's fit and strong, clearly trained in hand to hand combat, and clearly unconcerned over honorable tactics—but you're just as strong, just as well trained, and fifteen years younger. And you know he's former military—so you know exactly how he has been trained to fight.
+	
+	*goto Vicious
+	
+*elseif athleticism > 65
+	*label FightVictory
+	*set GotKnife true
+	He's fit and strong, clearly trained in hand to hand combat, and clearly unconcerned over honorable tactics—but you're just as strong, just as well trained, and fifteen years younger. 
+	*label Vicious
+
+	It's a vicious rough-and-tumble battle all over the cell, but it ends with you slamming his head into the floor. He goes limp.
+				
+	For a moment, so do you. 
+	*page_break
+	And then you pull yourself together. You can't let your guard down. If there are other people in the building, they will have heard that racket, they might be coming to investigate—
+				
+	Finch's screams came from the room next door. But before you go to his aid, you have to decide how to neutralize your captor.
+				
+	First you search him for weapons, retrieving a wicked looking knife and an old service revolver. Not yours. And not [i]loaded[/i]. Damnation.
+				
+	*choice
+				
+		#I use the knife to cut the throat of the man with the side-whiskers. I have to ensure our escape.
+					
+			*set compassionate %-25
+			*set RelWoodward %+25
+			*set ColonelDead true
+			*set OtherMan "the second guard"
+			*set Guard "the first guard"
+						
+			Cold, but necessary. Neither Finch nor Woodward would argue with you.
+						
+			*goto BurstClimax
+					
+		#Fortunately, I have rope and a gag available, and I think I'd like him to live. If I can get to Woodward in time, we might be able to come back here and question him…
+					
+			*set compassionate %-15
+			*set RelWoodward %+25
+			*set ColonelDead false
+			*set OtherMan "the second guard"
+			*set Guard "the first guard"
+						
+			A pragmatic thought. You stuff rags into his mouth and bind his hands and feet as tightly as possible before running to rescue Finch. 
+						
+			*goto BurstClimax
+						
+		#Fortunately, I have a rope and a gag available, and I can't bear the thought of throat-slitting in cold blood. 
+					
+			*set compassionate %+25
+			*set ColonelDead false
+			*set OtherMan "the second guard"
+			*set Guard "the first guard"
+						
+			A compassionate thought. You stuff rags into his mouth and his hands and feet as tightly as possible before running to rescue Finch. 
+						
+			*goto BurstClimax
+
+*else
+				
+	You're fit, trained in hand to hand combat, and fifteen years your captor's junior—but he's just as strong, and he hasn't been injured multiple times this evening. You get in a couple of good blows, but the rough-and-tumble fight that follows ends with him slamming your head into the flagstone floor. 
+				
+	Nauseous and half-blind with pain, you can do nothing to defend yourself as he rebinds your hands. Then he grabs hold of you and starts dragging you somewhere.
+				
+	"I think," says the man with the side-whiskers, "you will now be most useful as a motivating object for your friend."
+
+	*goto Climax
+
+*label RopesFailure
+			
+You squirm and twist and rub your flesh raw, but the ropes are expertly tied, and you haven't the strength to free yourself.
+			
+You are still writhing helplessly against your bonds when your captor returns.
+
+*goto ColonelSecondEncounter
+	
+*label ColonelSecondEncounter
+*page_break
+
+The door slams open. 
+
+You blink in the weak light.
+
+The man with the side-whiskers looms over you. 
+*if DestroyedTable
+	He seems unimpressed by the table you destroyed, but at least he's not in there tormenting Finch.
+*comment endif
+	
+He walks in a slow circle around you. You know he is doing it deliberately. You know it is an interrogation technique, meant to be intimidating. 
+
+You feel intimidated anyhow.
+*page_break
+At last he crouches down, just out of reach, and draws a long wicked-looking knife from an inner pocket.
+
+"Your friend," he purrs, "has given me to understand that you are, indeed, government spies."
+
+You go cold. Hell, [i]hell[/i], how bad must it have been for Finch to break and give this away? [i]Finch[/i], of all people?
+
+Is he even still alive? 
+
+"Now," your captor continues, "you will give me the name of the man you work for."
+
+*fake_choice
+	
+	#No, I really won't. I close my eyes and prepare myself to expressionlessly refuse to answer.
+	
+		The man with the side-whiskers snorts.	
+		
+	#I speak as befits my persona, disclaiming all knowledge.
+	
+		The man with the side-whiskers snorts. "Don't bother. Your friend couldn't manage to maintain the deception."
+		
+	*if KnowProfessor
+		#I match question for question. "What's the Professor's real name?"
+	
+			He hits you hard enough that you see double for a few moments.
+		
+Then he reaches out, takes hold of your shoulder, and slashes the knife through coat and shirt and skin. "Who do you work for?"
+
+*fake_choice
+
+	#I gasp with pain, but I refuse to say a word.
+	
+	#"I—I—already told you, I'm just—just a laborer…"
+	
+	*if KnowMilitary
+		#"How'd a—an honorable—solider—get involved—in this?"
+			
+			He checks only for an instant.
+			
+	*if KnowMilitary = false
+		#"How'd—how'd you ever—get involved—with something like this?"
+			
+The next slash bites through the muscle of your back. "Who do you work for?"
+
+*choice
+
+	#I say nothing. I can wait this out. At least he's not hurting Finch.
+	
+		The man with the side-whiskers leans back. "Your own pain won't move you, will it? But I know whose will." He uses the knife to slash the rope that binds your ankles. "Up you get." 
+
+		*goto Climax
+	
+	#I need to take control of this situation. I need to pretend to break before I actually do—but I need to let it go on a little longer so the feigned surrender is believable.
+	
+		*if charisma > 65
+		
+			The next time the knife bites into you, you cry out.
+			
+			The time after that, you go limp. "Stop. I'll tell you. I'll tell you. Just—just let me see my friend."
+			
+			The man with the side-whiskers smiles. "Might be motivating," he agrees.
+			
+			He uses the knife to slash the rope that binds your ankles. "Up you get." 
+
+			*goto Climax
+			
+		*else
+			
+			The man with the side-whiskers leans back. "Your own pain won't move you, will it? But I know whose will." He uses the knife to slash the rope that binds your ankles. "Up you get." 
+
+			*goto Climax
+			
+	#It's past time for games. I choose defiance instead. "Go to hell."
+	
+		He chuckles. His genuine enjoyment raises the hairs on the back of your neck. 
+		
+		*page_break
+		
+		The man with the side-whiskers leans back. "Your own pain won't move you, will it? But I know whose will." He uses the knife to slash the rope that binds your ankles. "Up you get." 
+
+		*goto Climax
+		
+	*selectable_if (false) #"Arthur Woodward." I could just say "Arthur Woodward," and this will end. (I don't, of course, but the moment's impulse is terrifying.)
+	
+		*finish
+
+*label BurstClimax
+
+*page_break
+Your head spins and your ribs pain you with each rasped breath, but adrenaline still carries you along. You push open your door and step into the corridor. 
+
+The door to the adjoining room is open, and you can see inside.   
+
+*page_break
+Finch, unconscious, is lashed down on what looks uncomfortably like a doctor's examining table, and on a tray nearby rest a number of blood-stained surgical tools. Blood and burn marks mar his bare torso. 
+
+Two men are in the room with him.
+*if OtherMan = "the man with the side-whiskers"
+	One is your captor, and another large man who appears to be acting as bodyguard.
+	*goto BurstClimax2
+*else
+	Both are large men—something about them makes you think "former soldiers"—and one is armed with a large pistol in a holster at his belt.
+	
+	*label BurstClimax2
+	Unfortunately, both are facing the door. As you step into the hallway, they both look up and see you.
+
+	It's two on one
+	*if GotKnife = false
+		—and you don't even have a weapon—
+	but you have to act now.
+
+	*fake_choice				
+		
+		#I charge at ${OtherMan}. If I have to fight him, I'd rather it be in there. 
+	
+			$!{OtherMan} meets your charge, grabbing hold of you with contemptuous ease.
+	
+		#I run in the opposite direction. If I have to fight ${OtherMan}, I'd rather do it out here. 
+		
+			$!{OtherMan} sprints after you, grabbing hold of you with contemptuous ease. 
+		
+		#I run in the opposite direction. All I can do for Finch now is get away to bring reinforcements.
+		
+			$!{OtherMan} sprints after you, grabbing hold of you with contemptuous ease. 
+	
+	$!{Guard} pushes Finch off the table, and ${OtherMan} manhandles you toward it.
+			
+	If you are ever going to move against them, it has to be now.
+			
+	*goto ClimaxChoice	
+
+
+*label Climax
+*page_break
+Your head spins and your ribs pain you with each rasped breath. 
+
+You stumble as you are towed along, as weak and disoriented as Pierce was after being fed on by light-eaters. You remember, with odd clarity, that his skin was as white as death except where their handprints stood out lividly. Bare hands of different sizes, the marks of many torturers. Handprint-marked bodies left in heaps like so much rubbish. 
+
+*page_break
+The room next door has better light. Finch is unconscious—[i]but alive[/i]—and lashed down on what looks uncomfortably like a doctor's examining table. On a tray nearby rest a number of blood-stained surgical tools. Blood and burn marks mar his bare torso. A second man stands guard over him.
+
+The man with the side-whiskers holds you upright while the other man loosens Finch's restraints and shoves him off the table. Your captor cuts the ropes that bind your hands. 
+
+Between your dizzy head and your cramped leg muscles, you can hardly stand–but if you are ever going to move against them, it has to be now. Once they get you to that table, it will be too late. 
+*label ClimaxChoice
+*choice
+
+	#I feign a stumble, grab the pistol from the belt of ${OtherMan}, and hope I can get off two shots fast enough.
+	
+		*if marksmanship > 70
+		
+			*gosub PistolSequence
+			
+			*gosub Gunfire
+			*page_break
+			*goto TendFinchSuccess
+		
+		*else
+		
+			You manage to close your fingers around the pistol, but you can't get it aimed before ${OtherMan} regains his balance and retakes control of the situation. He and ${Guard} manhandle you to the table.
+			
+			And you realize you've lost.
+			
+			*goto LightEaterChoice
+
+	*if GotKnife = false
+		#I feign a stumble, grab a scalpel from the tray, and use it. One doesn't need a long blade if one's knowledge of anatomy is precise enough.
+	
+			*label MedSolution
+			*if medicine > 70 
+		
+				*gosub ScalpelSequence
+				
+				*gosub Gunfire
+				*page_break
+				*goto TendFinchSuccess
+
+			*else
+		
+				But your knowledge of anatomy is not, apparently, up to the task. 
+			
+				You don't strike fast enough or in quite the right place, and then the moment is gone. $!{OtherMan} wrestles the blade away from you, and he and ${Guard} manhandle you toward the table.
+			
+				And you realize you've lost. 
+				*goto LightEaterChoice
+	*if GotKnife
+		#I slash out with the knife I have acquired, knowing my knowledge of anatomy is precise enough to make the first cut deadly.
+		
+			*goto MedSolution
+		
+	#If I can delay being restrained until Finch wakes up, it might be closer to a fair fight. I do my best to impersonate a man babbling secrets out of fear, and play for time.
+	
+		*if charisma <= 70 
+		
+			$!{OtherMan} rolls his eyes, unimpressed. He and ${Guard} manhandle you toward the table.
+			
+			And you realize you've lost.
+			
+			*goto LightEaterChoice
+	
+		*else
+		
+			It's beyond a doubt the finest performance you have ever given–an elaborate tale invented in the moment, delivered believably enough to make them keep listening. You play for one more moment, and then one more, and finally you see Finch lift a dizzy head from the other side of the table. 
+		
+			You don't pause in your explanation of how your employer Jonathan West has organized a vigilante force of former soldiers to take down the Professor. The guard and ${OtherMan} are still watching you as Finch rises very carefully to his knees. 
+		
+			He slams the table hard into ${Guard}, knocking him off-balance and into ${OtherMan}. This is the moment—do you lunge for the pistol or the 
+			*if GotKnife = false 
+				scalpel?
+			*if GotKnife	
+				knife?
+		
+			*choice
+			
+				#The pistol.
+							
+					*gosub PistolSequence
+					
+					*goto CharismaWrapUp
+					
+				#The blade. 
+				
+					*gosub ScalpelSequence
+					*goto CharismaWrapUp
+					
+				#Neither. I put all my strength behind an uppercut to the jaw of ${OtherMan}.
+					
+					*gosub AthleticsSequence
+					
+					*label CharismaWrapUp
+				
+					"Here's to the unstoppable team," Finch manages, "of Finch and $!{lastname}."
+		
+					*gosub Gunfire
+					*page_break
+					"We have to get out of here."
+			
+					"Yes," Finch says, a little vaguely.
+		
+					His injuries are not immediately life-threatening, though they are certainly painful and borderline-incapacitating. You tear strips from your shirt to bandage the worst of the blade wounds and burns. 
+					*goto TakeTheGun
+				
+	#I don't have time for anything fancy. I feign a stumble, then put all my strength behind an uppercut to the jaw of ${OtherMan}.
+	
+		*if (athleticism > 65) and (KnowMilitary)
+		
+			He's fit and strong, clearly trained in hand to hand combat, and clearly unconcerned over honorable tactics—but you're just as strong, just as well trained, and fifteen years younger. And you know he's former military—so you know exactly how he has been trained to fight.
+	
+			*gosub AthleticsSequence
+			
+			*gosub Gunfire
+			
+			*goto TendFinchSuccess
+	
+		*elseif athleticism > 70
+	
+			He's fit and strong, clearly trained in hand to hand combat, and clearly unconcerned over honorable tactics—but you're just as strong, just as well trained, and fifteen years younger. 
+			
+			*gosub AthleticsSequence
+			
+			*gosub Gunfire
+			
+			*goto TendFinchSuccess
+
+		*else
+				
+			You're fit, trained in hand to hand combat, and younger than your opponent—but you've been too badly injured over the course of your imprisonment. You get in a couple of good blows, but you just can't do what you need to do.
+				
+			$!{OtherMan} flattens you, then the two of them manhandle you toward the table.
+			
+			And you realize you've lost. 
+			*goto LightEaterChoice
+		
+			
+*label LightEaterChoice
+
+Struggling, you throw out your hands to push them off. 
+
+One palm touches ${Guard}'s face, and the other lands on the neck of ${OtherMan}. In that moment of desperation, with your palms touching bare skin, your nature asserts itself and you realize you could kill them both by ripping their light through their skin.
+
+*choice
+
+	#I want to resist the temptation, but we have no other options. The situation is desperate enough to justify a tactic this horrific. 
+
+		*goto Drain
+		
+	#No, no, never, not even with such stakes. I jerk my hands down.
+	
+		*set compassionate %+20
+		*set incompetent +1
+		*set FinchRescue true
+		*achieve uncompromising
+		
+		You continue to struggle as they lash you down, though you no longer have any hope of getting free. 
+		
+		*if FinchLessHurt
+			Nor do you—but at least your thrashing keeps their attention wholly on you, and neither of them notice Garrett Finch behind them, rising silently to his knees like a bloodstained ghost. He holds one of the knives, still dripping with his own blood.
+
+			He plunges it into your captor's back, and ${OtherMan} cries out and staggers. That allows Finch to snatch the pistol from his belt, and you push ${Guard} away from you.
+
+			Finch shoots him—his hands are shaking badly, but it's point-blank range, and ${Guard} collapses—then puts a bullet into the head of ${OtherMan} before letting the revolver slip from his fingers and collapsing backward.
+			*page_break
+			"Thanks," he murmurs as you bend over him. 
+	
+			"For what?" you whisper.
+	
+			"Called him—off me—didn't you? If you hadn't I—would've been in no condition—to help you now."
+
+			Well, at least you managed that much, even if you didn't succeed in the planned heroic rescue.
+			*page_break
+
+			*goto TendFinchFail
+			
+		*else
+		
+			*set athleticism %-15
+			
+			They hurt you badly before Garrett Finch manages to get to his feet, rising silently behind them like a bloodstained ghost. He holds one of the knives, still dripping with his own blood.
+
+			He plunges it into your captor's back, and ${OtherMan} cries out and staggers. That allows Finch to snatch the pistol from his belt, and you push ${Guard} away from you.
+
+			Finch shoots him. His hands are shaking badly, but it's point-blank range, and ${Guard} collapses. Then Finch puts a bullet into the head of ${OtherMan} before letting the revolver slip from his fingers and collapsing backward.
+			*page_break
+			You try to stand, and bite your lip to keep from screaming. Your leg is injured now, along with your head and ribs. But Finch is worse off, so you force yourself somehow. 
+			
+			"Thanks," Finch mutters. "F'r giving me the chance. Sorry I…was so slow."
+			
+			"If I'd gotten him away from you sooner, you wouldn't be this badly hurt," you counter. 
+			
+			Finch does not argue. "Still," he says. "You gave me the chance to fight back."
+			
+			Well, at least you managed that much, even if you didn't succeed in the planned heroic rescue.
+			*page_break
+
+			*goto TendFinchFail
+		
+	#I don't hesitate. There is no difference between draining their lives in self-defense and shooting them in self-defense. 
+		
+		*set compassionate %-15
+		
+		*label Drain
+		*set healing %+25
+		*set DrainedGuards true
+		*set kills +1 
+		*set donethisonce true
+		*achieve bloodtaste
+		
+		The moment of connection is a bright, sharp jolt of pleasure, and instantly clears the fog from your head. It cannot be literally true that you close your palm around the flames that burn inside the men you touch, but it certainly feels that way. They try to pull away, but you pull back, hard. 
+		
+		They drop like stones, and the light that comprised their lives floods through you in a shuddering wave. 
+		
+		Your dizziness vanishes. The pain in your side vanishes. Your muscles uncramp. 
+		*goto TendFinchSuccess
+		
+*label TendFinchSuccess
+*page_break
+*if DrainedGuards
+	You don't dare use any of this stolen light to heal Finch. You might as well shout from the rooftops what you just did. You will have to rely on modern medicine to tend to your friend.
+	*goto Injuries	
+*else
+	*label injuries
+	
+	None of Finch's injuries are immediately life-threatening. You tear strips from your shirt to bandage the worst of the blade wounds and burns, then feel around in your pockets for smelling salts.
+
+	He wakes with a jump. "$!{firstname}–" His eyes focus on you with an effort. "Oh. Oh…good. He…he told me he'd–" He rubs a shaking hand over his face. "Lying. Should've known. How–how badly are you hurt?"
+	
+	"I can walk. We have to get out of here," you tell him.
+
+	"Yes," he says vaguely. He blinks. "How'd you…" His wandering eyes spot the bodies then. 
+	*if DrainedGuards
+		At least from this angle he can't see the handprints you're sure you left–but he can certainly tell that they are dead.
+	"[i]Oh[/i]. Yes, at once."
+	
+	*label TakeTheGun
+	You appropriate your captor's revolver and hand Finch the largest of the bloodstained medical knives. His hands shake, but it's better than nothing.
+	
+	Then you pull his arm across your shoulders and the two of you stagger for the corridor.
+	*goto Escape
+		 
+*label TendFinchFail
+If there was anyone else in this building, they will have heard the gunfire. "We have to get out of here."
+			
+"Yes," Finch says, a little vaguely.
+
+His injuries are not immediately life-threatening, though they are certainly painful and borderline-incapacitating. You tear strips from your shirt to bandage the worst of the blade wounds and burns. 
+
+Then you appropriate your captor's revolver. Finch keeps the large bloodstained medical knife for himself. It would be difficult to say which of you is supporting the other as you stagger for the corridor.
+
+*goto Escape
+
+
+*label Escape
+
+*page_break
+You emerge into what seems to be the cellar of a dockside warehouse. You can clearly hear lapping water–in that direction lies the river and probably an exit.
+*if DrainedGuards
+	You and Finch hasten for the stairs, struggle up them, and emerge into the empty, echoing ground floor of the warehouse. Not deserted–you can hear a murmur of voices–but the owners of those voices are not currently in sight. 
+	
+	The only visible exit is the trapdoor through which the warehouse's refuse is deposited into the river. It's an unpleasant escape route, but beggars can't be choosers.
+
+	The two of you hurtle and bounce down the shoot into foul-smelling blackness, and you remind yourself to hold your breath, to kick upward as soon as you hit the river–
+				
+	The water strikes you like a club.
+	
+	*goto EscapeSuccess
+*else
+	
+	But boots thunder on the floor above your head, and men shout. They heard the gunshots. They are calling to ask the man with the side-whiskers if all is well.
+
+	You and Finch hasten, stumbling, for the stairs. Your only chance now is to find an exit before the men up there cut you off–
+	
+	You almost make it. 
+	
+	But when you reach the echoing empty ground floor of the warehouse, three beefy men stand between you and the nearest egress–a trapdoor through which the warehouse's refuse is deposited into the river. They are blocking you, and closing fast. 
+
+	*choice
+		
+		#There are three more bullets in the pistol I hold. It will be hard–but I can do this.
+			
+			*if marksmanship > 70
+				
+				You squeeze off three rounds, and the three men drop one after the other.
+
+				Finch pauses a moment in open-mouthed awe. 
+				
+				*goto LastMan
+							
+			*else
+				
+				You squeeze off three rounds–but only two of the men cry out in pain. The third closes, and his swinging length of pipe smashes you across the face. You fall, stunned.
+				*page_break
+				*goto EscapeFail
+					
+
+		#I can't make that shot, but I still trust the strength of my arm. I look around for something to throw.
+			
+			*if athleticism > 70
+
+				It is fortunate that you are so exceptionally strong and fit most of the time–otherwise, the mistreatment you received tonight would have surely rendered you unable to lift that crate, let alone throw it with such accuracy. The first of the three men menacing you drops.
+					
+				You swing to engage the second hand-to-hand, and the third tackles Finch. You actually manage to fell your opponent with fisticuffs, and look up to find Finch with blood on his hands and no longer carrying the blade. 
+				
+				*goto LastMan
+			
+			*else
+				
+				You seize hold of a heavy crate, and manage to lift it–but throwing it in any kind of useful way is just beyond you. The mistreatment you suffered tonight has drained your usual strength.
+					
+				Still, it provides a useful shield against the first of the pipe-blows. You use it to push off your first attacker, and he staggers back, off-balance. More or less dropping the chest on him, you turn to the other two.
+					
+				A swinging pipe smashes you across the face, and you fall, stunned.
+				*page_break
+				*goto EscapeFail
+			
+					
+		#The situation is desperate enough to justify it–I close with the lead man and plant one hand on my attacker's face to drain his life. Hopefully it will look to Finch as though I am just pushing him off…
+			
+			*set DrainedGuards true
+			*achieve bloodtaste
+			
+			Healer's blood and light-eater's blood is the same thing. Your palm makes contact with his bare skin, and he crumples as sweet energy sings through you. 
+				
+			Your dizziness vanishes. The pain in your side vanishes. Your muscles uncramp. 
+			
+			You swing to meet the second man, and actually do land a good punch that sends him staggering. You drop down beside him, smothering his face with your open palm. 
+				
+			Finch, leaning heavily against the wall behind you, will perceive it as you cutting off the man's air to render him unconscious. He's at the wrong angle to see handprints. He doesn't have to know.
+			
+			The third man stares one open-mouthed instant, then turns and runs.
+			
+			*goto LastMan
+				
+*label LastMan
+
+*page_break
+
+You and Finch scramble for the trapdoor. 
+*if KnowGuardNumber
+	You know there is at least one more guard you have not yet encountered, and so you are somewhat prepared for the ambush. You manage to fight him off without suffering any severe injury.
+	
+	Then you and Finch reach the chute, and hurtle and bounce into foul-smelling blackness. You remind yourself to hold your breath, to kick upward as soon as you hit the river–
+				
+	The water strikes you like a club.
+	
+	*goto EscapeSuccess
+	
+*else
+
+	*set marksmanship %-15
+	
+	There is apparently one last guard unaccounted for—a circumstance you only realize when he ambushes you. You manage to fight him off, but you take a shoulder injury doing it. You're going to feel that, the next time you level a firearm.
+
+	Then you and Finch reach the chute, and hurtle and bounce into foul-smelling blackness. You remind yourself to hold your breath, to kick upward as soon as you hit the river–
+				
+	The water strikes you like a club.
+	
+	*goto EscapeSuccess
+	
+*label EscapeSuccess
+*page_break
+*if incompetent = 0
+	*achieve warehouseescape
+It pummels you both mercilessly as it drags you downstream, and your numb hands nearly lose your grip on Finch more than once. At last, well downriver of the warehouse you escaped, you manage to drag him onto the mud of the opposite bank.
+
+*if (DatingGrace) and (TeaConversation = false)
+	The two of you lie there exhausted for a long, long time.
+
+	*page_break
+	
+	In fact, you fall asleep briefly. 
+	
+	This time, you dream not of wartime mountains but Kingsford streets. A sea of men in bowlers and women in ostrich-plume hats. A teashop with a chiming bell above the door.
+	
+	Miss Chandler sitting across from you, in a plain hat devoid of plumes or lace.
+	
+	*gosub Tea
+	*page_break
+	*if GraceBreaksUpWithYou
+		Now, lying beaten and freezing cold on a river bank, the memory of that moment stings all over again.
+		
+		*goto CheckOnFinch
+		
+	*else
+	
+		Now, lying beaten and freezing cold on a river bank, the question seems to echo like a tolling bell. 
+		
+		*label CheckOnFinch
+		You force yourself to sit up, and lean to check on Finch. To your relief, his eyes open as soon as you touch him.
+	
+		*goto Riverbank
+	
+*else
+	
+	But it takes a long, long time before he opens his eyes.
+	*label Riverbank
+	
+	"We're all right," you whisper. "We're on the far bank. No pursuit."
+
+	Finch nods and tries to rise, then falls back with a groan. 
+
+	What do you say?
+
+	*choice
+
+		#"I can't leave you here; it isn't safe. We need to get word of this to Woodward as soon as possible. On your feet, soldier."
+	
+			*set conventional %+15
+			*set compassionate %-15
+		
+			Finch groans again, but not in disagreement. He allows you to drag his arm over your shoulders and haul him to his feet. 
+			*if DrainedGuards = false
+				You are not altogether steady yourself, and the two of you stand for a moment, keeping each other balanced.
+
+			*goto Nightmare
+		
+		#"Stay hidden." I fumble the revolver into his hand. "I'll be back with reinforcements in no time."
+	
+			*set compassionate %-15
+		
+			"Absolutely…not," Finch manages. "Not letting you…walk these streets…hurt and unarmed." He sets his teeth and hauls himself into a sitting position. "Give me…your arm. Yes." 
+			*if DrainedGuards = false
+				You're not altogether steady yourself.
+			The two of you stand for a moment, keeping each other balanced. "Let's go."
+		
+			*goto Nightmare
+		
+		#The best way to clear his head is to pretend I need his aid. I tell him I'm going for reinforcements, then feign dizziness when I try to rise.
+	
+			*set charisma %+15
+		
+			*if DrainedGuards = false
+				Truthfully, it's not completely a pretense. 
+			
+			"No," Finch says, succeeding in hauling himself upright—and it tells you something about his condition that he doesn't see through your ruse. "You'll never make it…alone…like this. Together." 
+			*if DrainedGuards = false
+				You are not altogether steady yourself, and the two of you stand for a moment, keeping each other balanced.
+
+			*goto Nightmare
+		
+*label Nightmare		
+
+The walk that follows is a nightmare–slipping on the riverbank mud, stumbling over rocks and refuse and sometimes only your own feet, Finch a dragging weight on your shoulders. 
+
+You are exhausted long before you and Finch reach Woodward's front door.
+*goto Tended
+
+*label PreEscapeSuccess
+The instant she is gone, you drag yourself to your feet, grab hold of Finch, and stagger toward the chute. The two of you hurtle and bounce into foul-smelling blackness. You remind yourself to hold your breath, to kick upward as soon as you hit the river–
+				
+The water strikes you like a club.
+	
+*goto EscapeSuccess
+
+
+*label EscapeFail
+*set incompetent +1
+*page_break
+*if (((mether = false) or (missedher)) or (lethergo))
+	*set workedwithher true
+	You are wrapped in darkness. On the other side of the darkness, there seems to be some kind of altercation in process. A woman's voice is shouting; shots are fired.
+	
+	You come awake slowly, achingly. 
+
+	The first thing you see is the muzzle of a revolver pointed at you.
+	
+	*page_break
+	
+	The second thing you see is the woman standing behind the revolver, lamplight shining on her hair and one finger held to her lips in the universal signal for quiet. 
+	
+	Alexandra Townsend.
+	
+	"Awake?" she murmurs. "Good. Listen to me; we don't have much time. We're not alone." Indeed, you can hear footsteps and voices calling to each other, somewhere above and below you. You're still on the ground floor of the warehouse. "I'm one of a task force the Professor sent to deal with his renegades. And the opinion of the task force is divided as to how we should best deal with you two."
+	
+	You two? Craning your head painfully, you see Finch collapsed beside you. Unconscious, hurt, but breathing. 
+
+	"So we shall take the decision out of their hands. Since the pair of you are obviously unconscious and no threat, it is quite reasonable for me to walk away in response to a noise I will shortly hear in the corridor to our right. To our left is a chute that empties into the river. When the task force completes its assignment and returns to this room, it will be to find that we underestimated you–for in those few minutes, one of you woke and assisted the other to escape. You will, for my safety and yours, tell the same story." She starts to back out of the room, revolver still trained on you.
+	
+	You clear your throat and try to speak. It comes out in a croak.
+	
+	What do you say?
+	
+	*choice
+	
+		#"Thank you, Miss Townsend."
+			
+			*if lethergo or missedher
+				She nods. "Owed you one." She starts to leave, then pauses to say, "Also–the late unlamented Colonel does not represent Free Mercia. I would prefer you not judge the rest of us by his excesses. And–" She smiles a little. "–I would [i]vastly[/i] prefer your employer not bear a personal grudge against mine."
+				
+				*goto PreEscapeSuccess
+				
+			*else
+				She nods. "The late unlamented Colonel does not represent Free Mercia. I would prefer you not judge the rest of us by his excesses. And–" She smiles a little. "–I would [i]vastly[/i] prefer your employer not bear a personal grudge against mine."
+				
+				*goto PreEscapeSuccess
+			
+		#"Why are you doing this?"
+		
+			*if lethergo or missedher
+				She flashes you a smile. "Owed you one." She starts to leave, then pauses to say, "Also–the late unlamented Colonel does not represent Free Mercia. I would prefer you not judge the rest of us by his excesses. And I would [i]vastly[/i] prefer your employer not bear a personal grudge against mine."
+				
+				*goto PreEscapeSuccess
+				
+			*else
+				"The late unlamented Colonel does not represent Free Mercia. I would prefer you not judge the rest of us by his excesses. Also–" She smiles a little. "–I would [i]vastly[/i] prefer your employer not bear a personal grudge against mine."
+				
+				*goto PreEscapeSuccess
+		
+		#"Don't think this makes us allies."
+		
+			She stops to look down at you, amused. "Wouldn't dream of it. This is entirely self-serving. I'd prefer your employer not bear a personal grudge against mine. And–" She sobers. "The late unlamented Colonel does not represent Free Mercia. I would also prefer you not judge the rest of us by his excesses."
+			
+			*goto PreEscapeSuccess
+			
+*else
+
+	*if (DatingGrace) and (TeaConversation = false)
+	
+		This time, you dream not of wartime mountains but Kingsford streets. A sea of men in bowlers and women in ostrich-plume hats. A teashop with a chiming bell above the door.
+	
+		Miss Chandler sitting across from you, in a plain hat devoid of plumes or lace.
+	
+		*gosub Tea
+		*page_break
+		*if GraceBreaksUpWithYou
+			Now, lying beaten and freezing cold on a river bank, the memory of that moment stings all over again.
+		
+			*goto YouWake
+		
+		*else
+	
+			Now, lying beaten and freezing cold on a river bank, the question seems to echo like a tolling bell.
+			*goto YouWake
+	*else
+		*label YouWake
+		You wake slowly, achingly, soaked to the skin and freezing cold, with a sharp pain drilling itself through your skull. Finch's fingers are pressed to your carotid artery and Finch's low, anxious voice hums in your ears. You retain the impression that he has been talking to you for some time, though you cannot recall any of the words.
+
+		A great tension drains out of him when he sees your eyes focus. "It's all right," he murmurs. "We're on the far bank. They're not pursuing." You try to move, and the jolt of pain through your skull makes you gasp. 
+
+		*fake_choice
+
+			#I'll only slow him down. He should leave me and go for reinforcements.
+	
+				"Leave me…here," you rasp. "Get…Woodward."
+	
+				*comment What I'm hearing in my head is modern. "Yeah, no. Not happening."
+		
+				"Absolutely not," Finch says, and drags your arm across his own shivering shoulders. "On your feet, soldier." He is no steadier than you are, and the two of you stand for a moment, keeping each other balanced. "Not sure I can do it alone anyhow," Finch admits.
+		
+			#Even battered by the river, I am in better condition than he is. I'll go for help.
+
+				You fumble the revolver into his hand. "Stay…hidden," you whisper, still catching your breath. "I'll be back…with reinforcements…in no time."
+	
+				"I don't believe you are extending sufficient respect to your head injury," Finch says, and you are forced to acknowledge his point when you try to stand and the blackness dips and spins around you. Finch drags your arm across his own shivering shoulders. "On your feet, soldier." He is no steadier than you are, and the two of you stand for a moment, keeping each other balanced. "I couldn't do it alone myself," Finch admits. 
+	
+			#We need to get word to Woodward, fast, and our best chance for survival is if we stay together.
+	
+				"No argument," Finch grunts, trying to rise and failing. You're no steadier on your feet than he is, but the two of you somehow manage to keep each other balanced. "I don't think either of us…is in any condition…to do this alone."
+	
+				The walk that follows is a nightmare–slipping on the riverbank mud, stumbling over rocks and refuse and sometimes only your own feet, trying to ignore the kettledrums pounding in your head. 
+
+				You are seeing double and moving like an automaton long before you and Finch reach Woodward's front door.
+
+*label Tended
+*page_break
+Woodward whirls at once into motion—metaphorically speaking; he is too bulky for it to be literal. He has one of the new telephones installed in his home, and uses it to coordinate a raid on the warehouse without changing out of his bedroom slippers. Then he sends a servant for his own physician and pours both of you brandy.
+
+"Now," he says, not unkindly. "The rest of the report. Before the doctor gets here. What intelligence did you buy with a night of suffering and courage?"
+
+You fight to pull your thoughts together. One more effort, and then the pair of you can collapse.
+
+*if KnowLoegrian
+	*set RelWoodward %+15
+	"We learned that our 'spider' is known as 'the Professor,'" you manage. "He is a charismatic and well-educated Loegrian, and he is recruiting from the lower classes with promises that his crimes will improve their lives. 
+	*if KnowRising
+		*set RelWoodward %+15
+		Long-term, they are talking about an armed revolt—a 'Rising.' But they're years away from it, so our informants said."
+		
+		Woodward nods approvingly at you. "Very nice, $!{lastname}. What else?"
+		
+		*goto WoodwardReport2
+		
+	*else
+		I think that's all we learned from the streets…"
+		
+		"Long-term," Finch murmurs without opening his eyes, "they are talking about an armed revolt—a 'Rising'. But they're years away from it, so our informants said."
+		
+		Woodward nods with approval at the two of you. "What else?"
+		
+		*goto WoodwardReport2
+		
+*else
+
+	"We learned that our 'spider' is known as 'the Professor,' and that he is a charismatic and well-educated Loegrian," Finch murmurs without opening his eyes. You do not, personally, remember learning any such thing. Either it has been lost down one of the holes in your memory, or Finch is using "we" to be kind. "The Professor is recruiting from the lower classes with promises that his crimes will improve their lives. Long-term, they are talking about an armed revolt—a 'Rising.' But they're years away from it, so our informants said."
+	
+	Woodward nods with approval at Finch. "What else?"
+	
+	*goto WoodwardReport2
+		
+*label WoodwardReport2
+	
+*if KnowUnderling
+	*set RelWoodward %+15
+	"The man who captured us," you say, struggling to form coherent sentences, "wasn't the Professor. A former underling, dismissed and unstable."
+	
+	Woodward nods with approval at you. "What else?"
+	
+	*goto WoodwardReport3
+	
+*label WoodwardReport3
+
+*if KnowMilitary
+	
+	*set RelWoodward %+15
+	
+	"The man who captured us was a military officer," you dredge out of your aching head. "Imperial Riflemen." 
+	
+	Woodward looks impressed.  
+		
+	"I think his men were former military too, from the way they fought."
+
+	Woodward nods. "Excellent work, $!{lastname}."
+
+"That's all," you mumble. "I can't remember anything else."
+
+"You've done very well," Woodward praises. "And here's the doctor. He'll see you home to rest."	
+
+*page_break
+
+*if ((((KnowLoegrian) and (KnowRising)) and (KnowUnderling)) and (KnowMilitary)) 
+	*achieve interrogate
+
+You watch as the physician tends the knife wounds and burn marks that mar your flatmate's skin. There will be scarring, but if Finch can avoid infection and pneumonia, there will be no graver long-term consequences. 
+
+*if DrainedGuards
+	Then the physician examines you. "You seem to have emerged relatively unscathed."
+	
+	"Finch drew far more of their attention than I did," you explain. 
+	
+	"And thank mercy for that," you think you hear Finch mutter.
+	
+	The physician departs soon afterward, leaving Finch sitting limp and bandaged in one chair and you sitting limp and tired in the other. You close your eyes, grateful for the fire's warmth.
+	*goto TrueLove2
+	
+*else
+	The physician then turns his attention to your injuries, and departs soon afterward, leaving the two of you sitting limp and bandaged in chairs on either side of the hearth. You close your eyes, grateful for the fire's warmth.
+	*goto TrueLove2
+
+*label TrueLove2
+*page_break
+*if DrainedGuards
+	It turns from warmth to heat–knife blades of heat that sear your skin even as they plunge into your flesh. 
+	
+	You can't breathe. You can't move. You are strapped to the table in the warehouse, and you would answer the questions if you could hear them, but you can't hear above the screaming. You can see what they are doing to Finch, strapped down on the other table, livid handprints all over his skin–it's what they did to Pierce, discarded in that corner over there in favor of livelier playthings. You couldn't save Pierce. You can't save Finch either. 
+	
+	One of the light-eaters lunges to plant both his palms on Finch's chest, and Finch cries out and writhes and goes still–and the light-eater looks up, and he wears your face.
+	
+	*goto TrueLove3
+
+*else
+	It turns from warmth to heat–knife blades of heat that sear your skin even as they plunge into your flesh. 
+	
+	You can't breathe. You can't move. You are strapped to the table in the warehouse, and you would answer the questions if you could hear them, but you can't hear above the screaming.
+	
+	And then the heat turns icy cold. You are floundering through foul-smelling icy water, sinking, weighed down by all the things you should have done, all the words you should have said. Too late now, it's too late, the current has swept you away 
+	*if DatingGrace = false
+		and you've lost Finch somewhere, you surface and dive but you can't see anything, he's gone, you let him slip from your clumsy hands, your fault, it's your fault,
+	and it's too late to seize the chances you should have seized–
+	*if DatingGrace
+	
+		–and then warm hands touch yours, and you jump awake with a gasp.
+	*goto TrueLove3
+	
+	
+*label TrueLove3
+*page_break
+*if datingGrace
+	*goto Grace
+*elseif gay
+	*goto Finch
+*else
+	*goto home
+	
+*label Grace
+
+"It's all right," Grace Chandler says. "You were dreaming. It's all right." You are in your armchair by the fire. You must have fallen asleep. Her hands lie warm over yours–and as you realize it, she draws self-consciously away.
+
+*fake_choice
+	#I catch at her hands to keep her from going anywhere. "Grace. Oh, love. I thought I was never going to see you again."
+		
+		"I've had the scare of my life too," she whispers, trying to smile and failing. "When I opened Mr. Finch's telegram, I felt as though the floor had dropped out from under my feet."
+
+		"Mr. Finch's telegram?"
+		
+		*gosub GraceTelegram
+	
+	#I blink at her confusedly as she resumes her seat on the couch. "Miss Chandler, what in the world…? How do you come to be here?"
+	
+		"Mr. Finch sent for me." She tries to smile. 
+		*gosub GraceTelegram
+	
+	#I flinch back. I can't bear to be touched just now.
+	
+		"Mr. Finch sent for me." She tries to smile. 
+		*gosub GraceTelegram
+
+There's one thing to be said for being kidnapped and ill-used and nearly dying while attempting to escape: it clarifies one's perceptions wonderfully. For a while there, you weren't at all sure you were going to have a future. Now that it seems one has been gifted to you, you know what you want it to look like. 
+
+You search for the right words.
+
+*choice
+
+	#"Oddly enough, those East End adventures seem much less appealing than they once did. I was thinking it might be time to give up the police work, settle down and open a practice. If I did that…how might you feel about being a doctor's wife?"
+	
+		*set conventional %+20
+		*set engaged true
+
+		She stares at you. "Oh. Oh, I should like that very much."
+		
+		"Then will you marry me?"
+		
+		"Oh, yes," she says, eyes shining, and you lift her hands to your lips.
+		
+		*gosub FinchEngagement
+		*page_break
+		*gosub FinchWrapUp
+		*finish
+		
+	#"I was scared too. I was terrified that I was never going to get back to you, and I'd never have the chance to tell you I love you. Grace—you asked me if I ever thought of giving up the police work. I'll give it up if you will marry me."
+		
+		*set conventional %+15
+		*set engaged true
+		
+		"Oh," she whispers. "Yes. Yes, yes, yes, yes–" You pull her down to you and kiss her until you can't breathe.
+		
+		*gosub FinchEngagement
+		*page_break
+		*gosub FinchWrapUp
+		*finish 
+	
+	#"It's scary, but it's…the work I am meant to be doing. I can't stop running risks like this–even for you. I don't think I can ever settle down and be the kind of husband you need."
+	
+		*set DatingGrace false
+		*set conventional %-20
+		
+		"I think I knew that," she says after a long moment. "Perhaps I was hoping this experience would prompt you to say the risks weren't worth it any longer, that you were ready to settle down, but…" She swallows hard. "If we want different things, then we want different things, and there's nothing to be done about it. I suppose it is what courtship is for–to discover this sort of difference. I…shall miss you." 
+				
+		*page_break
+
+		"I'm sorry," Finch offers once. You nod. He never speaks of Grace again.
+		*page_break
+		*gosub FinchWrapUp
+		*finish 
+	
+*label Finch
+"It's all right," Finch says. He is crouched awkwardly beside you, hands lightly encircling your wrists. "You were dreaming. It's all right." You are in your armchair by the fire. You must have fallen asleep. 
+
+You have to clear your throat a couple of times before you can manage words. 
+
+What do you say?
+
+*choice
+
+	*if DrainedGuards
+		#The truth. "I was dreaming of what they did to you. I was tied down and watching, and I couldn't do anything to stop it."
+		
+			*goto Fine
+			
+	*if DrainedGuards = false
+		#The truth. "I was dreaming I'd lost you. I'd lost my grip, and you weren't there."
+		
+			*goto Fine
+	
+	#Part of the truth. "I keep dreaming of our recent experience. In pieces. I can't remember it all."
+	
+		"I'm not surprised." Finch lowers himself, painfully, to sit cross-legged between your armchair and the fire. "They hit you quite hard, in the initial confrontation." He touches the back of his own head in illustration.
+		
+		How do you respond?
+		
+		*choice
+		
+			#"They hurt you far worse, afterward." My voice shakes a little, despite my effort to control it.
+			
+				*goto Fine
+			
+			#"But for some reason they held off later." You nod at his far more extensive and brutal injuries. "I got off lightly, in comparison."
+			
+				"Yes, well." Finch doesn't quite meet your eyes. "Perhaps because you couldn't run your mouth and invite abuse when unconscious, and I had no such restraint? Or—or perhaps they thought it wasn't sporting." 
+				
+				But you remember what your captor said. 
+				*if (perception > 50)
+					And looking at Finch right now confirms it. He's lying through his teeth. You're relatively uninjured because he spent a day and a half drawing fire away from you.
+					*goto PartialTruthChoice
+					
+				*else
+					[i]He's willing to do almost anything if it keeps me away from you.[/i]
+					*label PartialTruthChoice
+					Finch looks up, and you see the moment when he sees that you know. 
+					
+					*goto HadToTry					
+			
+			#"I can't remember the initial confrontation at all. What happened?"
+			
+				"Ambush in an alleyway. Six on two. We almost got away even so." Finch grimaces. "I botched my part of it. You had a clear shot to run, for the record, and you didn't. Idiot," he adds as an afterthought. At first you're not entirely sure to which of you he is referring—but there was an undertone of affection, so he probably means you and not himself. 
+				
+				"Is that why you—?" You break off, but too late.
+				
+				"Is that why I what?" Finch looks up.
+				
+				Your captor's words echo. [i]He's willing to do almost anything if it keeps me away from you[/i].
+				
+				Finch takes in your expression, realizes you know, and looks away. "Is that why I drew his fire? Perhaps a little, I suppose, but— No. No, it was simpler than that." He takes a breath. "I just—had to try. It was less painful than it would have been to listen to them hurt you."
+							
+				For one moment, his face holds an expression of naked vulnerability.
+				*goto DarkenedPlain
+
+		
+	#A face-saving evasion. "Fever dreams. Horrible things. One of my injuries must be slightly infected…"
+	
+		"Undoubtedly that is it," Finch agrees easily. "But for the record—I'm fine, you know.
+		*goto Fine2
+			
+	#"…water?" I am uncomfortably aware of his hand over mine, and a request for water seems like the easiest way to induce him to move it.
+	
+		"Of course." Finch draws away at once, reaching for the glass of water on the side table. When he hands it to you, your fingers brush his.
+		
+		*choice
+		
+			#A tingle shoots up my spine.
+			
+				You look up to find Finch staring as if mesmerized. 
+				*goto DarkenedPlain
+				
+			#I think nothing of it. Finch returns to his own armchair. 
+			
+				*set perception %-15
+				
+				If his movements look hesitant, that is no doubt only the effects of his injuries. You think no more about that, either.
+
+				*gosub FinchWrapUp
+				*finish
+				
+			#I keep my eyes steadily on the water glass. If I pretend not to notice this, the moment will dissipate and I will never have to deal with this unwelcome surge of emotion.
+			
+				*set conventional %+25
+				
+				Finch returns to his own armchair, moving slowly. 
+				
+				The moment passes, and you speak no more about it.
+				
+				*gosub FinchWrapUp
+				*finish
+			
+*label Fine
+"I'm right here," Finch counters, voice calm and steady. "I'm fine. 
+*label Fine2
+*if incompetent < 2
+	*comment Either you rescued him from the table or you did something impressive to get past the final guards, or both.
+	You got me out of there." He half-smiles. "I don't know how much longer I would have lasted, but you got us both out of there."
+	*goto Fine3
+*else
+	We got out of there."
+	*goto Fine3
+
+*label Fine3
+*choice
+			
+	*if incompetent < 2
+	
+		#I look away. "I had to try. It was less painful than listening to what they were doing to you–"
+				
+			"I know." Finch's voice has gone husky, and from the corner of your eye you see he isn't looking at you either. "I couldn't have stood it if I'd had to listen, either–"
+					
+			Turning your head, you surprise a moment of complete vulnerability on his face. 
+			
+			*goto DarkenedPlain		
+
+		#I shake my head. "You were the one who drew them away from me. You drew their fire. Why did you do that?"
+						
+			*label HadToTry
+			"I–had to try," Finch says, voice uncharacteristically husky. He looks away. "It was less painful than it would have been to listen to them hurt you–"
+							
+			For one moment, his face holds an expression of naked vulnerability.
+			*goto DarkenedPlain
+	
+		#I pull my hands away from his, uncomfortable at the heat of his fingers. "All part of the service," I say lightly, without quite looking at him.
+						
+			"Of course." In response to your body language, Finch straightens. Perhaps it is only the effect of his injuries, but the movement looks hesitant.
+			*goto Hesitant
+			
+	*else
+	
+		#I swallow. "We got out of there because you moved the earth and sea to do it. After striking a bargain to draw them away from me—why did you do that?"
+		
+			*goto HadToTry	
+			
+		#"You got us out of there. I attempted a rescue, but you actually managed it."
+		
+			Finch shakes his head. "Joint effort. You gave me the chance. Besides, I…It was least I could do. It was my fault we were captured." He grimaces. "You don't remember? I'm not surprised; they hit you quite hard. It was an ambush, six on two, and we almost got free even so. I botched my part. You had a clear shot to run, for the record, and you didn't. Idiot," he adds as an afterthought. At first you're not entirely sure to which of you he is referring—but there was an undertone of affection, so he probably means you and not himself. 
+				
+			"Is that why you—?" You break off, but too late.
+				
+			"Is that why I what?" Finch looks up.
+				
+			Your captor's words echo. [i]He's willing to do almost anything if it keeps me away from you.[/i]
+				
+			Finch takes in your expression, realizes you know, and looks away. "Is that why I drew his fire? Perhaps a little, I suppose, but— No. No, it was simpler than that." He takes a breath. "I just—had to try. It was less painful than it would have been to listen to them hurt you."
+							
+			For one moment, his face holds an expression of naked vulnerability.
+			*goto DarkenedPlain
+	
+		#Without quite looking at him, I pull my hands away from his, uncomfortable at the heat of his fingers. 
+	
+			In response to your body language, Finch straightens. Perhaps it is only the effect of his injuries, but the movement looks hesitant.
+			
+			*label Hesitant	
+			*choice
+							
+				#It's the effect of his injuries. I watch him move slowly back to his own chair.
+				
+					*set perception %-15
+					
+					The moment passes, and you speak no more about it.
+										
+					*gosub FinchWrapUp
+					*finish 
+								
+				
+				#It's reluctance, and I have to respond to it. If I let this moment pass, I may never get another chance. 
+				
+					*if incompetent < 2
+						You reach out and catch his arm, and he stops at once. "I had to try," you say. "It was less painful than listening to what they were doing to you–"
+									
+						He looks at you in astonishment, and for a moment an expression of naked vulnerability is visible on his face.
+						*goto DarkenedPlain
+					
+					*else
+						You reach out and catch his arm, and he stops at once. "You struck a bargain to draw them away from me—I heard you. Whatever possessed you?"
+									
+						*goto HadToTry
+					
+				#It's reluctance, but I would much rather not know what that reluctance means. I let him move slowly back to his own chair.
+								
+					The moment passes, and you speak no more about it.
+									
+					*gosub FinchWrapUp
+					*finish 
+				
+
+*label DarkenedPlain
+And in that instant you realize–as though in a flash of lightning that illuminates a darkened plain–that this man is in love with you.
+					
+*choice
+					
+	#I don't dare let this moment slip through my fingers. I lean forward and kiss him. 
+						
+		*set conventional %-20
+						
+		For a moment he is frozen under your lips, and you fear that you misunderstood–
+							
+		–and then he surges forward into the kiss. 
+		*label WantedToSee
+		A long time later, the two of you break apart, breathless. Garrett Finch stares at you.
+									
+		"You see everything," you whisper. "You can't make me believe you didn't know I felt this way."
+									
+		He gasps a laugh. "I thought I was seeing what I wanted to see. Oh, $!{firstname}." 
+									
+		Later, he pulls away again, holding you off. "Listen," he says. "I don't–I don't know what you want, but I–" He takes a deep breath. "This is not just an amusement, for me. I'm deathly serious. I don't mean to exchange our friendship for a single night between the sheets. But I would exchange it for a–a permanent–" He takes another breath. Neither of you have the vocabulary for this. "A–a marriage. If you wanted that as well."
+									
+		*choice
+									
+			#"Yes. Oh yes."
+										
+				*set WithFinch true
+				*set conventional %-30
+				*achieve hearth
+											
+				And the world all around you is dazzling-new. 
+											
+				You will always have to be careful out in public. But within the safety of your walls, you enjoy the most picture-perfect honeymoon you could have possibly imagined while the world assumes Garrett Finch to be convalescing and you looking after him.
+											
+				*page_break
+											
+				*gosub FinchWrapUp
+				*finish 
+									
+			#"No. I don't want to risk what we have. If it's not too late, I want to turn back."
+										
+				Finch closes his eyes. "Of course," he says after a moment. "A moment under strong emotion is not necessarily a basis for lifetime decisions. We–will not speak of this going forward."
+
+				You never do again. It is a little awkward for a time, but your deep friendship is undamaged and your easy comradeship returns after a while.
+											
+				*page_break
+				*gosub FinchWrapUp
+				*finish 
+								
+			
+	#I want to kiss him–but I've never known Finch to combine carnal pleasure and love. I don't dare take the risk of rejection.
+								
+		*set conventional %-15
+									
+		He stares at your face for a long, long moment–and then leans over and kisses you.
+									
+		[i]Oh[/i]. Oh, if that's how it is– You kiss him back.
+										
+		*goto WantedToSee
+										
+
+	#If I pretend I haven't seen it, the moment will move on and I will never have to deal with this unwelcome realization. I do nothing.
+														
+		Finch clears his throat and gets to his feet as swiftly as his injuries will let him. He moves stiffly back to his own chair, and by the time he is there, has regained control of his expression. 
+									
+		You never speak of that moment again, but return to being the friends and comrades you have always been.
+									
+		*page_break
+		*gosub FinchWrapUp
+		*finish 
+			
+*label Home
+"It's all right," Finch says. You are in your armchair by the fire–you must have fallen asleep–and he is crouched awkwardly beside you. "It's all right, we're home. You were dreaming." 
+
+Either you were talking in your sleep, or some Finchian observation enabled him to deduce the content of your dream, because he continues in a calm, steady voice, "I'm right here. I'm fine. 
+*if incompetent < 2
+	*comment Either you rescued him from the table or you did something impressive to get past the final guards, or both.
+	You got me out of there." He half-smiles. "I don't know how much longer I would have lasted, but you got us both out of there."
+	*goto HomeFine2
+*else
+	We got out of there."
+	*goto HomeFine2
+
+*label HomeFine2
+*choice
+			
+	*if incompetent < 2
+	
+		#I look away. "I had to try. It was less painful than listening to what they were doing to you–"
+				
+			"I know." Finch's voice has gone husky, and from the corner of your eye you see he isn't looking at you either. "I couldn't have stood it if I'd had to– I know." He squeezes your arm once, hard, then gets awkwardly to his feet.
+			
+			*page_break
+			*gosub FinchWrapUp
+			*finish 
+						
+		#I shake my head. "You were the one who drew them away from me. Why did you do that?"
+						
+			*label HomeHadToTry
+			"I–had to try," Finch says, voice uncharacteristically husky. He looks away. "It was less painful than it would have been to listen– I had to try." He squeezes your arm once, hard, then gets awkwardly to his feet and crosses the room to resettle himself in his armchair.
+			
+			*page_break
+			*gosub FinchWrapUp
+			*finish
+		
+	*else
+	
+		#I shake my head. "We got out of there because you moved the earth and sea to do it. After striking a bargain to draw them away from me—why did you do that?"
+		
+			*goto HomeHadToTry
+			
+		#"You got us out of there. I attempted a rescue, but you actually managed it."
+		
+			Finch shakes it head. "Joint effort. You gave me the chance. Besides, I…It was least I could do. It was my fault we were captured." He grimaces. "You don't remember? I'm not surprised; they hit you quite hard. It was an ambush, six on two, and we almost got free even so. I botched my part. You had a clear shot to run, for the record, and you didn't. Idiot," he adds as an afterthought. At first you're not entirely sure to which of you he is referring—but there was an undertone of affection, so he probably means you and not himself. 
+				
+			"Is that why you—?" You break off, but too late.
+				
+			"Is that why I what?" Finch looks up.
+				
+			Your captor's words echo. [i]He's willing to do almost anything if it keeps me away from you.[/i]
+				
+			Finch takes in your expression, realizes you know, and looks away. "Is that why I drew his fire? I suppose that's part of it." He takes a breath. "I just...I had to try. It was less painful than it would have been to listen– I had to try." He squeezes your arm once, hard, then gets awkwardly to his feet and crosses the room to resettle himself in his armchair.
+			
+			*page_break
+			*gosub FinchWrapUp
+			*finish
+			
+	#I pull away, embarrassed. "Yes, of course. Head injuries produce fever dreams sometimes, is all."
+	
+		"Indeed they do," Finch agrees in a completely matter-of-fact tone. "I hate the things, myself." He gets awkwardly to his feet, and crosses the room to resettle himself in his armchair.
+
+		*page_break
+		*gosub FinchWrapUp
+		*finish
+
+		
+*comment ***********SUBROUTINES***************
+
+*label Tea
+
+Yes, that was…earlier today, you think.
+
+You remember she seemed troubled by something. 
+
+"Oh, it's nothing important," she sighed when you asked. "Mr. and Mrs. Forrester are away from home, leaving Mr. Forrester's sister to supervise the household. And old Miss Forrester objected to the practical lessons I was teaching my charges. It was only a bit of simple nursing, nothing at all inappropriate–but she said her brother's children were to be ladies with their own establishments, and would have no need of menial skills. She said I should teach them drawing and embroidery and languages and the like. As though there was no chance they'd ever be on a dirigible full of injured people–or sitting at their child's sickbed, for that matter! Old Miss Forrester seems to want us to go back to the dark days when everyone was dependent upon what scraps of healing the Sun Temples chose to bestow. Now we have treatments and medicines that anyone can learn to use, but the old lady wants her nieces to be as incapable of helping themselves as any medieval village girl. It's not right."
+	
+How did you respond?
+	
+*choice
+	
+	#"No, it's not. Modern medicine is the finest advance the new century has brought us; I'm glad you see its value as I do."
+
+		*set conventional %+10
+			
+		"Of course I do." She hesitated. "Do you ever think of giving up the police work and going into practice?"
+			
+		*return
+
+	#"You won't always have to defer to foolish old women. Someday you'll be mistress of your own establishment and you'll be able to make those decisions as you see fit."
+		
+		*set conventional %-10
+		
+		"It will be a relief when that day comes, I must admit." Miss Chandler hesitated. "Surely you must sometimes likewise wish to be master of your own establishment, deferring to no one's judgment but your own? Do you ever think of giving up the police work and going into practice?"
+
+		*return
+		
+	
+	#"I agree with your main point, but I am not certain we should consider modern medicine as a complete replacement for healing. Perhaps the most effective war on illness would be waged by using both weapons."
+		
+		*set conventional %-15
+			
+		She looked surprised. "But you can't think the Sun Temples can be trusted? Some of those healers could be light-eaters, and you'd never know until they touched you."
+
+		*choice
+			
+			#"That's unfortunately true," I admitted, an image of Pierce's cell wavering before my eyes.
+				
+				You returned to yourself with a start, Grace Chandler's warm gloved hand laid over yours. "I'm so sorry," she said quietly. "I didn't mean to remind you. Come, let us talk of something lighter." She cast about for something. "I, um, I imagine you must sometimes likewise wish that you need defer to no one's judgment but your own? Do you ever think of giving up the police work and going into practice?"
+					
+				*return
+				
+			#"I had recent occasion to investigate a Sun Temple, in connection with my police work. It wasn't anything like the prison camps in Goráska."
+				
+				*set conventional %-10
+				
+				She looked unconvinced. "Even if you found some healers that could be trusted, they'd never want to work with a doctor. I've heard what they do in those orphanages they run. They fill those poor children's heads with all kinds of superstitious nonsense, and by the time they're done, the youngsters preach the wonders of healing to any who will listen and run from any doctor or nurse come to work in the slums. It's not the children's fault, of course–they're too young to think for themselves–but if the Sun Temples still ruled everything, we'd all be like that. We would never have made any scientific advances at all."
+					
+				*choice
+					
+					#"That's probably true," I admitted. "I wouldn't want to live in that world."
+						
+						*set conventional %+10
+						
+						Miss Chandler smiled. "I like this one much better," she agreed. "I think what I like best is that that now we have tools everyone can learn to use. Do you—" She hesitated. "Do you ever think of giving up the police work and going into practice?"
+						
+						*return
+					
+					#"We did right to break the power of the Temples–I wouldn't want them in charge. But I think they could have something to contribute to Mercia, if we let them." 
+				
+						*set conventional %-10
+							
+						Miss Chandler was not convinced, but did not pursue the topic further. "We need not agree on everything," she said, smiling. "And I must concede you have better information than I; you have met some healers, whereas I never have. I think I'm just glad that now we have tools everyone can learn to use. Do you—" She cast about, clearly trying to change the subject. "Do you ever think of giving up the police work and going into practice?"
+					
+						*return
+							
+					#"They're really not like that. There were good people in that building, laboring against enormous odds."
+						
+						*set conventional %-15
+							
+						Miss Chandler frowned, started to speak, and then shook her head and laughed a little. "This is a foolish thing to argue over," she said. "We need not agree on everything. And I must concede you have better information than I; you have met these healers you speak of, whereas I have never met any. I'm sure some of them are good people, as you say. I think I'm just glad that now we have tools everyone can learn to use. Do you—" She cast about, clearly trying to change the subject. "Do you ever think of giving up the police work and going into practice?"
+
+						*return
+						
+			#"I had recent occasion to investigate a Sun Temple, in connection with my police work. Some of the poor folk who live nearby speak well of their healer neighbors. They say the healers can sometimes cure what doctors cannot."
+					
+				*set conventional %-15
+				
+				"That's to our shame, then," Miss Chandler said decidedly. "Perhaps the poor folk you spoke to can only summon the services of indifferent doctors, and find it too difficult or too dear to seek out reliable ones? We're no better than those old Temple healers, if that's so. There ought to be clinics in the East End, good ones. Medicine ought to be available to everyone, after all; isn't that the point of the modern era? I'm sure the poor folk you mention wouldn't put themselves at the mercy of the healers if they had another option." She hesitated. "Talking of other options…do you ever think of giving up the police work and going into practice?"
+					
+	
+				*return	
+					
+					
+			#"They could be, but most of them aren't. My grandmother was a healer, and she did well by everyone in our village when I was small."
+			
+				
+				*set conventional %-20
+				*goto Grandmother
+				
+*label Grandmother
+
+"Your grandmother was a–" For the first time since you began keeping company with her, Miss Chandler seemed shaken. "But–but you're not, are you? I mean–"
+					
+You'd never seen her look like that before, but perhaps you should have been able to predict it. You knew her to be mostly conventional in her viewpoints; why would she not be conventional in this one?
+
+You had the sense that much would depend on your next answer. Would the complete truth drive her away? Or were you not giving her enough credit? Was it more important to speak the truth no matter the possible consequences?
+
+*choice
+					
+	#I spoke firmly. "No. I am a man of science and a doctor of medicine, and I do not subscribe to outdated superstitions. I just meant…all healers are not light-eaters."
+						
+		*set conventional %+15
+						
+		"No," Miss Chandler agreed, looking relieved. "I shouldn't have said that. I didn't mean to imply a slur against your grandmother. After all, I have heard some good stories of the old days, as well as the other sort–tales of wise women who used their inborn healing power to nurture their villages. I'm sure she was one such. I think I'm just glad that now…now we have tools everyone can learn to use. Do you—" She cast about, clearly trying to change the subject. "Do you ever think of giving up the police work and going into practice?"
+					
+	
+		*return
+
+						
+	#I looked at her steadily. "Well, suppose for the sake of conversation I had inherited her talent."
+						
+		*set conventional %-15
+						
+		She did not for one moment mistake it for an actually hypothetical assertion. "It…it would depend. You can't help what runs in your blood, of course, but you haven't actually…you haven't ever…?"
+		*label Dealbreaker
+		*choice
+			*if healpierce or healmorris
+				#I had come too far to retreat. "Yes, in fact, I have. On a battlefield, in desperate circumstances."
+									
+					*set conventional %-20
+										
+					She stared at you. "But $!{firstname}–if they found out, you'd be dismissed from your position with the police–you wouldn't be able to have your own practice–"
+										
+					*gosub BreakUpText
+										
+
+					*return
+									
+								
+			*if healpierce or healmorris
+				#I couldn't bear the look on her face–and after all, it is not as though I intend to ever do it again. "No, of course not."
+								
+					"No," Miss Chandler agreed, looking relieved. "I shouldn't even have asked–I apologize for the insult. And I didn't mean to imply a slur against your grandmother. After all, I have heard some good stories of the old days, as well as the other sort–tales of wise women who used their inborn healing power to nurture their villages. I'm sure she was one such. I think I'm just glad that now…now we have tools everyone can learn to use. Do you—" She cast about, clearly trying to change the subject. "Do you ever think of giving up the police work and going into practice?"
+
+					
+					*return
+							
+
+			*if (healpierce) or (healmorris)
+				#I tried to balance truth and reassurance. After all, it is not as though I intend to ever do it again. "Yes, on a battlefield, in desperate circumstances. But it's not the tool I would choose if I had any other alternative."
+																	
+					She stared at you. 
+										
+					"I never plan to do it again," you added hastily.
+										
+					"But $!{firstname}–if they found out you'd done it even once, you'd be dismissed from your position with the police–you wouldn't be able to have your own practice–"
+					
+					*gosub BreakUpText
+															
+					*return
+									
+			*if (healpierce = false) and (healmorris = false)
+				#"No, of course not. I am a man of science and a doctor of medicine. I only meant…that you can carry the blood and not be a monster."
+								
+					"Of course you can," Miss Chandler agreed, looking relieved. "I didn't mean to imply a slur against your grandmother. After all, I have heard some good stories of the old days, as well as the other sort–tales of wise women who used their inborn healing power to nurture their villages. I'm sure she was one such. I think I'm just glad that now…now we have tools everyone can learn to use. Do you—" She cast about, clearly trying to change the subject. "Do you ever think of giving up the police work and going into practice?"
+				
+					*return
+							
+
+			*if (healpierce = false) and (healmorris = false)
+				#"No, I never have. But if I'd been born four hundred years ago, I probably would have learned to, do you see? I like to think I would have been a village healer like my grandmother, not a monster like in the stories."
+								
+					"Of course you would have been," Miss Chandler agreed, looking relieved. "I have heard some good stories of the old days, as well as the other sort–tales of wise men and women who used their inborn healing power to nurture their villages. I'm sure your grandmother was one such–and–and you would have been too, in some other world. I'm just glad that now we have tools everyone can learn to use. Do you—" She cast about, clearly trying to change the subject. "Do you ever think of giving up the police work and going into practice?"
+										
+					*return
+			
+						
+	#I took a deep breath. "As it happens, I am."
+				
+		"You mean–you mean you inherited the talent. Well, all right, you can't help what runs in your blood, of course not. But you haven't actually…you haven't ever…?"
+						
+		*goto Dealbreaker
+				
+
+*label YourIntentions
+
+*page_break
+
+Alone now in the pitch-black, the question echoes like a tolling bell. 
+	
+Giving up the police work and opening your own practice would be a necessary first step if you wished to marry and have the ability to support your own household. 
+
+And while you wouldn't need to [i]entirely[/i] give up your work for Woodward, a bachelor police surgeon obviously has more freedom to chase criminals through the East End than does a respectable physician and householder.
+
+You remember sitting across from Miss Chandler, thinking that very soon now, you would have to decide what you want—pick one path or the other and walk down it without a look back. 
+
+Now you can't help wondering if you will get the chance.
+
+*return
+				
+*label BreakUpText
+*set GraceBreaksUpWithYou true
+*set DatingGrace false
+"Yes," you said. "I know."
+										
+She looked down. "I won't tell anyone, I promise."
+										
+The waiter chose that moment to arrive with your tea and cakes. Miss Chandler stared at the meal with unfocused eyes. "I think–" She looked up, but not quite at you. "I find I'm not feeling very well, Doctor. A–a sudden headache. I think–I think I ought to return home. No, no, you needn't escort me. It's a short walk. I do apologize for cutting our afternoon short." 			
+					
+She hurried away. And you knew, without having to be told, that she would be "too busy" or "not feeling quite the thing" the next time you invited her to walk out with you.
+
+*return
+
+*label BreakUpReactionShot
+*page_break
+
+Alone now in the pitch-black, you feel the ache of that moment again. 
+
+You remember that Finch read the situation from your face as soon as you returned home, but you growled "I don't care to discuss it" and he, to your gratitude, left it alone.
+
+Alone now in the dark, it stings all over again.
+
+*return				
+				
+*label EastEndIntro
+
+That's right—you and Finch headed out into the night, leaving behind the respectable part of town, passing the riverside factories and the tenements of those who work them, heading deep into the East End, to the slums that even the constabulary avoid. 
+
+There drunks slumped against filthy brick walls. Poor women called to you from doorways, not even pretending flirtation, their eyes fixed and vacant. A brawl spilled out of a tavern and into the street, and no one nearby even twitched an eyebrow. 
+
+*return
+
+*label HuntingTheSpider
+
+You remember that he called you by a name not your own; you remember that he spoke of someone called "the Professor" in a whisper that might have indicated awed respect or might have indicated terror.
+
+You remember the sight of your own forearm resting on the table, encased in the sleeve of a rough and tattered jacket rather than your usual frock-coat.
+
+*return
+
+*label Greasepaints 
+
+The gas-lamp shone bright in your eyes, so you kept them half-closed. But you could still see Finch turning for his box of greasepaints, then reaching to smear something thick and cool and repulsive-smelling along the line of your jaw.
+
+"Hold still," he murmured, but his mouth twitched in amusement at your instinctive flinch. 
+*if gay
+	His fingers were deft as always, surprisingly gentle for all their strength. His eyes were shadowed, with the light behind them, but you knew they were narrowed and intent. He turned for the box again, and you watched the gaslight fall upon the line of his jaw. Then you swallowed and closed your eyes so he would be unable to read your expression when he turned back. You couldn't help starting a little again at the renewed touch. "Hold still," he repeated, less in amusement and more in annoyance.
+"Do you [i]want[/i] to go walking through the East End in an unevenly-applied disguise?"	
+	
+*return
+
+*label WoodwardBriefing
+
+You remember now. You, Finch, and Woodward were discussing the possibility of a spider in the web of the East End, a master criminal controlling and organizing crime.
+
+"Now that we're looking, I see him everywhere," Finch said. He had begun compiling a scrapbook of newspaper articles, and he turned the pages over as he spoke. "The theft of the painting [i]Lost Sailor[/i], which would certainly bring enough from an unscrupulous private collector to justify the risk of stealing it. Hardwicke's resignation from Parliament—he was as industry-minded as they come, and suddenly he wishes to retire to the country? It smells like blackmail to me." He looked up at Woodward. "These aren't Vlaski plots."
+
+"No," Woodward admitted. "This spider is home-grown. And is using his control to further the ends of the rebels and rabble-rousers who call themselves 'Free Mercia.' We must discover who he is."
+
+*return
+
+*label Scrapbook
+
+Yes, you remember now. 
+
+Finch sat in the glow of the 
+*if gay
+	firelight—shadows playing across his cheekbones and the line of his jaw, flickering flames reflected in his intent eyes—with
+*if gay = false
+	firelight with 
+his deft fingers flicking through the pages of the scrapbook in which he had compiled newspaper articles that seemed to prove the existence of a spider in the web of the East End.
+
+"A master criminal controlling and organizing crime," he murmured. "Something completely new. Once you start looking, you can see the hand everywhere. The theft of the painting [i]Lost Sailor,[/i] which would certainly bring enough from an unscrupulous private collector to justify the risk of stealing it. The resignation of a particularly industry-minded Member of Parliament, under circumstances that carry the odor of blackmail. These aren't Vlaski plots; this spider is home-grown. Someone has taken charge of, if not all the crime in the East End, certainly a large percentage of it. And is using his control to further the ends of the rebels and rabble-rousers who call themselves 'Free Mercia'."
+
+Woodward agreed with this assessment, and…
+
+*return
+
+*label BluffSequence
+
+*set KnowPersona true
+			
+You strain after a memory. When you and Finch each took on a persona, you decided to play…
+		
+*choice
+
+	#A Loegrian recently come to Kingsford in search of work, and loudly bitter about the conditions back home. I've talked with enough Loegrian grooms and maidservants to be able to tell the right kind of story.
+	
+		*set role "Loegrian"
+		
+		You decided to put to use your unconventional habit of talking with maidservants and grooms—after all, a bitter Loegrian is exactly the sort of person who would be recruited by an organization like Free Mercia.
+		
+		And you think Finch took on the role of a safecracker recently released from prison, sullen at the "injustice" of his sentence. 
+		
+		*goto ColonelBluff
+		
+	#A factory laborer injured by improperly maintained machinery.
+	
+		*set role "machinery"
+			
+		You remember deciding that a justifiably bitter factory laborer would be exactly the sort of person who would be recruited by an organization like Free Mercia.
+		
+		If you recall correctly, Finch took on the role of a safecracker recently released from prison, sullen at the "injustice" of his sentence. He decided his character would be Loegrian, and did a masterful job with the lilting accent.
+		
+		*goto ColonelBluff
+	
+	#A factory laborer dismissed for drunkenness. There are, after all, far more of those than the few injured on the job.
+	
+		*set role "drunk"
+		
+		You remember deciding that such a man might well seek to join a criminal organization rather than take responsibility for his own life.
+			
+		If you recall correctly, Finch took on the role of a safecracker recently released from prison, sullen at the "injustice" of his sentence. He decided his character would be Loegrian, and did a masterful job with the lilting accent.
+		
+		*goto ColonelBluff
+			
+	#A former soldier whose life lacks excitement since he left the service. 
+
+		*set role "soldier"
+				
+		You remember, when you decided upon this, reflecting that the mindset was not altogether foreign to your own. You were fortunate enough to find your excitement in defense of the law; it makes sense that others might find it in opposition, and that an organization like Free Mercia would recruit those types.
+		
+		If you recall correctly, Finch took on the role of a safecracker recently released from prison, sullen at the "injustice" of his sentence. He decided his character would be Loegrian, and did a masterful job with the lilting accent.
+		
+		*goto ColonelBluff
+	
+	#A convict recently released from prison, sullen at the "injustice" of his sentence.
+	
+		*set role "convict"
+		
+		You remember deciding that such a man might well seek to join a criminal organization rather than take responsibility for his own life.
+		
+		If you recall correctly, Finch took on the role of a Loegrian recently come to Kingsford looking for work, and did a masterful job with the lilting accent.
+
+		*goto ColonelBluff
+
+*label ColonelBluff
+*page_break
+Now you answer your captor as befits your assumed persona rather than tell the truth.
+
+*if role = "Loegrian"
+
+	*comment You need to be unconventional enough to accurately portray this part without sinking into stereotype, and you have to be a good enough actor to pull off the accent. The beer is in the truck. Or you have to be a good enough actor to accurately portray the part even if you are otherwise conventional in how you view the Irish.
+	
+	*if (charisma > 70) or ((charisma > 60) and (conventional < 30))
+	
+		*set ColonelFooled true
+		
+		To your relief, the man with the side-whiskers hesitates. Your portrayal seems to be good enough to make him doubt he caught the right man.
+		
+		You dimly remember that it worked when in the East End taverns, too. The regulars seemed to accept you as a Loegrian and Finch as a man with a dubious past including prison.  
+		
+		*return
+		
+	*else
+	
+		*return
+
+*elseif role = "machinery"
+
+	*if ((medicine > 70) or (conventional < 30)) or (charisma > 70)
+	
+		*set ColonelFooled true
+		
+		To your relief, the man with the side-whiskers hesitates. Your portrayal seems to be good enough to make him doubt he caught the right man.
+		
+		You dimly remember that it worked when in the East End taverns, too. The regulars seemed to accept you as an injured laborer and Finch as a man with a dubious past including prison.  
+		
+		*return
+		
+	*else
+			
+		*return
+		
+		
+*elseif role = "drunk"
+
+	*if charisma > 70
+		
+		*set ColonelFooled true
+		
+		To your relief, the man with the side-whiskers hesitates. Your portrayal seems to be good enough to make him doubt he caught the right man.
+		
+		You dimly remember that it worked when in the East End taverns, too. The regulars seem to accept you as an injured laborer and Finch as a man with a dubious past including prison.  
+		
+		*return
+		
+	*else
+		
+		*return
+	
+*elseif role = "soldier"
+
+	*if marksmanship > 70
+	
+		*comment Marksmanship stands in for "military-ness". You're not acting; this is who you are. 
+		
+		*set ColonelFooled true
+		
+		To your relief, the man with the side-whiskers hesitates. Your portrayal seems to be good enough to make him doubt he caught the right man.
+		
+		You dimly remember that it worked when in the East End taverns, too. The regulars readily accepted you as a bored and restless former soldier, and Finch as a man with a dubious past including prison. 
+
+		*return
+		
+	*elseif charisma > 70
+	
+		*comment This isn't who you are, but you're a good enough actor to pull it off
+		
+		*set ColonelFooled true
+		
+		To your relief, the man with the side-whiskers hesitates. Your portrayal seems to be good enough to make him doubt he caught the right man.
+		
+		You dimly remember that it worked when in the East End taverns, too. The regulars readily accepted you as a bored and restless former soldier, and Finch as a man with a dubious past including prison. 
+		
+		*return
+		
+	*else
+	
+		*return
+	
+*else
+	*comment Convict
+	
+	*if (conventional < 30) or (charisma > 70)
+	
+		*set ColonelFooled true
+		
+		To your relief, the man with the side-whiskers hesitates. Your portrayal seems to be good enough to make him doubt he caught the right man.
+		
+		You dimly remember that it worked when in the East End taverns, too. The regulars seemed to accept you as a man with a dubious past including prison, and Finch as a Loegrian loudly bitter about the conditions back home.
+	
+		*return
+		
+	*else
+		
+		*return
+		
+*label ProfessorIsLoegrian
+*set KnowProfessor true
+*set KnowLoegrian true
+
+You remember sipping truly horrid beverages in extremely dubious surroundings, listening to whispers of a powerful new figure in the Kingsford Underground—a charismatic and well-educated Loegrian, known as "the Professor." He's the man running the group that calls itself "Free Mercia."		
+*if KnowUnderling = false
+	(Hm. Your captor speaks without accent. He's not Loegrian. Not the Professor himself, then.)
+	
+*return
+
+
+
+*label Tattoo
+
+*set KnowMilitary true 
+The movement reveals a tattoo on his wrist, previously hidden beneath the cuff of his shirtsleeve—an arrow done in blue ink. 
+			
+You've seen that tattoo before. They are sported by the Riflemen, an elite corps of sharpshooters in the Mercian Imperial Army. So your captor was once a well-respected soldier. 
+			
+*return
+			
+*label PistolSequence
+
+You squeeze the trigger even as you are pulling the pistol free, and your captor howls as the bullet rips through his knee. You stumble away from him and bring the firearm up as ${Guard} charges you.
+		
+You don't have time to aim, not really. But you still manage to drop him with two bullets through the chest at point blank range. 
+		
+You turn back in time to see ${OtherMan} lunging for you with a scalpel grabbed from the tray. Your final bullet takes him through the head. 
+
+*return
+
+*label ScalpelSequence
+
+Your captor howls as you plunge the blade into his throat, but you know exactly where the carotid artery is, and the howl is drowned by a gurgle. You pull the pistol from his belt as he falls.
+		
+You look up to see ${Guard} charging you, and you don't have time to aim, not really. But two bullets in the chest at point-blank range do what they are supposed to do. He falls too.
+		
+*return
+
+*label AthleticsSequence
+
+Your opponent reels back from your fists, staggering. You pull the pistol from his belt as he falls.
+
+You look up to see ${Guard} charging you, and you don't have time to aim, not really. But two bullets in the chest at point-blank range do what they are supposed to do. He falls too.
+		
+*return
+
+*label Gunfire
+
+You stand for a moment, swaying slightly–but if there is anyone else in this building, they will have heard the gunfire. You have to hurry.
+
+*return
+
+*label GraceTelegram
+"He said he thought I ought to know that you'd been hurt. He didn't tell me much–just that you and he had been pursuing police business in the East End and were set upon. 
+*if DrainedGuards = false
+	That both of you were hurt, not dangerously, but not trivially.
+Mrs. Forrester saw my face and gave me leave to absent myself from my duties today." Her eyes have filled with tears, and she tries to blink them away. "I suppose a knock on the head was bound to happen eventually, during one of your East End adventures–but the idea that you could be kidnapped and ill-used by madmen with a special grudge against the police force hadn't yet invaded my nightmares."
+
+*return
+
+*label FinchEngagement
+Finch smiles when you tell him the news, but there's something melancholic in his eyes. "I'm glad for you," he says. "I am, truly. Nothing will be the same any more…but change is the way of life, of course. Congratulations to you both!"
+*return
+
+*label FinchWrapUp
+Finch's injuries heal rapidly. Though he's been left with scars and residual weakness, no permanent damage was done. 
+
+*if ((FinchRescue) and (FinchLessHurt = false)) and (DrainedGuards = false)
+
+	Your ribs and head injury heal cleanly, but the wounds inflicted while you were attempting to rescue Finch cause more trouble. You fear the scar tissue will cause a permanent reduction in your abilities, and are grateful the reduction is so minor.
+
+	*goto FinchWrapUp2
+
+*else
+
+	*goto FinchWrapUp2
+	
+*label FinchWrapUp2
+
+You learn that when Woodward's team raided the warehouse—not long after you and Finch fled it—they found nothing. The place had been swept clear of the quick, the dead, and their instruments of torture.
+
+*if ColonelDead
+
+	Your old service revolver was recovered, however.
+	
+	And chalked on the flagstone floor was this message: "FREE MERCIA DISAVOWS COLONEL FEARNLEY."
+	
+	Woodward, researching the name, 
+	*goto FinchWrapUp3
+
+*else
+
+	Except for your old service revolver, which you are pleased to have back…
+	
+	…and for the body of the man with the side-whiskers, executed with a single bullet wound to the head (conspicuously [i] not [/i] from your revolver). Pinned to his coat was a note: "This is how Free Mercia deals with traitors who turn freelance."
+	
+	It takes Woodward a little time, but eventually he identifies the man, and
+	*goto FinchWrapUp3
+
+*label FinchWrapUp3
+discovers that the Colonel was born the son of an old and distinguished family. He was well-educated; he served with distinction in the Army; he was mentioned in dispatches during the Goráska campaign. 
+	
+The ending of the war seemed to leave him at loose ends. For a time he hunted big game in the colonies at the edge of the Empire—there is a story that he crawled down a drain after a wounded tiger, which you would find fanciful if you hadn't seen the Colonel's eyes. When he returned to Kingsford, he found no game big enough to satisfy him…until Free Mercia provided an outlet for his violent tendencies.
+	
+And then his tendencies became so violent that even Free Mercia cast him aside.
+	
+*page_break
+	
+"A dangerous man," Finch observes.
+	
+"A dangerous organization," Woodward counters.
+	
+"Not an organization composed entirely of homicidal lunatics, though," Finch counters. "The saboteurs have been thoughtful, well-organized, and reluctant to waste life. I don't think the late unlamented Colonel represents the Professor's organization."
+	
+When Woodward is gone, Finch adds, "I think the Professor is dangerous in an entirely different way."
+
+*return
+	

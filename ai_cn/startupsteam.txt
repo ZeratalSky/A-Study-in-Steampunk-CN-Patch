@@ -1,0 +1,117 @@
+*comment Copyright 2010 by Dan Fabulich.
+*comment 
+*comment Dan Fabulich licenses this file to you under the
+*comment ChoiceScript License, Version 1.0 (the "License"); you may
+*comment not use this file except in compliance with the License. 
+*comment You may obtain a copy of the License at
+*comment 
+*comment  http://www.choiceofgames.com/LICENSE-1.0.txt
+*comment 
+*comment See the License for the specific language governing
+*comment permissions and limitations under the License.
+*comment 
+*comment Unless required by applicable law or agreed to in writing,
+*comment software distributed under the License is distributed on an
+*comment "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+*comment either express or implied.
+
+*title Choice by Gaslight
+*author Heather Albano
+*scene_list
+  startup
+  IntroScreen
+  OpeningScene
+  BrucePartingtonPlans
+  HerMajestysDirigible
+  IntermissionScreen
+  Merrill
+  VampiresOfLondon
+  Reichenbach
+  IntermissionScreen2
+  Crossroads
+  NewLife
+  TheReturn
+  IntermissionScreen3
+  TheFinalProblem
+  Endgame
+  WrapUp
+
+*create healpierce false
+*create firstchoice "marksmanship"
+*create secondchoice "medicine"
+*create lastname "lastname"
+*create firstname "firstname"
+*create initial "i"
+*create healing 50
+*create charisma 50
+*create marksmanship 50
+*create medicine 50
+*create athleticism 50
+*create injury "none"
+*create conventional 50
+*create compassionate 50
+*create stealthy 50
+*create control 80
+*create perception 50
+*create healmorris false
+*create relwoodward 50
+*create gay false
+*create loadedlifeboats false
+*create datinggrace false
+*create knowfinchaway false
+*create plantknowledge false
+*create donewithoneshands false
+*create knoweconomics false
+*create engaged false
+*create married false
+*create withfinch false
+*create alliance "government"
+*create kills 0
+*create reltaggart 50
+*create relalexandra 50
+*create healersarrested false
+*create manufacturedevidence false
+*create mythmaker false
+*create mether false
+*create lethergo false
+*create missedher false
+*create caughther false
+*create drainedguards false
+*create divorced false
+*create drinking false
+*create taggartchoice false
+*create alexandrachoice	false
+*create withalexandra false
+*create patrol false
+*create relfinch "neutral"
+*create leftfinchtodie false
+*create healertrained false
+*create lighteater false
+*create donated false
+*create dead false
+*create meantoBradley false
+*create ignoredBradley false
+*create finchdead false
+*create betrayed false
+*create woodwarddeal false
+*create woodwardally false
+*create walkedaway false
+*create healedmargaret false
+*create old "margaret"
+*create o_man "woman"
+*create oldprofession "charwoman"
+*create o_he "she"
+*create o_him "her"
+*create o_his "her"
+*create young "violet"
+*create y_man "woman"
+*create y_he "she"
+*create y_him "her"
+*create y_his "her"
+*create pm "whitefield"
+*create shandy "captain"
+*create alexandraally false
+
+
+*goto_scene IntroScreen
+

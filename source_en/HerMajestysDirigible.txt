@@ -1,0 +1,2320 @@
+*comment é
+
+*image Chapter02.png
+
+*temp miss_chandler "Miss Chandler"
+
+*comment This vignette accomplishes the following: introduces Grace, introduces the Resistance, introduces Alexandra, and provides the first beat in the love-arc-with-Grace, love-arc-with-Alexandra, or love-arc-with-Finch story.
+
+*comment Goal is save the ship. Auto-success, how you do it sets stats.
+
+
+*temp WithGoverness false
+*temp GraceDancesWithLieutenant false
+*temp PanicCounter 15
+*temp CalmingInfluence false
+*temp KilledEngineer false
+*temp GovernessEngineRoom false
+*temp KnowLeftHand false
+
+You come into the sitting room one morning in early spring to find Finch halfway to the door, drinking a cup of tea with one hand and grabbing for his hat with the other.
+	
+"Something of interest?" you ask.
+	
+"Not for Woodward." He deposits the mostly-empty teacup on the bookshelf, thankfully without spilling it. "Day job. If I don't catch the eight-thirty train, I won't make it to Farnchester in time to cover the opening of a new school by a member of the Royal Family. No, I can't believe I was assigned it either; my editor has a vicious sense of humor. But at least it pays my share of the rent." He grabs his camera equipment and heads for the door. "You may find something of interest in the post, however."
+	
+And indeed you do. Beside your plate at the breakfast table lies a heavy cream-colored envelope with [i]Doctor $!{firstname} $!{lastname}[/i] emblazoned across it in fine calligraphy. Wondering what in the world it can be, you slit it open. 
+
+[i]YOU ARE INVITED[/i]
+*line_break
+[i]to attend the maiden launch[/i]
+*line_break
+[i]of Her Imperial Majesty's newest dirigible[/i]
+*line_break
+[i]the luxury liner HMS COLOSSUS[/i]
+*line_break
+[i]which will leave the Baincastle airfields[/i] 
+*line_break
+[i]at NOON on Midsummer's Day[/i]
+*line_break
+[i]and proceed to Loegria[/i]
+*line_break
+[i]offering wondrous and unequalled views[/i] 
+*line_break
+[i]of land and sea[/i]
+*line_break
+[i]as well as diverse refreshments [/i]
+*line_break
+[i]and entertainments for those aboard[/i]
+*line_break
+[i]and returning to Kingsford[/i]
+*line_break
+[i]by EIGHT o'clock in the evening–[/i]
+*line_break
+[i]a voyage of unsurpassed speed and luxury![/i]
+
+Also within the envelope is a note in Woodward's hand: "For services rendered. The maiden voyage is open to both invited dignitaries and 'persons of all persuasions' who entered a lottery drawing offered by [i] The Times[/i]. You and Finch are among the former, but for the sake of our security, pretend you're among the latter. –AW."
+*page_break
+You chuck Woodward's note into the fire–for the sake of security–and it has barely collapsed into ash before your landlady Mrs. Larrimer enters with your breakfast. 
+
+She smiles at the invitation in your hand. "Mr. Finch told me the news as he went down the stairs–he won two tickets through that lottery! Or maybe his editor arranged for him to win them, but we won't tell anyone that." She winks at you as she lays dishes on the table. "How nice for the both of you, Doctor! A grand party–dancing and fine wine, I shouldn't wonder!–and the view from above the clouds! Not that I'd fancy that last myself, I always get dizzy up high, but it's fine for those with strong heads. And think of all the new people you'll meet! Some of them young ladies, I shouldn't wonder. I always think it's so hard to meet people in Kingsford–so many of us, but we keep to ourselves. When I was a girl, we used to have assemblies, dances, you know, in the village hall, and that was how I met my late husband. Nowadays, only the finest lords and ladies do such things, and as for everyone else–you meet your family's friends, I suppose, but what if you've no family?" To that, you have no answer; Mrs. Larrimer has indeed put her finger on one of the drawbacks of modern urban life. She concludes with genuine warmth, "I do hope you meet a nice girl there, Doctor."
+		
+*choice
+		
+	#As she describes it, I'm starting to hope the same thing.
+			
+		She sees you smile, and dimples in response. "Good luck," she says, and leaves you to enjoy your breakfast.
+		*goto aerodrome
+			
+	#She doesn't know I prefer men.
+			
+		*set gay true
+		*set conventional %-25
+				
+		Of course she doesn't; it would be as much as your career is worth to have that secret get out. It's not something to be discussed in polite company.
+
+		*label FinchKnows
+		Finch does know, but that's in no small part because Finch shares your preferences. There are discreet places for gentlemen of your tastes to congregate, some of them in nastier parts of town than others. You and Finch have been known to watch each other's backs now and then when on excursions to the more dubious locales.
+				
+		And some of your Army colleagues suspected as well. (But there are fewer rules out on the edges of the Empire. What would have gotten you cashiered in Kingsford was winked at on the front.) In particular, there were rumors circulating about you and Pierce for a time. 
+				
+		Were they true?
+				
+		*label PierceQuestion
+								
+		*choice
+						
+			#No, as it happens, those were just rumors. It's possible to be good friends with someone and not want to sleep with him.
+								
+				Indeed it is. 
+				*goto aerodrome
+								
+							
+			*if healpierce
+				#Yes, we had a wartime love affair, but it's over now.
+								
+					And life must move on.
+					*goto aerodrome
+								
+			*if healpierce = false
+				#Yes, but that hardly matters now, years after his death. 
+								
+					Life must move on.
+					*goto aerodrome
+
+			
+	#A nice girl or a nice young man, either would be fine.
+			
+		*set gay true
+		*set conventional %-25
+				
+		The strictures of your society mean it would be much easier to court a girl, but men who prefer each other's company know how to discreetly find each other. Obviously you keep your less socially-approved preferences to yourself; it would be as much as your career is worth to express them openly, and of course Mrs. Larrimer doesn't know. 
+				
+		*goto FinchKnows
+		
+*label aerodrome
+*page_break
+On Midsummer's Day, you and Finch arrive at the aerodrome well before the noon departure time.
+
+Morning sun floods through the aerodrome's huge windows and glistens on the marble floor. Exquisitely carved pillars rise to twice your height; the domed ceiling arches much higher. The splendor of this monument to technology dwarfs even the famous [i] Puternic Soare [/i] Sun Temple in Vlask (not that you have seen that immense edifice yourself, but you know it from paintings). 
+
+Amidst all this grandeur, the guests of [i] Colossus's [/i] maiden voyage wander in and out of the sunbeams, refreshing themselves with tea and biscuits as they wait for the call to board. 
+
+*choice
+
+	#The invited dignitaries are no doubt accustomed to so grand a setting, but I have to believe the lottery winners feel as out of place as I do. 
+	
+		*set charisma %-15
+		*goto SpotGoverness
+	
+	#During my time in Woodward's service, I have become accustomed to blending into whatever social group I must in order to get my job done. I can handle this.
+	
+		*set charisma %+15
+		*goto SpotGoverness
+	
+	#It's not something I tend to reveal often, but I love elegant nonsense of this sort. 
+	
+		*set charisma %+15
+		If only you'd been born to a higher social class, you'd be able to indulge your taste for it more often than once in a very long while.
+	
+		*goto SpotGoverness
+	
+*label SpotGoverness
+Everyone is garbed more or less the same–summer afternoon dresses and hats for the ladies; light-colored suits for the gentlemen, except for those like yourself who wear military dress uniform–but there is a significant range of quality in materials and tailoring. As you walk toward the tea table, Finch keeps you entertained by describing, [i]sotto voce[/i], the likely occupations of all the people you pass. "That young lady there is a typist. You can always tell a typist by the length of her nails and the creases in her sleeve. The man behind her is either a farmer or a factory worker–I'd have to be nearer to tell for certain–the pattern of callouses on the palm is different, though the musculature is about the same."
+
+At this point you notice a young woman standing a little apart from the crowd, watching the multicolored swirl eddy by. She isn't exactly pretty, but you consider her pleasant to look at, with an interesting face. She has brown hair and is dressed in beige–a self-effacing color with only the barest suspicion of decoration on the gown or feather on the hat. She stands straight, without fidgeting, and with her chin up, but her left hand is holding her reticule very tightly indeed. 
+
+"Governess," Finch says. "Here without an escort, and feeling rather out of it."
+
+Do you go over and make her acquaintance?
+
+*choice
+
+	#Yes, of course, as an act of charity. I feel sorry for the poor girl, being here all alone.
+	
+		*goto MeetGoverness
+		
+	#Yes, I find myself very much wanting to get to know her better. Maybe she's not a blazing beauty, but there's something about her…
+	
+		*goto MeetGoverness
+		
+	#No. She's not the type to interest me.
+	
+		*label DoNotMeetGrace
+		"What about the young man over there?" you ask Finch, nodding to indicate who you mean.
+		
+		"A town fop of the first water," Finch replies, "and you shouldn't have to ask me that. You can see his waistcoat yourself."
+		
+		The steward's voice booms through the crowd, informing you all that you may now board the dirigible.
+		
+		*goto Boarding
+		
+	#No. I would definitely like to get to know her, but it wouldn't be appropriate for me to just approach her with no one to introduce us.
+	
+		*set charisma %-5
+		*goto DoNotMeetGrace
+		
+*label MeetGoverness
+*set WithGoverness true
+You secure two cups of tea from the table and edge your way over to the governess. "Excuse me," you say, and she turns with a little start. "Er–I hope I do not impose, but I thought you might–?" You offer one of the teacups to her. 
+
+Her face relaxes into a smile, and she takes the cup. "Why, thank you…" Her eyes go to your collar. "…Captain." She sees your surprise and adds in explanation, "My father was military."
+
+"I'm retired now," you say. "It's 'Doctor.' $!{firstname} $!{lastname}, at your service." 
+
+"Grace Chandler," she says. "It is a pleasure to meet you, sir."
+
+You learn she is indeed a governess, and that she acquired the position upon her father's death some years ago, her mother being many years deceased. From there, you talk a little about your military service and hear about her childhood following the flag as her father's posts transferred the family here and there about the Empire. 
+
+Time goes so quickly that you are quite startled to hear the steward's voice boom through the crowd, informing you all that you may now board the dirigible.
+
+You take Miss Chandler's cup and set both of them aside for the serving staff to clear away. Do you offer her your arm as the two of you make your way to the boarding ramp?
+
+*choice
+
+	#Yes.
+	
+		She takes it, looking pleased. 
+		*gosub IntroduceFinch
+		
+		*goto Boarding
+		
+	#No, I don't wish to.
+	
+		*label WalkBeside
+		You just walk beside each other, instead, in a manner completely appropriate to a young man and woman who have only just met. 
+		*gosub IntroduceFinch
+		
+		*goto Boarding
+		
+	#No. I'd like to, but I think that would be too bold.
+	
+		*set charisma %-5
+		*goto WalkBeside
+		
+*label Boarding
+
+The boarding ramp reminds you of the sort that belongs to a seaship, even swaying and creaking in the same disconcerting manner. The interior of the dirigible, however, could not be more different. You have never been inside a house of such magnificence, let alone a conveyance. Anything that isn't polished dark wood is covered with rich red velvet. The steward ushers you all into a room large enough to hold a village assembly. All two hundred guests fit into it easily.
+	
+You make your way with everyone else over to the floor-to-ceiling windows that look out onto the Observation Deck, and are soon treated to the breathtaking sight of the ground dropping smoothly away. Kingsford's factories and water wheels dwindle to the size of child's toys. Soon even the chimney stacks are far below. The dirigible floats higher yet, actually passing above the fog that drapes the city, into clear air that might belong to the countryside. Now the heavy yellow-brown cloud shrouds the world below from your sight, but at that moment, a dance tune is struck up behind you. 
+
+*page_break
+
+You didn't even see the musicians enter, but there they are, set up in the corner–just like a village assembly, again, or a tea-dance such as the gentry might attend. There is a refreshment table in the other corner, for when refreshments might be desired. The musicians are playing a waltz, and the steward encourages everyone inclined to go and dance. You will never see a sight like this again–the lords and ladies of the Empire on the same dance floor as common laborers and country farmers. 
+*if WithGoverness
+
+	You notice Miss Chandler's somewhat wistful face as she watches the dancing. The fingers holding her reticule are moving very slightly in time with the music. 
+	*goto DanceDecision
+
+*else
+
+	The governess from the aerodrome is once again off to one side, watching the dancing with a somewhat wistful face. The fingers still clutching her reticule are moving very slightly in time with the music. 
+	*goto DanceDecision
+	
+	
+*label DanceDecision
+	
+Do you ask her to dance?
+	
+*choice
+
+	#No.
+		*set GraceDancesWithLieutenant true
+		*if WithGoverness
+
+			*label DancingLieutenant
+			*set GraceDancesWithLieutenant true
+				
+			Shortly thereafter, a dashing young man in the uniform of a Navy lieutenant approaches the two of you. He begs your pardon for interrupting, and asks Miss Chandler if she would like to dance.
+					
+			A delighted smile flashes over her face. "Oh, yes! Yes, thank you, I would!" She turns to you. "Please excuse me, Dr. $!{lastname}. It's been lovely talking with you. I do hope we have occasion to meet again." 
+					
+			She and the lieutenant join the couples sailing past. 
+			*goto Sabotage
+
+		*else
+			*set GraceDancesWithLieutenant true
+			Shortly thereafter, you see her on the dance floor, in the arms of a young Navy lieutenant.
+			*goto Sabotage
+			
+	
+	#Yes.
+	
+		*label GraceDelightedSmile
+		A delighted smile flashes over her face. "Oh, yes! Yes, thank you!"
+		*if WithGoverness = false
+			*set WithGoverness true
+			She glances at your collar and adds, "Captain." She sees your surprise and adds in explanation, "My father was military."
+
+			"I'm retired now," you say. "It's 'Doctor.' $!{firstname} $!{lastname}, at your service." 
+
+			"Grace Chandler," she says. "It's a pleasure to meet you, sir."
+
+			Making polite conversation, you learn she is indeed a governess, and that she acquired the position upon her father's death some years ago, her mother being many years deceased. You also learn that she loves to dance.
+			*goto DancingWithGrace
+		*else
+			
+			It seems Miss Chandler loves to dance.
+			*goto DancingWithGrace
+
+	#I swallow a stiff whiskey—liquid courage—and then go ask her.
+	
+		*goto GraceDelightedSmile
+		
+*label DancingWithGrace
+
+"I attended two or three officers' balls before my father's death," she explains as you lead her to the dance floor. "I never have the opportunity nowadays, but I did love it so when I was a girl."
+				
+*if injury != "leg"
+					
+	The musicians strike up another waltz, and the two of you sail about the elegant room of dark wood and red velvet, high above the clouds–and how can this possibly be [i] your [/i] life?
+
+	*goto Sabotage
+					
+*else
+				
+	The musicians strike up another waltz, and you take Miss Chandler into your arms. It has been a good few years since your own officers' balls, but you trust you can still remember the steps.
+					
+	Indeed, you can remember them. The problem is, your injured leg is no longer able to execute them. You stumble a little, and then you stumble badly, knee buckling, pulling Miss Chandler off balance. You are only barely able to keep the both of you upright, and your leg throbs sharply with the effort.
+					
+	She looks at you suspiciously, as though wondering if that were a ploy to make her collapse into your arms. 
+	
+	*comment I'm not overwhelmingly pleased with these choices–they're here to break up the wall of text and to provide a little info about the way classes work in this world, but they don't seem distinct enough from each other
+	
+	*choice
+					
+		#I'm not saying I'm above it, but that wasn't what I was doing this time. 
+		
+			*comment Boosts charisma, because that's the stat we check for bluff/manipulation. Boosts ruthless, because you're out for yourself. Boosts unconventional, because this is not polite behavior. I'm willing to be argued with on any of these.
+			
+			*set charisma %+15
+			*set compassionate %-15
+			*set conventional %-15		
+			*goto LegRecovery
+		
+		#An officer might play that sort of game with a barmaid, but a gentleman does not so insult a lady.
+					
+			*comment Boosts charisma, because that's the stat we check for bluff/manipulation. Boosts ruthless, because you're out for yourself. Boosts conventional, because you're playing by society's rules–it's okay to do that to a barmaid but not a lady. I'm willing to be argued with on any of these.
+			
+			*set charisma %+15
+			*set compassionate %-15
+			*set conventional %+15
+			*goto LegRecovery
+		
+		#I personally have never employed such a cheap tactic even with a barmaid; it would be inappropriate and unkind. I am [i]certainly[/i] not doing it now.
+		
+			*comment Charisma stays neutral; you're being honest. Boosts compassionate, because you care how the barmaid feels. Boosts unconventional, because your brother officers do not care how the barmaid feels. I'm willing to be argued with on any of these.
+			
+			*set compassionate %+20
+			*set conventional %-20
+			*goto LegRecovery
+			
+		#There is no conceivable circumstance in which I would deliberately draw attention to my weak leg. Especially not when I am trying to impress a young lady.
+		
+			*comment Lowers charisma, because it indicates you are self-conscious. No effect on compassionate, because no one else is involved to be compassionate toward. Boosts conventional, because you think the leg makes you a poor catch (cf Watson Sign of the Four "I'm not good enough for her"). I'm willing to be argued with on any of these.
+			
+			*set charisma %-15
+			*set conventional %+15
+			*goto LegRecovery
+
+*label LegRecovery			
+How are you going to handle this?
+
+*choice
+	
+	#I profusely apologize, explaining about the leg in a few words.
+						
+		"Oh, no, no," Miss Chandler says at once. "I'm sure it's at least half my fault–it's been such an age since I was anywhere near a dance floor. It's very good of you to take all the blame like that. And…and I've never really cared for waltzes anyhow. I'd much rather watch." She gives you a shy sort of smile. "Perhaps you wouldn't mind keeping me company?"
+							
+		You smile back, and the two of you watch the waltzing. Later, you try a country dance, and that goes much better.
+						
+		*goto Sabotage
+							
+	#I make a self-deprecating joke about being a terrible dancer.
+						
+		*set charisma %+15
+		
+		"Oh, no, no," Miss Chandler says at once. "I'm sure it's at least half my fault–it's been such an age since I was anywhere near a dance floor. It's very good of you to take all the blame like that." Her eyes go quickly to your leg and away, and you think she guesses it's a war wound. "I've never really cared for waltzes anyhow," she says. "I'd much rather watch." She gives you a shy sort of smile. "Perhaps you wouldn't mind keeping me company?"
+							
+		You smile back, and the two of you watch the waltzing. Later, you try a country dance, and that goes much better.
+						
+		*goto Sabotage
+							
+	#I am so angry at myself for ruining this opportunity that I don't clearly know what I say. 
+						
+		*set charisma %-20
+							
+		Miss Chandler assures you it doesn't matter, explains that part of the blame must be hers because she is so out of practice, and tries to re-engage your attention, but you can't seem to break through the dark cloud to meet her halfway.
+			
+		*goto DancingLieutenant							
+		
+*label Sabotage
+
+*page_break
+
+The afternoon wears away. The dirigible circles the coast of Loegria, looking down from a hunting bird's height on the green and quiet island. Despite being so close to Mercia, Loegria is infamous as being one of its most backward possessions. 
+
+Two competing theories vie for prominence whenever the subject of Loegria's unsophistication comes up in the newspapers. To which one do you subscribe?
+
+*choice
+
+	#It's the fault of the still-flourishing sun-worship that plagues the island. Strangled by it, the Loegrian people have no interest in mastering technology.
+	
+		*set conventional %+15
+		It is a shame that the Loegrians should be so backward.
+	
+		*goto Sabotage2
+
+	#Loegria's history of armed rebellion makes it an unattractive place, from the point of view of business owners, to build factories. 
+	
+		*set conventional %+15
+		It is a shame that all of Loegria should suffer for the actions of a few rebellious elements.
+		
+		*goto Sabotage2
+	
+	#As a medical man, I think both theories overlook an important factor. The severe famine two generations ago is still impacting the country's ability to function. 
+	
+		*comment Boosts medical because you think that way.
+		
+		*set medicine %+15
+		
+		An insightful point. Not many realize this, but then, not many have been trained to think like a physician.
+		*goto Sabotage2
+		
+	#It almost doesn't matter how it started; the problem is self-perpetuating now. The Loegrian maidservants and grooms I have encountered in Kingsford talk of leaving home because there is simply no work. 
+	
+		*comment You talk to maids and grooms? That is both compassionate and unconventional.
+		
+		*set conventional %-15
+		
+		You chat with maidservants and grooms? That's unusual for a gentleman of your class. 
+		
+		*choice
+		
+			#I find these notions of class wearisome. They are people with virtues and faults and interesting stories to tell, so of course I get to know them. 
+			
+				*set compassionate %+15
+				*goto Sabotage2
+				
+			#I find these notions of class wearisome. Sometimes I deliberately befriend those I should not, just for the pleasure of shocking the conventional.
+			
+				*set conventional %-15
+				*goto Sabotage2
+				
+			#It's strictly for business reasons. Maidservants and grooms are founts of information very useful to a man in my profession.
+			
+				*set charisma %+15
+		
+				*goto Sabotage2		
+	
+	#Honestly, I never give it much thought. The lack of industry does have a silver lining, though–no black smoke clouds the sky, and I can clearly see the green hills and fields stretching below. 
+	
+		*set perception %-15
+		
+		Indeed, why should you give the matter any further thought than that?
+	
+		*goto Sabotage2
+		
+*label Sabotage2
+
+Leaving the island behind, [i] Colossus [/i] begins the voyage home. The dancing has stopped, the guests being more interested in refreshments at the current time, but two violinists and a cellist play a soft and elegant piece. 
+
+Then the horrible sound of squealing metal pierces your ears, and the dirigible lurches violently. 
+
+One side of the room drops like a suddenly-unbalanced teeter-totter, dishes and furniture and screaming people sliding down the incline. The deck starts to straighten–then plunges hard again, the angle even steeper than before. You fall hard, striking your head on something, and you only just manage to grab hold of a pillar and stop yourself sliding.
+
+*page_break
+
+You stagger to your feet, head aching and old injury throbbing, clinging to the pillar for balance. You are looking down the sharp angle of the once-luxurious dance floor.
+
+At the bottom of the incline, a tangle of hurt and frightened people are pinned by broken furniture and smashed musical instruments. Above them, other hurt and frightened people struggle up the slope, making blindly for the doors behind you that lead to the Observation Deck. Through the glass doors at the bottom of the incline, a few figures in uniform try ineffectually to calm the panicking passengers there. Behind you, the steward is bellowing, but cannot make himself heard.
+*if WithGoverness
+	You cannot see Miss Chandler anywhere.
+*comment endif
+
+Far below, you see a familiar figure kick free of the pile of injured people, drag himself to his feet, and look around. As soon as his eyes meet yours and he sees you are reasonably unhurt, Finch starts pushing his way toward the double doors and the downward staircase. At a guess, he is heading for the engine room–a logical place to look for the cause of this disaster.
+
+What are you going to do?
+
+*choice
+
+	#I immediately start struggling down the incline to the people at the bottom. We've got to get them freed from the wreckage and the hurt ones treated. 
+	
+		*set medicine %+15
+		*set PanicCounter -1
+		*goto FieldSurgeon
+		
+	#The injured are only part of the problem. There are a number of things we need to do, without delay, and none of the dirigible officers seem capable of taking command of the situation. I raise my voice to be heard above the bedlam of terrified civilians. 
+	
+		*set charisma %+15
+		*goto BattlefieldCaptain
+		
+
+	#The ship's officers are drilled in procedures for accidents of this kind, and it is not my place to speak for them. I immediately begin to work my way down the incline and through the double doors, following Finch in his attempt to find the source of the problem. 
+	
+		*set perception %+15
+		*goto EngineRoom
+	
+*label FieldSurgeon
+You were a field surgeon once, and this is uncannily like a battlefield. You are able to cut through the racket with a calm bellow, getting the able-bodied people organized into a team that shifts debris off the injured. You have the injured laid on the slanted dance floor–not a particularly good field hospital, but you've seen worse. Most of your patients are not badly hurt–broken legs or the like, uncomfortable but not life-threatening–but a few are bleeding, and a few of those badly. You head for the one who looks worst off. 
+		
+*if healpierce or healmorris
+	Do you think of using healing magic?
+			
+	*fake_choice
+		#No. I am never dabbling in that dangerous nonsense again.
+		#I think of it, certainly, but I'm not stupid enough to use it in a room full of witnesses.
+*comment endif
+			
+You look up from tying off the tourniquet to see 
+*if WithGoverness
+	Miss Chandler 
+	*goto GraceNursing
+*else
+	the governess in the beige gown 
+	*label GraceNursing
+	kneeling beside the man you had mentally dubbed "second worst off," pressing a handkerchief to his bleeding arm. There is blood all over her hands and soaking into the sleeve of her gown, but she doesn't seem troubled by it. She looks up at you, pale and bruised, but calm enough. 
+			
+	"I've done some nursing," she says. "I can help. Tell me what you need me to do."
+	
+	*choice
+	
+		#A capable assistant will make all this much easier. "You're doing exactly right. Press down as hard as you can, and I'll be right there."
+		
+			She nods briskly. You finish with your patient and go to crouch beside her. She yields her place at once, leaving the patient to your hands and going to find someone else who needs immediate tending.
+			
+			*if WithGoverness
+				Miss Chandler's presence makes a big difference. She has a good eye for the truly dangerous cases, and the capability to render immediate aid until you can reach them. 
+				
+				*goto FieldSurgeon2
+			*else
+				*set WithGoverness true
+				The presence of the governess (whose name proves to be Grace Chandler) makes a big difference. She has a good eye for the truly dangerous cases, and the capability to render immediate aid until you can reach them. 
+				
+				She takes you aback at one point by addressing you as "Captain"—then blushes and nods to your collar, explaining her late father was a military officer.
+				
+				*goto FieldSurgeon2
+							
+		#If she is able to handle some of the patients herself, we'll be able to treat twice as many at once. "He's going to need a tourniquet. Do you know how to tie one?"
+		
+			*set PanicCounter -1
+			"No. But…you could talk me through it, perhaps?"
+			
+			"Better if I show you." You finish with your patient, and make your way to crouch beside her. She watches closely as you tie off the tourniquet. "You see?" you say, standing up. "You do the next one, I'll watch."
+			
+			*if WithGoverness
+			
+				Miss Chandler's presence makes a big difference. Satisfied that she does indeed have the skills to render immediate aid to dangerous cases, you send her off into the crowd, and then between you, you are indeed able to help twice as many people at once. 
+				
+				*goto FieldSurgeon2
+				
+			*else
+			
+				*set WithGoverness true
+				
+				The presence of the governess (whose name proves to be Grace Chandler) makes a big difference. Satisfied that she does indeed have the skills to render immediate aid to dangerous cases, you send her off into the crowd, and then between you, you are indeed able to help twice as many people at once.
+				
+				At one point, calling for your assistance, Miss Chandler takes you aback by addressing you as "Captain"—then blushes and nods to your collar, explaining her late father was a military officer.
+				
+				*goto FieldSurgeon2
+				
+		#Most of these people need a calming word more than they need medical treatment. "Can you keep the slightly injured from hurting themselves worse, while I treat the bad cases?"
+		
+			"Whatever you need." She yields her place beside the bleeding man's side, and a few minutes later, you hear calm, firm, nursery-governess tones soothing a hysterically frightened older woman.
+			
+			*if WithGoverness
+			
+				Miss Chandler's aid makes a big difference. You can focus on physical injuries, secure in the knowledge that she is preventing those more frightened than hurt from harming themselves further. 
+				
+				*goto FieldSurgeon2
+				
+			*else
+			
+				*set WithGoverness true
+				
+				The aid provided by the governess (whose name proves to be Grace Chandler) makes a big difference. You can focus on physical injuries, secure in the knowledge that she is preventing those more frightened than hurt from harming themselves further. 
+				
+				She takes you aback at one point by addressing you as "Captain"—then blushes and nods to your collar, explaining her late father was a military officer.
+				
+				*goto FieldSurgeon2
+			
+*label FieldSurgeon2
+
+You think that before very long you should have everyone here stable enough to be loaded onto a parachute-lifeboat, if it transpires parachute-lifeboats are needed. You haven't heard any orders to this effect, but then you've been focused on addressing the problems in front of you.
+				
+*gosub Runner
+				
+You hesitate, looking at the patients still to be treated. 
+				
+"It's all right," Miss Chandler says. 
+*if WithGoverness
+	"If you wish to go see to him, I can handle the injuries left here."
+	*goto GraceNursing3
+*else
+	"If you wish to go see to him, I can handle the injuries left here." She glances at your collar and adds, "Captain." At your surprised raised eyebrows, she explains parenthetically, "My father was military," but then returns to the subject at hand. "None of the remaining injuries are very bad. I can manage what must be done."
+	*set WithGoverness true
+	*label GraceNursing3
+					
+	She can, too. You're sure of that. She is wrapping a bandage even as she speaks to you, with dead steady hands.
+					
+	You follow the boy at a run for the engine room.
+	*page_break
+	*goto EngineRoom
+
+*label BattlefieldCaptain
+
+You were an officer once, and this is uncannily like a battlefield. You are able to cut through the racket with a calm bellow, and before long you have a team of able-bodied people lifting debris off the injured, and another team shifting it up the ramp to the high side of the dance floor, on the off chance that shifting the weight might rebalance the deck. 
+
+There. That's the most urgent matter sorted. You take a breath and look around, trying to decide what's next. You will need to arrange for medical care for the wounded, and perhaps you will need to prepare the passengers to board the parachute-lifeboats—though you don't know if the crew is planning to launch them. Finally, you really need to know what happened in the engine room to cause the disaster.
+
+What problem do you choose to attack first?
+
+*choice
+
+	#Organizing medical care.
+	
+		*label GraceFieldSurgeon
+		*set PanicCounter -1
+		You look toward the clear part of the deck where the injured have been laid to find that
+		*if WithGoverness
+			Miss Chandler  
+			*goto GraceDirecting
+		*else
+			the governess in the beige gown
+			*label GraceDirecting
+			is directing efforts to treat them. 
+					
+			"I have some nursing experience," she explains when you ask.
+			*if WithGoverness = false
+				She glances at your collar and adds, "Captain." At your surprised raised eyebrows, she explains parenthetically, "My father was military," but then returns to the subject at hand. She appears able to read the Royal Medical Corps badge on your sleeve as well as the pins on your collar, because she says, 
+			"I'll send someone to find you if I see a serious injury. Otherwise, you needn't worry about it. Keep on as you've been; I can handle this."
+					
+			You're sure she can, too. She is wrapping a bandage as she speaks to you, with dead steady hands.
+
+			*if WithGoverness = false
+				*set WithGoverness true
+				"Thank you," you say. "Ah–my name is $!{firstname} $!{lastname}, if you need me."
+						
+				She nods. "Grace Chandler," she says, and you return to your work as overseer.
+						
+				*gosub Runner
+				*goto LieutenantTakesOver
+			*else
+				*gosub Runner
+				*label LieutenantTakesOver
+						
+				You hesitate, looking around at the other things that need doing.
+						
+				"You go on, sir," says
+				*if GraceDancesWithLieutenant
+					the Navy lieutenant, quietly. 
+					*goto LieutenantTakesOver2
+				*else
+					a young man in the uniform of a Navy lieutenant, who has been very helpful indeed in clearing debris. 
+					*label LieutenantTakesOver2
+					"You're the only one who can treat the injured; many of us can lift boxes. I can see to this until you're back."
+							
+					You follow the boy at a run for the engine room.
+					*page_break
+					*goto EngineRoom
+
+	
+	#Discovering whether parachute-lifeboats are to be launched from the boat deck.
+	
+		*set PanicCounter -1
+		*if GraceDancesWithLieutenant
+			You ask the Navy lieutenant what should be done in that regard, but he shakes his head helplessly, not knowing how to translate Navy regulations to an airship.
+		*comment endif
+			
+		Seizing hold of the ineffectual steward, you ask him what the proper procedure is, but he only gapes at you. 
+		
+		*fake_choice
+		
+			#I shake him roughly to get his attention.
+			
+			#I speak soothingly.
+			
+			#I speak firmly, requiring a report in the tone of a superior officer.
+		
+		He blinks at you. "I…I don't know, sir."
+		
+		Feeling more than a little exasperated, you give him a push toward the door and the stairway. "Go and find out!"
+		
+		That's two things sorted.
+		
+		*goto GraceFieldSurgeon
+	
+	#Sending a runner to the engine room.
+	
+		Do you pick a crew member or a passenger?
+		
+		*choice
+		
+			#I send the ineffectual steward.
+			
+				*set PanicCounter -1
+				He's not doing any good here; he might as well go and discover what is afoot down below. At least he won't get lost, the way a passenger might.
+				
+				In fact, getting him out of the way may additionally have some slight calming effect on the passengers. His incompetence can only be frightening them further.
+				
+				*goto GraceFieldSurgeon
+			
+			#I see one of the ship's boys. I'll send him.
+			
+				The lad is frightened, but taking messages all over the ship is his business, and he is small enough to eel his way through the panicked crowd outside. He runs off to follow your instructions.
+				
+				*goto GraceFieldSurgeon
+			
+			#I don't trust any of the crew with even so trivial a task. I'll send a passenger.
+			
+				*set PanicCounter +1
+				
+				You pick a slightly-built young man who will be of no help clearing debris, and send him to discover what is happening in the engine room.
+				
+				Only after he leaves does it occur to you that sending a passenger may prove disadvantageous with regard to keeping the other passengers calm. If the situation in the engine room is dire, and if the young man gossips...
+				
+				But it's too late to worry about that now. 
+				
+				*goto GraceFieldSurgeon
+			
+*label EngineRoom
+
+The stairway is crowded with panicked people trying to get below–to collect lifejackets, at a guess–and panicked people trying to get up to the top deck from which the parachute-lifeboats will be launched. A wide-eyed older woman grabs at your arm, perhaps confusing your Army dress uniform with the uniform of the dirigible crew. "What are we to do? Tell me what to do!"
+
+How do you respond?
+
+*choice
+
+	#I haven't time to spend soothing her. I have to get below.
+		
+		How do you brush her off?
+		
+		*choice
+		
+			#I say nothing and push on by.
+			
+				*set compassionate %-15
+				
+				You hear her give a little wail of despair as you pass her.
+				*goto EngineRoom2
+	
+			#"Stay calm, madam. This is frightening, but I'm sure we're in no real danger. Do what the stewards tell you, and all should be well."
+			
+				*set charisma %+10
+				You can't tell if that helped. You hope it did. You push toward the Engine Room. 
+				*goto EngineRoom2
+				
+			#"You'd better get up to the top deck, as quick as you can. They'll be launching the parachute-lifeboats from there."
+			
+				*comment compassionate and charisma both neutral–willing to be argued with here
+				
+				You can't tell if that helped. You hope it did. You push toward the Engine Room. 
+				
+				*goto EngineRoom2
+			
+			#"I'm afraid I'm only a passenger like you–you'll have to ask the steward."
+			
+				*set charisma %-10
+				*comment You're really not being helpful.
+				
+				She gives a little wail of despair and lets go of your arm, turning blindly in search of a steward. 
+				
+				*goto EngineRoom2
+			
+	#I stop and give her my full attention. Of course she is panicking. The officers of the ship should be doing more to calm her, but they are not. 
+	
+		*set compassionate %+15
+		*goto StopAndTalk
+	
+	#I stop and devote my full attention to soothing her. Her panic could further agitate the crowd, and a greater level of panic is the last thing we need.
+	
+		*comment Compassion stays neutral because you are doing this for practical/manipulative reasons, not out of the kindess of your heart. Willing to be argued with.
+		*goto StopAndTalk
+	
+	#I try to pause long enough to answer, because she deserves kindness, but I dare not stay too long. I have to get to the engine room. 
+	
+		*set compassionate %+5
+		*goto StopAndTalk
+	
+	
+*label StopAndTalk
+
+How do you soothe her?
+
+*choice
+
+	#"Stay calm, madam. This is frightening, but I'm sure we're in no real danger. Do what the stewards tell you, and all should be well."
+			
+		*set charisma %+10
+		*comment Both soothing and practical. 
+		
+		Some of the panic drains from her face, and she turns from you to look for a steward. 
+		*goto EngineRoom2
+				
+	#"You'd better get up to the top deck, as quick as you can. They'll be launching the parachute-lifeboats from there."
+			
+		*comment compassionate and charisma both neutral. This is factual and helpful, but not soothing. Willing to be argued with here.
+		
+		The panic does not leave her face, but at least she has a goal now. Determinedly, she begins to push upward through the crowd.
+		*goto EngineRoom2
+			
+	#"I'm afraid I'm only a passenger like you–you'll have to ask the steward."
+			
+		*set charisma %-10
+		*comment You're really not being helpful. Willing to be argued with.
+		
+		She gives a little wail of despair and lets go of your arm, turning blindly in search of a steward. 
+		*goto EngineRoom2
+		
+*label EngineRoom2	
+
+*page_break
+When you reach the engine room, you find a small group including Finch and the ship's captain, Royce, clustered around the limp form of the ship's engineer, who is bleeding profusely from the scalp.
+
+Upon examination, you discover that the injury seems to be two separate wounds. One is minor–would have caused unconsciousness, but not severe injury–but the other is serious indeed.
+
+*if medicine > 60
+	"I don't think this could have been caused by falling," you say slowly. "I think someone hit him from behind with a length of pipe or something similar."
+	*goto EngineRoom3
+*else
+	Perhaps he hit his head twice, both times the ship lurched? But there's something odd about the second wound. The oddness niggles in the back of your brain, but you can't put a label on it. You wish you had a medical textbook to consult.
+	*goto EngineRoom3
+	
+*label EngineRoom3
+
+"Will his memory be affected?" Captain Royce asks.
+
+"There's no way to tell until he wakes up."
+
+"Can you hurry that along, Doctor?" says the captain. "We badly need to talk with him."
+
+You have an abbreviated medical kit tucked into your pocket, and it does in fact contain a small amount of a stimulant. 
+
+*choice
+
+	#"I could," you say slowly, "but the risk to his health makes it extremely inadvisable."
+	
+		*comment Nothing is altered because you are not really making a decision yet.
+		
+		*gosub MedicalScruples
+		*goto EngineRoom4
+	
+	#"I could," you say briskly, and pull out the syringe. The medical risks don't trouble me.
+	
+		*set compassionate %-25
+		*comment If you do this without even mentioning the medical risks, and before you know for sure this was sabotage, then holy crap you deserve to get your compassionate score massively reduced. I'm not sure even *Spock* would do this without *mentioning* there's a tradeoff.
+		
+		"Thank you," Royce says. 
+		
+		Finch moves aside so you have a clear view of the gaping-open panel behind his head. Something has been ripped out of it, leaving wires and cables dangling.
+
+		"As you can see, this was no malfunction," Royce continues. "This was sabotage. Someone has carried off the regulator–and the engineer is the only one who might have any idea who."
+		*page_break
+		*goto WakeEngineer
+	
+	#"It is technically possible, but I won't do it. It will cause him too much harm."
+		
+		*set compassionate %+15
+		*comment I think that's the right increase, but am not sure. 
+		
+		*gosub MedicalScruples
+		*goto EngineRoom4
+
+			
+*label EngineRoom4
+
+*choice
+
+	#More lives are at risk than the engineer's alone. I prepare the injection. 
+	
+		*set compassionate %-15
+		
+		*comment You know the full situation, you have made a cold but necessary choice. It should impact compassionate/ruthlessness.
+		
+		*label WakeEngineer
+		*set KilledEngineer true
+		The engineer comes awake with glassy, unfocused eyes, hands twitching and clutching with pain. You don't think he can see you very clearly, and he seems to find it hard to focus on his captain's questions. He does not know who committed the sabotage. He knows only that someone hit him over the head. Whoever it was entered the engine room as quiet as a cat, and he first knew the person was there when he caught sight of a shadow poised over him with a heavy spanner upraised. He didn't turn in time to see anything else.
+		
+		He lapses back into unconsciousness, and Finch turns to his assistant.
+		*goto EngineersAssistant
+		
+	#I am a doctor. I cannot kill this man with a stimulant for the slim chance he may know something. I lock eyes with the captain and refuse.
+	
+		*set compassionate %+15
+		
+		The captain's face turns red and he opens his mouth, but Finch touches his arm. 
+		
+		Royce glares at him. "I would appreciate your assistance in pursuing this argument!"
+		
+		"You've already lost the argument," Finch tells the captain, with a sidelong glance at you. "I'm saving you some time. If the man is confused when he wakes, he'll be no help to us in any case. We must do the best we can without him." He turns to the engineer's assistant. 
+		*goto EngineersAssistant		
+
+		
+*label EngineersAssistant
+"Straighten up, lad, we need you. You know this ship's engines as well as your senior, surely. How much trouble are we in?"
+
+"Q-quite a lot, sir," the boy stammers. "Th-the–the regulator that was stolen, that's what controls the coal for the boiler. It–it used to be, sir, it still is on seaships, there's a whole gang of men shoveling coal into the boiler, all the time, or the ship doesn't go, you see? For the airships, we've got something better. That there–" He points to the panel. "It keeps track of how hot the boiler's got to. When the pressure's too low, it dumps in coal. No muss, no fuss, all orderly. One day it'll be like that on all ships, air and sea, that's what they tell me."
+		
+*fake_choice
+
+	#And a good thing, too. I've seen the horrific conditions in which the coal gangs of the steamships labor. This is exactly what modern technology is good for–freeing human workers from unsafe and unsanitary jobs.
+		*set compassionate %+15
+		*set conventional %+15
+		
+	#I feel some unease. Coal shoveling is a dangerous job with many health risks, but…what will those men do for work, if all Her Imperial Majesty's ships automate the process?
+		*set compassionate %+15
+		*set conventional %-15
+		
+	#I see where this is going, and it has military stupidity written all over it. Did it not occur to anyone that the automated system could [i] malfunction[/i], and that it would be necessary to have the ability to perform the task manually?
+		*set perception %+15
+		Apparently not. 
+*comment endif
+
+"So the regulator, that's what checks to see do we have enough coal, and when we don't, it dumps more into the boiler, and then the boiler keeps the air in the envelope hot, so we stay aloft, you see? If there's ever a breakdown in the regulator, it automatically shuts off the system–puts no more coal into the boiler–because too much coal makes the boiler run too hot, and that's terribly dangerous, that could set you on fire or blow you up."
+
+"With the regulator missing," Finch concludes slowly, "the system is not adding coal to the boiler. Because of the design, there is no way to add it manually. Without the boiler, the hot air in the envelope is cooling." 
+
+The engineer's assistant nods miserably.
+
+Finch looks at the captain. "We're going down. Where are we?"
+
+"Halfway across the Channel." The captain looks ill.
+
+"Can you get the ship to land before we hit the water?"
+
+"No."
+
+What do you say?
+
+*choice
+
+	#"Then we'd best start loading lifeboats."
+		*gosub trial_end
+		*goto Lifeboats
+	#"Then we'd best find the regulator and reattach it."
+		*gosub trial_end
+		*goto RegulatorChase
+		
+		
+*label Lifeboats
+
+The captain looks dismayed at the thought of abandoning ship, but after a moment, swallows a nascent protest and nods. "The passengers are already frantic. We'll need all the help we can get in keeping them calm."
+
+*if (charisma > 55) and (injury != "face")
+	"$!{lastname}'s your man, then," Finch says. In a lower voice, he adds, "I'll leave that to you, $!{lastname}–you're much better at rallying the troops than I am."
+	*goto Where
+	
+*else
+	"You'll want all the uniformed men you can muster, then," Finch says, "not to mention the organizational skills that come with the uniform. $!{lastname}, I think you've been conscripted."
+	*goto Where
+
+*label Where
+
+"Where are you going, then?" you ask.
+
+"To see if I can't find that missing engine piece and make your lifeboat-loading unnecessary. No one left the ship that I could see, so it may well still be aboard."
+
+"They might have just chucked the regulator over the side," you point out as the two of you part company.
+
+"In which case, your priorities will have proven sound, and it will be as well to have the lifeboats loaded." Finch shrugs. "You to your work, I to mine."
+*goto Lifeboats2
+		
+
+*comment I'm not sure this quite conveys either the terror or heroism of the eighteen minutes it took the Lusitania to sink. The time frame here needs to be a little longer, but I want this to feel frantic, not like Titantic's slow death song, and I want one of the frantic-making factors to be the lack of drills wrt/ lifeboat lanching and lifejacket wearing, nobody on the crew or among the passengers quite knows what to do, people running to find family members and lifejackets. (All taken from the Lusitania story.) And I want the actual heroism of ordinary people to be captured–Belle and Theodore Naish really did stand there and make sure everyone who passed them had a lifejacket and knew how to put it on correctly, instead of getting on a boat themselves. (In the end, she survived; he didn't.) Belle = Grace, Theodore = PC.)
+
+*label Lifeboats2
+*set LoadedLifeboats true
+*page_break
+
+Chill wind whips your breath away as you emerge onto the top deck, which is open to the air. The scene before you is one of utter chaos. 
+
+The deck is tilted at a sharp angle, and both the starboard and port sides are crowded with frightened passengers. No boats have been launched from the starboard side yet; to judge from the frustrated body language of the crew members on that side, something in the angle of the ship has fouled the release lines, and they are arguing over how to fix it. 
+
+The boats on the port side are being lowered, but unevenly and hesitantly. One comes level with the deck, and the crowd of passengers surges toward it. Officers push them back, shouting instructions about how to board, how to steer on the way down, how to fasten a lifejacket in case the boat overturns in the roiling water below. But between the wind and the crowd's clamor, no one except those standing right beside the officers could possibly have heard a word.
+
+How do you decide to help?
+
+*choice
+
+	#I join the crewmen lowering the port side boats. They need all the strong arms they can get. 
+	
+		*set athleticism %+15
+		*comment Doesn't impact overall panic counter, because it's a minor thing - helpful, but not visible
+		
+		It's hard work, and made harder by the awkwardness of those laboring beside you. Some are volunteers, like yourself, but others are crewmen shamefully clumsy at their job. It would not be precisely true to say "no one here knows what he's doing," but certainly no one here has been drilled in how to efficiently execute his assigned duty. In the Army, you reflect sourly, the men would have been much better prepared. But there's nothing to be done about that now. 
+		
+		You help lower another lifeboat. And another. And another. 
+		
+		The starboard boats still have not been launched, and the water below is drawing steadily nearer. 
+		
+		*page_break
+		
+		Finally the port side lifeboats are all lowered. You have succeeded in helping that much, at least. 
+		
+		*goto GraceIsBelleNaish
+		
+	#Those clowns on the starboard side need a commanding officer to focus their efforts. Since no officer belonging to this ship is taking on the role, I stride over. 
+	
+		*set charisma %+15
+		*set PanicCounter -1
+		
+		Does it worry you that you don't actually know anything about fixing fouled lines?
+		
+		*fake_choice
+		
+			#Not at all. How hard can it be to figure out, after all?
+			
+			#It terrifies me, thank you, but I can keep these men from seeing it. Somebody has to do something or those boats won't be launched. 
+		
+		It is somewhat troublesome that the crewmen immediately accept your authority. Convenient, certainly; you were counting on it, in fact; but disconcerting that not one of them balks at taking orders from a man they've never met, who wears an Army uniform. 
+		
+		You fold your arms as though you own the ship, and command the three arguing parties to explain how each proposes to fix the problem of the tangled lines. 
+		
+		The three plans presented to you all seem consistent with the laws of physics as you understand them, so you pick one at random and instruct the crewmen in a confident tone to put it into motion. 
+
+		It might be the wrong decision, but at least there is some forward momentum now.
+		
+		*page_break
+		You hold your breath as they work to untangle the lines, hoping you are not about to be shown up as a fraud, hoping you have not just made the situation worse. 
+		
+		But no–they get the first boat free and successfully lower it. You congratulate them–calmly, as though you never had any doubt–and leave them to the task of lowering the others. You look about to see what you should be doing next.
+		*page_break
+		*goto GraceIsBelleNaish
+		
+	#I walk up and down the straggling line of passengers, repeating the instructions of the officers and ensuring everyone I meet wears a correctly fastened lifejacket.
+	
+		*set charisma %+15
+		*set compassionate %+15
+		*set CalmingInfluence true
+		*set PanicCounter -2
+		
+		Not one passenger you encounter has been instructed on how to don a lifejacket. Many of them are frantically searching the crowd for family members as the water below draws steadily nearer. About the only good news in all this mess is that, save for the ship's boys, there are no children aboard.
+		
+		*goto GraceIsBelleNaish
+
+*label GraceIsBelleNaish
+*if WithGoverness = false
+	*set miss_chandler "the governess"
+You hear a woman's raised voice, repeating over and over instructions for tying a lifejacket. Turning your head in that direction, you see two people  
+*if WithGoverness
+	(Miss Chandler,
+	*goto Lifeboats3
+*else
+	(the governess in the beige gown,
+	*label Lifeboats3
+	and a young man in a shabby suit but with an educated accent, whom you guess to be an impoverished university student) walking up and down the lines of frightened passengers, giving instructions and imparting as much cheerful calm as possible. 
+	*if CalmingInfluence
+		Perhaps they were inspired by your example. It's nice to feel you aren't alone in the task. 
+		*goto TitanicMoment
+	*else
+		They are far more effective in their attempt to instill calm than the ship's officers.
+		*goto TitanicMoment
+		
+*label TitanicMoment		
+
+Something about the scene troubles you. It's all troubling, of course, but something in particular [i]looks[/i] wrong. You must have noticed something without really noticing it, something that now niggles the back of your head…
+
+And then you realize. There are nothing like enough lifeboats for a crowd this size.
+
+The realization must be plainly visible on your face, for one of [i]Colossus's[/i] badly-trained officers catches your arm in a warning grasp. "Don't let on," he murmurs. "They'll panic."
+	
+*page_break
+
+You take stock of this new problem. There are enough lifejackets to go around–assuming everyone can be taught to don them correctly–but the water is freezing cold, and the dirigible won't hit it gently. Anyone who can't get aboard a lifeboat is in severe danger. 
+	
+"You must take your coat off," ${miss_chandler} is telling an older lady. "I know it's cold, but the lifejacket won't fit otherwise, you see? It will only be for a little while before they send a ship out to get us."
+ 
+Over the old lady's shoulder, ${miss_chandler}'s eyes meet yours. 
+			
+What do you say to her?
+			
+*choice
+	
+	#"You'd better get in line yourself. Don't wait to get on a lifeboat."	
+
+		*goto TalkPrivately
+		
+	#Nothing. I can't risk anyone else overhearing me.
+	
+		*goto TalkPrivately
+		
+	#I try to drop a hint. "I don't think this lady should be left alone. You ought to board a lifeboat with her so you can look after her."
+
+		*goto TalkPrivately
+				
+*label TalkPrivately
+
+$!{miss_chandler} moves away from the old lady, to where the two of you can talk almost privately. She looks you directly in the eye. "There aren't enough boats, are there?"
+			
+How do you answer?
+		
+*choice
+		
+	#"I'm sure there's nothing to worry about. The crew is working to fix the engine failure now, and we'll be airborne again soon."
+	
+		*comment Soothing dishonesty, therefore a bluff; keeping the secret you've been asked to keep even in the face of a direct question. 
+		
+		*set charisma %+5
+		*set compassionate %-5
+			
+		She smiles a little. "That's good to hear…because I can count, you know. There aren't."
+		
+		"Then you understand. You must find a place right away."
+		*gosub GovernessBoat
+		*goto Saboteur
+				
+	#"It might be as well for you to be assured of a place."
+	
+		*comment Does not affect charisma because it isn't a tactic. Impacts compassionate because it's putting concern for one person above the need to not cause panic.
+		
+		*set compassionate %+5
+		*gosub GovernessBoat
+		*goto Saboteur
+			
+	#"No, there aren't. Don't frighten the rest of them, but get yourself a place without delay."
+	
+		*comment Straight up unvarnished honesty, revealing a secret you were asked to keep. Very obviously not taking care to avoid causing panic.
+		
+		*set compassionate %+10
+		*gosub GovernessBoat
+		*goto Saboteur
+		
+
+*label RegulatorChase
+
+"But–" the captain says. "Whoever took it might have just chucked it over the side!"
+
+"In which case, it will be as well to have the lifeboats loaded," Finch says, and draws you aside with a hand on your arm, effectively turning both your backs to the captain.
+
+Behind you, Royce sighs, then strides out into the corridor and starts bellowing orders. Crewmen come to carry the engineer to a place where he can be tended. Other crewmen come with instructions to stand guard and let no one else enter the engine room (though it's a little late for such a precaution). 
+
+Hopefully somewhere in this room is a clue that will tell you–without delay–who ripped the regulator out of its panel. 
+
+*choice
+
+	#I search the floor and the gaping hole where the regulator used to be, hoping to discover physical clues.
+	
+		Footprints are a lost cause–too many people have run in and out since the engineer was struck.
+		
+		*if perception > 60
+		
+			But within the damaged panel where the regulator used to reside, you find a few drops of something clear and sticky. A lubricating oil, by the smell. And there are more sticky drops on the floor.
+		
+			"Finch," you say, "look at this. If the regulator continued to drip oil as it was carted away, we might have an actual trail to follow."
+		
+			"Might we really be that lucky?" Finch comes to look. "Oh, well-spotted, $!{lastname}. 
+			*goto Ash
+			
+		*else
+			
+			And within the damaged panel where the regulator used to reside, you see only an uncommunicative tangle of cables. There's nothing here. 
+			
+			"Oh, [i]here[/i] we are," Finch says in a tone of satisfaction, leaning over your shoulder. "Look, there are little splatters of clear oil in the cabinet. If the regulator continued to drip oil as it was carted away, we might have an actual trail to follow.
+			*goto Ash
+				
+		
+	#I half-close my eyes and visualize the engineer's head wound. Perhaps I will be able to conclude something about the person who inflicted it–height or dominant hand, for instance.
+	
+		*if medicine > 60
+			*set KnowLeftHand true
+			
+			There were two wounds, one caused by falling and one by an attack with a length of pipe. The position of the latter suggests a left-handed assailant. Well, that's rare enough that it might be useful to know. The engineer is tallish, which might mean the assailant is tall as well—unless the engineer was crouched down when struck from behind.
+			
+			*goto OhHere
+			
+		*else
+			The mishmash of the two wounds makes it impossible for you to discern which was inflicted by the assailant, so it is not possible to infer anything about the assailant's dominant hand. Nor can you infer anything about the assailant's height without knowing whether the engineer was standing or crouched down when he was attacked.
+			
+			*label OhHere
+			
+			"Oh, [i]here[/i] we are," Finch says in a tone of satisfaction. You look up to see him standing before the ripped-apart regulator panel, rubbing his thumb and forefinger together. "There are little splatters of clear oil in the cabinet. If the regulator continued to drip oil as it was carted away, we might have an actual trail to follow.
+			*goto Ash
+	
+	#I half-close my eyes and review what we know about the saboteur so far.
+	
+		*if (charisma > 60) or (perception > 60)
+		
+			Well, you know he moves very quietly, suggesting some level of proficiency in the art of sabotage. He is strong enough to inflict a serious injury with a spanner–but interestingly, moral enough to have refrained from killing the engineer outright, though a second blow of such strength would have done the trick. And come to that–if he'd wanted to kill everyone aboard, surely it would have been quicker to modify the regulator in the other direction. Too much coal in a boiler is far more dangerous than too little. 
+		
+			You're not sure if that indicates the saboteur had another goal, or merely did not have a parachute with which to escape and seeks a place on a lifeboat with everyone else. Could be either. 
+			
+			*goto OhHere
+			
+		*else
+			
+			You don't, alas, know anything particularly useful. He is amoral enough to hit a defenseless man from behind and connive at the deaths of a dirigible full of innocents—but you knew that already; that does not provide further insight.
+			
+			*goto OhHere
+		
+		
+*label Ash
+We just need something that will adhere to the oil splashes–now what's to hand that will suit…?" He does a brisk circuit of the engine room and returns carrying a bowl full of what you eventually realize is cigar ash. He sprinkles some in the cabinet, and you can see how it clings to the oil spots.
+
+Finch hastens for the corridor, scattering ash.
+
+*page_break
+Oil droplets do indeed lead away from the engine room. You fear they will terminate at a porthole, but instead they bring you to the door of the main storeroom. 
+
+In the distance, you can hear panicked shouts from passengers and—unacceptably—crewmen: 
+
+"The lifeboats aren't being launched! Why aren't the lifeboats being launched?" 
+
+"I heard the lines are fouled!" 
+
+"Where are we to get lifejackets? The steward said to put them on, but not where they were—"
+
+You refocus your attention to the task at hand. A storeroom on a vessel of this kind should be plenty large enough for the saboteur to hide in. The door is locked from the outside, which seems to argue against the saboteur being currently in residence. Still, the regulator might be hidden here. 
+
+What course of action do you propose?
+
+*choice
+
+	#"I'll send someone for the steward–or the captain. One or the other should have a key."
+	
+		*set conventional %+15
+		
+		Finch stops you with a hand on your arm. "We don't have time," he says. "And better not, anyhow. The saboteur could be anyone, after all. I can get it open."
+		
+		"You brought lockpicks to a tea-dance?"
+		
+		"You brought a first aid kit," Finch points out, and gets to work.
+		
+		You watch.
+		*gosub WatchSafecracking
+		*goto Unlocked
+	
+	#"I don't think I can get that lock open, but I expect you can."
+	
+		*set conventional %-15
+		
+		"What makes you think I'd bring lockpicks to a tea-dance?" Finch asks in a tone of false innocence as he drops to his knees in front of the lock.
+		
+		"I brought a first aid kit," you retort, and he tilts his head as if to acknowledge you have him there. 
+		
+		You watch as he makes short work of the storeroom lock. 
+		*gosub WatchSafecracking
+		*goto Unlocked
+		
+	#"We don't have time to fiddle with the lock. We'd better break down the door."
+	
+		*set athleticism %+15
+		*set stealthy %-15
+		
+		"Hardly the time to worry over destruction of property," Finch agrees, and you put your shoulders into it. It's not much of a door, and soon gives way with a splintering crash.
+		*goto Unlocked
+	
+	#"Before we waste time here, let's see if the oil droplets continue further on. If not, we can double back."
+	
+		*set stealthy %+15
+		
+		"Agreed," Finch says, and you continue.
+		
+		The oil droplets do indeed continue further on.
+		
+		*goto Galley
+		
+*label Unlocked
+*page_break
+No one is hiding inside the storeroom now, but the floor's coating of flour holds a partial footprint–a man's boot, small–so someone hid in here recently. You search, but find no regulator hidden behind or inside the sacks of flour, sugar, and raisins. 
+
+Outside the door, the oil drips continue, so you continue following. 
+
+The panicked clamor abovedecks has grown even louder.
+*page_break
+*label Galley
+The oil drips peter out just before the entrance to the galley. 
+
+One of the ship's officers is there, explaining to a terrified-looking cook that she must come with him and be put aboard a parachute-lifeboat. "But what about my son?" the cook protests. "There aren't enough lifeboats even for the gentlemen passengers, let alone the workmen of the crew!"
+
+"Shhh!" the officer hisses, waving at the two of you, but it's too late; you heard her.
+
+Finch looks back at you with tightened lips, and you can guess what he is visualizing. The dirigible is going down over the ocean. It won't hit gently, and the water is icy cold. Even if there are enough lifejackets to go around, anyone not in a boat will die of exposure long before a ship comes looking for survivors.
+
+What do you say to the cook?
+
+*choice
+
+	#"Your son is in no danger. We're minutes away from finding the saboteur, and everyone aboard will be safe then." 
+	
+		*set compassionate %+15
+				
+		She turns wide, hopeful eyes to you. "You are?"
+				
+		"We are," Finch steps in, "if you can help us. The person who took a piece of the engine came through here within the last half hour. Can you tell us who you saw during that time?"
+				
+		She screws up her face in the effort to remember.
+				
+		*goto CookTestimony
+	
+	#"If you can help us find the saboteur, everyone aboard including your son will be safe."
+
+		*set charisma %+15
+		
+		She swallows. "I'll do whatever I can. How can I help?"
+		
+		"The person who took a piece of the engine came through here within the last half hour. Can you tell us who you saw during that time?"
+		
+		She is almost too frightened to think, but she screws up her face in the effort to remember.
+				
+		*goto CookTestimony
+				
+	#"I can see to it your son gets a place on a boat, but I want something in exchange."
+	
+		*comment You are manipulating, bargaining, and not hesitating to use her fear.
+		
+		*set compassionate %-15
+		
+		"You can? You will?" She stares at you with wide eyes. "Of course. I'll do anything."
+		
+		"The person who took a piece of the engine came through here within the last half hour. Can you tell us who you saw during that time?"
+		
+		She is almost too frightened to think, but she screws up her face in the effort to remember.
+				
+		*goto CookTestimony
+		
+
+*label CookTestimony
+
+*if WithGoverness = false
+	*set miss_chandler "the governess"
+
+"The…the last half hour? I…Well, the head steward came through. And…there was a young lady and a young gentleman who seemed to be looking for a quiet place to…behave improperly. And there was a middle-aged lady who said she was lost but then wanted to see the kitchen, and a university student who asked me what sort of work I did and if I was well-treated–as if I had time to chatter on, with all these people to feed!"
+
+*if KnowLeftHand
+	"Did you happen to notice if any of them were left-handed?" you ask.
+	
+	She stares at you. "Um…the student held out a pamphlet to me with his left hand?"
+*comment endif
+
+Finch nods. "We'll need you to come upstairs and point all these people out to us if you can, on your way to the lifeboat."
+
+The cook lets Finch shepherd her up the stairs.
+
+*page_break
+Chill wind whips your breath away as you emerge onto the top deck, which is open to the air. The scene before you is one of utter chaos. 
+
+The deck is tilted at a sharp angle, and both the starboard and port sides are crowded with frightened passengers pushing to get into the slowly-lowering lifeboats. Officers push them back, shouting instructions about how to board, how to steer on the way down, how to fasten a lifejacket in case the boat overturns in the roiling water below. But between the wind and the crowd's clamor, no one except those standing right beside the officers could possibly have heard a word.
+
+As you escort the cook through the crowd, she is able to point out the steward–a big, heavy man–the university student, and the young couple. She is less certain about the lost lady. 
+
+As she looks about the top deck, your eye falls on a figure in a beige gown and a plain hat helping to load the lifeboats.
+*if WithGoverness
+	Miss Chandler.
+	*goto Chase2
+*else
+	It's the woman Finch said was a governess.
+	*label Chase2
+	
+	"You need to take your coat off," she is telling an older lady in a flower-decked hat. "I know it's cold, but the lifejacket won't fit otherwise, you see? It will only be for a little while before they send a ship out to get us. Here we are, let me do up the straps for you…" You know that technique; you've used it yourself in medical situations. Act calm and cheerful, and you can inspire calm cheer in frightened people. The old lady accepts the offered help, and moves toward the boats with a more relaxed expression.
+	
+	$!{miss_chandler} turns away from her, and in the moment when she thinks no one is watching and no one needs her to be calm, she looks terrified. 
+		
+	You know about that, too. 
+
+	"There," the cook says. "That lady there, in the heavy black veil."
+
+	"Right," Finch says to you as he hands the cook off to an officer. "We'll split up. Who do you want to question?"
+
+	*choice
+
+		#The young couple. 
+
+			After all, who comes aboard a ship like this to behave improperly? They must have been up to something else. You make your way across the crowded deck to them.
+			*gosub GovernessStopsYou
+			*goto ChaseSaboteur
+	
+		#The lady with the veil.
+
+			After all, it is very odd indeed that someone a cook would describe as "a lady" (rather than merely as a woman) would wander far enough below decks to become lost near the galley. She must have been up to something else. You make your way across the crowded deck to her.
+			*gosub GovernessStopsYou
+			*goto ChaseSaboteur
+	
+		#The steward. 
+	
+			After all, who better to be in a position to cripple a dirigible than one of her officers? 
+			
+			You make your way across the crowded deck to the big man in the steward's uniform. 
+			*gosub GovernessStopsYou
+			*goto ChaseSaboteur
+	
+		#The university student.
+	
+			*achieve dirigible
+			
+			After all, the student is best match of all the suspects. You make your way across the crowded deck in the direction of the young student. 
+			*gosub GovernessStopsYou
+			*goto ChaseSaboteur
+
+		#Before I go question anyone, I need to warn that courageous young woman to get on a lifeboat without delay. 
+
+			*if WithGoverness
+				"Miss Chandler?" 
+				*goto Chase4
+			*else
+				"Miss?"
+				*label Chase4
+				you murmur, and she turns to you. "You've been very brave and very helpful, but now it's time to get in line yourself. Don't wait any longer."
+
+				*gosub GovernessBoat
+				*goto ChaseSaboteur
+		
+*label Saboteur
+*page_break
+Just then you notice that Finch has appeared on the deck. He prowls through the crowd, step by deliberate step taking him closer to the young university student. 
+
+*goto LookAtStudent
+
+*label ChaseSaboteur
+Movement at the corner of your vision catches your attention, and you turn your head to see Finch prowling step by deliberate step in the direction of the young university student. 
+
+*goto LookAtStudent
+
+*label LookAtStudent
+The student really should have aroused everyone's suspicions much earlier. He wears old-fashioned high-topped boots that would be more appropriate to a horse than a ballroom, and his suit and cap both seem somewhat shabby for the gathering, as well as too loosely cut for his frame. He could be hiding anything at all, up to and including a piece of the ship's engine, under his overlarge coat.
+
+The student is not facing Finch, but he edges away as Finch approaches anyhow, as though knowing he is pursued. 
+
+How do you help?
+
+*fake_choice
+	
+	#I plow through the crowd to cut off the student's avenue of escape.
+		*set stealthy %-15
+
+	#I slip through the crowd to approach him unobtrusively. If he is focused on Finch, he might not notice me flanking.
+		*set stealthy %+15
+	
+	#Sometimes the correct decision is to delegate what you are too far away to do yourself. In a voice that cuts through the clamor, I shout for ship's officers to stop that young man. 	
+		*set charisma %+15
+		*set stealthy %-15
+
+Before your tactic can succeed or fail, the student makes it to the prow, where there is a relatively clear piece of deck. He turns all at once to face the crowd, whipping out a pistol and pointing it upward. "Nobody move!"
+
+Everyone nearby freezes as if turned to stone. A stray shot from a firearm could penetrate the dirigible's envelope, and then the ship will shoot into the sea like a meteor, instead of sinking like a pricked balloon. 
+
+"I don't want to kill you!" the young man says in a clear, ringing voice. He keeps his back pressed against the railing, so no one could flank him even if someone were foolish enough to try. "This piece of obscene luxury is an insult to every man, woman, and child slaving half-fed in Mercia's factories, and I want to see it plunge into the sea, but my associates and I never intended to kill innocents who paid a penny for a lottery ticket. It's not our fault Her Majesty's finest dirigible doesn't have lifeboats enough for its passengers!" 
+
+A gasp runs through the crowd–presumably from everyone who was too agitated to count lifeboats earlier. 
+*page_break
+The student continues, "Let everyone here see that we who resist the depredations of the Empire place a greater value on human life than do the pennypinchers who commissioned this ship!" 
+
+To the deck at his feet, he throws down a mass of steel and wire that he had indeed been hiding under his coat. Then he pulls off his cap and tosses it on top of the regulator–
+
+–correction, he pulls off his cap and wig. The hair beneath the wig is black, and shining, and pulled back into a tight coil pinned to the top of the head. 
+
+No man ever had hair like that. 
+
+The line of cheek and jaw, now easier to see in the absence of the cap, likewise could never belong to a man. And when she drops her coat as well, the outline of her body removes any doubt.
+
+"Free Mercia!" she says, and backflips over the railing. 
+
+*page_break
+
+You are among the first to reach the rail. She falls like a stone, but only for an instant–then fire shoots out of her boots. She rocks backward slightly, steadies herself, then looks up to give you all a cheeky wave goodbye. The boots carry her in what appears to be a controlled fall down a moderate incline, toward the ocean and out of reach and sight.
+
+You swing around from the rail to find Finch and Captain Royce converging on the regulator.
+
+"Who was that?" Royce demands.
+
+"Never mind!" Finch says, grabs the regulator, and sprints for the engine room.
+
+What do you do?
+*choice
+
+	#I run after him!
+	
+		*goto EngineRoomClimax
+			
+	#I stay here. If the piece can't be reinstalled, it will still be necessary to get as many people as possible into the lifeboats. 
+	
+		*set LoadedLifeboats true
+		*set PanicCounter -2
+		
+		Now the mob knows there is a chance of rescue, but they also know there are not enough boats, and the panic turns ugly. 
+		
+		You end up shouting more than cajoling, physically pushing aside men who are trying to take seats in the last boat. There aren't enough seats even for all the women. The sheer number who are going to lose their lives from exposure if Finch can't get that engine started doesn't bear thinking about. 
+
+		The last lifeboat casts off and begins its gentle glide down to the sea. It is probably only your imagination that the dirigible's rate of descent seems to have sped up. You and ${miss_chandler} look at each other. "This way!" You gesture for her to follow you. 
+		*page_break
+		There are two dangers more immediate than death by exposure–injury caused when the dirigible hits the water, and injury caused by some loose piece of equipment sliding about. At the moment of impact, if there is going to be a moment of impact, you want to be as high as possible–and that means the starboard side of the boat deck. $!{miss_chandler} struggles up the incline at your side and grips the railing beside you. You'd swear the dirigible is falling ever faster. 
+
+		You spot a corner near the stern that offers a little shelter from flying debris and some rigging to cling to, and pull your companion toward it. 
+		
+		She wraps her hands around the ropes, and you position yourself with your back braced and your hands over hers. 
+		
+		The water is close. Rushing closer. You strain to catch some sound of engines restarting, but hear nothing.
+		
+		*if WithGoverness = false
+			*set WithGoverness true
+			*set miss_chandler "Miss Chandler"
+			"I'm–my name is Grace Chandler," the governess offers in a voice she can't keep from shaking.
+			
+			"$!{firstname} $!{lastname}."
+		*comment endif
+			
+		Is there anything you want to say to Miss Chandler?
+		
+		*choice
+		
+			#"I'm glad I met you. I only wish the circumstances had been different."
+			
+				She laughs a breath–a little hysterically, but who can blame her? "I'm glad I met you too. You saved a lot of people's lives today, you know."
+				
+				"So did you," you say, and tighten your grip.
+				
+				The water rushes up to meet you.
+				*goto Saved
+			
+			#"You saved a lot of people's lives today, just by staying calm."
+			
+				"So did you," she says. "You were– I've never seen someone be so brave."
+				
+				"Neither have I," you say, and tighten your grip.
+				
+				The water rushes up to meet you. 
+				*goto Saved
+			
+			#"It's going to be all right. Finch always pulls a rabbit out of his hat at the last minute."
+			
+				She laughs a breath–a little hysterically, but who can blame her? "Then I wish he'd get on with it."
+				
+				"So do I," you say, and tighten your grip. 
+				
+				The water rushes up to meet you.
+				*goto Saved
+			
+			#"It's going to be all right. We need to stay on the ship and out of the water as long as we can."
+			
+				"Yes," she says, "I understand." Her voice is unsteady, but her face is determined.
+				
+				You tighten your grip.
+				
+				The water rushes up to meet you. 
+				*goto Saved
+	
+	*if WithGoverness
+		#I gesture for Miss Chandler to join me as I run after Finch.
+		
+			*set GovernessEngineRoom true
+			You clatter down the tilted stairway together. 	
+			*goto EngineRoomClimax
+							
+		#I catch Miss Chandler's eye and charge her with continuing to shepherd people to lifeboats, before I run after Finch.
+		
+			*set PanicCounter -1
+			"Yes, I can do that." She bites her lip. "Good luck, Captain."
+			*goto EngineRoomClimax
+			
+	*if WithGoverness = false
+		#I catch the governess's eye, and charge her with continuing to shepherd people to lifeboats, before I run after Finch.
+		
+			*set WithGoverness true
+			*set miss_chandler "Miss Chandler"
+
+			"Yes, I can do that." She bites her lip. "Good luck." Her eyes go to your collar, and she adds, "Captain."
+						
+			"'Doctor,'" you correct her, foolishly. "$!{firstname} $!{lastname}, at your service."
+					
+			"Grace Chandler," she says, actually smiles for a moment, and then takes a deep breath and turns back to the crowd on the deck. 
+						
+			*goto EngineRoomClimax
+		
+*label Saved
+*page_break				
+An unexpected roar half-deafens you as the propeller re-engages, and the ground jerks beneath your feet as the tilted deck suddenly straightens out. The ship falls no further toward the deadly cold water. It will take time to regain altitude–the air that fills the envelope cannot be re-heated all at once–but meanwhile the propeller is once more driving [i] Colossus [/i] to shore and safety. A disbelieving cheer rises from the other passengers.
+
+And Miss Chandler bursts into tears.
+
+Oh, you know about that, too. The kind of courage that can keep calm during the direst of circumstances is often the kind that breaks once the danger is past. What do you do?
+
+*fake_choice
+		
+	#I pull her close and hold her, murmuring soothing things until she has command of herself again. 
+	
+	#I'd like to hold her, but I worry she might think I am taking advantage of her loss of composure. 
+	
+		Instead you offer a handkerchief and cheerfully soothing words. 
+	
+	#She's a nice woman and she was a brave soldier, but I don't wish to take her into my arms. 
+	
+		Instead you offer a handkerchief and cheerfully soothing words. 
+	
+	#I do what is necessary to calm her, but I am too distracted to give her much thought until I see Finch emerge onto the boat deck, filthy but unhurt. 
+	
+		He is looking all over for you, too. Your eyes meet, and then you can relax.
+
+*goto Aftermath
+
+		
+*label EngineRoomClimax
+*page_break
+
+In the engine room, the engineer's assistant is waiting for you with a frightened young crewman.
+
+"Right then, sir," the engineer's assistant says in a quavering voice, looking down at the manual held between his shaking hands. "There's—there's two things that must be done. The regulator's got to be reinstalled and all the cables and wiring connected up again."
+
+"Is that something you know how to do?" Finch demands. 
+
+"Um–" The assistant looks at the manual. "Well, not exactly [i]know,[/i] sir, but the diagrams, they seem to be saying–"
+
+"So that's a two-man job," Finch says, "you to read and interpret, and someone else to follow your instructions. And the other task?"
+
+The engineer's assistant gestures overhead. "The saboteur did another bit of harm we didn't have the chance to notice until now. He wrapped a bit of metal round the main drive chain. Someone's got to climb up into the frame and untwist the metal before the propeller will go again. Should be Mickey, but–" And he casts a sour look at the frightened crewman. 
+
+"Let me do something else," Mickey mumbles. "I can't climb up there–I can't!"
+
+"How did you get to be crew of a dirigible if you're afraid of heights?" Finch asks, then cuts himself off. "Never mind. Right. Two tasks to be completed." He looks at you.
+
+*choice
+
+	*if injury = "hand"
+		#Perhaps the mass of cables to be reconnected intimidates the engineer's assistant, but I used to be a battle surgeon. Even with my right hand half-crippled, surely I can manage this.
+			
+			*goto ReattachRegulator
+			
+	*if injury != "hand"
+		#Perhaps the mass of cables to be reconnected intimidates the engineer's assistant, but I used to be a battle surgeon. 
+	
+			*goto ReattachRegulator		
+	
+	*if (injury != "leg") and (injury != "shoulder")
+		#Perhaps that climb frightens the crewman, but it doesn't frighten me. 
+		
+			*goto FixPropeller
+	
+	*if (injury = "leg") or (injury = "shoulder")
+	
+		#Perhaps that climb frightens the crewman, but it doesn't frighten me. And even with my old injury hampering me, surely I can manage it.
+			
+			*goto FixPropeller
+	
+	*if injury != "face"
+		#I look from the ladder to the terrified crewman. I've convinced men to do harder things; I can get him to do this.
+		
+			*goto ConvinceMickey
+	
+	*if injury = "face"
+		#I look from the ladder to the terrified crewman. I've convinced men to do harder things. That was years ago, of course, before the scars made people shy away from me, but surely I can get this boy to make this climb.
+
+			*goto ConvinceMickey
+		
+			
+*label ReattachRegulator
+
+Finch nods once, and moves immediately for the ladder.
+		
+You take a moment to study the diagram held in the assistant's shaking hands, and then you turn to fit the regulator to the regulator-shaped hole. "All right, lad, talk me through it."
+		
+*if injury = "hand"
+	It is terrifying at first. As the assistant stammers instructions, all you can think is how long it has been since you've done a task like this, how your hand is stiff where it used to be supple, how much of your skill has been lost. Has your pride just doomed the ship? Would it have been better to admit you've lost this ability?
+	*page_break
+	But then you find the rhythm, 
+	*set medicine %+15
+	*goto SurgeonsHands2
+*else
+	*set medicine %+15
+	As the assistant stammers instructions, you keep focused on the task in front of you, 
+	*label SurgeonsHands2
+	connecting the yellow cable, soldering the blue and white wires together, rebraiding the severed strands of the red one. One thing at a time, neither hesitating nor hurrying so much you risk more damage. The occasional lurches of the ship are distracting, but not much more distracting than the thunder of cannon-fire and mech footfalls were once. Your eyes and hands stay fixed on one cable at a time. 
+		
+	*if GovernessEngineRoom
+		Until a lurch knocks you sideways, and a delicate spindle snaps off the unattached end of the regulator, falling through your clutching fingers. It lands on the deck and rolls, faster than the engineer's assistant can grab it, until it falls through the narrow bars of a grate on the far wall.
+		
+		*page_break
+			
+		The engineer's assistant gives a horrified moan, but Miss Chandler scrambles to her feet. "No, it's all right," she says. "I think I can–" And indeed, her hands are small enough to fit through the grate and recover the piece. She hands it back to you.
+		
+		You solder it into place, and following the assistant's instructions, reconnect the last cable. 
+		*goto AtLast
+	*else
+		*page_break
+		*label AtLast
+		At last you look up, stretching your back, just as Finch jumps off the ladder and lands on the deck. 
+			
+		"Done," he says.
+			
+		"So is this." The engineer's assistant closes the manual. "All we need to do now," he says doubtfully, "is pull that lever there. It will re-engage the propeller's clutch, and then as soon as the regulator gets the boiler hot enough, the propeller will turn and the air in the envelope will start to heat again."
+				
+		"Then let's do it," Finch says, nodding to you, and you pull the lever back.
+				
+		*goto Fails
+
+*label FixPropeller		
+Finch nods once, and moves immediately toward the cabinet. "All right," he says to the engineer's assistant, "talk me through it."
+		
+You grasp the ladder and start to climb.
+		
+*if (injury = "leg") or (injury = "shoulder")
+	It is terrifying at first. The ladder is tilted as everything else on the dirigible is tilted, requiring a great deal of strength from both leg and shoulder to keep balanced. You try not to think about it, try to take one step at a time and not worry about it–until your foot slips and you only keep your balance by wrenching your entire body in a way that makes the old injury throb. Then you break into a cold sweat. 
+	
+	You tell yourself that you're stronger now than you were when you were first invalided home, and surely you've recovered enough to handle this little climb. Surely you haven't just doomed the ship through your pride. Surely you can make it to the top of the frame–
+			
+	*page_break
+			
+	And somehow you do.
+	
+	You don't lose your balance a second time. The limb is stiffer and weaker than it was, but the exercise results in a not-unpleasant ache rather than a throb of agony. You reach the top and hold still for a moment, eyes closed. Whatever those bastards took from you on the warfront, it didn't include this. You can do this. You can [i]do[/i] this. 
+	*set athleticism %+15
+	*goto Climb2
+			
+*else
+		
+	The ladder is tilted as everything else on the dirigible is tilted, requiring a great deal of strength from both leg and shoulder to keep balanced. But you can manage it. The dirigible lurches sickeningly more than once, but you keep your hands clenched tight and your weight balanced, and you don't fall. And you know better than to look down. You climb as steadily as you can, neither hesitating nor hurrying.
+	*set athleticism %+15
+	*label Climb2
+		
+	Up close, you can see the problem plainly–the twist of metal wrapped around the propeller's chain. You lock one elbow around the frame, plant your feet firmly, and use the other hand to work the sharp-edged steel free. Steadily, easily, not hesitating, not going so fast you risk more damage.
+	*page_break
+	Your hand is bleeding from a dozen small cuts by the time you free the chain. Throwing something this sharp seems like a poor choice; you wrap it securely around the frame instead. 
+	
+	The dirigible lurches again, and this time you do nearly fall. Only a lucky clutch saves you, and you spend a few moments just breathing after that. 
+	
+	*if GovernessEngineRoom
+		Far below, something clatters, and Finch bites out a curse.
+		
+		"It's all right!" Miss Chandler says. "I can get it!" You can't quite tell what she is doing–working her small hands through an opening to fetch back some object Finch dropped, it looks like. She hands it back to him.
+		*goto ClimbCarefully
+	*else
+		*page_break
+		*label ClimbCarefully
+		You climb carefully down, reaching the deck just as Finch turns from the reattached regulator. 
+		
+		"Done," you say.
+		
+		*if (injury = "leg") or ("injury" = "arm")
+			It might be a fight to keep a catch from your voice, but you'd never admit it.
+		*comment endif
+			
+		"Here too," he says. And then, to the engineer's assistant, "Now what? Just pull the lever?"
+				
+		"Pull the lever," the assistant confirms. "It'll re-engage the propeller's clutch, and then soon as the regulator gets the boiler hot enough, the propeller will turn and the envelope'll got hot again."
+		
+		Finch reaches out, and pulls the lever. 
+		*goto Fails
+
+*label ConvinceMickey
+Finch nods once, and moves immediately toward the cabinet. "All right," he says to the engineer's assistant, "talk me through it."
+
+*if GovernessEngineRoom
+	Miss Chandler comes over and joins you beside the frightened crewman.
+	*goto Convincing
+*else
+	You sit beside the frightened crewman.
+	*label Convincing
+	*set charisma %+15
+	
+	*if injury = "face"
+		Convincing him to overcome his fear is indeed a harder task than you remember it being back in the day. You fumble for the right phrases, the right tone of voice.
+			
+		*if GovernessEngineRoom
+			But Miss Chandler helps quite a lot, and a few sentences in, the trick of it starts coming back. Together
+			*goto Convincing2a
+		*else
+			But a few sentences in, the trick of it starts coming back, and eventually
+			*label Convincing2a
+			you coax the young man into standing up and going to do what has to be done. His face is dead white, but he doesn't hesitate.
+			
+			*goto MickeyClimbs
+		
+	*else
+			It's been a little while since you've done this, but the techniques for soothing and inspiring terrified soldiers come back to you within a few words. 
+			*if GovernessEngineRoom
+				Miss Chandler helps quite a lot as well–this sort of thing seems to come naturally to her, too–and together
+				*goto Convincing2b
+			*else
+				Eventually
+				*label Convincing2b
+				you coax the young man into standing up and going to do what has to be done. His face is dead white, but he doesn't hesitate.
+				
+				*goto MickeyClimbs
+				
+*label MickeyClimbs
+Halfway up, a lurch almost has the poor lad off the frame. "Easy does it," you soothe him. "You're all right. Keep moving, don't look down."
+			
+*if GovernessEngineRoom
+	Nearer by, you hear something clatter to the floor–then roll, light and fast, to the far wall and through a grate. Finch spits out a curse.
+	
+	*page_break 
+			
+	"It's all right," Miss Chandler says, and runs to the grate. "I think I can–" And indeed, her hands are small enough to fit through the grate and recover the piece. She hands it back to Finch, while you keep talking the crewman up the ladder, through the task of pulling the metal strip away from the propeller chain, and back down again.
+	*goto MickeyDone
+			
+*else
+	*page_break
+	Your voice gets him up the ladder, through the intricacies of pulling the metal strip away from the propeller chain, and back down again.
+	*goto MickeyDone
+	
+*label MickeyDone
+			
+His knees buckle when he's safe back on deck, but you've got hold of him, and you ease him down to sit, telling him the whole time what a magnificent performance that was. 
+*if GovernessEngineRoom
+	Miss Chandler leans in to squeeze his hands. "Indeed it was," she says. "I've never seen so many brave people in one place at one time."
+*comment endif
+			
+"Done," Finch says behind you. 
+	
+"Here too," you say.
+
+*if injury = "face"
+	And if there's a catch in your voice at the skill you've just reclaimed, no one mentions it.
+*comment endif
+	
+Finch says to the engineer's assistant, "Now what? Just pull the lever?"
+
+"Pull the lever," the assistant confirms. "It'll re-engage the propeller's clutch, and then soon as the regulator gets the boiler hot enough, the propeller will turn and the envelope'll got hot again."
+		
+Finch reaches out, and pulls the lever. 
+*goto Fails
+			
+*label Fails
+The regulator makes a whirring sound, and lights embedded in its front flash briefly. The clockwork pieces around it creak into motion. You hear a hiss as though the mechanical contraption that dispenses the coal is about to open…but no clatter of falling coal follows, and the hiss dies into silence.
+
+Finch reaches to try the lever again, but before he can touch it, the clockwork whirrs a second time…and for a second time, nothing happens. 
+
+You'd almost swear the ship is falling faster. The engineer's assistant whimpers.
+
+*fake_choice
+
+	#I speak steadily. "Let's talk through the diagram again and see if we can find the fault."
+	
+		"There's no fault," Finch says, whirling into motion. "We repaired the clockwork, I hope eventually it dispenses the coal—but if it doesn't, we'll hit the water hard."
+	#I shift gears fast. "We're about to hit the water hard. We need to construct a shelter."
+	
+		"Yes, at once," Finch says.
+	#For a moment I can't speak at all. 
+	
+		"If the clockwork doesn't engage in time, we're going to hit the water hard," Finch says, whirling into motion.
+He looks all around, settles on a corner, and hurries to clear it of debris. "We need to be shielded from the impact and from flying equipment. And then the instant we're no longer falling, we'll get out of the engine room and as high up as possible."
+
+*page_break
+
+The corner is small enough for a few people to crouch against the bulkhead and be protected by the dirigible's own structure from shocks or flying debris. 
+*if GovernessEngineRoom
+	You wedge yourself in beside Miss Chandler, using your weight to keep her secure against the jostling of the deck.
+	*goto Fails2
+*else
+	You and Finch wedge yourselves into it, backs braced on one wall and feet against the other, trusting the position will keep you secure against the jostling of the deck.
+	*goto Fails2
+
+*label Fails2
+
+*if GovernessEngineRoom
+	Is there anything you want to say to her?
+	
+	*choice
+			
+		#"I'm glad I met you. I only wish the circumstances had been different."
+				
+			She laughs a breath–a little hysterically, but who can blame her? "I'm glad I met you too. You saved a lot of people's lives today, you know."
+					
+			"So did you," you say.
+					
+			*goto Fails3
+				
+		#"You saved a lot of people's lives today, just by staying calm."
+
+			"So did you," she says. "You were– I've never seen someone be so brave."
+					
+			"Neither have I," you say.
+			
+			*goto Fails3
+
+		#"It's going to be all right. We'll climb abovedecks as soon as the ship touches water."
+				
+			"Yes," she says, "I understand." Her voice is unsteady, but her face is determined.
+					
+			*goto Fails3
+*else
+	*goto Fails3
+	
+*label Fails3
+Out in the engine room, you hear the regulator whirr, the clockwork gears creak…and a slight sighing sound instead of the clatter of coal. 
+
+"Damn," Finch says
+*if GovernessEngineRoom
+	softly from your other side. 
+*if GovernessEngineRoom = false
+	softly, close to your ear.
+You look up. He probably appears calm to everyone else, but you know him too well to be fooled. He tries to smile. "Well. We had a damn good try, didn't we?"
+
+You close your eyes, trying not to visualize the water rushing to meet you.
+
+*page_break		
+*achieve midair
+
+And then, with a roar that half-deafens you, coal cascades into the boiler, and the deck jerks under your feet as the propeller engages. 
+
+The ship will take time to regain altitude–the air that fills the envelope cannot be re-heated all at once–but meanwhile the propeller is once more driving [i] Colossus [/i] to shore and safety. The engineer's assistant gives a choked, disbelieving cheer, and Finch's hand tightens exultantly on your arm before he leans back, limp.
+
+*if GovernessEngineRoom
+	And Miss Chandler bursts into tears.
+
+	Oh, you know about that too–the kind of courage that can keep it together during the direst of circumstances is often the kind that breaks once the danger is past. What do you do?
+
+	*fake_choice
+		
+		#I pull her close and hold her, murmuring soothing things until she has command of herself again. 
+	
+		#I'd like to hold her, but I worry she might think I am taking advantage of her loss of composure. 
+		
+			Instead you offer a handkerchief and cheerfully soothing words.
+	
+		#She's a nice woman and she was a brave soldier, but I don't wish to take her into my arms. 
+		
+			Instead you offer a handkerchief and cheerfully soothing words.
+	
+		#I do what is necessary to calm her, but my eyes seek Finch's over her head. 
+		
+			He, too, looks absolutely shattered with relief, but he covers the moment's vulnerability faster.
+*goto Aftermath
+	
+*label Aftermath
+*page_break
+*if LoadedLifeboats
+	*achieve presshero
+	You wake the next morning to discover you have been dubbed a hero by the press. [i]Colossus[/i] was brought safely home with no lives lost
+	*if KilledEngineer
+		(save that of the ship's engineer; you'll never know whether he would have died anyhow, or whether your stimulant hastened his end)
+	*if KilledEngineer = false	
+		*achieve noliveslost
+	and the newspapers credit your management of the lifeboat loading. "Had panic been allowed to break out among the passengers," says [i]The Times[/i], "surely more severe injuries or even deaths would have resulted; it is fortunate Dr. $!{lastname} was aboard."
+	
+	*fake_choice
+	
+		#It is comforting to feel that I managed to do some good in the midst of all that chaos.
+		
+			You have a right to feel proud. Without you, the outcome would have been far more grim.
+		
+		#It's nonsense they should give me the credit; someone else would have stepped up if I hadn't been there.
+		
+			You mention this to Finch, and he rolls his eyes. He does not appear to agree.
+		
+		#I find it irritating that Miss Chandler is not given similar praise. She too was loading lifeboats without a care for her own safety.
+		
+			It is distressing, but unfortunately the way of the world, that official accounts render some heroes invisible.
+		
+		#I find it irritating that Finch is not given credit for finding the regulator. Without him, the entire ship would have been lost. 
+		
+			He grins at your indignation. "Don't bristle, my dear fellow; they intended to mention me as well, and it took quite a lot of maneuvering to convince them to keep my name out of it. I think as long as I am working for Woodward, I'd rather not let the entire readership of [i]The Times[/i] know what I can do."
+
+	*goto AlexandraFile
+	
+*else
+
+	In the end, the casualties prove to be mercifully light. Many people are hurt, some of them severely, but 
+	*if KilledEngineer
+		only four people die. Three are passengers, who perish of injuries received during the panic on the boat deck, and the fourth is the ship's engineer. (You'll never know whether he would have died anyhow, or whether your stimulant hastened his end. But it had to be done; how many others would have died without his information?)
+		*goto AlexandraFile
+	*else
+		only three people die. (All three, depressingly, of injuries received during the panic on the boat deck rather than injuries caused by the sabotage itself.)
+		*goto AlexandraFile
+		
+*label AlexandraFile
+*page_break
+The [i]Colossus[/i] affair causes significant embarrassment to the dirigible's manufacturers and to Her Imperial Majesty's government. Before the week is out, you are fairly certain every man, woman, and child in the Empire has heard about the lack of lifeboats, the lack of officer training, the general incompetence with which the evacuation was handled, and the fact that a saboteur walked right through the ship's shameful excuse for security and into the engine room. The political cartoons in [i]The Times[/i] are numerous and biting. Woodward stalks about looking dyspeptic with fury. 
+
+*page_break
+
+"Look familiar?" he asks you abruptly one day about a week after the incident, dropping a sketch on the desk in front of you.
+
+Her face is younger and her thick black hair dressed in elaborate feminine elegance rather than being severely pulled back, but the insolent grin is immediately recognizable. "Yes," you say, and Finch, looking over your shoulder, confirms it. "That's the saboteur. You know who she is?"
+
+"We do now." Woodward drops a thick file folder on the desk beside the sketch. "And the police have known for some time. Alexandra Townsend, actress. [i]Not[/i] her real name, by the way; she was born Mildred Broom; but I can see how she might have thought such an appellation would limit her options. Worked as a singer, dancer, and male impersonator at what appears to be every third-rate theater in the East End…up until about five years ago, when she put her theatrical and acrobatic skills to use in a series of quite innovative and lucrative burglaries. That's what this is all from–" Woodward taps the folder. "–but she was never actually arrested; they couldn't find her. Eighteen months ago, the burglaries stopped, and she dropped out of sight altogether."
+
+"And now she's sabotaging dirigibles?" Finch shakes his head. "So what's to be done?" 
+
+"By you? Nothing until we find her, and I have others working on that. There's nothing either of you can do for me right now, so go home and get some sleep. While you can, before the pace picks up again."
+*page_break
+That night, you dream of rising water. Before you can decide it is a nightmare, the image morphs into one you find more pleasant. 
+
+What is it?
+*choice
+
+	#Grace Chandler, steadily loading lifeboats, her left hand clutching nervously at her skirt but her face completely calm. 
+		
+		*set conventional %+25
+		
+		You lie in bed watching the square of window lighten from black to gray, thinking about her. Mrs. Larrimer said she hoped you would meet a young lady on the dirigible, and so you did.
+
+		It would be easy enough to find out where Miss Chandler lives, and well within the boundaries of respectable behavior to call upon her. Do you wish to do so? 
+					
+		*choice
+					
+			#Yes.
+						
+				*goto CourtGoverness
+				
+			#No.
+						
+				You are satisfied with your life as it is now, and see no reason to make a change. You roll over and go back to sleep, looking forward to Woodward's next assignment.
+				*finish 
+		
+
+	#Alexandra Townsend, backflipping over the rail, then looking back to wave goodbye. I can't help admiring that sort of fearlessness even in an enemy–and what did she mean by "Free Mercia"?
+	
+		*set conventional %-25
+		She is intriguing, no doubt about it. Do you want to find out more about her?
+		
+		*choice
+		
+			#Yes, I do.
+				You are able to persuade Woodward to give you a look at the file, from which you glean more sordid details about the theaters she worked in, as well as some truly impressive stories of the stunts she pulled when stealing jewels. You do not, however, find any mention of anything like "Free Mercia." Woodward, tight-lipped, says he is still gathering information on that point as well, and would you kindly go about your day job?
+				
+				You find it difficult to get Alexandra Townsend out of your mind. But on the other hand…
+				*goto Daydreams
+				
+			#No, of course not. 
+			
+				Of course not.
+				*label Daydreams
+				There are daydreams and there is reality, and an actress from the East End who sabotages dirigibles can have no part in any reality of yours.
+				
+				Reality looks more like Grace Chandler, who is an altogether admirable woman. It would be easy enough to find her, and well within the boundaries of respectable behavior to call upon her. Do you wish to do so? 
+					
+				*choice
+					
+					#Yes.
+						*set conventional %+15
+						*goto CourtGoverness
+					#No.
+						
+						You are satisfied with your life as it is now, and see no reason to make a change. You settle back, looking forward to Woodward's next assignment.
+				
+						*finish
+				
+	#Finch, cool as well-water even in desperate circumstances, working hard to save the lives of everyone aboard, meeting my eyes with a momentarily vulnerable expression on his face.  
+		
+		*if gay
+			He is your dearest friend, your brother in arms, the man who has your back–is it possible that somewhere along the line he has become something more? You lie in bed watching the square of window lighten from black to gray, cautiously examining the idea…
+						
+			*choice
+			
+				#…and slowly coming to the conclusion that somewhere along the line, I've fallen in love with Garrett Finch. 
+					*set conventional %-10
+					*label DoSomething
+					And now that you realize it, are you going to do anything about it?
+					
+					*choice
+						
+						#No, I have no reason to believe he is romantically interested in me. 
+						
+							But at least you know you have his respect and his regard. For now, that's enough. You let the foolish notion go, and prepare for a day's work in the real world.
+					
+							*finish 
+
+						#No, our working relationship is too important. I have never known Finch to mix carnal pleasure and love, and introducing the idea could be the ruin of our friendship.
+						
+							Fair enough. At least you know you have his respect and his regard. You let the foolish notion go, and prepare for a day's work in the real world.
+							
+							*finish 
+				
+						#Yes. Our lives are so dangerous that it seems criminal to waste any time in unfulfilled longing. 
+						
+							*goto CourtFinch 					
+								
+						
+				#…but by the time the sun is fully up, the notion has retreated back to the dreamworld where it belongs. 
+				
+					You smile a little at yourself and prepare for a day's work in the real world. Your work in that real world is quite satisfying, and for now, it's enough. You head out to your day job, looking forward to Woodward's next assignment.
+					
+					*finish 
+				
+		*else
+			
+			He is your dearest friend, your brother in arms, the man who has your back…and for the first time, you examine the idea that he might have become something more. 
+			
+			*choice
+			
+				#I never expected to entertain such feelings, but…yes, I think somewhere along the line I fell in love with Garret Finch. 
+				
+					*set gay true
+					*set conventional %-25
+					*goto DoSomething
+					
+					
+				#No, of course not. Not every relationship has to be based on sexual desire, you know. 
+				
+					Very true, and something those modern psycho-analyst doctors don't seem to understand. Garret Finch is the primary relationship in your life, and therefore it is natural enough that your dreaming mind should turn to him for strength and comfort, but he is a shield-brother rather than a potential romantic interest. 
+					
+					And that said, perhaps this is the time to add a romantic relationship to your life. It couldn't be a bad thing to have multiple sources of comfort and strength. Your thoughts turn to Miss Chandler. 
+					
+					It would be easy enough to find her, and well within the boundaries of respectable behavior to call upon her. Do you wish to do so? 
+					
+					*choice
+					
+						#Yes.
+							*set conventional %+15
+							*goto CourtGoverness
+						#No.
+						
+							You are satisfied with your life as it is now, and see no reason to make a change. You roll over and go back to sleep, looking forward to Woodward's next assignment.
+				
+							*finish 
+						
+			
+*label CourtGoverness
+
+She is delighted to see you, her face lighting up in a smile that is surely no conventional social nicety. The two of you have tea on her next half-day out, and it is a genuinely pleasant afternoon. You talk about your military adventures, her childhood following the flag during her father's service, her work as a governess, the non-gruesome bits of your work as a police surgeon. She turns out to be unusually well-read in history, though less familiar than you are yourself with current foreign affairs, which makes for especially interesting conversational fodder.
+
+At the end of the afternoon, you escort her back to her employer's house. 
+
+Do you ask if you may call upon her again?
+
+*choice
+	#Yes.
+	
+		*set DatingGrace true
+		"Of course you may." She fiddles with one glove, eyes cast down and cheeks rather pink, but you think she is pleased. "I, um…" She darts a look up, definitely smiling now. "I shall look forward to it, Captain." 
+		
+		*finish 
+	
+	#No, I have saluted social convention, but I do not wish to pursue this any further.
+	
+		You are satisfied with your life as it is now, and see no reason to make a change. Miss Chandler thanks you for a pleasant afternoon and disappears inside, and you return home, looking forward to Woodward's next assignment.
+		
+		*finish 
+
+				
+							
+*label CourtFinch
+
+Right you are! How are you going to do this?
+
+*choice
+
+	#A declaration of this sort should be an event. I'll plan an evening out–a fine meal, opera tickets. 
+	
+		You'll come home in a relaxed mood and have a drink before bed, and that will be the right moment.
+	
+		*goto Date
+	
+	#I'd rather go with something less ostentatious, to give myself maneuvering room if he does not respond with similar interest. 
+	
+		A touch during a quiet moment, for instance. You're sure the opportunity will present itself before long.
+	
+		*goto Touch
+	
+	#For both clarity and maneuverability, there is nothing better than a letter. 
+	
+		There's a reason the last generation tended to make proposals of marriage by post. You can say whatever you wish without becoming flustered, and you can include lines like, "If you do not wish to pursue this, I will be honored to maintain our friendship; say nothing and we will never speak of it again."
+	
+		But you, alas, are not actually penning a proposal of marriage to a woman. What you wish to say must never be put into writing and sent through the post, nor put into writing and left about for servants to find. The risks to both your career and Finch's would be too great. Reluctantly, you put aside the idea of a letter.
+		
+		*choice
+			#I will arrange a lavish evening as a lead-in to a grand gesture.
+			
+				*goto Date
+			
+			#I will wait for an opportunity to make physical contact.
+			
+				*goto Touch
+			
+			#I'm not sure this is such a good idea after all. I do nothing at this time.
+			
+				You are, after all, satisfied enough with your life as it is now, and there is no crying need to make a change. You settle back, looking forward to Woodward's next assignment.
+				*finish 
+
+*label Date
+
+Your carefully-planned evening goes off perfectly–until the very end. The opera is magnificent, the supper is lavish, the wine is plentiful. You return home, to what ought to be cigars and brandy and comfortable quiet…
+
+…but Finch is in one of his restless moods. He barely sits, he won't stop pacing, he chatters on about a variety of topics–all of them interesting enough, but so ceaselessly you can hardly get a word in. Before very long he is saying something about an assignment for the paper in the morning, an early train, he ought to be off to bed, good night!
+
+You sit for a while in the sitting room wondering what that was all about. Could he have guessed your intention and been trying to avoid the moment…? Or was it just damnable coincidence that he took a restless fit on this night of all nights?
+
+*goto TryAgain
+
+
+*label Touch 
+
+Your opportunity comes a week or so later, when you come home to find that Finch has fallen asleep on the sitting room sofa.
+
+He looks so much younger when he sleeps, hair tousled and face relaxed. He isn't talking, isn't pacing, isn't mocking something–the defenses are down. You can count on the fingers of one hand the times you've seen him look vulnerable while awake. On none of these occasions was he in any sort of danger–but come to think of it, you were. 
+
+That's got to be a good sign.
+
+So you sit carefully beside him and reach to brush the hair off his forehead.
+
+*page_break
+
+He jumps awake with a gasp before your hand gets anywhere near his head. For a moment he stares at you without recognition, eyes wild. Then he blurts, "Oh, it's you" and swings his feet off the sofa and to the floor. "Sorry." He rubs his hands over his face. "Sorry, that was stupid, who else would it be? I–was dreaming. Bloody dirigible." He jumps to his feet before you can say anything, and now he's pacing, chattering, all the defenses back up–there's nothing he hates more than being caught in a moment of weakness like that–and the chance is gone. 
+
+If it was ever there in the first place. 
+
+*page_break
+
+"Has it really gone midnight already? I should try for some proper sleep; I have to be up before dawn to catch a train to some back-of-beyond village. I hope Woodward pulls together something interesting for us before I go clean out of my mind taking photographs of these insipid little events. I'll be gone before you're awake tomorrow, but I should be back for dinner…"
+
+He says the last as he's leaving the room. You hardly got a word in the whole time. 
+
+You sit on the sofa for a while, wondering if his nightmare was truly that bad…or if he somehow sensed your purpose and was avoiding your declaration. 
+
+*label TryAgain
+Do you plan to try again?
+
+*choice
+
+	#Yes, as soon as I see an opportunity.
+		*set KnowFinchAway true
+		Unfortunately, none are likely to present themselves for at least a little while. He returns very late the following night, and the next day, you wake to a note that he will be traveling for the paper for a fortnight.
+		
+		And now you would give a great deal to know for certain whether he guessed what you meant to do, but there's no one to ask.
+		
+		You head out to your day job, putting aside the hope of romance for the hope that Woodward summons you in again soon.
+		
+		*finish
+
+	#No, not at this time.
+	
+		You are, after all, satisfied enough with your life as it is now, and there is no crying need to make a change. You head out to your day job, putting aside the hope of romance for the hope that Woodward summons you in again soon.
+		
+		*finish 
+		
+*comment *******Subroutines************
+
+*label IntroduceFinch
+As you reach the boarding plank, the ebb and flow of the crowd brings Finch quite close to you, and you introduce him to Miss Chandler and vice versa.
+*return
+
+*label Runner
+
+"Sir?" You look up to see one of the ship's boys. "The engineer's badly hurt, sir–blood running everywhere–and Mr. Finch told Captain Royce you're a doctor, sir. Captain says, please won't you come at once?"
+		
+*return
+
+*label MedicalScruples
+"Sir, I understand your medical scruples," the captain says, "but we're in dire straits here."
+
+Finch moves aside so you have a clear view of the gaping-open panel behind his head. Something has been ripped out of it, leaving wires and cables dangling.
+
+"This was no malfunction, sir," Royce says. "This was sabotage. Someone has carried off the regulator–and the engineer is the only one who might have any idea who."
+		
+*return
+
+
+*label GovernessStopsYou
+
+You are stopped by a hand on your sleeve. 
+
+*if WithGoverness
+	
+	"Captain?" It is Miss Chandler. She lowers her voice to speak to you. "I need you to tell me something. Truthfully.
+	*goto GovernessStopsYou2
+*else
+	It is the governess. "Listen–I–I need you to tell me something. Truthfully. 
+	*label GovernessStopsYou2
+	The officers won't give me a straight answer, but–but I've counted, and–I can't see how there could be enough lifeboats. There aren't, are there?"
+	
+	What do you say?
+	
+	*choice
+			
+		#"There's nothing to worry about. I've been working with my friend and the ship's officers to find the part taken from the engine, and we've nearly done it."
+	
+			*set charisma %+15
+			
+			The hand on your sleeve tightens. "Truly?" She searches your face, then releases your arm, stepping back. "Go–I won't keep you an instant longer." 
+		
+			*goto ChaseSaboteur
+
+					
+		#"It…might be as well for you to be assured of a place."
+		
+			*comment Does not affect charisma because it isn't a tactic. Impacts compassionate because it's putting concern for one person above the need to not cause panic.
+			
+			*set compassionate %+10
+			*gosub GovernessBoat
+			*goto ChaseSaboteur
+				
+		#"No, there aren't. Don't frighten the rest of them, but get yourself a place without delay."
+		
+			*comment Straight up unvarnished honesty, revealing a secret you were asked to keep. Very obviously not taking care to avoid causing panic.
+			*set charisma %-15
+			*set compassionate %+15
+			*gosub GovernessBoat
+			*goto ChaseSaboteur
+	
+
+*label WatchSafecracking
+*if injury = "hand"
+	Your injured hand is far too stiff and clumsy for this sort of work, and Finch's prowess at safe-cracking and lockpicking is…somewhat unnerving.
+	*goto Criminal
+*else
+	You have been taught safecracking and lockpicking, as have all Woodward's operatives, 
+	*if medicine > 70
+		and your deft surgeon's hands make you more than competent,
+	*if medicine <= 70
+		and you're competent enough, 
+	but here you yield to the master. Finch's ability in these areas is…somewhat unnerving. 
+	*label Criminal
+	Even with the ship shuddering around you and the cries of terrified passengers filling your ears, he has the lock open in no time flat.
+	
+	"Lucky for Mercia that Woodward recruited me and I was never tempted to turn criminal," he says, and pushes the door open.
+			
+	*comment What am I doing with this line? It's one of Holmes's, but I want to be sure I am building the right picture. 
+	*return
+	
+*label GovernessBoat
+
+She shakes her head, pale but with her chin lifted. "There's no one waiting for me at home. My employer is kind to me, and the children would miss me I suppose, but…I'd rather see a mother return to her children or a young woman to her betrothed. It's all right." Her voice shakes, but you can see she means it. 
+		
+What in the world can you say to that?
+*fake_choice 
+		
+	#"You're braver than some soldiers I've met."
+				
+		She laughs a little and bites her lip. "So are you."
+			
+	#"That's foolish. You've done enough to help others, and now it's time for you to get on a boat."
+				
+		She smiles, but shakes her head. "I don't think you would act that way yourself. I don't [i] see [/i] you acting that way yourself."
+			
+	#"You shouldn't price your own life so cheaply. I'm sure there are many people who would be grief-stricken if you didn't come back to them."
+				
+		She smiles. "Thank you, that's very kind. But I haven't any family."
+							
+	#"There aren't very many who would act that way, in such a situation."
+				
+		She bites her lip, looking past you at some altercation you can hear but not see–by the sound of it, two men fighting over a lifejacket. "Somebody has to–to balance– " She nods to the shouting men. "That."
+		
+*return
+
+*label trial_end
+*temp discount_ends "Dec 1"
+*temp time_stamp timestamp("${discount_ends}, 2015")
+*check_purchase adfree
+*if choice_purchased_adfree or not(choice_purchase_supported)
+	*label purchased
+	*return
+Remember earlier how we told you that the first three chapters are available for free? This is the end of the free content.
+
+[i]To find out what happens next, please purchase the remaining chapters.[/i]
+
+*print_discount adfree 2015-12-01 [b]On sale until ${choice_discount_ends}! Buy now before the price increases![/b]
+*if choice_time_stamp < time_stamp
+	*purchase adfree $6.99 purchased
+	*abort
+*else
+
+	*purchase adfree $6.99 purchased
+	*abort

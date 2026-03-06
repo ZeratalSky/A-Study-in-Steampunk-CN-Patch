@@ -1,0 +1,5 @@
+
+*image 8_partFour.png
+*temp blank ""
+${blank}
+*finish 

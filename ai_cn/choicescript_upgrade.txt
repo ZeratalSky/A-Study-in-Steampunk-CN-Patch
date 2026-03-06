@@ -1,0 +1,18 @@
+*label start
+*check_purchase adfree
+
+*if choice_purchased_adfree = false
+  [b]Rest of the Game[/b]
+
+  Unlock the rest of the game.
+
+  *purchase adfree $6.99 start
+
+*if choice_purchased_everything
+  You're completely upgraded!
+
+*if choice_purchased_adfree
+  [b]Rest of the Game[/b]
+
+  You've paid to unlock the rest of the game.
+

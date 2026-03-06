@@ -1,0 +1,19 @@
+Dr. $!{firstname} $!{initial}. $!{lastname}
+
+*stat_chart
+  percent athleticism 体能
+  percent charisma 魅力
+  percent healing 治愈
+  percent marksmanship 枪法
+  percent medicine 医术
+  percent perception 洞察
+  
+  opposed_pair Compassionate
+    怜悯
+    务实
+  opposed_pair Conventional 
+    传统
+    反传统
+  opposed_pair Stealthy
+    隐匿
+    迅捷

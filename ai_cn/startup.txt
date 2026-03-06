@@ -1,0 +1,380 @@
+*title 蒸汽朋克研究：煤气灯下的选择
+*author Heather Albano
+*scene_list
+	startup
+	PrologueScreen
+	OpeningScene
+	Part1Screen
+	BrucePartingtonPlans
+	HerMajestysDirigible
+	$ Murchinson
+	$ Part2Screen
+	$ SpiderHunt
+	$ Reichenbach
+	$ Part3Screen
+	$ CrossroadsMarkTwo
+	$ NewLifeMark2
+	$ TheReturn
+	$ Part4Screen
+	$ TheFinalProblem
+	$ Endgame
+	$ WrapUp
+
+*create healpierce false
+*create firstchoice "marksmanship"
+*create secondchoice "medicine"
+*create lastname "lastname"
+*create firstname "firstname"
+*create initial "i"
+*create healing 50
+*create charisma 50
+*create marksmanship 50
+*create medicine 50
+*create athleticism 50
+*create injury "none"
+*create conventional 50
+*create compassionate 50
+*create stealthy 50
+*create perception 50
+*create healmorris false
+*create relwoodward 50
+*create gay false
+*create loadedlifeboats false
+*create datinggrace false
+*create knowfinchaway false
+*create plantknowledge false
+*create donewithoneshands false
+*create knoweconomics false
+*create engaged false
+*create married false
+*create withfinch false
+*create alliance "government"
+*create kills 0
+*create reltaggart 50
+*create relalexandra 50
+*create healersarrested false
+*create manufacturedevidence false
+*create mythmaker false
+*create mether false
+*create lethergo false
+*create missedher false
+*create caughther false
+*create drainedguards false
+*create toldfinchguards false
+*create toldgraceguards false
+*create workedwithher false
+*create workedwithhim false
+*create divorced false
+*create gracedead false
+*create letter false
+*create taggartchoice false
+*create alexandrachoice	false
+*create callahaninterview false
+*create callahanmisstep 0
+*create withalexandra false
+*create alertcounter 0
+*create usedknife false
+*create patrol false
+*create relfinch "neutral"
+*create leftfinchtodie false
+*create healertrained false
+*create lighteater false
+*create donated false
+*create dead false
+*create meantoBradley false
+*create ignoredBradley false
+*create finchdead false
+*create betrayed false
+*create woodwarddeal false
+*create woodwardally false
+*create walkedaway false
+*create healedmargaret false
+*create old "margaret"
+*create o_man "woman"
+*create oldprofession "charwoman"
+*create o_he "she"
+*create o_him "her"
+*create o_his "her"
+*create young "violet"
+*create y_boy "girl"
+*create y_he "she"
+*create y_him "her"
+*create y_his "her"
+*create pm "whitefield"
+*create shandy "captain"
+*create lackofcoal false
+*create leftmorris false
+*create alexandraally false
+
+*achievement finchescape hidden 5 飞鸟在天
+	hidden
+	允许加勒特·芬奇（Garrett Finch）逃脱。
+	
+*achievement finchcapture hidden 5 笼中之鸟
+	hidden
+	抓捕加勒特·芬奇。
+
+*achievement usepress visible 5 无冕之王
+	报刊是一个至关重要的机构，只要你懂得利用它。	
+	利用舆论抓住一名罪犯。
+
+*achievement lifeforlife visible 5 以命换命
+	你很清楚你要付出的代价。	
+	出卖你的人生以拯救加勒特·芬奇。
+		
+*achievement balance hidden 10 权力制衡
+	hidden	
+	政府和抵抗组织将相互制衡彼此的暴行。
+
+*achievement killhorn visible 5 血之祭祀
+	为了拯救他人，你愿意做到什么地步？
+	通过“吞光”杀死霍恩，以此拯救格蕾丝（Grace）的性命。
+	
+*achievement brothersinarms visible 5 战火兄弟情
+	那无法斩断的羁绊。
+	拯救一位前战友的生命。
+	
+*achievement killedfinch hidden 5 兄弟守护者
+	hidden
+	通过“吞光”杀死加勒特·芬奇。
+	
+*achievement bridges visible 5 搭建桥梁
+	一人之力亦可沟通两个世界。
+	在太阳神殿与世俗世界之间建立桥梁。
+
+*achievement cmythmaker visible 5 卡拉汉的神话缔造者
+	我们讲述的故事塑造了这个世界。
+	利用虚构故事来推动肖恩·卡拉汉（Sean Callahan）的目的。
+
+*achievement warehouseescape visible 10 大胆逃脱
+	永远不要低估一名老兵。
+	将芬奇和你自己从费恩利上校手中救出。
+
+*achievement deception visible 5 神殿欺诈师
+	教会那名治疗师如何进行间谍活动。
+	假装与塔格特决裂，以阻止“大起义”。
+
+*achievement destroycoal visible 5 布列塔尼的毁灭
+	想做煎蛋卷，就得先打破鸡蛋。
+	摧毁布列塔尼的煤矿。
+
+*achievement steel visible 5 排除不可能
+	剩下的无论多么不可思议，那必定是真相。
+	查明钢铁厂破坏者的最终目标。
+	
+*achievement capturedalexandra visible 5 国家公敌
+	面对一名危险的罪犯，你会怎么做？
+	抓捕亚历山德拉·唐森德（Alexandra Townsend）。
+	
+*achievement mistress visible 10 击剑沙龙
+	有些战斗并非用刀剑，而是用言语和影影射射来决胜负。
+	获得王子情妇的关注。
+	
+*achievement starbuck visible 5 战斗至死
+	抵抗弗拉斯基人对默西亚的占领。
+	加入新抵抗组织。
+	
+*achievement wantnail hidden 20 亡羊补牢
+	hidden
+	通过切断通讯来挫败“大起义”。
+	
+*achievement resistance visible 5 自由斗士
+	加入叛军。
+	加入“自由默西亚”。
+		
+*achievement temple visible 5 治疗师
+	拥抱你的血统。
+	成为一名太阳神殿的治疗师。
+	
+*achievement hearth visible 10 温馨家园
+	幸福的结局对不同的人意味着不同的事。
+	与你的一生挚爱结婚。
+
+*achievement presshero visible 5 报刊英雄
+	每一场灾难都需要一位英雄。
+	被媒体封为英雄。
+	
+*achievement infiltrate visible 10 深入虎穴
+	渗透进教授巢穴的中心。
+	渗透进抵抗组织。
+	
+*achievement labor visible 100 劳工改革
+	平稳的掌舵能使大船转向。
+	通过《劳工改革法案》。
+	
+*achievement neutral visible 5 独狼
+	只追随你自己的良知。
+	成为一名独立的行动者。
+	
+*achievement prince visible 100 王储万岁
+	皇太子身处险境。
+	拯救王子的性命。
+	
+*achievement loveandwar visible 10 爱情与战争
+	命运多舛的恋人。
+	与亚历山德拉·唐森德开始一段恋情。
+
+*achievement poison hidden 20 兵马未动粮草先行
+	hidden
+	通过污染食物供应来挫败“大起义”。
+
+*achievement merciafalls hidden 10 默西亚沦陷
+	hidden
+	默西亚沦陷于弗拉斯克（Vlask）之手。
+	
+*achievement midair visible 5 空中抢修
+	你能修好这艘正在坠落的飞艇吗？
+	修复被蓄意破坏的飞艇。
+	
+*achievement bedfellows visible 100 敌人的敌人
+	危险让陌路人同床共枕。
+	政府与抵抗组织联手击退弗拉斯基人的入侵。
+
+*achievement noliveslost visible 5 全员生还
+	你能让每个人都安全撤离坠落的飞艇吗？
+	“巨像号”安全返航，无人员伤亡。
+
+*achievement savepierce visible 5 一个人的生命
+	拯救一位受伤战友的生命。
+	拯救詹姆斯·皮尔斯（James Pierce）。
+	
+*achievement twohundred visible 100 希波克拉底誓言
+	以最小的伤亡结束霍乱疫情。
+	以少于200人的死亡代价结束霍乱疫情。
+	
+*achievement addict visible 5 迷途知返
+	从毁灭性的道路上回头需要巨大的勇气。
+	战胜“吞光”成瘾症。
+
+*achievement goraska visible 5 重返戈拉斯卡
+	危险将你召回前线。
+	拯救戈拉斯卡煤矿。
+
+*achievement sanctifier visible 10 净化者
+	太阳神殿清理门户。
+	将“东区开膛手”绳之以法。
+	
+*achievement alexandraescape visible 5 灰色地带
+	私家侦探并不总是依法行事。
+	允许亚历山德拉·唐森德逃脱。
+
+*achievement govtripper visible 10 蒸汽与巫术
+	一名吞光者威胁着东区。
+	在你自己和同伴毫发无损的情况下，将“东区开膛手”绳之以法。
+	
+*achievement interrogate visible 10 攻守逆转
+	即使被俘且无助，你又能获知多少情报？
+	审讯你的审讯者，并获知他所知道的一切。
+	
+*achievement tmythmaker visible 5 塔格特的神话缔造者
+	我们讲述的故事塑造了这个世界。
+	利用虚构故事来推动克里斯托弗·塔格特（Christopher Taggart）的目的。
+
+*achievement bard hidden 20 诗人的武器
+	hidden
+	通过讲故事来挫败“大起义”。
+
+*achievement govtreturn visible 5 帝国忠仆
+	归队。
+	回去为亚瑟·伍 Woodward 工作。
+
+*achievement killcallahan visible 10 为了更伟大的利益
+	有时为了多数人的利益，必须牺牲一个人。
+	杀死肖恩·卡拉汉。
+
+*achievement lighteater visible 5 镜中怪物
+	屈服于你最黑暗的欲望。变成你最恐惧的样子。
+	成为一名吞光者。
+
+*achievement savepm visible 10 首相的荣誉
+	丑闻威胁着帝国。
+	维护首相的声誉。
+
+*achievement destroypm visible 10 首相的耻辱
+	制造丑闻以威胁帝国。
+	利用丑闻迫使首相下台。
+
+*achievement singleshot hidden 20 响彻帝国的一枪
+	hidden
+	用一发子弹挫败“大起义”。
+
+*achievement bloodtaste visible 5 血的味道
+	为了自救，你愿意做到什么地步？
+	通过“吞光”杀死一名袭击者。
+
+*achievement walls visible 100 长城守望者
+	弗拉斯基人正在向默西亚进军。
+	挫败弗拉斯基人的入侵。
+
+*achievement uncompromising visible 5 绝不妥协
+	在死亡面前坚持你的原则。
+	宁死也不愿通过“吞光”杀人。
+
+*achievement vigilante visible 5 义警
+	总得有人来清理东区。
+	成为一名吞光者义警。
+
+*achievement walkedaway visible 5 拂袖而去
+	这就够了。
+	离开政府部门。
+
+*achievement wintersoldier hidden 5 冬日战士
+	hidden
+	被洗脑加入亚瑟·伍德沃德的吞光者军队。
+
+*achievement dirigible visible 5 披着羊皮的狼
+	这些人中有一个并非表里如一……
+	指认飞艇破坏者。
+
+*achievement wmythmaker visible 5 伍德沃德的神话缔造者
+	我们讲述的故事塑造了这个世界。
+	利用虚构故事来推动亚瑟·伍德沃德的目的。
+
+*achievement yourstruly visible 20 在下，开膛手杰克
+	他们永远不会怀疑到你头上。
+	向亚瑟·伍德沃德隐瞒你作为开膛手的身份。
+
+	
+
+*image 1_title.png
+
+*temp discount_ends "Dec 1"
+*temp time_stamp timestamp("${discount_ends}, 2015")
+
+
+*if not(choice_is_web or choice_is_steam)
+	*temp skip_description
+	*config skip_description false
+
+	蒸汽动力机甲邂逅禁忌巫术！灵感源自福尔摩斯、德古拉、杰基尔与海德以及开膛手杰克，《蒸汽朋克研究：煤气灯下的选择》是由 Heather Albano 创作的一部 277,000 字的史诗级互动悬疑小说。
+
+	[i]你可以免费游玩游戏的前三章。在下方购买游戏的其余部分。[/i]
+	*if choice_is_advertising_supported
+		[i]购买游戏的其余部分也将关闭游戏内的广告。[/i]
+	*comment endif
+
+	*print_discount adfree 2015-12-01 [b]特价至 ${choice_discount_ends} 截止！欲购从速，即将涨价！[/b]
+	*if choice_time_stamp < time_stamp
+		*purchase adfree $6.99 purchased
+		*goto page_break
+	*else
+
+		*purchase adfree $6.99 purchased
+	*label page_break
+	*if choice_is_advertising_supported
+		*page_break_advertisement
+	*if not(choice_is_advertising_supported)
+		*page_break 立即免费试玩
+
+
+*label purchased
+
+*label Start
+
+*choice
+	#开始新游戏。
+		*goto_scene PrologueScreen
+	*if not(choice_randomtest)
+		#读取存档。
+			*restore_game
+			*goto Start

@@ -1,0 +1,123 @@
+screenshots
+*script window.animateEnabled = false;
+*page_break
+
+*comment Screenshot 1
+*script changeBackgroundColor("sepia")
+
+*set lastname "mitchell"
+*set firstname "john"
+*set initial "r"
+*set healing 50
+*set charisma 73
+*set marksmanship 55 
+*set medicine 62
+*set athleticism 86
+*set conventional 67
+*set compassionate 43
+*set stealthy 17
+*set perception 69
+
+"Two men were seen leaving the building at a run just as it exploded behind them," Woodward says. "We caught one; he's unconscious in hospital. I need you to find the other." 
+
+Where do you start?
+
+*fake_choice
+	#I look at the scene of the explosion.
+	
+	#I talk with the factory owner, Mr. Merrill.
+	
+	#I interview the men who reported seeing the saboteurs flee the scene. 
+	
+	#I visit the hospital for a look at the first saboteur.
+	
+*comment Screenshot 2
+*script changeBackgroundColor("black")
+
+*set lastname "watson"
+*set firstname "charles"
+*set initial "j"
+*set healing 82
+*set charisma 78
+*set marksmanship 34 
+*set medicine 85
+*set athleticism 45
+*set conventional 34
+*set compassionate 73
+*set stealthy 55
+*set perception 62
+
+Your friend did indeed begin to recover at that moment, but your father was furious when he learned of your involvement. He warned you that you must never do such a thing again, or let anyone know you could. 
+
+You never have. 
+
+But Pierce's face is dead-white, his blood gushing between your fingers. Your friend is dying. Maybe you can use your gran's "old gift" healing to save his life.
+
+Do you?
+
+*fake_choice
+	#Yes. It's the best chance I have of saving him. And no one is here to see, after all.
+	
+	#No. I am a man of science, and I refuse to rely on that superstitious nonsense. 
+		
+	#No, [i]no,[/i] never. I will not be in any way like my enemies across the battlefield. 
+		
+	#No. I can hear artillery coming closer, but I don't know whose. I won't save him just so he can be captured and tormented again. 
+	
+	
+*comment Screenshot 3
+*script changeBackgroundColor("sepia")
+	
+*set lastname "murray"
+*set firstname "hamish"
+*set initial "d"
+*set healing 50
+*set charisma 19
+*set marksmanship 89
+*set medicine 55
+*set athleticism 76
+*set conventional 68
+*set compassionate 23
+*set stealthy 60
+*set perception 66
+
+You emerge from the alleyway maze to a street where gaslight provides a little illumination–and at once spot Finch, partway down the street, back turned to you, moving with his usual catlike grace and listening hard with his head tilted.
+
+And behind him, a larger, bulkier form looms. Gaslight gleams off the pistol the foreign spy is pointing at Finch's back.
+
+You have only an instant. What do you do?
+
+*fake_choice
+
+	#I draw the enemy's attention to myself and away from Finch.
+	
+	#I raise my own revolver and drop him where he stands before he can fire. 
+	
+	#I scoop up a convenient chunk of brick and throw it hard. If I can smash the glass of the building opposite, the enemy may be distracted—and will not be reflexively firing at my position.
+	
+*comment Screenshot 4
+
+*set lastname "tucker"
+*set firstname "leonard"
+*set initial "s"
+*set healing 73
+*set charisma 62
+*set marksmanship 55
+*set medicine 68
+*set athleticism 23
+*set conventional 48
+*set compassionate 86
+*set stealthy 71
+*set perception 42
+	
+You join the team to find Sergeant Danby, also a Goráska veteran, instructing his underlings to bundle up in mufflers and gloves, despite the heat. "All they need is one touch," he warns the constables. "Don't give them the chance."
+
+*fake_choice
+
+	#I strenuously approve. The Sergeant and I exchange the grim nods of veterans who now have a responsibility to protect green soldiers.
+	
+	#It seems an excessive precaution, but I'm not about to be the man who says so.
+
+	#"This surely isn't necessary," I say. "Not all sun-worshippers are light-eaters, after all."
+
+

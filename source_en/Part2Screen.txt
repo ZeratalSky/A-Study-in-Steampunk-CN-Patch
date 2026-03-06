@@ -1,0 +1,6 @@
+
+*image 6_partTwo.png
+*temp blank ""
+${blank}
+*finish 
+		

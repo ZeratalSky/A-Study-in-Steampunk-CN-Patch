@@ -1,0 +1,434 @@
+*comment é
+
+*comment This vignette accomplishes the following: sets initial stats, establishes working relationship with Finch, introduces Pierce and Woodward, offers a choice to use healing or not (the first beat in the become-a-healer or become-Jack-the-Ripper story). 
+
+*label Intro
+The air outside shakes with the sound of cannon, and the ground shakes with the heavy footfalls of steam-powered Vlaski and Mercian mechs. Within the prison walls, you can hear shouting voices and running feet, but none have reached this corridor. Yet. 
+
+You stagger toward daylight as fast as you can, Pierce's arm draped heavily over your shoulders. He was the only prisoner still alive to rescue; the other captured soldiers were beyond your help, their handprint-marked bodies left in heaps like so much rubbish. 
+
+It is the year 1881, and you are an officer in the Medical Corps of the Mercian Imperial Army, currently stationed at the very edges of the Empire, where you hold the line against encroaching Vlaskesari. 
+
+All of Her Majesty's officers are skilled and well-trained men, of course–but only the true elite were assigned to this daring prison camp rescue. So tell us–why are you among them? What skill do you possess that makes you extraordinary?
+
+*choice
+	#I hold the record in my unit for fast, efficient, effective surgery under fire. 
+	
+		*set firstchoice "first class doctor"
+		*set medicine %+50
+		
+		Your superiors expected that the rescued prisoners would need the best care possible as quickly as possible–and so of course they tapped you; you're the logical man to send when that's the job. 
+		
+		But Pierce was the only one you got to in time. You cringe to think of how the others died. Light-eating is a vile, sickening practice. (It sickens you in particular, for personal reasons.)
+		
+		*goto Corridor
+		
+	#Though I am part of the Medical Corps, my medical skill is far eclipsed by my marksmanship. I'm a crack shot, if I say it myself.
+	
+		*set firstchoice "crack shot"
+		*set marksmanship %+50
+		
+		You've already proven it twice since entering the prison compound. Your deadly accuracy with your service revolver brought down two of the enemy–one a light-eater who had gotten hold of one of your comrades in the rescue party. You managed to kill the light-eater without wounding the soldier, who escaped with only a faint mark on his skin. Not many could have made that shot.
+		
+		*gosub GoodJob
+		*goto Corridor
+	
+	#I'm quite the athlete–I've played rugby and boxed ever since I was a lad. My unusual endurance and strength serve me well in hand to hand combat, as well as in the often grueling conditions of the warfront.
+	
+		*set firstchoice "famous athlete"
+		*set athleticism %+50
+		Your strength and speed have already served you well today. Without the former, you could never have torn away the light-eater who grabbed hold of one of your comrades in the rescue party. And without the latter, you would not have been able to avoid the light-eater's palms yourself. You saved a life and lived to tell the tale.
+		
+		*gosub GoodJob
+		*goto Corridor
+		
+	#I'm known among my colleagues for my silver tongue. I can soothe frightened patients, bluff at the card table, intimidate young soldiers, and weave a good tale with equal ease. 
+	
+		*set firstchoice "silver-tongued rascal"
+		*set charisma %+50
+		
+		The ability to bluff and intimidate is often useful when inside enemy encampments. Indeed, it has already proven useful once today. Without it, you could never have gotten that light-eater to loose your comrade from the rescue party. You had no other weapon but your voice and your face, and yet you made the Vlaskesar believe there was someone about to attack him from behind. You saved your comrade's life. 
+				
+		*gosub GoodJob
+		*goto Corridor
+		
+	
+		
+*label Corridor
+
+There's only a little farther to go now. Your companions retreated (as per orders) when the sounds of combat outside indicated the mission had gone pear-shaped, but you couldn't bear to leave without checking the last row of cells. And a good thing you did, or you never would have found Pierce. (And you'll remember the smell of that room for a long time, the way it brought sickness to the back of your throat; it was a fight to keep your hands steady enough to free him from his restraints–)
+
+You emerge into daylight, and Pierce gives a sob of relief…and then you realize you have walked into the middle of a mech firefight. Thundering metal giants, Vlaski and Mercian, hurl enormous cannonballs at each other. 
+
+*choice
+
+	#I retreat back into the prison, Pierce's cry of despair notwithstanding. Place of horrors or not, its strong stone walls will protect the two of us from the immediate danger.
+	
+		*set stealthy %+25
+		Before you have taken more than a step in that direction, the ground-shaking stomp of a mech foot negates your plan. The ground heaves under your feet, Pierce's arm slips from your shoulders as you fall, and you hear him cry out as he tumbles beside you down a slope you hadn't had time to notice. 
+		*goto Ravine
+	
+	#I risk a bold shot, waving to draw the attention of the Mercian mech pilot in the hope that he will move to protect us.
+	
+		*set stealthy %-25
+		Before you have done more than raise your arm, the ground-shaking stomp of a mech foot negates your plan. The ground heaves under your feet, Pierce's arm slips from your shoulders as you fall, and you hear him cry out as he tumbles beside you down a slope you hadn't had time to notice. 
+
+		*goto Ravine
+		
+	#I try to split the difference, looking about for a place to hide that will keep us safe while the battle rages but still keep us close enough to be easily rescued.
+	
+		You spot a ravine and stumble toward it. You are almost there when the ground-shaking stomp of a mech foot quickens your pace for you. The ground heaves under your feet, Pierce's arm slips from your shoulders as you fall, and you hear him cry out as he tumbles down the slope beside you.
+
+		*goto Ravine
+
+*label Ravine
+
+Blinking dirt out of your eyes, you catch a blurred, tilted vision of the Vlaski mech stomping along the bank above. Steam pours from its ears like fog–the stokers inside must be working double-time. The head swivels, blank eyes passing over your position, but the gigantic feet do not stop their forward progress. Perhaps the gunner inside can't see you amidst all the boulders.  
+
+Or perhaps he has a more attractive target to pursue. Craning your head, you see outlined against the distant mountains the corresponding Mercian mech, the one in which you arrived to execute this smash-and-grab raid and which was intended to be your transportation back to the Mercian lines. Its cannon-arm is up and firing, but it is retreating. As you watch, the Vlaski mech's pursuit quickens into a jog. 
+
+Damnation. Your position has just become "behind enemy lines."
+
+*page_break
+
+*label Wasteland
+You roll over to check on Pierce. His uniform is torn in many places, revealing the livid red handprints and crusted-over knife slashes that mottle otherwise sickly-pale skin. He could hardly stand when you pulled him out of the cell, and the tumble down the slope could have done him no good at all, but amazingly, his eyes blink open. They regard you in an uncertain, unfocused sort of way.
+
+"How many fingers?" you ask, holding up your hand.
+
+"Two…?" he rasps. "…maybe three."
+
+"Remember your name?"
+
+Pierce smiles just a little. "Pierce," he mumbles, "James S." He looks up at you, trying for the old cheeky grin, and it's pretty close to the bravest thing you've ever seen. "Remember yours?"
+
+Of course you remember yours; you haven't been captured and tortured. But you suppose you might as well humor him.
+
+(What is your last name?)
+
+*choice
+
+	#Parker.
+	
+		*set lastname "Parker"
+		*goto Given
+	
+	#Dawson.
+	
+		*set lastname "Dawson"
+		*goto Given
+	
+	#Mitchell.
+	
+		*set lastname "Mitchell"
+		*goto Given
+	
+	#Watson.
+	
+		*set lastname "Watson"
+		*goto Given
+	
+	#Tucker.
+	
+		*set lastname "Tucker"
+		*goto Given
+	
+	#Murray.
+	
+		*set lastname "Murray"
+		*goto Given
+		
+	#Something else.
+
+		Please enter your last name.
+		*input_text lastname
+		*goto Given
+
+*label Given
+
+(And your given name?)
+
+*choice
+
+	#Charles.
+	
+		*set firstname "Charles"
+		*goto Initial
+		
+	#David.
+	
+		*set firstname "David"
+		*goto Initial
+		
+	#Robert.
+	
+		*set firstname "Robert"
+		*goto Initial
+		
+	#John.
+	
+		*set firstname "John"
+		*goto Initial
+		
+	#Hamish.
+	
+		*set firstname "Hamish"
+		*goto Initial
+
+		
+	#Leonard.
+	
+		*set firstname "Leonard"
+		*goto Initial
+		
+		
+	#Something else.
+	
+		Please enter your given name. 
+		
+		*input_text firstname
+		*goto Initial
+
+
+*label Initial
+
+(And the middle initial that appears on your Army records.)
+
+*input_text initial
+*goto Statset2
+
+*label Statset2
+…you suppose you might as well humor him. "$!{lastname}, $!{firstname} $!{initial}." You crane your head to see over the side of the ravine. It's hard to tell how far away the battle has carried the two mechs. All you can see is barren, rocky wasteland stretching in every direction. Even before the devastation wreaked by the steam-driven war machinery of two empires, the tiny mountain country of Goráska was a place no one in their right mind would want. Your Empire and the Vlaski Empire fight over it only because it is the last barrier between them.
+
+You look back down in time to catch the expression on Pierce's face, and move hastily to reassure him. "The lads will come right back for us."
+
+"'s all right…if they don't." Pierce's eyes drift closed. He looks almost peaceful. "At least I'm…dying out here…instead of in there."
+
+"You're not about to die," you chide him. "You're with me; you've nothing to worry over."
+
+He smiles a little. "Of course. $!{firstname} $!{lastname}, ${firstchoice}–"
+
+*choice
+
+	*if firstchoice != "crack shot"
+		
+		#"And crack shot," I interrupt him. It's true; even though it's not my foremost skill, I have often been commended for my marksmanship. 
+		
+			*set marksmanship %+25
+			
+			*goto ReligionBackground
+			
+	*if firstchoice != "first class doctor"
+	
+		#"And first-class doctor," I interrupt him. "I can easily keep you alive until they come back for us." It's not an idle boast; it may not be my foremost skill, but I did take honors in medicine at university. 
+		
+			*set medicine %+25
+			*goto ReligionBackground
+	
+	*if firstchoice != "silver-tongued rascal"
+	
+		#"And silver-tongued rascal," I interrupt him. "I can talk us out of any trouble we stumble into out here, just you watch." 
+		
+			*set charisma %+25
+			That's a boast, a deliberate exaggeration to make Pierce smile, but there's a lot of truth in it. You find it easy to bluff at the card table and soothe in the ward, and you're known among your colleagues for your ability to tell a tale.
+			
+			*goto ReligionBackground
+	
+	*if firstchoice != "famous athlete"
+	
+		#"I'm also stronger than I look," I remind him. "I can carry you a great distance if that's what we have to do." Though it isn't my foremost skill, I am far stronger and fitter than most people expect. 
+		
+			*set athleticism %+25
+			Being underestimated is often a very useful skill–not everyone expects a doctor to suddenly put on a burst of speed or prove an expert in hand to hand combat. 
+			*page_break
+			*goto ReligionBackground
+	
+*label ReligionBackground
+Pierce's brief smile fades. "I wasn't…afraid, you know. When they…first came for me. The light-eaters. I…thought I…knew…because we had a healer, you know. In the village…when I was small."
+
+Most villages did back in those days; some do still. The religions of the two empires have the same root, after all, though Mercia broke the power of its Sun Temples centuries ago, and the Vlaskesari allowed theirs to evolve into the current monstrosity, where light-eating is considered the sacred privilege of the sun-touched instead of a perversion and an abomination. (You think of the pile of handprint-stained bodies, and bile rises in the back of your throat.)
+
+Under control of Vlaski aristocrats, Vlaski serfs are still stuck in superstitious dark ages where they are trained to see the sun-touched as blessed and deserving of reverence. Even (especially?) when the sun-touched drain the life from their bodies.
+
+*page_break
+
+Mercia, in contrast, has entered an age of reason (despite the words for old concepts, like "hell" and "damnation," still lingering in the language as cursewords) and the educated no longer subscribe to the nonsense believed by medieval ancestors.
+
+Still, a form of sun-worship does still flourish in some of the more backward colonies, and can even be found among the lower classes and country folk of Mercia itself. Some people consider it harmless. Others claim it is a smokescreen for the same light-eating horrors that go on in Vlaski lands. 
+
+"Some of the villagers said…our healer…was a light-eater…that they…all were," Pierce says. "But that was absurd…she was good and kind…and still they said it…so I wasn't afraid…when the Vlaskesari came to drag me from my cell." He pauses. One hand drifts to touch the blood-red handprint on his chest, where a light-eater sucked his life through his skin to nourish itself. "I should have been afraid."
+
+*choice
+
+	#Yes, he should have been. The best thing Mercia ever did was break the power of the Sun Temples. Every sun-touched person has the capacity to become a light-eater. 
+		
+		*set conventional %+25
+		
+		This fact is particularly horrific to you, since your own grandmother was a healer, and there is some evidence you might be sun-touched like she was. (Not that anyone knows that. It would be as much as your career is worth if that secret got out, and besides which, you never want anyone to think you are anything like those bastards.)
+		
+		Light-eating is the reason Mercia must fight the Vlaski expansion. Every new country they conquer is another source of serfs to prolong the lives of their aristocrats. That's the real reason you joined the Army. 
+		
+		That, and…fighting light-eaters with every ounce of your strength proves to yourself you could never be anything like them. 
+		
+		*goto Cascade
+	
+	#It angers me when light-eating is equated with sun-worship. My grandmother was sun-touched, and she was nothing like the monsters who tortured good people to death in the building behind me.
+	
+		*set conventional %-15
+		
+		Light-eating is a monstrous practice, loathsome to any decent person no matter their faith or the blood in their veins. It unfairly tarnishes all sun-worshippers by association. 
+		
+		You are not a sun-worshipper yourself, of course; you are a Rationalist, like all educated men. But your own grandmother was a healer, and there is some evidence you might be sun-touched like she was—and you can't tell anyone either of those things, because they will assume you are like the monsters from Vlask. It's as much as your career is worth, to let that secret get out.
+	
+		*goto Cascade
+		
+	#It sickens me when light-eating is equated with sun-worship. I might have been a sun-worshipper myself, even a healer, in some earlier age. 
+	
+		*set conventional %-25
+		Light-eating is a monstrous practice, loathsome to any decent person no matter their faith or the blood in their veins. It unfairly tarnishes all sun-worshippers by association. 
+		
+		Your grandmother was a healer, and a good one, and there is some evidence you might be sun-touched like she was. But you cannot explore your grandmother's beliefs or even discuss her talents openly, because if you do, everyone will assume you are like the monsters from Vlask. It's as much as your career is worth, to let that secret get out.
+	
+		*goto Cascade
+		
+*label Cascade
+*page_break
+Before you can decide if you want to share any of these thoughts with Pierce, or how to phrase them, artillery roars almost overhead and you jump nearly out of your skin. You look up in alarm just in time to see a hail of bullets hit the lip of the ravine. Boulders pour down like a waterfall, too fast for you to scramble out of the way or to shield Pierce–and the last thing you see before your vision goes black is the cascade of stone striking his fragile form.
+
+*page_break
+
+You claw your way back to consciousness in slow, painful stages. 
+
+Finally you drag your eyes open.
+
+The rockslide did not bury you. You've been hurt by falling rocks–badly; you can feel blood seeping from your wounds to soak into the hard ground below–but at least you are alive. 
+
+So is Pierce, but only just. Blood spurts from a deep wound in his shoulder–damnation, [i]spurts[/i]. You scramble drunkenly toward him to apply pressure. Your hand is shaking as you clamp down, your head is spinning from your own blood loss, and "very bad" doesn't even begin to describe this situation. 
+*page_break
+You stare at your hand, pressing down on Pierce's shoulder with all the force you can muster. It lies tan against Pierce's white skin, surrounded by other handprints of red (but you're nothing like them). Light-eaters draw life from their victims through the palms of their hands, and careless ones leave handprints behind, dark red against Pierce's skin the same way your hand is dark brown– 
+
+You whisper to yourself [i]I am nothing like them,[/i] but you might be. Your gran said you were. [i]I'm nothing like them[/i] beats like a drum in your head. But maybe you are, and maybe that's the way to save something from this disaster.
+
+The same hands that take life can give it–the sun-touched, who can take another person's inner light to sustain themselves, can also give of their own light to one in need. 
+*page_break
+
+When you were a lad, all you knew was that some people in the village called your gran witch and worse things, and acted afraid of her, while others brought all their problems to her for solving. You were too young to understand why until the day she took you along when she went to heal a playmate of yours from pneumonia. 
+
+She held the child's hands, then had you hold them, telling you that you could feel the fire inside a person if you concentrated hard enough. And that once you felt it, you could fan it into flame even if it was dwindled almost to ash, and once the flame was burning, then the healing would begin. 
+
+"You've got the old gift," she told you. "For all your hair's dark like your da's, you've got a bit of my blood, and the gift runs in the blood."
+
+Your friend did indeed begin to recover at that moment, but your father was furious when he learned of your involvement. He warned you that you must never do such a thing again, or let anyone know you could. 
+
+You never have. Even the people who know what your gran did in the sickroom don't know you had a hand in it. You've never let on to anyone the secret of the blood that might run in your veins. You've never used it; you've never been tempted to use it.  
+
+But…Pierce's face is dead-white, his blood gushing between your fingers. Your friend is dying. You're losing blood fast and are well on the way to unconsciousness yourself. And for the first time since you left home to study medicine, you find yourself tempted to try healing magic. You're nothing like the light-eaters, of course you're not, but you're bleeding to death, and so is Pierce, and this might be the last choice you ever make. Maybe you can use your gran's "old gift" healing to save his life.
+
+Do you?
+
+*choice
+	#Yes. It's the best chance I have of saving him. And no one is here to see, after all.
+	
+		*set conventional %-15
+		*goto firsthealing
+	
+	#Yes. It will balance what was done to him by those who share my inherited talent.
+	
+		*set conventional %-15
+		*goto firsthealing
+	
+	#No. I can't be sure it will work. I will put my faith in modern medicine and make Pierce a tourniquet while I am still conscious.
+	
+		*set conventional %+15
+		*goto companiondies
+	
+	#No. I am a man of science, and I refuse to rely on that superstitious nonsense. I will make a tourniquet.
+	
+		*set conventional %+15
+		*goto companiondies
+		
+	#No, [i]no,[/i] never. I will not be in any way like my enemies across the battlefield. I fumble to make a tourniquet.
+	
+		*set conventional %+25
+		*goto companiondies
+		
+	#No. I can hear artillery coming closer, but I don't know whose. I won't save him just so he can be captured again and tormented again. I take my hand away from the wound and let the blood flow.
+	
+		*set compassionate %-25
+		*goto companiondies2
+		
+*label firsthealing
+You look down at your hand clamped over Pierce's bleeding shoulder, and try to remember what it was your gran told you to do. Close your eyes. Reach out not with your hand but with the flame inside yourself– 
+
+You feel ridiculous.
+
+*choice
+
+	#That's because this is ridiculous. I'm a doctor. I start looking for a stick to make a tourniquet.
+	
+		*goto companiondies
+	
+	#I keep trying.
+	
+		*set healing %+25
+		*set healpierce true
+		
+		And with a suddenness that feels like falling off a cliff, you know when you have succeeded. The moment of connection is like nothing you've ever experienced. It makes you think of warm summer rain and throat-catching music and sun-ripened blackberries.
+		
+		What follows really is a lot like reviving a dying flame in a hearth. You imagine yourself fanning it, coaxing it, feeding it little bits of twigs, though you are physically doing none of these things. It takes a great deal of effort–you feel increasingly lightheaded–but you don't dare stop. 
+		*page_break
+		Your vision is darkening around the edges. 
+		
+		With the last of your energy, you try to push Pierce's now-bright inner flame to the direction of his shoulder–maybe that will stop the bleeding from the inside?–but before you know if you have succeeded, artillery roars almost beside you, snapping you back to the real world. 
+		
+		*gosub Mech
+		
+		*goto Wake
+		
+*label companiondies
+
+Your vision begins to darken as you fumble around on the ground for a stick. You can't find one–this country has far more rocks than trees. And you're too dizzy now to hold your own head upright. You wrap a strip of cloth around Pierce's shoulder, pulling it as tight as your trembling hands can before you collapse beside him–
+
+Artillery roars almost beside you, snapping your heavy-lidded eyes open.
+		
+*gosub Mech
+
+*goto wake
+
+
+*label companiondies2
+
+You watch Pierce's blood pool on the ground. You feel your own blood seeping away. It's peaceful, really. Darkness rises up around you like water in a tidal pool.
+
+Artillery roars almost beside you, snapping your heavy-lidded eyes open.
+
+*gosub Mech
+
+*goto Wake
+
+
+*label Wake
+*page_break
+–and you gasp awake, heart hammering, in your own bed in Kingsford, Mercia's bustling capital city. 
+
+Nightmare. It was a nightmare. 
+
+Damned bloody nightmares. 
+		
+Damned, bloody, realistic nightmares. You'd swear your ears are ringing with the sound of cannon. But it's 1885–[i]1885, [/i] not 1881–and the cannons have been silent for nearly three years. 
+
+You slump against the pillows, sweat running down your back.
+*finish
+
+*comment *******Subroutines**********
+
+*label GoodJob
+A good job, too; there was far too much death today. You wince at the memory of the captured soldiers you were too late to save, and cringe to think of how they died. Light-eating is a vile, sickening practice. (It sickens you in particular, for personal reasons.)
+*return
+
+
+*label Mech
+
+The blank-eyed face of a mech looms over you. You can't tell whose Empire it serves. The mech's cannon-arm swivels, and there's nothing you can do now for Pierce or yourself; you can't even move enough to flinch. Bullets rain all around you and pummel you back into darkness– 
+
+*return

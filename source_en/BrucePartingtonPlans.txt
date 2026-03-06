@@ -1,0 +1,1373 @@
+*comment é
+
+*image Chapter01.png
+
+*label Intro
+*temp approach "none"
+*temp attitude "panic"
+*temp hurt false
+*temp usepress false
+
+*comment Goal - catch the Vlaskesar. Auto-success, how you do it sets stats.
+
+You slowly become aware that you were awoken by a sound. Your flatmate is knocking at your bedroom door. 
+
+It's early for him to be awake, and your stomach knots. He is your friend as well as your colleague, and he knows about your nightmares—but you still hope like hell you weren't shouting in your sleep.
+
+"$!{lastname}?" he calls, and his voice sounds perfectly normal, so very likely you weren't, thank mercy for small favors. "The game's afoot!"
+
+The phrase makes you twitch a smile despite the chill sweat drying on your skin. It's not Finch's usual manner of speaking–he can be a proud and arrogant sort when he chooses, but he's not so artificially pretentious as to [i]customarily[/i] pepper his casual speech with iambic pentameter from a play three centuries old. But he used the quotation once to describe Woodward's telegrams, and it seemed to fit, and in the intervening two years, it has evolved into something between a standing joke and a code phrase.
+
+It is the year 1885, and you are an honorably discharged veteran of Her Imperial Majesty's Army, working as a police surgeon.
+
+On paper. In practice, your role is far more interesting.
+*page_break
+Though the ink of the peace treaty has long since dried, the war between the Empires of Mercia and Vlask continues in subtle ways. And you are a secret soldier for your country, as you were an open one when the war was fought on an open battlefield. You serve on Arthur Woodward's unofficial spy force, tasked with detecting and foiling Vlaski plots before they are able to pose real danger to the Empire or its subjects. 
+
+A summons from Woodward, therefore, is no trivial matter. If you're hearing from him, the game is well and truly afoot.
+
+"I've sent the pageboy for a cab," Finch adds through the door. "We should have one in five minutes."
+
+"I'll be ready in ten." You heave yourself out of bed.
+
+You are thinking…
+
+*choice
+
+	#…I have never been so thankful to receive a telegram. 
+	
+		Why?
+		
+		*fake_choice
+
+			#The sort of challenging work Arthur Woodward provides will surely distract me from the lingering effects of nightmare.
+	
+			#The Vlaskesari of my memories just bested me in the nightmare realm–but I am about to face them in the real world, and we'll see who comes out on top then.
+	
+			#Protecting the Empire as Woodward's operative is what gives my life meaning. That's enough to offset the occasional bad night.
+	
+		*gosub TryingToBePositive
+		*goto Wound
+	
+	#…Woodward's timing is terrible. 
+	
+		You are exhausted, the cold makes your old wound ache abominably, and if the summons had come from anyone else, you would pull the quilt back over your head and ignore it.
+	
+		But the summons did come from the man who is effectively your superior officer. And you've never yet let Finch go face Vlaski conspiracies alone. 
+		
+		Grumbling at the cold and your aching head, you pull off your nightshirt and reach for your clothing. You catch a glimpse of yourself in the mirror, and your wound seems unusually vivid and prominent today–not that it needed to do anything further to call attention to itself; the fierce ache was accomplishing that quite nicely on its own. 
+		*goto Wound
+		
+	#…I can't do this today. I can't.
+	
+		Artillery still rings in your ears, and you'd swear you can smell the odor of Pierce's prison cell, and you just don't have the strength to do this today. 
+		
+		But it was an order, not a request–and you've never yet let Finch go face Vlaski conspiracies alone–so you swing your feet to the floor.
+		
+		You stand there for a moment, swaying a little. Your head aches from sleeplessness, and your wound aches from the cold air. As you throw off your nightshirt, you catch a glimpse of yourself in the mirror and can't hold back the grimace. 
+		*goto Wound
+		
+*label Wound
+
+*choice
+
+	*if marksmanship <= 50
+	
+		#I used to be a crack shot, but the injury to my shoulder has rendered me barely competent with a firearm.
+		
+			*set injury "shoulder"
+			*set marksmanship %-50
+			*goto WarWrapUp
+			
+	*if medicine <= 50
+		#The injury to my right hand makes it good for most things–even shooting–but I am no longer able to perform delicate procedures. 
+		
+			*set injury "hand"
+			*set medicine %-50
+			
+			This is perhaps not such a loss. You were only ever a middling sort of doctor, so it might be just as well that you only deal with corpses as a police surgeon. (Or so you tell yourself.)
+	
+			
+			*goto WarWrapUp
+			
+	*if athleticism <= 50
+		#I used to be quite the athlete, but the injury to my leg was severe. I will walk with a limp for the rest of my life.
+	
+			*set injury "leg"
+			*set athleticism %-50
+			
+			Once you played rugby and boxed and rode horses and tramped up every hill in northern Mercia–but those days are forever behind you.
+			
+			*goto WarWrapUp
+		
+	*if charisma <= 50
+	
+		#I was once considered a good-looking sort, but the scars on my face frighten some people, and I've grown self-conscious and shy in consequence. 
+		
+			*set injury "face"
+			*set charisma %-50
+			*goto WarWrapUp
+			
+
+*label WarWrapUp
+You try to be philosophical about it; philosophy comes easier some mornings than others. You are well aware that it could have been much worse. It's always worse in your dreams.
+
+In your dreams, your final adventure with Pierce usually concludes in a hail of bullets.
+
+*if healPierce
+	At least the real story did not end quite so grimly. You did save his life with your unauthorized healing magic. No one knows that–you were found with your hand clamped over his injured shoulder, and your rescuers assumed you had thereby slowed the bleeding enough to keep him alive until they found the two of you. 
+	
+	*achieve savepierce
+	*choice
+	
+		#Quite likely, that's all it was. I can't be sure I did anything else. 
+		
+			You think about it as little as possible. You've discussed it with no one.
+			
+			*set conventional %+15
+			*goto WarWrapUp2 
+			
+		#In my heart, I know I healed him. The knowledge terrifies me. 
+		
+			You think about it as little as possible. You've discussed it with no one.
+			
+			*set conventional %+10
+			*goto WarWrapUp2
+			
+		#In my heart, I know I healed him, and I so wish I had a mentor to train me in this art.
+		
+			But even to express this wish would ostracize you from good society, so you've discussed it with no one.
+			
+			*set conventional %-15
+			*goto WarWrapUp2
+			
+		#Healing magic is well enough for emergencies, but I wouldn't pursue training in this area even if I could. Modern medicine is enough for me.
+		
+			*set medicine %+10
+			
+			*label WarWrapUp2
+	
+			You and Pierce were both injured severely enough to be invalided home. Nine months later, peace was declared—peace without victory for either side, and a border that scarcely moved from its [i] ante bellum [/i] position. 
+	
+			How do you feel about running so hard just to stand still?
+			
+			*choice
+			
+				#We were not [i]running.[/i] We were spilling blood. The brutal waste of it all sickens me.
+				
+					*set conventional %-10
+					*goto WarWrapUp3
+					
+				#At least we prevented the Vlaskesari from encroaching upon our land. I cling to that thought.
+
+					*set conventional %+10
+					*goto WarWrapUp3
+					
+				#I struggle between pride at what we accomplished and horror at what it cost. 
+				
+					*goto WarWrapUp3
+					
+				#I work with Woodward to nip the next war in the bud, so no other young men will have to endure what my comrades and I did.
+				
+					*set compassionate %+15
+				
+					*label WarWrapUp3
+					
+					Invalided home, both you and Pierce began the long and painful process of getting on with your lives. He took a post in a hospital in the north. You became a police surgeon. 
+		
+					Then you were recruited into Woodward's irregulars, where you perform real, valuable service to your country. You work alongside trusted and respected comrades in arms. Things aren't so bad, really.		
+		
+					Except on mornings like these.
+					*goto Dress
+	
+*else
+	
+	The real story is not quite that grim, though certainly grim enough. The Mercians did manage to push back the Vlaski mech long enough to come to your aid. They arrived to find that Pierce had bled to death, and you were unconscious and nearly dead of blood loss yourself.
+	
+	You were invalided home as a result. Nine months later, peace was declared—a peace without victory for either side, and a border that scarcely moved from its [i] ante bellum [/i] position. 
+	
+	How do you feel about running so hard just to stand still?
+			
+	*choice
+			
+		#We were not [i]running.[/i] We were spilling blood. The brutal waste of it all sickens me.
+				
+			*set conventional %-10
+			*goto WarWrapUp4
+					
+		#At least we prevented the Vlaskesari from encroaching upon our land. I cling to that thought.
+
+			*set conventional %+10
+			*goto WarWrapUp4
+					
+		#I struggle between pride at what we accomplished and horror at what it cost. 
+				
+			*goto WarWrapUp4
+					
+		#I work with Woodward to nip the next war in the bud, so no other young men will have to endure what my comrades did.
+				
+			*set compassionate %+15
+				
+			*label WarWrapUp4
+					
+			Invalided home, you began the long and painful process of getting on with your life. Not yet well enough to open your own practice, you took a job as a police surgeon. 
+	
+			Then you were recruited into Woodward's irregulars, and now you perform real, valuable service to your country alongside trusted and respected comrades in arms. Things aren't so bad, really.
+			
+			Except on mornings like these.
+			*goto Dress
+		
+*label Dress
+*page_break
+You dress as quickly as you can—trousers, shirt, waistcoat, coat, tie, watch on a chain. You tuck your old service revolver into your pocket; you never leave for a Woodward mission without it. 
+		
+Your flatmate Garrett Finch is waiting for you by the door. Despite his overcoat's frayed cuffs—his newspaper photographer's income is no more generous than your police surgeon's salary—his tall form somehow manages to look elegant anyhow. 
+
+*choice
+
+	#I exert myself to betray no sign of my restless night. I hate appearing weak before him.
+	
+		*set conventional %+15
+		He glances at you once, then again more sharply, and you sigh to yourself. You may not have been shouting in your sleep, but it seems Finch read the signs of sleeplessness and nightmare from your face despite your attempts to hide them. 
+		
+		But at least he says nothing of it. 
+		
+		*goto Dress2
+		
+	#There's no point in trying to hide the signs of sleeplessness. Finch's penetrating eyes see through all attempts at artifice; it's what makes him so valuable to Woodward.
+
+		*set perception %+15
+		
+		He glances at you once, then again more sharply, clearly reading the signs of nightmare from your face despite your attempts to put it behind you.
+
+		But that's just Finch's way—you're more than used to it by now—and at least he says nothing of it.
+		
+		*goto Dress2
+
+	#There's no point in trying to hide, and I don't wish to anyhow. We're close friends. 
+	
+		*set compassionate %+15
+	
+		He glances at you once, then again more sharply. "All right?" he says.
+		
+		You shrug. "Well enough. Let's go."
+		
+		*goto Dress2
+
+*label Dress2
+Nine minutes after he knocked on your door, the pair of you are rattling through the just-awakening streets in a hansom cab. You watch the fruit sellers setting up their stands and the newsagents opening their shutters and the serving girls scrubbing their masters's front steps. They don't know it, but Arthur Woodward and his operatives stand between them and harm.
+
+*page_break
+
+Woodward claims to be nothing more than a minor government official, but that is manifestly untrue. For one thing, no minor government functionary could afford suits so precisely tailored. Moreover, though Woodward's office is at the end of a rabbit warren of passageways in a nondescript building, he somehow rates a polite secretary to receive his visitors.
+
+Today Woodward meets you in his secretary's outer office. He has seated his considerable bulk in the chair in which visitors customarily wait before he summons them to enter, his eyes half-closed in a way that might suggest drowsiness if you didn't know better. His secretary Miss Lawrence, neat in a shirtwaist and dark blue skirt, is already busy at her typewriter. Over their shoulders, in Woodward's inner office, you see an unhappy-looking young man seated in a chair with his hands shackled behind him and his ankles chained to the chair legs. "What do we have here?" you ask Woodward.
+
+"At a guess," Finch drawls from behind you, "the theft of something crucial to national security by the government clerk you see before you. His first foray into treason, if I'm not much mistaken, probably because he was blackmailed, but possibly because a Sun Temple cultist convinced him to do it–it would be hard to say without more information."
+
+You are all accustomed to Finch's deductive leaps, but even for him that's extraordinary. You, Woodward, and Miss Lawrence all stare.
+
+Finch shrugs. "The shiny marks on the cuffs from the pressure of writing declare he works in an office, and his age and shabby attire suggest clerk rather than a more senior position. He is clearly in a great deal of trouble; it is clearly something of national importance or Woodward would not be involved; it might be sabotage, but the position of clerk rather suggests opportunities for theft…"
+
+*choice
+
+	#As he talks, I look for the clues he lists. Yes, right, the cuffs, I should have caught that. 
+	
+		*set perception %+25
+		
+		You are determined to learn how to do this as well as your flatmate does, and therefore you take every opportunity for practice. It is beginning to pay off.
+
+		*goto Finch2
+		
+	#I wince just a little at the cool didactic tone. 
+	
+		*set charisma %+15
+		
+		Finch's eyes truly are that sharp, and his deductions truly are consistently accurate, and he has a right to be proud of his skills. But his delivery tends to raise the hackles of the people to whom he is speaking. He hasn't yet been able to teach his techniques to any other operatives, and he doesn't understand that this is why.
+		
+		*page_break
+		
+		*goto Finch2
+		
+	#"A Sun Temple cultist convinced him"? I look for signs this young man is a Sun Temple cultist himself. 
+	
+		*set conventional %-15
+		
+		Not every gentleman of your class would recognize them, but you have a somewhat unusual background for a gentleman of your class. Because of your grandmother, you are able to recognize several subtle signs of those who worship the Sun.
+		
+		In this case, the sign is not even all that subtle. The angle is wrong to be able to tell for certain, but you wonder if the medallion that glints on his watch-chain might be sun-shaped.
+		
+		*page_break
+	
+		*goto Finch2
+
+*label Finch2
+Finch continues, "If he were a regular informant, paid to act as a mole by the Vlaski government, he would be able to afford a frock coat without frayed cuffs and boots without patches on the soles; so it is more likely this is his maiden voyage into treason. The question of blackmail versus indoctrination is harder to resolve. That charm on his watch-chain indicates he's a secret sun-worshipper–one not very good at keeping secrets, to judge by the visibility of the charm; if I can observe it so can someone else, making blackmail a possibility. On the other hand, most of those temples are hotbeds of sedition, so he may have been convinced rather than coerced. For that matter, we have no way of knowing how many temples are run by actual light-eaters, and we have seen that those upon whom light-eaters routinely feed can develop an odd sort of loyalty not unlike the manner in which prisoners sometimes come to relate to their torturers–"
+
+Finch's parlor trick is abruptly much less amusing. For a moment you feel as though the dark shadows of Pierce's prison cell have settled around you, as though you cannot draw a deep breath. 
+
+*choice
+
+	#I set my teeth and clench one fist tight enough to drive the nails into the palm. I am not about to let Woodward see how the memories still affect me. 
+	
+		*set stealthy %+15
+
+		Beside you, Finch checks momentarily, and you realize he caught your movement even if no one else did. Damnation.
+		
+		"–but that's enough of theory," Finch continues, briskly and so smoothly no one else but you could have heard the pause. "We have the man himself right here, after all, and can resolve these questions by more direct means."
+		
+		*goto Finch3
+		
+	#"Finch," I interrupt with an effort at nonchalance. "You do realize he is sitting right here and we can resolve those questions by more direct means?"
+	
+		*set charisma %+15
+		
+		Finch's eyes snap to your face, and a barely perceptible wince tightens the corner of his mouth–so subtle that no one but you could have caught it. "Yes, of course," he says at once, sounding embarrassed at having run on so long. "Practical, as always. Let's get on with it." 
+	
+		*goto Finch3
+		
+	#I can't manage nonchalance. "[i]Finch[/i]."
+
+		*set charisma %-15
+		
+		Finch's eyes snap to your face, and a barely perceptible wince tightens the corner of his mouth–so subtle that no one but you could have caught it. Woodward is drawing a breath to respond to your reaction, but Finch speaks first, smoothly. "Of course, I'm sorry, that's more than enough theory. We have the man himself right here, after all, and can resolve these questions by more direct means."
+
+		*goto Finch3
+		
+*label Finch3
+"Indeed," Woodward agrees, heaves himself to his feet, and turns to lead you into his office. Behind his back, Finch touches your arm, lightning-quick. When you glance at him, he mouths, "I apologize." 
+
+You have just an instant to give him a little "Don't worry about it" shake of the head. You know he was only speaking thoughtlessly, too caught up in the mechanics of deduction to remember the personal part of the equation.  
+*page_break
+"Now then," Woodward says with drawling irony, "may I present the 'Honorable' George Easterly." 
+
+The youth winces at his tone.
+
+"As Mr. Finch observes," Woodward continues, "Mr. Easterly has been employed as a junior clerk in the Naval Department of Her Imperial Majesty's War Office–a position of great delicacy and responsibility, which he has proven himself unfit to hold. Last night he allowed a Vlaski agent working in Kingsford to examine and copy the plans for the Nigel-Trevelyan Glass."
+
+"The Nigel-Trevelyan–?" Finch repeats. "I have never heard of it."
+
+"Of course you have not," Woodward snaps; "it was among the War Office's most closely-guarded secrets. This miserable child was entrusted with one of only three keys!"
+
+You study Easterly. 
+
+*choice
+
+	#I fight down the panic that rises in my chest. If he is a light-eater, chaining his hands behind his back makes us safe enough.
+	
+		*set conventional %+20
+		*goto Easterly
+
+	#For the moment, I am reserving judgment. He might be a light-eater; he might only be a superstitious fool who follows them.
+	
+		*set conventional %+15
+		*goto Easterly
+	
+	#A man well-educated enough to be a clerk is hardly the usual sort to become part of the Sun Temple cult. If he's somehow been duped into joining, it is surely our duty to rescue him.
+	
+		Or could he possibly have been coerced into joining the cult in the first place? Your imagination spins out a story where he wears the medallion semi-openly in the hope that it will attract attention and someone will save him.
+		
+		On the other hand, if he were that clever, wouldn't he have come up with an equally clever way to avoid committing treason?
+		
+		*goto Easterly
+	
+	*if healpierce = false
+		#A wave of pity washes through me, though I don't dare show it. Not all sun-worshippers are light-eaters; surely wearing a medallion is a harmless thing that should not imperil one's career.
+		
+			*set conventional %-15
+			*goto Easterly
+
+	*if healpierce
+		#A wave of pity washes through me, though I don't dare show it. Not all sun-worshippers are light-eaters; not all capable of becoming light-eaters harm others with their talent. 
+
+			*set conventional %-15
+
+			You would know, after all.
+			
+			*goto Easterly
+			
+*label Easterly		
+
+Woodward continues, "He apparently intended to return the plans to their safe before the opening of business this morning, but fortunately for us, the senior clerk had come early to the office and had already missed the plans, which were promptly found in Easterly's pocket."
+
+Finch turns to Easterly. "Might there be some more complex explanation?"
+
+Easterly licks his lips. "No, sir. It is what it appeared to be. I have already confessed."
+
+*choice
+
+	#"Yes," I say gently, "but the 'why' matters." I feel sincere compassion toward the unfortunate young man.
+	
+		*set compassionate %+15
+		*set conventional %-15
+		*set approach "kind"
+		
+		You take a chair, swing it around, and sit backwards with your arms crossed over the top. "How about it, lad? What's the rest of the story?"
+		
+		Easterly looks at you with surprise and faint hope. 
+
+		Out of the corner of your eye, you catch Finch's look of surprise.
+		*goto SwingChair
+		
+	#"Yes," I say gently, "but the 'why' matters." Feigning compassion is the best way to get him to talk.
+		
+		*set charisma %+15
+		*set compassionate %-15
+		*set approach "kind"
+		
+		You take a chair, swing it around, and sit backwards with your arms crossed over the top. "How about it, lad? What's the rest of the story?"
+		
+		Easterly looks at you with surprise and faint hope. 
+
+		Finch catches on immediately, and moves to reinforce your strategy.
+		*label SwingChair
+		"$!{lastname}, you cannot possibly [i]pity[/i] this traitor?"
+				
+		"Quiet, Finch," you say without looking away from the boy. "I think there's more going on here."
+
+		"There are quicker ways to find out what we need to know," Finch snarls. "If he thinks so little of his country, he doesn't deserve our–"
+				
+		"It wasn't that," the boy bursts out. He looks from Finch to you, then settles on you. "I…was being blackmailed.
+		*gosub EasterlyBlackmail
+		Finch turns to Woodward. "What is this Nigel-Trevelyan Glass?"
+		
+		*gosub Glass
+		*page_break
+		*goto SettingTheTrap
+				
+
+	#I speak coldly. "Yes, but I want to know [i]why[/i]." I have never been so sincerely outraged in my life.
+
+		*comment no impact to charisma or compassion - you're sincerely angry and not being especially compassionate
+		
+		*goto IntimidateEasterly
+
+	#I speak coldly. "Yes, but I want to know [i]why[/i]." Feigning outrage is the best way to get him to talk.
+
+		*set compassionate %-15
+		*set charisma %+15
+		
+		*label IntimidateEasterly
+		*set approach "angry"
+		You stalk forward—you have been told you are truly frightening when you do that—and lean over Easterly. "I fought in Goráska. I met them face to face. I saw my friends fall to the touch of their hands. Now I want you to look me in the eye and tell me why you sold us out to them."
+
+		The boy's eyes meet yours for an instant, then fall. In a voice choked with shame, he whispers, "I was being blackmailed.
+		*gosub EasterlyBlackmail
+		Finch turns to Woodward. "What is this Nigel-Trevelyan Glass?"
+		
+		*gosub Glass
+		*page_break
+		*goto SettingTheTrap
+
+*label SettingTheTrap
+
+"It's too late to keep the plans from enemy hands, surely?" Finch says. "If I understand you correctly, they are already there."
+
+"They have been seen by one enemy agent, yes," Woodward replies. "But if we move quickly, they will not be seen by any others." He leans his hands on his desk and looks across at the two of you intently. "There is no way Easterly's Vlaski contact can know we have arrested him. If Easterly sends him a message this morning claiming that an important change has been made to the Glass design, the Vlaskesar will surely desire a second meeting without delay. We have Easterly arrange it for tonight, and we trap the Vlaskesar then. We'll discuss details once Easterly writes us the message for the Personals column."
+
+"The what?" you ask.
+
+Woodward waves a copy of [i]The Times.[/i] "They were communicating by coded advertisements in the Personals column. These here, addressed to 'D'—Easterly says he wrote them. He pointed them out to me earlier this morning, in his hysterical effort to convince me he had performed no act of treason before this one. I have enough information to reconstruct the code he and his correspondent 'Dmitri' used, but the ruse will be better if Easterly composes the message."
+
+"I will not," Easterly says softly.
+*page_break
+Everyone turns to stare at him.
+
+Woodward is the first to speak. "Not an hour ago, you threw yourself whinging upon my mercy. That commodity is neither plentiful nor free. If you do all in your power to help us recover the plans, you may possibly hope for some leniency in your punishment, but otherwise I shall take great personal pleasure in seeing you hang–"
+
+"You talk as though my life still had value to me," Easterly says. "If I do not hang, they will know I helped you. How long do you think I will live then? What do you suppose they will do to my fiancée? If I go to a traitor's death, at least they will have no reason to torment her afterward."
+
+Woodward is for the moment speechless with rage. In the silence, an idea occurs to you. 
+
+What do you say?
+
+*choice
+
+	*if approach != "angry"
+		#I speak to Easterly. "Your life has no value to you. What does?"
+	
+			*set compassionate %+15
+			*set charisma %+15
+			*set conventional %-15
+		
+			Easterly looks at you miserably. 
+		
+			"If you do not want a more lenient punishment in exchange for your help in undoing this disaster you have caused, what do you want?" 
+		
+			"I want the last twenty-four hours to do over again, so I could choose to only ruin my career and shame my family." Easterly's breath escapes in almost a sob. "I want a change in the law, so I could practice my faith without becoming susceptible to blackmailers–" He chokes off the words. "I want my fiancée to be safe," he says then, looking at you steadily. "If you promised to ensure her welfare–her and her old aunt's–promised to find them somewhere to live well away from Kingsford, where it would be too much trouble for the light-eaters to seek them out–if you pledged that to me, I would write anything you wanted."
+		
+			You meet Woodward's eyes over the young man's head. "What about it?"
+		
+			After a long pause, Woodward nods. "We have done such things before. I can make arrangements for the young lady and her aunt to move to the north. Or perhaps to Loegria, which might be more to a sun-worshipper's taste." He fixes Easterly with his eyes. "I shall embark upon these arrangements once we have captured your friend 'Dmitri.' If he slips through our grasp, the girl gets no protection. It is therefore in your interest to be sure we catch him. Let that dissuade you from including any clever warning in your message."
+		
+			Easterly promises frantically that he never planned to do any such thing, that he will do everything he can to help capture the Vlaskesar and earn his fiancée's safety.
+		
+			"Thank you, Doctor," Woodward says to you, and picks up a pen. "Now then. We can get this into the morning editions if we waste no further time."
+		
+			*goto TheTrap
+	
+	
+	*if approach = "angry"
+	
+		#I speak to Woodward over Easterly's head. "Then if you truly wish to punish him, arrange for him to be imprisoned for life and for the newspapers to report the leniency was in exchange for his cooperation." 
+
+			*set charisma %+15
+			*set conventional %+15
+			
+			Would you actually endanger an innocent woman like that?
+			
+			*choice
+			
+				#No, but Easterly doesn't have to know that.
+				
+					*set compassionate %-10
+					*goto EasterlyNo
+					
+				#Yes, if that was what was required.
+				
+					*set compassionate %-25
+					*label EasterlyNo
+		
+					"No!" Easterly looks at Woodward desperately. "I'll help. I will. Only say she'll be safe, she and her old aunt, and I'll write anything you want."
+		
+					You meet Woodward's eyes over the young man's head. "What about it?"
+		
+					After a long pause, Woodward nods. "We have done such things before. I can make arrangements for the young lady and her aunt to move to the north, where it will be too much trouble for Kingsford-based Vlaski agents to hunt her down. Or perhaps to Loegria, which might be more to a sun-worshipper's taste." He fixes Easterly with his eyes. "I shall embark upon these arrangements once we have captured your friend 'Dmitri.' If he slips through our grasp, the girl gets no protection. It is therefore in your interest to be sure we catch him. Let that dissuade you from including any clever warning in your message."
+		
+					Easterly promises frantically that he never planned to do any such thing, that he will do everything he can to help capture the Vlaskesar and earn his fiancée's safety.
+		
+					"Thank you, Doctor," Woodward says to you, and picks up a pen. "Now then. If we waste no further time, we can get this into the morning editions."
+		
+					*goto TheTrap
+			
+	#I speak to Woodward privately. "I can prepare you a syringe of something that will relax him and may make him more willing to do as you ask."
+	
+		*set compassionate %-15
+		*set medicine %+15
+		*set conventional %+15
+		
+		Woodward looks at you in surprise. 
+		
+		You shrug, thinking of the pile of bodies inside the Vlaski prison camp. "I don't have much patience with traitors."
+		
+		Woodward smiles. "I share your views completely. Do it."
+		
+		Shortly thereafter, you inject into the cringing Easterly a drug that is often used in doctor's surgeries to make the subject relaxed and biddable. (It is also sold in the East End, where many go to forget as thoroughly as possible the things that torment them.)
+		
+		Easterly fights it for a while, but soon can no longer resist its pull. He dictates the requested message to Woodward, explaining the reason for each code phrase he chooses. Woodward writes quickly, and sends a messenger at once to the office of [i]The Times[/i]. "We can just get it into the morning edition," he says, and leans back with a sigh. "I thank you, Doctor, for your most efficient solution."
+		
+		Easterly slumps miserably in his chair. 
+		
+		*goto TheTrap
+	
+	#I speak to Woodward in front of the others. "He need not participate at all. I can write it."
+	
+		*set conventional %-15
+		*set charisma %+15
+		*set usepress true
+		
+		Woodward looks surprised. "You?"
+		
+		"You said you have the code phrases. Do you have all the earlier messages? Then I am confident I can write something that sounds the same. The Vlaskesar won't suspect a thing."
+		
+		Woodward is silent for just a moment, then calls for Miss Lawrence. "Get the Doctor a pen and paper and the list of messages."
+		
+		With the newsprint in front of you and the clock ticking inexorably behind you, you write as fast as you can. You count the number of words in each message and make sure this new one is neither unusually short nor unusually long. You employ one of the code phrases whose meaning Woodward is certain of. You read the result through three times to be sure the tone and rhythm match the others.
+		
+		Woodward examines your work, nods, and calls for a messenger to take it to the offices of [i]The Times[/i]. "We can just get it into the morning edition," he says. "Thank you, Doctor. A most innovative solution."
+		
+		*goto TheTrap
+
+
+*label TheTrap
+*page_break
+That night, you and two other operatives gather at the empty house Easterly and Dmitri have been using to meet, and settle down to wait. 
+
+You must, of course, sit without a fire, and the night is bitter cold. Your feet grow numb within your boots, and you shift gently, silently, trying to keep the blood flowing. Finally midnight tolls, and you gratefully rise to your feet. 
+
+You know your companions are doing the same, although you cannot see them. Stevenson waits at the end of the darkened corridor. You stand where you can see into the room with the makeshift writing desk, and Morris, the youngest and strongest of the three of you, is stationed within that very room, behind the door, from which position he will hopefully be able to subdue Dmitri the instant the Vlaskesar steps through the doorway.
+
+Down below, the back door creaks open, and a wave of adrenaline whip-cracks through you. 
+
+*page_break
+*if usepress
+	*achieve usepress
+
+If you did not know the man climbing the stairs was Finch disguised in George Easterly's clothing, you would never be able to guess. The masquerade is perfect; Finch's genius with disguise is second only to his sharp eyes. The dark lantern trembles in his deliberately-shaking hand, making the light dance in a way that obscures rather than illuminates. You cannot really see the Vlaski spy climbing the stairway behind him, but at least you are confident he cannot see you either. Dmitri follows Finch into the room with the desk, and you tense, revolver ready.
+
+Finch unshutters the lantern fully at the same moment Morris springs. Morris tackles the Vlaskesar half to his knees, one arm across his throat–
+
+But Dmitri whirls before Morris can establish the chokehold. He is a big man, but you have never seen anyone move that fast, ever. Morris gives an odd little gasp and crumples, and the Vlaskesar is sprinting for the stairway before your comrade hits the floor. 
+
+Finch spits a curse and follows at a dead run. 
+
+The flash of Finch's lantern as it goes by shows the knife sticking out of Morris's chest, the blood welling up around the hilt. 
+
+What do you do?
+
+*choice
+
+	#I run to Morris's aid. 
+	
+		*set compassionate %+20
+		*set medicine %+15
+
+		You may have a duty to help secure the enemy spy, but you're a doctor first; you have to take a moment to be sure of your teammate's welfare. 
+	
+		*goto TakeCareOfMorris
+	
+	#I pause long enough to say, "Morris, stay still, and don't pull it out!" before I sprint to help capture Dmitri. 
+	
+		*set compassionate %-20
+		*set stealthy %-15
+
+		Capturing the enemy spy is your first duty; you have to trust that Morris will survive long enough for you to get back to him. 
+		
+		*goto HallwayScuffleBold
+		
+	#I pause long enough to whisper, "Morris, stay still, and don't pull it out." Then I slip out the door and into the corridor, silent and concealed by shadow.
+	
+		*set compassionate %-20
+		*set stealthy %+15
+
+		Capturing the enemy spy is your first duty; you have to trust that Morris will survive long enough for you to get back to him. 
+		
+		*goto HallwayScuffleDiscreet
+	
+*label TakeCareOfMorris
+
+You drop to your knees beside Morris, fumbling for your own dark lantern. His eyelashes flicker, and his breath comes rapid and shallow. The injury itself isn't immediately life-threatening as long as the knife stays where it is, but shock carries its own risks. You pack bandages around the wound to staunch the bleeding, then shrug off your overcoat to use as a blanket.
+
+From the floor below, you hear thumps, curses, a cry of pain, and Stevenson hoarsely calling your name. You have to get down there; losing the Vlaskesar with his headful of War Office secrets puts the lives of many innocents at risk. But Morris's skin is still clammy, his pulse still weak and rapid.
+		
+You have only an instant to decide. Do you trust that your medical treatment so far will be enough to keep Morris in one piece until you return, or do you push a little healing magic into his skin before you go?
+		
+*choice
+		
+	*if healpierce 
+		#I use healing. The sooner I have Morris stabilized, the sooner I can get out there and help the others.
+				
+			*set healing %+25
+			*set conventional %-15
+			*set healmorris true
+			
+			You lay your hands against Morris's clammy skin and close your eyes. For a moment you swear you can hear the pounding rumble of the battlefield as you try to remember what it was you did to heal Pierce. 
+			
+			The moment of connection floods all your sense, leaves you reeling. You focus on the weakened flame that burns under Morris's skin and pour energy through the palms of your hands to revive it. It's easier this time. You break off the instant you feel lightheaded–if you heal him completely, your colleagues will know what you have done, and you haven't the time in any case. 
+			
+			His skin is warmer now, his breathing and pulse slower. You drape your coat over him, then scramble up and run to help the others.
+					
+			*goto FinchHallway
+			
+	*if healpierce = false
+		#I use healing. The last time I faced this decision, I chose not to try it, and my dear friend Pierce died. 
+				
+			*set healing %+25
+			*set conventional %-15
+			*set healmorris true
+					
+			You lay your hands against Morris's clammy skin, and try to remember what it was your grandmother told you to do. Close your eyes. Reach out not with your hand but with the flame inside yourself– 
+					
+			And with a suddenness that feels like falling off a cliff, you know when you have succeeded. The moment of connection floods all your sense, leaves you reeling. You focus on the weakened flame that burns under Morris's skin and pour energy through the palms of your hands to revive it. You break off the instant you feel lightheaded–if you heal him completely, your colleagues will know what you have done, and you haven't the time in any case. 
+			
+			His skin is warmer now, his breathing and pulse slower. You drape your coat over him, then scramble up and run to help the others.
+					
+			*goto FinchHallway
+					
+	#I place my trust in modern medicine, of course. 
+			
+		*set medicine %+15
+		*set conventional %+15
+				
+		You elevate Morris's feet, drape your coat over him to keep him warm, then scramble up and run to help the others. 
+				
+		*goto FinchHallway
+				
+	*if healpierce = false
+		#No, [i]never[/i], I will never dabble in that dangerous power, no matter the temptation. Modern medicine carries no hidden danger of turning the practitioner into a monster.
+	
+			*set medicine %+15
+			*set conventional %+15
+				
+			You elevate Morris's feet, drape your coat over him to keep him warm, then scramble up and run to help the others. 
+				
+			*goto FinchHallway
+		
+	#I am tempted to use healing, but I can't. If I am associated with sun-worshippers and light-eaters, I will lose my career as surely as George Easterly lost his.
+			
+		*set medicine %+15
+		*set compassionate %-15
+	
+		*comment I think this one is compassionate and not conventional because you hold an unconventional opinion, but are making a ruthless decision for your own benefit. 
+		
+		You elevate his feet, drape your coat over him to keep him warm, then scramble up and run to help the others. 
+				
+		*goto FinchHallway
+			
+
+*label FinchHallway
+*page_break
+Just as you reach the landing, you hear a solid thud from below, two pairs of feet running, and the heavy door slamming shut behind them. Looking down, you see the entryway deserted except for Finch.
+
+He leans against the wall as though dizzy. Visible in the poor light of the dark lantern–standing livid against the pale skin of his face–is a red handprint.
+
+*goto FinchDrainReaction
+
+*label HallwayScuffleBold
+*set stealthy %-15
+*set athleticism %+15
+
+You burst out onto the landing to see that 
+*label HallwayScuffleBold2
+Dmitri is already halfway down the stairs, Finch at his heels and Stevenson right behind Finch. Finch throws caution to the wind and flings himself forward, and he and Dmitri clatter and clash down the stairs to the bottom. 
+
+You hurl yourself into the rough-and-tumble with the Vlaskesar.
+	
+*page_break
+It's a tangle of arms and legs and teeth. You know you get one good punch to Dmitri's jaw, but he doesn't seem to feel it. Then you see the Vlaskesar's open palm swinging for you and try to dodge, but it fastens with almost inhuman strength around your left wrist.
+
+Your brain screams panic, but you cannot move your wrist away. Your muscles will not obey you. You are frozen, and strength flows from the point of contact, like blood draining from a severe wound. 
+
+Light-eater. He's a light-eater. 
+		
+And you cannot move.
+		
+*page_break
+		
+The gripping fingers are ripped violently from your skin. You blink. You can't see whether Finch or Stevenson tore the Vlaskesar off you, but Dmitri crashes against the wall, stunned for an instant. Stevenson closes on him, but Dmitri surges to his feet, claws the heavy door open, and escapes into the night with Stevenson hard on his heels.
+		
+"All right?" Finch has caught hold of your shoulders. "[i]Are you all right[/i]?"
+
+*comment Sherlock Easter egg :)
+		
+*choice
+		
+	#I am fighting down the panic that is trying to claw up my throat. 
+			
+		*set attitude "panic"
+		*set conventional %+15
+		
+		Light-eater, the Vlaskesar's a light-eater, he had his repulsive hands on your skin– For a moment you can hear mechs and screaming.
+				
+		But you don't have time for that. You succeed in swallowing it. "Yes," you rasp. "It's not bad." Indeed, the sense of weakness is already fading. You shake your head to clear it. "Come on, we can't let him get away."
+
+		*goto Street
+				
+	#I am momentarily overwhelmed by a sense of despair. In my city. They're in my city. 
+			
+		*set attitude "city"
+		*set compassionate %+15
+		
+		You wonder if anything at all was achieved through that warfront suffering, if Vlaski light-eaters as well as Vlaski spies wander at will through your city? 
+		
+		But you don't have time for that. You fight it down. "Yes," you rasp. "It's not bad." Indeed, the sense of weakness is already fading. You shake your head to clear it. "Come on, we can't let him get away."
+
+		*goto Street
+				
+	#The flood of furious anger does an admirable job of clearing my head. 
+			
+		*set attitude "fury"
+		*set compassionate %-15
+		
+		The Vlaskesar is a light-eater as well as a spy–and he has the [i]audacity[/i] to walk into your city and lay hands on you?
+		
+		"I'm fine," you snarl, though your throat somehow turns it into a rasp. "It's not bad." Indeed, the sense of weakness is already fading. "Come on, I'm damned if I let him get away!"
+				
+		*goto Street
+			
+	#The situation abruptly seems funny–a reaction that is probably nine-tenths hysteria. 
+			
+		*set attitude "laughter"
+		*set conventional %-15
+		You swallow the desire to laugh. "I'm fine," you rasp. "It's not bad." Indeed, the sense of weakness is already fading.
+				
+		Finch is still looking at you strangely. You try to give voice to the thought: "Did that bastard look like a light-eater to you? Nor to me. Somebody clever should really invent something that lets us tell…"
+				
+		Finch grins briefly–probably more at the evidence you're well enough to joke rather than at the joke itself. "Come on," he says. "We can't let him get away."
+				
+		*goto Street
+		
+*label HallwayScuffleDiscreet
+*comment The careful, calculated solution
+*set stealthy %+15
+		
+You slip silently onto the landing to see that Dmitri is already halfway down the stairs, Finch at his heels and Stevenson right behind Finch. Finch throws caution to the wind and flings himself forward, and he and Dmitri clatter and clash down the stairs to the bottom. Stevenson joins the rough-and-tumble. Dmitri hurls Stevenson off, but Finch lunges forward to fill the gap. 
+
+*choice
+
+	#Right, enough of this. I aim my revolver.
+	
+		*set marksmanship %+15
+		Dmitri's hand slaps onto Finch's face, and Finch freezes in place…
+
+		…directly between you and Dmitri, in your line of fire. 
+		*page_break
+		You can't do anything, and Finch hangs rigid in the Vlaskesar's grasp, but Stevenson stirs. 
+		
+		Dmitri looks over at him, snarls in annoyance, and releases Finch. The Vlaskesar springs to his feet and manages to claw the heavy door open before Stevenson staggers to his feet. Dmitri escapes into the night, and with a choked sound of rage, Stevenson tears off in pursuit. 
+		
+		Finch leans against the wall, as though dizzy. Visible in the poor light of the dark lantern–standing livid against the pale skin of his face–is a red handprint.
+
+		*goto FinchDrainReaction		
+
+	#I'm better at hand-to-hand combat than I would be shooting in this dim light. I run down the stairs and fling myself into the fight.
+	
+		*set athleticism %+15
+		*goto HallwayScuffleBold2
+	
+	#I shout to distract Dmitri.
+	
+		*set charisma %+15
+		
+		A tactic that has worked often for you in the past–but it doesn't work this time. Dmitri is not even momentarily distracted. 
+		
+		His hand slaps onto Finch's face, and Finch freezes. Dmitri  looks up at you on the landing and smiles. Time seems to stop. You can't possibly be seeing what you think you are seeing. 
+		
+		Finch hangs rigid in his grasp, as though paralyzed, but Stevenson stirs. Dmitri looks over at him, snarls in annoyance, and releases Finch. The Vlaskesar springs to his feet and manages to claw the heavy door open before Stevenson staggers to his feet. Dmitri escapes into the night, and with a choked sound of rage, Stevenson tears off in pursuit. 
+		
+		Finch leans against the wall, as though dizzy. Visible in the poor light of the dark lantern–standing livid against the pale skin of his face–is a red handprint.
+
+		*goto FinchDrainReaction
+	
+*label FinchDrainReaction
+*choice
+
+	#Fury clouds my vision. So the Vlaskesar is a light-eater as well as a spy–and he had the [i]audacity[/i] to lay hands on a friend of mine? 
+	
+		*set attitude "fury"
+		*set compassionate %-15
+		
+		Blinking away the red haze as well as you can, you run down the stairs to Finch.
+		*goto FinchHallway2
+	
+	#For a moment panic rises in my throat, the handprint on Finch's face merging with the remembered handprint on Pierce's. 
+	
+		*set attitude "panic"
+		*set conventional %+15
+		
+		But you can't surrender to this now. You push off the imagined screams and rumble of mechs, and stumble down the stairs to your friend.
+		*goto FinchHallway2
+		
+	#A sense of despair threatens to overwhelm me. In my city. They're in my city. 
+
+		*set attitude "city"
+		*set compassionate %+15
+		
+		You wonder if anything at all was achieved through that warfront suffering, if Vlaski light-eaters as well as Vlaski spies wander at will through your city? 
+		
+		But you don't have time for this now. You push it away as well as you can and run down the stairs to your friend.
+		*goto FinchHallway2
+
+	#Beneath the worry over Finch, I am conscious of a little thrill of pleasure at the magnitude of this challenge.
+	
+		*set attitude "laughter"
+		*set conventional %-15
+		
+		A light-eater is far more dangerous than a spy, and his capture a far greater victory. Oh, you're going to [i]enjoy[/i] this.
+		
+		But first it is of paramount importance to see that Finch is well. You run down the stairs to your friend. 
+		
+		*goto FinchHallway2
+		
+
+*label FinchHallway2	
+	
+Finch raises his head to look at you. "…'s all right," he manages. "I'm all right. He only–touched me for a moment. It's already fading." With a grimace of attempted humor, he adds, "That bastard–look like a light-eater to you? Nor to me. We need that bloody Glass–in the worst way…" He pushes off the wall, shaking his head to clear it. "Right. Come on. We can't let him get away."
+*goto Street
+
+*label Street
+
+*page_break
+Neither Dmitri nor Stevenson is in sight as you burst through the front door and into the street, but the sound of their running footsteps carry clearly in the frosty night air. You and Finch pause a moment, listening. The footsteps come from dead ahead as the crow flies, but the most direct route is blocked by a building. 
+
+Finch goes right, you go left. As you approach the left-hand alleyway, the footsteps somewhere in front of you fade…still without telling you exactly where they were.
+
+*choice
+
+	#I run through the alleyway, trusting that my dark lantern will be enough to guide me and my reflexes quick enough to avoid the obstacles within. 
+	
+		The dim glow of the lantern casts illumination no more than a step or two before you, but you plunge boldly into the darkness anyhow. 
+
+		*if stealthy < 50
+			You manage to dodge crates and refuse, and you manage to avoid falling even when the cobblestones underfoot abruptly turn uneven. 
+			
+			In the outer beam of your lantern light, a figure springs into existence—a man crouching low just ahead of you. You barely manage to jerk away from its grasping hand.
+			
+			"Sorry," Stevenson's voice rasps. "Didn't mean to scare you…sorry."
+			
+			*page_break
+			*goto StevensonChoice
+			
+		*else
+			At what proves to be a pace too fast for your reflexes. The edge of your lantern-light shows you uneven cobblestones and the edges of crates and other refuse, but you are largely unable to react fast enough to avoid twisting your ankles on them.
+
+			In the outer beam of your lantern light, a figure springs into existence—a man crouching low just ahead of you. You try to jerk away, but his hand closes over your ankle. 
+			
+			You lose your footing and fall, crashing hard to your knees on the stones.
+			*if injury = "leg"
+				Pain shoots up your bad leg.
+			*comment endif
+			
+			"Bloody hell," Stevenson's voice rasps. "$!{lastname}, I'm sorry…you all right?"
+			
+			*page_break
+			*goto StevensonChoice
+		
+	#I move slowly, trusting that I am stealthy enough to avoid drawing the notice of anyone lurking within. 
+		
+		*if stealthy > 50
+			
+			Step by silent step, you ease down the alleyway, placing your feet so cautiously that the scattered refuse cannot trip you. You take care not to scrape the walls with your shuttered lantern, no matter how closely the bricks press; you keep one gloved hand over your nose and mouth to muffle your breathing.
+			
+			From up ahead, you hear a sigh and a shuffle—the shifting of position of someone who has no idea you are in here with him.
+			
+			You close the distance with slow, careful steps.
+			
+			He sighs again—much closer this time.
+			
+			You brace yourself for confrontation, and all at once unshutter the lantern.
+			
+			It is Stevenson. 
+			
+			*page_break
+			*goto StevensonChoice
+		
+		*else
+			
+			You try to place your feet carefully, but you are unable to stop yourself stumbling over a crate. Then over an uneven cobblestone. Then over some unidentifiable refuse. Trying to steady yourself, you carelessly allow your shuttered lantern to scrape against the brick wall.
+			
+			If someone is lying in wait for you in this alleyway, you are making more than enough noise to tell him precisely where you are…and as the thought occurs to you, a hand shoots out of the darkness and fastens over your ankle. 
+			
+			You try to jerk away, lose your footing, and fall, crashing hard to your knees on the stones.
+			*if injury = "leg"
+				Pain shoots up your bad leg.
+			*comment endif
+			
+			"Bloody hell," Stevenson's voice rasps. "$!{lastname}, I'm sorry…you all right?"
+
+			*page_break
+			You unshutter your lantern.
+			*goto StevensonChoice
+
+		
+	#Even knowing I have no time to waste, I spend a few precious seconds listening hard, attempting to gather additional data.
+	
+		You pause in the blackness of the alleyway and strain your ears for sounds that would indicate another presence here with you. If the Vlaskesar has planned an ambush, you will not be so foolish as to stumble into it.
+		
+		Nothing.
+		
+		You ease forward a few steps and listen again. 
+		*if perception > 50
+		
+			From up ahead, you hear a sigh and a shuffle—the shifting of position of someone who has no idea you are in here with him.
+		
+			Revolver in hand, you continue silently toward the sound…and all at once unshutter your lantern.
+		
+			It is Stevenson.
+			*page_break
+			*goto StevensonChoice
+			
+		*else
+		
+			Still nothing. 
+			
+			A hand shoots out of the darkness and fastens over your ankle, and with an ice-cold thrill of horror, you fall, crashing hard to your knees on the stones.
+			*if injury = "leg"
+				Pain shoots up your bad leg.
+			*comment endif
+			
+			"Bloody hell," Stevenson's voice rasps. "$!{lastname}, I'm sorry…you all right?"
+			
+			*page_break
+			You unshutter your lantern.
+			*goto StevensonChoice
+			
+*label StevensonChoice
+Stevenson's face is paper-white, and he sits on the filthy cobblestones, sagging against the brick wall as though he hasn't the energy to hold himself upright. His shirt has been torn open, and the handprint is branded on his chest—not that you needed the confirmation; he is displaying all the symptoms of a man drained dangerously close to death by a light-eater. 
+
+"I'm all right," he insists in a voice no louder than a whisper. "Leave me here and go after him–he went that way. Just be warned. He got my pistol away from me."
+*choice
+			
+	#I thank him for the warning, clasp his hand in farewell, and continue my pursuit in the direction he indicated. He'll be all right until I get back. 
+				
+		*set RelWoodward %+25
+		*set compassionate %-20
+		
+		And even if he is not, the Vlaskesar [i] has [/i] to be captured…while there is still an operative left standing to do it. It's a cold decision, but necessary. Your ability to keep your focus on your missions is one of the things Woodward values most about you.
+				
+		*goto FinchInDanger
+				
+	#I hesitate, looking about for something I can do for him.
+				
+		*set compassionate %+15
+					
+		"Never mind!" Stevenson says, so agitated he almost raises his voice above a rasp. "I'll be fine, go get him!"
+					
+		Revolver in hand, you continue your pursuit in the direction Stevenson indicated. The Vlaskesar [i] has [/i] to be captured…while there is still an operative left standing to do it.
+					
+		*goto FinchInDanger
+				
+	#I press my own revolver into his hand. "At least you won't be defenseless."
+				
+		*set compassionate %+20
+					
+		"Have you lost your mind?" Stevenson pushes the firearm back to you, so agitated he almost raises his voice above a rasp. "I'll be fine, go get him!"
+
+		Revolver in hand, you continue your pursuit in the direction Stevenson indicated. The Vlaskesar [i] has [/i] to be captured…while there is still an operative left standing to do it.
+					
+		*goto FinchInDanger
+		
+
+*label FinchInDanger
+*page_break
+You emerge from the alleyway maze to a street where gaslight provides a little illumination–and at once spot Finch, partway down the street, back turned to you, moving with his usual catlike grace and listening hard with his head tilted.
+
+And behind him, a larger, bulkier form looms. Gaslight gleams off the pistol the Vlaskesar is pointing at Finch's back.
+
+You have only an instant. What do you do?
+
+*choice
+
+	#I draw the Vlaskesar's attention to myself and away from Finch.
+
+		*set stealthy %-15
+		*set charisma %+15
+		
+		*comment The bold, fearless move
+		
+		It's a risky decision, prioritizing your friend's safety over your own–but it's the only thing to do. 
+		
+		*if attitude = "laughter"
+			Battle fever sings in your veins as you take the one step that puts you directly behind your Empire's enemy. You feel the rictus grin pulling your lips back from your teeth.
+
+			[i]This is how we of Mercia bring down our enemies. We are fearless.[/i]
+			*goto Shout
+		
+		*if (attitude = "fury") or (attitude = "city")
+			Fury boils in your veins as you take the one step that puts you directly behind your Empire's enemy. You will [i] never [/i] allow filth like that to threaten your city, your friends, or yourself. Never.
+			*goto Shout
+		*else
+			The panic you felt earlier snaps out of existence like a pricked bubble. Calm and sure, you take the one step that puts you directly behind your Empire's enemy. They will never have the run of Kingsford. Not while you're there to defend it.
+			*goto Shout
+				
+
+	#I raise my own revolver and drop him where he stands before he can fire. 
+		
+		*set compassionate %-15
+		*set marksmanship %+15
+		
+		A ruthless and eminently practical decision. 
+		
+		*if injury = "shoulder"
+			If only you can make the shot. 
+			
+			You take the one step that puts you behind your Empire's enemy. Pain shoots through your shoulder as you raise your revolver. You try to ignore it. You have to make this shot. 
+			
+			Have to. 
+			*page_break
+			
+			Your shot pierces the quiet night, the Vlaskesar drops like a stone, and Finch whirls around.
+			
+			You did it. Ruined shoulder and all. Those bastards [i] can't [/i] stop you defending your Empire–not even by dropping a rockslide on you. 
+			
+			Which is something you can think about later. For now, you are running toward the Vlaskesar's fallen body as Finch sprints toward it from the other direction. 			
+			*goto Shot2
+		
+		*else
+		
+			*if attitude = "laughter"
+				Battle fever sings in your veins as you take the one step that puts you directly behind your Empire's enemy. You feel the rictus grin pulling your lips back from your teeth.
+				
+				But then you raise the revolver, and instantly you are calm. Your hands are rock steady as you sight along the barrel. 
+
+				*goto Shot
+				
+			*elseif (attitude = "fury") or (attitude = "city")
+		
+				Fury boils in your veins as you take the one step that puts you directly behind your Empire's enemy. You will [i] never [/i] allow filth like that to threaten your city, your friends, or yourself– But then you raise the revolver, and instantly you are calm. Your hands are rock steady as you sight along the barrel. 
+
+				*goto Shot
+			
+			*else
+				The panic you felt earlier snaps out of existence like a pricked bubble. You take the one step that puts you directly behind your Empire's enemy. Your hands are rock steady as you aim the revolver. 
+				
+				Light-eater filth will never have the run of Kingsford. Not while you're there to defend it. 
+				
+				*goto Shot
+
+	#I scoop up a convenient chunk of brick and throw it hard. If I can smash the glass of the building opposite, Dmitri may be distracted—and will not be reflexively firing at my position.
+	
+		*set perception %+15
+		*set athleticism %+15
+		*set conventional %-15
+		
+		A clever and unconventional decision.
+		
+		*if attitude = "laughter"
+			Battle fever sings in your veins. You feel the rictus grin pulling your lips back from your teeth.
+			
+			But as soon as your hand closes over the brick, you are calm. Your eyes measure the distance to the window, you straighten, and you throw, all in one smooth movement.
+
+			*goto Shatter
+		
+		*if (attitude = "fury") or (attitude = "city")
+			Fury boils in your veins. You will [i] never [/i] allow filth like that to threaten your city, your friends, or yourself. Never.
+			
+			But as soon as your hand closes over the brick, you are calm. Your eyes measure the distance to the window, you straighten, and you throw, all in one smooth movement.
+
+			*goto Shatter
+
+		*else
+			The panic you felt earlier snaps out of existence like a pricked bubble. Calm and sure, you heft the brick. Your eyes measure the distance to the window, you straighten, and you throw, all in one smooth movement.
+
+			*goto Shatter
+
+			
+*label Shot
+*page_break
+Your shot pierces the quiet night, the Vlaskesar drops like a stone, and Finch whirls around. 
+		
+Neither of you hesitate, he sprinting toward the body from one direction as you pound toward it from the other. 
+*label Shot2
+By the time you reach him, he has kicked the Vlaskesar's pistol aside and is standing over the prone body with his own weapon drawn. You drop to your knees to check for a pulse, though from the look of the chest and the blood, there is hardly any point. 
+		
+"Dead? Good." Finch looks shaken. "That was—damned fine shooting. Stupid of me to let him get so close." His hand drops to your 
+*if injury = "shoulder"
+	good
+shoulder. "Lucky you had my back."
+
+*goto WinterDawn
+
+*label Shout
+
+Your shout pierces the quiet night–a challenge in broken battlefield Vlaski. "Face me, you bloody coward!"
+		
+Dmitri whirls, firing, and you flatten against the wall.
+		
+*if stealthy > 50
+
+	*set hurt true
+	Not quite quickly enough.
+	*goto Shout2
+*else
+	*goto Shout2
+	
+*label Shout2
+*page_break
+		
+*if hurt
+	A hot pain sears your shoulder. You can't spare attention for it.
+*comment endif
+	
+You lunge back out of the shadows, revolver raised to fire back–
+		
+Just in time to see a white-faced Finch drop the Vlaskesar from behind, firing until his revolver is empty. Dmitri crumples to the cobblestones, and Finch sprints up the street toward you.
+		
+You meet over the lifeless body. Finch kicks aside the Vlaskesar's weapon, and you drop to your knees to check for a pulse, though from the look of the chest and the blood, there is hardly any point.
+		
+"Dead," you report, looking up. The earlier roil of emotions seems to have spent itself; your mind is now clear and calm. This is a battlefield after a battle, and you know how to handle those.
+		
+*if hurt
+	Finch, looking shaken, pockets his revolver and comes to take hold of your arm. "You're hurt."
+		
+	Your shoulder is throbbing, now you come to pay attention to it. You twist to look as Finch pulls aside layers of cloth to examine the injury. "Not badly," you reassure him. "No, truly, I've [i]been[/i] badly hurt, remember? I know the difference. Morris and Stevenson are both worse off–we need to get back to them."
+			
+	Finch rapidly twists a handkerchief into a makeshift bandage. A tremor runs through his fingers, no doubt due to the cold. 
+	*goto Shout3
+*else	
+	Finch, looking shaken, pockets his revolver and comes to take hold of your arm. "Are you hurt?"
+	
+	You shake your head. "Missed me."
+	
+	*label Shout3
+	"You do realize that was incredibly stupid."
+
+	How do you reply?
+				
+	*choice
+
+		#With the cheeky good cheer of the man who has survived the battlefield.
+	
+			*set conventional %-15
+			
+			"The part where you permitted him to sneak up behind you? Yes, indeed it was. Lucky I was there, isn't it?" Finch starts to answer, but you talk over him. "I could see you had a better angle than I did, so of course I gave you a chance to make use of it. Which you did. And…damned fine shooting, too." You reach 
+			*if hurt
+				with your uninjured arm 
+			to touch his shoulder. "Thanks."
+			
+			*goto Shout4
+			
+		#By explaining the cool rationale underlying my tactic.
+	
+			*set conventional %+15
+			
+			"No, it wasn't. A minor risk, if that. I could see you had a better angle than I did, so of course I gave you a chance to make use of it. Which you did." Finch starts to answer, but you talk over him, softening your voice. "And…damned fine shooting, too." You reach 
+			*if hurt
+				with your uninjured arm 
+			to touch his shoulder. "Thanks."
+	
+			*goto Shout4
+			
+		#With annoyance. I have had this conversation before, and I'm not in the mood.
+	
+			*set compassionate %-15
+			
+			"Not as stupid as you letting him sneak up behind you. Shall we call it a draw? Look, I could see you had a better angle than I did, so of course I gave you a chance to make use of it. Which you did." Finch starts to answer, but you talk over him, softening your voice. "And…damned fine shooting, too." You reach 
+			*if hurt
+				with your uninjured arm 
+			to touch his shoulder. "Thanks."
+	
+			*goto Shout4 
+			
+		#By brushing it off. He and I are always doing stupid things in each other's defense. We could reduce this conversation to a code phrase too, if we had a mind to.
+	
+			*set compassionate %+15
+			
+			"No, it wasn't. A minor risk, if that. I could see you had a better angle than I did, so of course I gave you a chance to make use of it. Which you did." Finch starts to answer, but you talk over him, softening your voice. "And…damned fine shooting, too." You reach 
+			*if hurt
+				with your uninjured arm 
+			to touch his shoulder. "Thanks."
+		
+			*label Shout4
+			
+			Finch draws an angry-sounding breath, then lets it go and smiles a little. "Any time," he says with an ironic half bow. 
+			
+			*goto WinterDawn
+
+*label Shatter
+The sound of shattering glass pierces the night like a pistol shot. Finch and Dmitri both jerk toward it—Dmitri distracted for an instant, Finch glimpsing for the first time the danger behind him. 
+
+Dmitri recovers almost immediately, whirling back to Finch—but Finch is already firing. The Vlaskesar spasms and twitches like a marionette on strings—one—twice—three times—before finally collapsing.
+
+Neither of you hesitate, Finch sprinting toward the corpse from one direction as you pound toward it from the other. 
+
+You meet over the crumpled body. Finch kicks aside the Vlaskesar's weapon, and you drop to your knees to check for a pulse, though from the look of the chest and the blood, there is hardly any point.
+
+"Dead? Good." Finch looks shaken. "Stupid of me to let him get so close." His hand drops to your 
+*if injury = "shoulder"
+	good
+shoulder. "Lucky you had my back."
+
+*goto WinterDawn
+
+		
+*label WinterDawn
+*page_break
+"I don't know…how happy Woodward will be," Stevenson says, as you and Finch carry him back to the empty house. "He said…'alive if possible.'"
+
+"'Alive if possible, dead if necessary,'" Finch corrects coolly. "It was necessary. I think Woodward will be pleased enough."
+
+And he is. The final remaining step is to recover the copy the Vlaskesar made of the plans, but this is a task better suited to the skills of the Empire's official forces than to Woodward's irregulars. The official forces work backward from the Underground ticket in the Vlaskesar's pocket to compile a list of likely boarding houses, and they are breaking down doors before the sun rises. They find the correct house; they search the dead man's room; they pull from beneath a floorboard the copy of the Nigel-Trevelyan Plans; and the copy proves to contain only the Vlaskesar's fingerprints. Doubtless the dead spy was working as a member of a team, but equally obviously, he had no chance to pass his acquisition up his chain of command before he died. 
+
+So efficient are Her Imperial Majesty's investigative forces that Woodward receives the good news while you and Finch are still completing your debriefing in his office. 
+
+Shortly afterward comes the news that Morris, brought to the nearest hospital, has been pronounced out of danger. Stevenson, though fearfully weak, is likewise expected to make a full recovery.
+*if hurt
+	Your arm has been tended, and hardly hurts now. It too will be fully recovered in no time at all.
+*comment endif
+
+"So all's well," Finch says.
+
+"For today," Woodward returns dryly, but he cracks a slight smile. "Yes, it's a good day."
+
+*page_break
+The city is just waking as you and Finch rattle your way home in a hansom, the gaslit dusk brightening into a frosty winter dawn. The day promises to be very cold, but inside are eggs and bacon and coffee and a roaring fire. 
+
+"'A good day,'" Finch echoes Woodward's words. "Well, that's one word for it. We recovered the plans, we checkmated the plot, we prevented one Vlaskesar from ever again plying his filthy trade on Mercian soil, we ensured the Nigel-Trevelyan Glass will one day allow us to see the light-eaters that slink among us, and we didn't lose a single man's life in the process. And it's only eight o'clock in the morning. Whatever would Kingsford do without the pair of us, $!{lastname}?"
+
+That night, you sleep just fine.
+
+*finish 
+
+*comment *****Subroutines*****
+
+*label TryingToBePositive
+Despite your determination to approach the day with a positive attitude, your knees shake a little as your feet hit the floor. Your ears are certainly not ringing with the sound of artillery, because that is not medically possible, but it is true that your head aches from sleeplessness and your old injury from the cold air. You grit your teeth and unbutton your nightshirt, tossing one exasperated glare at the wound when you catch sight of it in the mirror.
+*return
+
+*label EasterlyBlackmail
+I…my fiancée…she…" He swallows. "She's a sun-worshipper. She…persuaded me…I went with her to a meeting…and I…they're good folk, sir. Nothing like what…what people say of them. I…"
+		
+Woodward rubs his forehead. "You joined their cult."
+		
+"It's not a cult!" Easterly starts to protest, then sighs. "Yes, I did. And…a man with a Vlaski accent stopped me as I walked home from work one night. He said…if I did not help him, he would see to it my superiors discovered my conversion…and sun-worshippers may not hold public office or any other position of responsibility…and there was my fiancée to think of—we'd be ostracized as well as penniless. It was my whole life. What else could I do?"
+
+"You are a [i] public servant[/i]," Finch says in a voice dripping with contempt. "You could have put the welfare of your Empire above your personal affairs."
+
+*choice
+
+	#I couldn't agree more.
+	
+		*set conventional %+15
+		*return
+		
+	#I don't think Finch spoke strongly enough. I'd lay money on Easterly having stronger connections to Vlask than he admits. He's a sun-worshipper, after all. 
+	
+		*set conventional %+20
+		*return
+		
+	#I'm not sure this is quite as black and white as Finch thinks it is. Surely Easterly had some responsibility to his fiancée too? 
+	
+		*set conventional %-15
+		*set compassionate %+15
+		
+		Easterly acted wrongly, of course, but you would hope to be spared such a torturous decision yourself. 
+	
+		*return
+
+*label Glass
+
+"The Nigel-Trevelyan Glass translates human-produced electromagnetic waves into a medium perceptible by the human eye," Woodward says. "To anyone wearing goggles or spectacles made from this glass, light-eaters will show up as surrounded by an aura of blood red while the rest of the population appears to be surrounded by an aura of golden-white."
+
+"It will become possible," Finch concludes slowly, "to see at a glance the light-eaters that walk among us."
+
+Woodward nods tightly. "As matters stand today, we can't even tell a likely suspect on sight, unless he happens to have red hair or openly identify with the cult." He tosses a contemptuous look at Easterly. "This Glass will rewrite all the rules by which this war is fought. You see what is at stake here. We [i]cannot[/i] let those plans into enemy hands, or the Vlaskesari will begin at once to engineer a defense."
+
+[i] It will become possible to see at a glance the light-eaters that walk among us[/i]. 
+
+*choice
+
+	#We'd be safe then. Nothing like that Vlaski prison camp could ever happen within Mercian borders if we knew who they were. 
+	
+		*set conventional %+15
+		*set compassionate %-15
+		
+		Not that anything like that Vlaski prison camp could ever happen within Mercian borders in any case—that's just the remnants of nightmare talking. It would be more accurate to say, no light-eater could subtly drain life from many over a long period of time or secretly do so within the walls of his home, if we knew who they were. 
+		
+		*return
+	
+	#We'd be able to see the [i] light-eaters [/i] who walk among us or the [i] sun-touched [/i] who walk among us? It seems unjust to target the latter group before they do something wrong…
+	
+		*set conventional %-15
+		*set compassionate %+15 
+		
+		You manage to find a neutral way of phrasing the question. "How does the Glass go about detecting light-eaters? Or does it detect all sun-touched? How could you do that without drawing blood first?"
+		
+		"It detects light-eaters specifically," Woodward says. "By studying the electromagnetic emanations produced by a large population of human subjects over period of many years, Nigel and his student Trevelyan determined that certain habitual behaviors create subtle changes in electromagnetic wave frequency. Specifically, the appalling practice of light-eating will, over a long enough period of time, noticeably shorten the frequency of the practitioner's emanations."
+		
+		Oh, well, that's good. Those who are sun-touched but do not use their talent to hurt other people are safe.
+		
+		*return
+		
+	#A tendril of panic slides through my belly. Would they be able to tell the blood I bear, or might bear? Would the law apply to someone like me, who carries the blood but isn't a member of the cult?
+	
+		*set conventional %+15
+		
+		You manage to find a neutral way of phrasing the question. "How does the Glass go about detecting light-eaters? Or does it detect all sun-touched? How could you do that without drawing blood first?"
+		
+		"It detects light-eaters specifically," Woodward says. "By studying the electromagnetic emanations produced by a large population of human subjects over period of many years, Nigel and his student Trevelyan determined that certain habitual behaviors create subtle changes in electromagnetic wave frequency. Specifically, the appalling practice of light-eating will, over a long enough period of time, noticeably shorten the frequency of the practioner's emanations."
+		
+		Relief floods through you. You'd be safe, then. 
+	
+		*return
+		
+	#I find myself scientifically curious. How would the Vlaskesari go about engineering a defense? How does the Glass work, anyhow?
+		
+		*set compassionate %-15
+		
+		"How does the Glass go about detecting light-eaters?" you ask Woodward. "Or does it detect all sun-touched? How could you do that without drawing blood first?"
+		
+		"It detects light-eaters specifically," Woodward says. "By studying the electromagnetic emanations produced by a large population of human subjects over period of many years, Nigel and his student Trevelyan determined that certain habitual behaviors create subtle changes in electromagnetic wave frequency. Specifically, the appalling practice of light-eating will, over a long enough period of time, noticeably shorten the frequency of the practioner's emanations."
+		
+		*return
+

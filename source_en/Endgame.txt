@@ -1,0 +1,2111 @@
+*comment é
+
+*image Chapter10.png
+
+*temp MedicalSabotage false
+*temp MarksmanshipSabotage false
+*temp AthleticsSabotage false
+*temp CharismaSabotage false
+*temp WeaponsSabotage false
+*temp AlexandraFinalWords false
+
+
+Like most of Callahan's plans, the Rising is made up of many small pieces, designed to work together like clockwork. While no one component is big enough to draw the attention of the authorities by itself, full success is dependent upon all components operating at their full capacity.
+
+*if (AlexandraAlly) and (alliance != "resistance")
+	"It's better if we work separately," Alexandra says to you. "That way, if one of us is caught at our sabotage efforts, the other may yet achieve success. I can think of several things I can do to subtly weaken our forces; find something you think suits your talents, and we will hope our joint efforts are enough."
+	
+*if (AlexandraAlly) and (alliance = "resistance")
+	"We'd better put a bit of distance between us," Alexandra says regretfully. "That way, if one of us is caught, the other may not be suspected, and may yet succeed."
+		
+	You stage a loud and acrimonious fight where plenty of people can hear you, and thereafter, no one in the Resistance is surprised that you and Alexandra Townsend avoid each other whenever possible. 
+	
+And so you set out alone to throw sand into the gears of the Rising.
+*page_break
+
+Your first task is to discover what those gears might be. And then to pick one to focus on, since it might cause too great suspicion if a variety of things start going wrong whenever you are nearby.
+
+Obviously a great portion of the operation is dependent upon the health of the foot soldiers. Perhaps you could use your medical expertise to introduce some contaminant into the water or food stores, causing a long-term illness sufficient to sap the strength of those who are to fight. 
+
+Or perhaps you could weaken morale without causing physical illness, by planting doubts in the minds of the foot soldiers. If enough of them steal away, believing the Rising to be lost before it begins, their fear will become reality. 
+
+Or there is the need to store the explosives necessary for the Rising in different parts of the city. The destruction or discovery of one of the stockpiles might well attract the attention of the authorities. Perhaps you could use your knowledge of arms and armaments to set something off early, as if accidentally.
+
+The final weak link in Callahan's chain is his desire to coordinate with other cities. Unwilling to trust the post or telegraph, even with ciphers, he is sending verbal messages to his allies via couriers on horseback. Perhaps you could get yourself employed as a courier and subtly misdirect or alter some of the crucial messages.
+
+What do you do?
+
+*choice
+
+	#No one knows better than I how the ill health of soldiers may ruin an otherwise brilliant campaign. I decide to poison the food and water.
+
+		*gosub SabotageMedical
+		
+		*if MedicalSabotage 
+
+			*gosub MedSabSuccess
+			*goto Rising
+			
+		*else
+		
+			*gosub MedSabFailure
+			
+			Fortunately, you realize this in time to try something else. 
+				
+			*choice
+			
+				#I attempt to prematurely explode a weapons stockpile.
+				
+					*gosub SabotageExplosives
+					
+					*if MarksmanshipSabotage 
+						*gosub MarksSabSuccess
+						*goto Rising
+							
+					*else
+						*gosub MarksSabFailure
+						*goto Rising
+				
+				#I volunteer as a courier so I can divert messages.
+				
+					*gosub SabotageAthletics
+					
+					*if AthleticsSabotage 
+						*gosub AthSabSuccess					
+						*goto Rising
+							
+					*else
+						*gosub AthSabFailure
+						*goto Rising
+				
+				#I attempt to make Callahan's people believe the war is already lost.
+					
+					*gosub SabotageStoryteller
+					
+					*if CharismaSabotage
+						*gosub CharSabSuccess
+						*goto Rising
+							
+					*else
+						*gosub CharSabFailure
+						*goto Rising
+
+	#I've always thought more like a soldier than a doctor. I decide to set off an explosive stockpile early.
+	
+		*gosub SabotageExplosives
+		
+		*if MarksmanshipSabotage
+		
+			*gosub MarksSabSuccess
+			*goto Rising
+		
+		*else
+		
+			*gosub MarksSabFailure
+			
+			Fortunately, you realize this in time to try something else. 
+				
+			*choice
+			
+				#I attempt to poison the food and water.
+				
+					*gosub SabotageMedical
+					
+					*if MedicalSabotage 
+						*gosub MedSabSuccess
+						*goto Rising
+							
+					*else
+						*gosub MedSabFailure
+						*goto Rising
+				
+				#I volunteer as a courier so I can divert messages.
+					
+					*gosub SabotageAthletics
+					
+					*if AthleticsSabotage
+						*gosub AthSabSuccess
+						*goto Rising
+							
+					*else
+						*gosub AthSabFailure
+						*goto Rising
+				
+				#I attempt to make Callahan's people believe the war is already lost.
+					
+					*gosub SabotageStoryteller
+					
+					*if CharismaSabotage 
+						*gosub CharSabSuccess
+						*goto Rising
+							
+					*else
+						*gosub CharSabFailure
+						*goto Rising			
+
+	#It's been some years since I rode horseback all over the north country, but I'm sure I still have the athleticism required. I volunteer for courier duty so I can divert messages.
+	
+		Only a born horseman would think of this strategy, and only a man in peak condition would have the ability to execute it. 
+		
+		*gosub SabotageAthletics
+		
+		*if AthleticsSabotage
+
+			*gosub AthSabSuccess
+			*goto Rising
+		
+		*else
+		
+			*gosub AthSabFailure
+			
+			Fortunately, you realize this in time to try something else. 
+				
+			*choice
+			
+				#I attempt to poison the food and water.
+				
+					*gosub SabotageMedical
+					
+					*if MedicalSabotage 
+
+						*gosub MedSabSuccess
+						*goto Rising
+							
+					*else
+						*gosub MedSabFailure
+						*goto Rising
+				
+				#I attempt to prematurely explode a weapons stockpile.
+					
+					*gosub SabotageExplosives
+					
+					*if MarksmanshipSabotage
+						*gosub MarksSabSuccess
+						*goto Rising
+							
+					*else
+						*gosub MarksSabFailure
+						*goto Rising
+				
+				#I attempt to make Callahan's people believe the war is already lost.
+					
+					*gosub SabotageStoryteller
+					
+					*if CharismaSabotage 
+
+						*gosub CharSabSuccess
+						*goto Rising
+							
+					*else
+						*gosub CharSabFailure
+						*goto Rising	
+	
+	#The stories we tell ourselves shape our perception of the world. And I am a storyteller. I can make them believe this war is already lost.
+	
+		Only a storyteller would think of this strategy.
+		
+		Only a storyteller could destroy the Rising from within.
+	
+		*gosub SabotageStoryteller
+		*if CharismaSabotage 
+		
+			*gosub CharSabSuccess
+			*goto Rising
+			
+		*else
+		
+			*gosub CharSabFailure
+			
+			Fortunately, you realize this in time to try something else. 
+				
+			*choice
+			
+				#I attempt to poison the food and water.
+					
+					*gosub SabotageMedical
+					*if MedicalSabotage 
+						*gosub MedSabSuccess
+						*goto Rising
+							
+					*else
+						*gosub MedSabFailure
+						*goto Rising
+				
+				#I attempt to prematurely explode a weapons stockpile.
+					
+					*gosub SabotageExplosives
+					
+					*if MarksmanshipSabotage 
+						*gosub MarksSabSuccess
+						*goto Rising
+							
+					*else
+						*gosub MarksSabFailure
+						*goto Rising	
+						
+				#I volunteer for courier duty so that I may divert messages.
+				
+					*gosub SabotageAthletics
+					
+					*if AthleticsSabotage
+
+						*gosub AthSabSuccess
+						*goto Rising
+							
+					*else
+						*gosub AthSabFailure
+						*goto Rising
+
+*label Rising
+
+*if ((((AthleticsSabotage = false) and (MedicalSabotage = false)) and (MarksmanshipSabotage = false)) and (CharismaSabotage = false))
+	*goto RisingSucceeds
+*elseif (alliance = "resistance") or (alliance = "none")
+	*goto ResistanceEnding
+*elseif alliance = "clergy"
+	*goto ClergyEnding
+*else
+	*goto GovtEnding
+	
+*label ResistanceEnding
+*page_break
+*gosub RisingFails
+*page_break
+*label ResistanceEnding2
+The news is brought to you and Alexandra at headquarters, where you have temporarily retreated along with some others of Callahan's diminished army.
+
+Pauline puts her hand to her mouth and starts to cry. "It's over."
+
+"Only for today," Alexandra says, taking center stage exactly as the leader of the Resistance should. "Everybody get out of here. Scatter. Keep your heads down and wait for my signal. We live to fight another day, following the principles Sean Callahan taught us."
+
+*if AlexandraAlly
+	When the warehouse is empty, she adds to you, "Not the ones he lived by. Just the ones he taught us. Well, $!{firstname} $!{lastname}, you've saved the Empire from the Vlaskesari and the Resistance from itself. How does it feel?"
+
+	*choice
+
+		#I grin at her. "Pretty damned good, thank you."
+	
+			*set compassionate %-15
+		
+			Her answering grin lights up her face. "It feels good from here too. And now we can get on with the real work." She looks around the room and lets out a sigh. "Tomorrow. We'll start tomorrow."
+		
+			*if alliance = "none"
+				There is a long pause. Then she seems to realize what she has said.
+			
+				"You could stay," she offers. "I'd like to have you stay."
+			
+				*gosub NoneResistanceChoice
+			
+				She grins. "Welcome to the Resistance, Dr. ${lastname}."
+			
+				*goto KissAlexandra
+
+			*elseif WithAlexandra
+				You pull her into your arms and kiss her as a new world takes shape all around you.
+				
+				*goto ResistanceEnding3
+			
+			*else 
+				*goto KissAlexandra
+	
+		#I look around the empty room. My ears still ring with the cries and gunfire of the day's violence. "I'm…not sure."
+	
+			"Yes," Alexandra agrees, and swallows. "There's a lot of that going around."
+		
+			*if alliance = "none"
+				After a long moment, she says, "I don't like to do things this way. I don't plan to do things this way in the future. If you wanted to stay, you could help me employ other methods."
+				
+				*gosub NoneResistanceChoice
+			
+				She tries to smile. "Welcome to the Resistance, Dr. ${lastname}."
+			
+				*goto HoldAlexandra
+		
+			*elseif WithAlexandra
+				You pull her into your arms and hold her for a long time. 
+			
+				*goto ResistanceEnding3
+			
+			*else
+				*goto HoldAlexandra
+		
+		#Resistance members died today, and I got them killed as surely as Callahan did. "Don't. I can't joke about this."
+	
+			*set compassionate %+15
+	
+			She drops her eyes. "I didn't mean to joke. I would…have done this another way if I could have. But at least fewer of them died than would have under the light-eaters–that's something, surely?"
+		
+			*if alliance = "none"
+				After a long moment, she says, "I don't like to do things this way. I don't plan to do things this way in the future. If you wanted to stay, you could help me employ other methods."
+			
+				*gosub NoneResistanceChoice
+			
+				She tries to smile. "Welcome to the Resistance, Dr. ${lastname}."
+			
+				*goto HoldAlexandra
+			
+			*elseif WithAlexandra
+				You have no answer. All you can do is pull her into your arms. You hold each other for a long time.
+			
+				*goto ResistanceEnding3
+			
+			*else
+				*goto HoldAlexandra
+	
+		#I take a deep breath. "There's so much to do."
+	
+			"And our responsibility to do it," Alexandra agrees. She lets out a sigh. "Tomorrow. We'll start tomorrow."
+		
+			*if alliance = "none"
+				There is a long pause. Then she seems to realize what she has said.
+			
+				"You could stay," she offers. "I'd like to have you stay."
+			
+				*gosub NoneResistanceChoice
+			
+				She grins. "Welcome to the Resistance, Dr. ${lastname}."
+			
+				*goto KissAlexandra
+		
+			*elseif WithAlexandra
+				You pull her into your arms and kiss her as a new world takes shape all around you.
+				*goto ResistanceEnding3
+			
+			*else
+				*goto KissAlexandra
+
+*else
+	*goto NoneGovtChoice
+	
+*label KissAlexandra
+
+*choice
+
+	#I've wanted to kiss this woman for a long time. I pull her into my arms now, and our lips meet as a new world takes shape all around us.
+	
+		*set WithAlexandra true
+		*achieve loveandwar
+		
+		She kisses back hard.
+		
+		*goto ResistanceEnding3
+		
+	#I have a sudden impulse to kiss her. Before I can think better of it, I catch hold of her and press my lips to hers.
+	
+		*set WithAlexandra true
+		*achieve loveandwar
+		
+		She kisses back, hard, as a new world takes shape all around you.
+		
+		*goto ResistanceEnding3
+	
+	#I have never been so pleased to call someone my friend. I offer Alexandra my hand.
+	
+		She shakes it firmly, grinning. 
+		
+		*goto ResistanceEnding3
+		
+	#I have never been more satisfied by a working relationship. I offer Alexandra my hand. 
+	
+		She shakes it firmly, grinning. 
+		
+		*goto ResistanceEnding3
+		
+
+
+*label HoldAlexandra
+
+You've never seen her look so tired, or as though she is fighting to keep her composure.
+
+*choice
+
+	#I reach out and pull her into my arms, and we hold each other for a long time.
+		
+		*goto ResistanceEnding3
+		
+	#I reach out and pull her into my arms, and we hold each other for a long time. Later—in the sort of desperation that is common to battlefields—the embrace leads to hungry kisses.
+	
+		*set WithAlexandra true
+		*achieve loveandwar
+		
+		"Well," she says afterward, "that was a long time coming." She smiles wanly. "We don't have to sort out the rest of our lives right now; there's plenty of time for it, and much else we need to do."
+		
+		*goto ResistanceEnding3
+		
+	#I put a hand on her arm, trying to offer comfort.
+	
+		She allows it, and the two of you stand there for a long moment. The touch is comforting to you too. 
+		
+		Then Alexandra moves away and starts to pull her straggling hair back into its knot.
+		
+		*goto ResistanceEnding3
+		
+	#I touch her arm briefly as I turn away to do something else, trying to offer comfort without intruding.
+	
+		When you look back, she has recovered her composure and is pulling her straggling hair back into its knot.
+		
+		*goto ResistanceEnding3
+
+	#I turn away, to give her the opportunity to recover her composure.
+	
+		When you look back, she has done so, and is pulling her straggling hair back into its knot.
+		
+		*goto ResistanceEnding3
+
+*label ResistanceEnding3
+*page_break
+
+*gosub RisingFails2
+
+In the wake of the fizzled Rising and the turned-out-to-be-toothless Vlaski saber-rattling, everyday life gradually returns to normal. 
+
+*if WoodwardDeal
+	*gosub WoodwardGetsBill
+	
+	*gosub WoodwardGetsBill2
+	*achieve labor
+	It passes with a respectable majority vote, and Alexandra, grinning ear to ear, begins the process of reforming the Resistance.
+	
+	"We haven't the personnel or the weaponry for another frontal assault," she tells her followers. "They will be watching for that, in any case. We go back to Callahan's original sand in the gears strategy. We will turn this great lumbering government ship inch by inch, you'll see. We start right now."
+	
+	*goto ResistanceFinchEnd
+	
+*else
+
+	The Labor Bill does not pass. You did not really expect it to. In the wake of the day of violence, the East Enders and the sun-worshippers are regarded with even more suspicion than usual. 
+	
+	Mistreated and angry, they swell the ranks of Alexandra's new Resistance. "We haven't the personnel or the weaponry for another frontal assault," she tells them. "The authorities will be watching for that, in any case. We go back to Callahan's original sand in the gears strategy. We will turn this great lumbering government ship inch by inch, you'll see. We start right now."
+	
+	*label ResistanceFinchEnd
+	
+	*page_break
+	Alexandra promotes you to second-in-command, the rank she held under Callahan. The two of you work together to hammer out the strategy for the new Resistance and the tactics it will employ to achieve that strategy. The ideas used are yours as often as they are hers. There's a lot of the world left to fix.
+	
+	One night Bancroft drunkenly speculates on what that means your proper title should be. "Alexandra's the general now," he explains, slurring his words. "So what's that make you? Colonel or something, wouldn't it be?"
+	
+	Some of them refer to you as "Colonel" after that. Like "Professor," it sticks. 
+	
+	After a while, you realize some of the new recruits think you actually held that rank in the Mercian Imperial Army.
+	
+	It's more impressive than "Captain" or "Doctor," so you never correct them.
+	*page_break
+	You are sitting in a nondescript tavern some weeks later, enjoying a late drink and turning various tactical questions over in your mind, when a man takes the seat next to you. Even under the greasepaints, you recognize Finch. 
+	
+	What do you say?
+	
+	*choice
+	
+		#I wait for him to begin the conversation.
+		
+			"So you're staying with them," he says, not a question. He does not seem surprised when you nod, but he does seem to be waiting for more of a response. What do you say?
+		
+			*fake_choice
+		
+				#"Yes, I am. You're on the wrong side."
+			
+					"And you plan to convince me of this?"
+				
+					"Yes," you say. "Eventually."
+				
+					"I…must admit I look forward to it."
+			
+				#"Yes, I am. But we're really on the same side."
+			
+					"And you plan to convince me of this?"
+				
+					"Yes," you say. "Eventually."
+				
+					"I…must admit I look forward to it."
+			
+				#"Yes, I am. So I cannot see that we will have any further business with each other." 
+		
+					"The Resistance will take you down eventually," you add. "See if we don't."
+			
+					"You can try," Finch says. After a moment, he adds, more softly, "And how interesting that will be."
+			
+				#"Yes, I am. We are a power in this city, and any future plans of the government will have to take us into account."
+			
+					"Yes," Finch says, "I see that. It will be…extremely interesting, that's certain."
+					
+					"Someday I'll make you believe I'm right," you add.
+					
+					"I must admit look forward to it." 		
+					
+				#"Yes, I am. And eventually I'll make you believe I'm right."
+			
+					"I…must admit I look forward to it." 
+	
+			*goto ResistanceFinchEnd2
+			
+		#"So they're back behind their borders where they belong. We live to fight another day."
+		
+			Finch half-smiles in acknowledgment. "Shoulder to shoulder, or on opposite sides?"
+			
+			"That depends on how you view the battlefield.
+			*if WoodwardDeal
+				We seem to have jointly hunted down and captured a Labor Reform Bill, for a start. Thank you for that."
+				
+				"You should thank Woodward," Finch demurs. "I had nothing to do with it."
+				
+				"In any case…
+			*gosub SecondInCommand
+			*goto ResistanceFinchEnd2
+			
+		*if WoodwardDeal
+			#"Splendid news about the Labor Reform Bill, isn't it?"
+			
+				Finch half-smiles, as though in spite of himself. "A successful joint venture. Do you think there might be more of those in our future?"
+				
+				"I certainly hope so.
+				*gosub SecondInCommand
+				
+				*goto ResistanceFinchEnd2
+				
+		#"I've been hoping to chance upon you. Alexandra and I would like to make you an offer."
+		
+			Finch chokes on his drink. "You want to…[i]recruit[/i] me?"
+			
+			"To fight for the right side. Yes."
+			
+			You can count on the fingers of one hand the number of times you have seen him rendered speechless. "$!{lastname}…"
+			
+			"Not today?" you infer. "Well, fair enough. There's plenty of time. 
+			*gosub SecondInCommand
+			
+			*goto ResistanceFinchEnd2
+	
+*label ResistanceFinchEnd2	
+*page_break
+*achieve balance
+Finch raises his glass in a toast to you, drains it, and heads for the door. You see him turn right and disappear into the fog.
+				
+You finish your own drink, exit the tavern, and turn left.
+
+It is the year 1891, and you are the second-in-command of the Mercian Resistance. It was a long and twisting road that started at the Goráskan battlefield and wound up here—ten years of decisions, large and small, that moved you to this place at this moment in time. 
+
+There's so much work to be done, it almost makes your head swim. It won't be easy to change the Empire from within. But with Mercia safe from the Vlaskesari, you have at least a chance of getting it right. And with you and Alexandra steering the Resistance, you have no doubt at all you'll get there–someday. 
+				
+*image TheEnd.png
+
+*goto_scene WrapUp
+
+*label ClergyEnding
+*page_break
+*gosub RisingFails
+*label ClergyEnding2
+The news is brought to you and Alexandra at headquarters, where you have temporarily retreated along with some others of Callahan's diminished army.
+
+Pauline puts her hand to her mouth and starts to cry. "It's over."
+
+"Only for today," Alexandra says, taking center stage exactly as the leader of the Resistance should. "Everybody get out of here. Scatter. Keep your heads down and wait for my signal. We live to fight another day, following the principles Sean Callahan taught us."
+
+*if AlexandraAlly
+	When the warehouse is empty, she adds to you, "Not the ones he lived by. Just the ones he taught us. Well, $!{firstname} $!{lastname}, you've saved the Empire from the Vlaskesari and the Resistance from itself. How does it feel?"
+
+	*choice
+
+		#I grin at her. "Pretty damned good, thank you."
+	
+			*set compassionate %-15
+		
+			Her answering grin lights up her face. "It feels good from here too. And now we can get on with the real work." She lets out a sigh. "Tomorrow. We'll start tomorrow. 
+			*goto ClergyEnding3
+		
+		#I look around the empty room. My ears still ring with the cries and gunfire of the day's violence. "I'm…not sure."
+	
+			"Yes," Alexandra agrees, and swallows. "There's a lot of that going around.
+			*goto ClergyEnding3
+		
+		#Resistance members died today, and I got them killed as surely as Callahan did. "Don't. I can't joke about this."
+	
+			*set compassionate %+15
+	
+			She drops her eyes. "I didn't mean to joke. I would…have done this another way if I could have. But at least fewer of them died than would have under the light-eaters–that's something, surely? Surely?" She doesn't wait for you to answer, though. "I should start thinking about what I do tomorrow…
+			*goto ClergyEnding3
+			
+		#I take a deep breath. "There's so much to do."
+	
+			"And our responsibility to do it," Alexandra agrees. She lets out a sigh. "Tomorrow. We'll start tomorrow.
+			*goto ClergyEnding3
+			
+*else
+	*goto ClergyEnding4
+
+*label ClergyEnding3
+You should go home, $!{firstname}. Tell your Aurifer the new head of Free Mercia…sends her regards. And he and I should talk sometime." She looks around the room. "Later. After we clean up a bit. There's so much to do…"
+
+*label ClergyEnding4
+You walk through the rubble and mess and frightened people that characterize a city the day after a riot, reaching the temple gate just as Taggart and a gaggle of healers emerge. Innocent people were hurt yesterday, so the temple folk are leaving their safe refuge to offer healing to the wounded, wary city.
+		
+Of course they are.
+		
+When Taggart sees you, his eyes close for a moment. All he says to you is, "Welcome home," but he squeezes your shoulder as you go by, as though to reassure himself you came through the Rising unscathed.
+		
+*page_break
+*gosub RisingFails2
+*page_break
+*if WoodwardDeal
+	*label HappyClergyEnding
+	*gosub WoodwardGetsBill
+	*goto HappyClergyEndingPart2
+*elseif WoodwardAlly
+	To everyone's intense surprise, in the weeks following, Arthur Woodward becomes an ardent supporter of the Labor Reform Bill.
+	*label HappyClergyEndingPart2
+	
+	*gosub WoodwardGetsBill2 
+	*achieve labor
+	It passes with a respectable majority vote, and you read the news from Taggart's exultant face even before he shows you the newspaper headline. "Your hands," he says with fierce pride. "You did this." 
+
+	"Not bad," Chase adds from the doorway. "Now we need to start working toward a repeal of the anti-clergy laws. The next set of reforms will go even faster if there are healers holding public office." He meets your eyes for a moment. "I take it back," he says gruffly. "It was…both kind and smart of the Aurifer to offer you a place here. We could never have done this without you." 
+	*page_break
+	The temple manages to spend fifteen whole minutes in celebration before a message calls Taggart to the home of a fidelis. Then a clamor from the kitchen charity suggests Elaine's presence is required there, and Alice takes the new acolytes to tend the herbs, and Chase goes off to his shift at the docks, to earn the coin that pays for the rest of it. 
+
+	It is the year 1891, and you are a senior acolyte, shortly to become a healer, of the Temple of the Sun. It was a long and twisting road that started at the Goráskan battlefield and wound up here—ten years of decisions, large and small, that moved you to this place at this moment in time. 
+	
+	There's so much work to be done, it almost makes your head swim. There's [i]always[/i] plenty for a healer to do, making the world better one blanket and hot meal and legal reform at a time. And now that you have saved your country from the Vlaskesari, you have time to work on the rest of it.
+
+	To what better use could your hands be put, after all? 
+
+	*image TheEnd.png
+
+	*goto_scene WrapUp
+
+*else
+
+	*label BittersweetClergyEnding
+
+	In the wake of the fizzled Rising and the turned-out-to-be-toothless Vlaski saber-rattling, everyday life gradually returns to normal. 
+
+	The Labor Bill is proposed as usual. It does not pass. 
+	
+	A bill is proposed that would make it illegal for Sun Temples to have charge of orphaned children. This one doesn't pass either, thank the Sun, though the vote is so close it turns more of Taggart's hair gray. Sun-worshippers are particularly unpopular at the moment–they are vipers in the nest, after all, part of that untrustworthy rabble who almost succeeded in fermenting a Rising.
+					
+	Of course they are.
+	*page_break		
+	"If you're in this for fame and the adoration from the populace, you've picked the wrong profession," Taggart says to you, gently. "Sometimes it has to be enough to have won, even if no one knows. Perhaps one day the story can be told. 
+	*if mythmaker
+		Perhaps one day you can tell it. 
+	Until then, it has to be enough that [i]we[/i] know who saved our city. Your hands, $!{firstname}. You did this." He squeezes your shoulder. "And there's no time for moping, in any case! Elaine was looking for you–something about stocking supplies for the clinic…" 		
+					
+	It is the year 1891, and you are a senior acolyte, shortly to become a healer, of the Temple of the Sun. It was a long and twisting road that started at the Goráskan battlefield and wound up here—ten years of decisions, large and small, that moved you to this place at this moment in time. 
+	
+	There's so much work to be done, it almost makes your head swim. There's [i]always[/i] plenty for a healer to do, making the world better one blanket and hot meal and legal reform at a time. And now that you have saved your country from the Vlaskesari, you have time to work on the rest of it.
+
+	To what better use could your hands be put, after all? 
+						
+	*image TheEnd.png
+
+	*goto_scene WrapUp
+
+*label GovtEnding
+*gosub RisingFails
+*label GovtEnding2
+*gosub RisingFails2
+*page_break
+Woodward seems to have shed ten years in a night. 
+
+You cannot be publicly honored for your role in saving the Empire–or, Woodward assures you, you would receive a knighthood. 
+
+*fake_choice
+
+
+	#A knighthood would be as meaningless to me as Woodward's thanks. 
+
+	#A knighthood is unnecessary. Her Imperial Majesty's sincere gratitude, expressed privately, is something I will treasure always.
+		
+	#A knighthood is unnecessary. I know what I did to save Kingsford.
+		
+	#A knighthood is unnecessary. Woodward's gratitude and Finch's admiration are far more important to me.
+		
+*set AlexandraFinalWords true
+A few nights later, you are returning home on foot, enjoying the pleasant warm air. You turn a corner to find Alexandra Townsend leaning against a lamp post, arms folded, gaslight gleaming on her bare head. Waiting for you, apparently, for she straightens as soon as you approach. 
+
+*if AlexandraAlly
+	"And so," she says, as though continuing a previously-begun conversation, "thanks to the extraordinary efforts of an ex-Army surgeon and an actress of dubious morals, the entire Empire has been saved from enemies foreign and domestic. The biggest off-battlefield victory in a dozen years. And we can't even cadge drinks off the story." 
+	
+	What do you say?
+	
+	*fake_choice
+	
+		#I grin. "The triumphs you can't speak about are still triumphs. At least we know."
+		
+			"We do." She grins back. "Your part was very nicely managed, by the way. I didn't have a chance to say so before."
+			
+			"Your part was as well."
+		
+			"Why, thank you."
+			
+		#I pretend to consider it. "Perhaps I could make up for those lost drinks by buying you a glass of something with which to toast to our victory?"
+
+			She laughs, genuinely surprised. "Perhaps one day. Not tonight; I can't think it would do your reputation any more good than it would do mine. Plenty of the men and women who follow me as Callahan's successor would kill me if they knew what I'd done."
+		
+		*if mythmaker
+			#I smile. "We can't tell it [i]now[/i]. Give it twenty years or so, and I'll see what I can do. Or possibly I can manage something disguised as fiction, between now and then."
+
+				She grins. "A tale of adventure, derring-do, and star-crossed…allies? Sounds marvelous. I'd read it. Waiting twenty years to pen the memoir sounds about right; I certainly don't want my part in it revealed any time soon. Plenty of the men and women who follow me as Callahan's successor would kill me if they knew what I'd done."
+		
+		#I point out, "You can cadge all the drinks you want, as long as you leave my name out of it. I'm the only one forbidden by my government to tell."
+		
+			She smiles and shakes her head. "Not a terribly good idea for me either. Plenty of the men and women who follow me as Callahan's successor would kill me if they knew what I'd done. It was still worth it."
+	
+	She pushes off the lamp post with easy grace. "So the Vlaskesari are back behind their borders where they belong. It will take a long time for them to build such a beachhead within our walls again, now that Callahan has been removed from the picture. We live to fight another day."
+
+	"Shoulder to shoulder, or on opposite sides?" you ask.
+	
+	Alexandra grins. "Depends on how you view the battlefield, I suppose. 
+	*if WoodwardDeal
+		*achieve labor
+		We seem to have jointly hunted down and captured a Labor Reform Bill. Thank you for that."
+		
+		It's really Woodward she should be thanking. You had expected him to pull strings behind the curtain and squeak the Labor Reform Bill through with as little fanfare as possible. But it seems you underestimated him, for he did Alexandra proud.
+		
+		He did not personally campaign for it–he has no publicly-acknowledged weight to throw, after all–but within government walls, he worked tirelessly. All kinds of established and respected Members of Parliament suddenly and publicly came out in favor of the bill; true and thoughtful debates were held over its provisions; and it passed two weeks ago with a respectable majority vote.
+		
+		"The world is changing around us," Alexandra says, "though still not quickly enough for my taste. 
+	You are looking at the new head of the Free Mercia movement. The organization I command is, whether you like it or not, one of the pillars of power in this city, and you and your government will simply have to learn to take us into account. Now and forever after. I will fight shoulder to shoulder with you when we are on the same side, and the rest of the time, I will fight with all my strength to stop your excesses. And someday–" She flashes a smile. "–I'll make you believe I'm right."
+
+	*goto HappyPatriotChoice
+
+*else			
+	
+	*gosub AlexandraFinalEncounter
+	*if RelAlexandra > 60
+		The last thing you see is her blowing you a kiss.
+	*goto HappyPatriotChoice
+	
+*label HappyPatriotChoice
+*achieve balance
+You contemplate this vision of the future.
+
+*choice
+
+	#I find myself looking forward to it. 
+	
+		Doubtless you and Finch and the rest of Woodward's staff will spend a great deal of time foiling her various schemes…but this chess game would hardly be enjoyable without a worthy opponent, would it now?
+	
+		Finch, small surprise, turns out to agree with you wholeheartedly. 
+		*label FinchChessGame
+		You mount the stairs to find him just leaning back with a sigh, a mountain of work for the newspaper stacked on his desk. He listens to the tale of your encounter with Alexandra Townsend with some amusement. 
+		
+		"Well, with the Vlaskesari back behind their own borders and Callahan safely dead, I was beginning to worry we'd find the city dull. So she plans to continue Callahan's work, does she? In that case, I suppose we'll just have to stop her." Finch yawns. "Tomorrow. Tomorrow's soon enough, isn't it? You've saved enough of the world for one month, surely?" 
+		*gosub FinchBrandy
+		
+		*image TheEnd.png
+
+		*goto_scene WrapUp
+	
+	#I find myself regarding it with exasperation. 
+	
+		But it is your profession and your duty, and no doubt her various schemes will prove easy enough for Woodward's staff to foil. You'll bring down her and the rest of her childish associates soon enough.
+	
+		Finch, small surprise, takes a somewhat different view. 
+		*goto FinchChessGame
+
+	#I've never thought about it this way before, but maybe what the city—the Empire?—needs is exactly this sort of push-pull balance. 
+		
+		It could be distinctly interesting to work within that world.
+	
+		Finch listens with interest when you recount the conversation to him. "She'll convince us to share her convictions? That will be interesting to watch. If she chooses different tactics than her predecessor, she might even succeed. And here I was starting to worry we'd find Kingsford dull, with the Vlaskesari back behind their own borders and Callahan safely dead. It seems I needn't have worried. What a splendid multifaceted city we live in."
+		*gosub FinchBrandy
+		
+		*image TheEnd.png
+
+		*goto_scene WrapUp
+	
+	#I half-believe she's right already, but I'm not going to say so just yet. I look forward to the next time she seeks to work in partnership.
+
+		*if WithFinch
+			Finch listens with interest when you recount the conversation to him later. By the time you've finished, his slight smile has become a real grin. He says mildly, "And here I was starting to worry we'd find Kingsford dull, with the Vlaskesari back behind their own borders and Callahan safely dead. It seems I needn't have worried. What a splendid multifaceted city we live in."
+			*gosub FinchBrandy
+			
+			*image TheEnd.png
+
+			*goto_scene WrapUp
+		*else
+			"[i]Do[/i] you now?" Finch grins. "All things considered, it doesn't surprise me a bit that you're intrigued by the shades of gray. Do, ah, give her my regards the next time you chance upon her, won't you? If you could convince her to change her tactics, I expect the two of you could change the world." Finch yawns. "Tomorrow. Tomorrow's soon enough, isn't it? You've saved enough of the world for one month, surely?"
+			*gosub FinchBrandy
+			
+			*image TheEnd.png
+
+			*goto_scene WrapUp
+
+*label RisingSucceeds
+*page_break
+On the day the old Sun Temple calendar names the first of autumn, Free Mercia rises up and takes Kingsford.
+
+It is a flawlessly executed Rising. Almost simultaneous explosions blow up Parliament, the yard where Merrill's miniaturized mechanical soldiers are stored, the main Army barracks, and most of the railway stations. Immediately thereafter, companies of surprisingly well-armed and well-drilled men rush and take the old city watchtower and the main armory–and they hold what they have taken. By the end of the day, Sean Callahan has Kingsford at his feet, and stands grimly surveying the burning city from atop the watchtower. By the end of the week, everyone knows that similar coordinated uprisings took place in Turndale, Stratmouth, and the once-capital city of Loegria, Dunleitir. 
+*if (AlexandraAlly) and (PM = "whitefield")
+	*page_break
+	But the Resistance proves unable to hold what it has taken.
+	
+	Free Mercia develops strange problems in its communication lines. 
+	
+	You catch a little smile on Alexandra's face now and then when no one else is looking, and you know who is responsible. Perhaps the best thing you could have done for your cause was recruit her as an ally.
+	
+	And as Free Mercia struggles to fix its internal problems, iron-willed Prime Minister Whitefield pulls together a force sufficient to dislodge them from their captured buildings. A second day of fighting sweeps the city, and it ends with Kingsford under Imperial control and the rebels in the other cities thoroughly demoralized.
+	
+	*if alliance != "clergy"
+		You pause for a moment's thankfulness that Callahan's smear campaign failed.
+	
+	*gosub Rising3
+	*if alliance = "government"
+		*goto GovtEnding2
+	*elseif alliance = "clergy"
+		*goto ClergyEnding2
+	*else
+		*comment alliance = "resistance" or "none"
+		*goto ResistanceEnding2
+	
+*else
+	*goto VlaskesariWin
+	
+
+*label VlaskesariWin
+By the end of the month, hastily-recalled Imperial troops are besieging the captured cities, but the Resistance continues to hold what it has taken.
+
+And then the Vlaskesari strike.
+*page_break
+In mechs, in dirigibles, and on foot, they surge over the border, hardly even inconvenienced by the inadequate guard force left there after Woodward summoned their brethren home. The Vlaski force hits the border towns hard and fast, leaving brutal destruction in its wake, and presses on. The Mercian Imperial Army scrambles to face them, and the battle lines are drawn.
+
+Well within Mercia's walls.
+
+The Imperial Army cannot focus solely on its external foe, not with its unprotected back to the Resistance-held cities. Callahan's army makes good use of its position, harrying the Imperial rear and cutting its supply lines even as the Vlaskesari press inexorably forward. 
+*if lackofcoal
+	The restricted Mercian coal supply proves an additional advantage for the Vlaskesari.
+
+The Mercians make the Vlaskesari pay for every inch of soil they gain. In the spring, there is even a rumor of high-ranking Vlaski officers being taken out by light-eaters seemingly not loyal to the Vlaski Empire. But whatever the problem within their ranks, the Vlaskeari quickly set it to rights and resume their march toward Kingsford. Eighteen months after the beginning of the Autumn Rising, it's all over.
+		
+*label VlaskesariWin2	
+*page_break Epilogue
+*achieve merciafalls
+The solstice sun shines warm upon your hair. With Kingsford's factories fallen silent, the previously-ubiquitous fogs have dissipated somewhat. The sun shines more often now. 
+
+In the square outside what was once the palace, a ritual celebration appropriate to the solstice is taking place with as much pomp and circumstance as is possible in an occupied city. Vicereine Aurifer Katarzyna Zetyakova is presiding personally, surrounded by a careful guard. 
+
+She has ruled Mercia for some three months, ever since Sean Callahan opened the city gates to the Vlaski Imperial Army and everyone involved abandoned the pretense that the Vlaskesari intended merely to set their ally Callahan upon the Mercian throne. Callahan evinced no interest in the Mercian throne at all, or in freeing Mercia from anything. The moment the Vlaskesari arrived, he left without a single look back to take up the position of Viceroy of Loegria. In the weeks since, it has become common knowledge that this was his arrangement with Vlask from the very beginning: he weakened the Mercian Empire and betrayed it into Vlaski hands in exchange for Loegria's freedom.
+
+The Mercian Resistance fighters he duped and betrayed speak of him now with bitter invective. He was never trying to free [i]Mercia[/i] at all.
+
+In Loegria, which he did indeed deliver from its enemies, he is spoken of with the reverence once reserved for a Temple Aurifer. 
+
+*page_break
+
+Aurifer Katarzyna wears a green mask flashing with emeralds, and soldiers in Vlaski Imperial dress uniforms herd a line of frightened-looking Kingsfordians, forcing each to kneel before her and don a golden mask. Most of her prey survive her attentions, but stagger weakly as they try to rise. The few who die under her hands are identifiable even at this distance as those who offered the most public defiance to Kingsford's new rulers.
+	
+Periodically, Katarzyna pauses in her feasting, exchanges the green mask for one formed of gold, and summons one of the healers seated on a nearby dais. In exchange for an oath of loyalty, Katarzyna bestows upon the healer a portion of the power she recently collected from the populace, and appoints the healer to lead of one of Mercia's newly-opened Sun Temples. 
+*if alliance = "clergy" 
+	Above it all, flags of green and gold snap in the summer breeze. 
+	
+	Taggart eyes them with weary disgust through the bars of his cell. "I used to dream about the symbol of the Sun flying above my city once again," he murmurs. "But not like this."
+	
+	Behind you, the door grinds open. Taggart turns his head from the window without surprise. The burly Vlaski Imperial guard in the doorway holds two masks, one green and one gold. "It's time, Healer," he says. "Choose." 
+	
+	Taggart makes no effort to hide his contempt. "I already have." He pulls the gold mask out of the guard's grasp, and with his own hands fastens it over his face. "Let's get this over with." The guard grabs his arm.
+	
+	*if betrayed = true
+		Taggart turns his head to lock eyes with you. 
+		
+		"By the way," he says. "In case you were wondering. I do know. I know you had the chance to stop this, and I know you chose not to act."
+		*page_break
+		
+		"I should say I forgive you," Taggart says. "I should be able to forgive you." There is a long pause before Taggart shakes his head and turns away. "I can't."
+		
+		The guard drags him down to the square and shoves him to his knees at the feet of your new ruler. It seems a symbol for the larger conquest: her hand comes down on the back of his neck, and she drains the life from him until he collapses, dead, at her feet. 
+		
+		Mercia has fallen.
+		
+		*image TheEnd.png
+
+		*goto_scene WrapUp
+		
+	*else
+		"You did the best you could," Taggart says softly and rapidly, just for your ears. "We all did the best we could. Sometimes…that simply isn't enough. Sometimes one fails. I don't blame you for it." He pauses, and swallows. "Pray for me."
+		
+		The guard drags him down to the square and shoves him to his knees at the feet of your new ruler. It seems a symbol for the larger conquest: her hand comes down on the back of his neck, and she drains the life from him until he collapses, dead, at her feet. 
+		
+		Mercia has fallen.
+		
+		*image TheEnd.png
+
+		*goto_scene WrapUp
+
+*elseif (alliance = "resistance") or ((alliance = "none") and (betrayed = false))
+	
+	Not all healers are willing to make this exchange; Christopher Taggart was among those executed today, to his last breath denouncing her as a heretic and an abomination.
+
+	*fake_choice
+	
+		#I couldn't watch. 
+		
+		#I made myself watch until he collapsed dead at Katarzyna's feet. It seems to be a symbol. Mercia has fallen.
+		
+		#Nothing could be a greater proof of the Vlaskesari's duplicity than their execution of healers.
+		
+	You and Alexandra watch the loyalty oaths and the executions from the stands rather than the crowd. As high-ranking members of Callahan's organization, you are granted certain privileges by the new rulers. It's as much as your life is worth to refuse them, though accepting them may put you in equal risk from the surly watching Mercians. 
+	
+	At long last, you are dismissed by the replete Katarzyna, and you and Alexandra start home. Behind you, in the stands you have just vacated, the members of Katarzyna's abbreviated court linger to exchange greetings with each other. You hear "Happy solstice" and "Happy new year" over and over, overlapping, fading at last into incoherency and silence.
+	
+	"It will be," Alexandra mutters. 
+	*page_break
+	You turn to her. "For them?"
+	
+	"For us," Alexandra says. "Not now, but before much time passes." She gives you a bright and brittle smile. "We do, after all, know quite a bit about undermining a despotic government. We learned from the best and practiced extensively; we just didn't realize it was in preparation for this. 
+	
+	"As of right now, you're talking to the leader of the new Mercian Resistance. Consider yourself recruited as second-in-command. We should find your old friend Finch and recruit him too." She stalks off in the direction of her prey. "Let's go free Mercia."
+	
+	
+	*achieve starbuck
+	*image TheEnd.png
+
+	*goto_scene WrapUp
+	
+*else
+	*comment alliance = "government"
+
+	Not all healers are willing to make this exchange; Christopher Taggart was among those executed today, to his last breath denouncing her as a heretic and abomination.
+	
+	*fake_choice
+	
+		#I couldn't watch. 
+		
+		#I made myself watch until he collapsed dead at Katarzyna's feet. It seems to be a symbol. Mercia has fallen.
+		
+		#Nothing could be a greater proof of the Vlaskesari's duplicity than their execution of healers.
+
+	You and Finch watch all this from the crowd rather than from among the prisoners; despite the Vlaskesari's best attempts to capture all of Woodward's personnel, they haven't caught up with you yet. You are fortunately too far back in the crowd to be included in Katarzyna's feast before she is sated. You hasten away with relief as soon as the guards dismiss you.
+	
+	You round a corner into a nearby alleyway to find Alexandra Townsend leaning against a wall with her arms folded, apparently waiting for you. "Dr. $!{lastname}," she says. "Mr. Finch. I thought the time had come to talk business. It seems we're on the same side."
+	*page_break
+	Alexandra goes on,
+	*if AlexandraAlly = false
+		"That miserable traitor Callahan betrayed his followers as surely as he betrayed his country. None of us had any idea he intended this. None of us wanted this. I hate this–" She waves a hand in the direction of the square you have just vacated. "–as much as you do.
+		
+	"And I fortunately have some experience in the art of undermining a despotic government. You're talking to the leader of the new Mercian Resistance, and I wondered if you might wish to be recruited." She smiles, a hard hunting grin. "Come with me and let's free Mercia."
+	
+	*achieve starbuck
+	
+	*image TheEnd.png
+	
+	*goto_scene WrapUp
+		
+*comment ******Subroutines************
+
+*label MedSabSuccess
+You spend the next few weeks adding droplets of your potion to pots of coffee and tea whenever possible. You manage a light enough touch that it appears the potential revolutionaries are trading the same digestive ailment back and forth. 
+			
+Soldiers would have learned to work through such difficulties, but most of Callahan's people are civilians, and they are most effectively weakened by their inability to keep food down. More to the point, they are distracted. Mistakes are made, messages go unanswered, errands are not completed. 
+*page_break
+*gosub DiscouragedResistance
+*page_break
+*gosub LosingStrength
+			
+*return
+
+*label MedSabFailure
+
+*if (medicine <= 70) 
+		
+	You never manage to calculate the dosage as exactly as you would like to. Although you make a few people so ill they cannot fight, most shrug off their occasional stomach ailments as no more than annoyance.
+
+	*return
+	
+*else
+
+	*comment the "else" condition is that stealthy < 30
+	
+	You manage to get the dosage right in the end, but you are unable to find sufficient opportunities to unobtrusively introduce it into communal food. Nearly every time you try, you look up to see Kendall's suspicious eyes on you.
+	
+	You make a few people ill for a short time, but you never manage to cause a sufficiently widespread illness to incapacitate Callahan's troops.
+	
+	*return
+	
+*label MarksSabSuccess
+Only a marksman of your skill could have crippled a Rising with one shot.
+						
+The lamp falls to its side. The oil sloshes out, and fire leaps from the wick to the floor.
+						
+The explosion lights up the skies over Kingsford. 
+				
+*page_break
+It also wakes everyone nearby, providing plenty of hands to put out the fire and rescue the inhabitants, so you are able to beat a quiet retreat. Later, you learn that the merchant, talking fast, managed to pass it off as a drunken prank, his sons messing about with fireworks stored against the upcoming Empress's birthday, and he gets off with a fine (and considerable property damage). But now the authorities are on the alert for any other such stockpiles, and it becomes impossible to maneuver the intended devices under Parliament or any military target.
+
+*page_break
+The blow does terrible things to Resistance morale. Without the explosives, the odds of a Rising victory are substantially decreased, and Callahan's people begin to wonder if they can possibly win after all. Distracted and doubting, they make mistakes, leave messages unanswered, abandon errands uncompleted. 		
+*gosub DiscouragedResistance
+*page_break			
+*gosub LosingStrength
+
+*return
+
+*label MarksSabFailure
+*page_break
+No other opportunity presents itself.
+
+*return
+
+
+*label AthSabSuccess
+Before long, the leaders of the outlying cities are charging you with increasingly lukewarm messages to Callahan. It seems likely that they will withdraw their support.
+		
+When rumors to this effect spread among his people, the hit to morale is devastating. Without coordinated Risings in other cities, it will be much harder for Callahan's people to hold Kingsford once they take it, and Callahan's people begin to wonder if they can possibly win after all. Distracted and doubting, they make mistakes, leave messages unanswered, abandon errands uncompleted. A sense of incompetence spreads like rot through Callahan's organization.
+
+His people know they have achieved great things before, but they can't seem to manage it now.			
+			
+Beginning to believe they have lost before they have started, Callahan's people put in less and less effort. Some steal off home. Others are present in name only. The disorganization you once pretended to observe has become a reality.
+
+*gosub LosingStrength
+
+*return
+
+*label AthSabFailure
+*page_break
+	
+Your attempt to derail the Rising by sabotaging its communication lines seems to have failed.
+
+*return
+
+*label CharSabSuccess
+It works like a charm. The reality you paint with your words is the reality they believe.
+			
+*gosub DiscouragedResistance
+*page_break
+*gosub LosingStrength
+*return
+
+*label CharSabFailure
+*if charisma <= 75
+
+	Unfortunately, it would seem you are not a sufficiently good storyteller to accomplish what is needed. 
+	
+	The most you manage to convince anyone is that you personally are concerned. A few of them, valuing your opinion, wonder if they ought to be worried too, but most see that the facts do not bear out your interpretation of them.
+			
+	As the time ticks away, you try ever harder, but that only makes your attempts less convincing. 
+	*return
+	
+*elseif perception <= 50
+	
+	Unfortunately, you are undone by your enthusiasm. You are able to paint a compelling picture with words, but you do not always pay attention to when you should be silent. Kendall overhears you more than once—you don't notice him in time to change the subject—and eventually brings the matter to Callahan's attention. 
+	
+	You are fortunate that Callahan does nothing worse than instruct you to stop, telling you acidly that your assistance is not in fact helpful.
+	
+	You do not dare attempt to employ the strategy after that.
+	
+	*return
+	
+*else
+
+	Unfortunately, it would seem you are not a sufficiently good storyteller to accomplish what is needed. 
+	
+	The most you manage to convince anyone is that you personally are concerned. A few of them, valuing your opinion, wonder if they ought to be worried too, but most see that the facts do not bear out your interpretation of them.
+			
+	As the time ticks away, you try ever harder, but that only makes your attempts less convincing. 
+	*return
+			
+	
+*label SabotageMedical
+
+Only an Army doctor would think to employ this strategy, or have the ability to execute it. 
+		
+The first step is to acquire an emetic. 
+		
+*choice
+		
+	#I go to a respectable chemist—one not too close to here—and buy syrup of ipecac.
+			
+		*if ((conventional >= 50) and (alliance = "government"))
+				
+			You are, after all, still a middle-class physician. It is no hardship to pose as such. In fact, the chemist is one you have used before, and he is more than happy to sell you whatever you need, even in unusually large quantities.
+			
+			*goto SabotageMedical2
+					
+		*elseif (conventional >= 50) and (alliance != "government")
+				
+			Even given your new life and new associates, you can dress and behave like a middle-class physician when it matters. The chemist is more than willing to sell you whatever you need, even in unusually large quantities.
+			
+			*goto SabotageMedical2
+					
+		*else
+				
+			You have become too far removed from the role of conventional middle class physician to play it convincingly now, and the quantities you seek are enough to make the chemist raise his eyebrows. He sells it to you, but you know he'll remember you. You can only hope this does not arouse suspicion in inconvenient quarters.
+					
+			*goto SabotageMedical2
+			
+	#I use one of my East End contacts to acquire something more deadly.
+			
+		*if conventional < 50
+			
+			You find it easy enough to ape the dress, voice, and manners of one born to those streets. Your contact doesn't even look twice at you. You are able to acquire sufficient quantities a poison that will, when sufficiently diluted, act as an emetic rather than a death sentence.
+			
+			You just have to hope that word of your purchase doesn't get back to Callahan. 
+				
+			*goto SabotageMedical2
+			
+		*else
+		
+			Despite your best efforts, you are unable to look like anything other than a middle-class physician. Your contact sells you what you need, but you know he'll remember you. 
+
+			You just have to hope that word of your attempted back-alley purchase doesn't get back to Callahan.
+			
+			*goto SabotageMedical2
+			
+*label SabotageMedical2
+
+The next step is to dilute the emetic such that it results in a low-grade, persistent, debilitating illness—rather than something that screams "poison" or is too mild to incapacitate.
+
+The third step is to introduce it into the stores of food.
+
+*page_break
+
+You hesitate in the doorway, eyeing the bubbling stew pot. This is a perfect initial test, if only you can manage it.
+
+No one is in the kitchen itself. A variety of people are in the corridor, but no one is paying any attention to you—fortunate, because you have no real business in the kitchen. You wander toward the pot, as if casually. One hand is in your pocket, fingering the vial.
+
+You hear Kendall's voice among those in the crowd. Dare you make this attempt with his suspicious eyes so nearby?
+
+*choice
+
+	#Yes.
+	
+		You continue toward the bubbling pot.
+		
+		*page_break
+		*if stealthy < 40
+
+			You tread on a loose floorboard.
+	
+			"What are you doing?" Kendall calls sharply from the corridor.
+	
+			You give him an exasperated look. "Nothing. Are the Rising preparations straining your nerves?"
+	
+			The others nearby laugh, but Kendall's suspicious eyes stay on you. The vial digs into your sweating palm.
+	
+			*page_break
+	
+			Your next attempt—introducing the emetic into a pot of tea—goes more smoothly.
+	
+			*goto MedicalSabotage3
+	
+		*else
+
+			None of the talking group in the corridor even look your way as you slip the vial free and deposit its contents in the soup pot.
+	
+			*goto MedicalSabotage3
+
+	#No.
+	
+		Discretion is the better part of valor. You leave the room before you can attract anyone's attention, the vial digging into your sweating palms.
+		
+		*page_break
+	
+		Your next attempt—introducing the emetic into a pot of tea—goes more smoothly.
+	
+		*goto MedicalSabotage3
+	
+*label MedicalSabotage3
+
+*if medicine > 70
+
+	And the results later that evening are all you could hope for. A small number of those who are present for the meal feel ill afterwards. It looks exactly like a mild digestive complaint. Make the dose a little stronger, and the results will cross the line into incapacitating. Dose enough common foodstuffs, and you can derail the Rising.
+	
+	*goto SabotageMedical4
+	
+*else
+
+	Unfortunately, you find you have miscalculated the dose. Only two people show any ill effects, and they are too mild to be termed incapacitating.
+	
+	Your second attempt errs in the opposite direction—several people are violently ill, leading to suspicion of the particular meat used in that particular stew, and—worse—to some paranoid whispers of poison. You are forced to stay away from the communal foodstuffs for some time.
+		
+	*goto SabotageMedical4
+	
+*label SabotageMedical4
+*page_break
+*if (medicine > 70) and (stealthy >= 30)
+	*set MedicalSabotage true
+	*return
+*else
+	*return
+	
+*label SabotageExplosives
+
+Only an old campaigner would think to employ this strategy, or have the ability to execute it. 
+
+The timing will be delicate. Blow up a stockpile too early, and Callahan will be able to recover. Waiting until too late will of course be too late. You must strike at exactly the right moment to catch the attention of the authorities and frighten the conspirators.
+
+The question now is whether you engage in many little attempts at sabotage while waiting for the right moment for an explosion, or keep a low profile until then. There is something to be said for chipping away at your enemy's defenses bit by bit, but there is also something to be said for keeping out of sight until you are ready to strike.
+
+*choice
+
+	#I sabotage weapons in small ways whenever I can, while keeping my eyes open for a big opportunity.
+	
+		You hesitate in the doorway of Pauline's forge, eyeing the foldable pikes stacked upon the table. They are to be collected by a courier in the morning. If you can manage to disable some of the mechanisms tonight, no one will know until it is too late. 
+		
+		No one is in the forge itself. A variety of people are in the corridor, but no one is paying any attention to you—fortunate, because you have no real business here. You pick up one of the pikes, and examine the mechanism.
+	
+		*page_break
+		*if stealthy < 50
+
+			"What are you doing?" Kendall demands from the corridor.
+	
+			You turn slowly and raise your eyebrows at him. "Examining Miss Hart's handiwork. Ingenious device, isn't it?"
+	
+			Kendall's suspicious eyes stay on you as you walk, trying to appear casual, to the doorway and out of the room. 
+			
+			Damn. He'll be watching, and that will make subsequent attempts much harder. 
+	
+			*goto SabotageExplosives2
+			
+		*else
+		
+			You think you see how to jam the mechanism. You draw a knife from your pocket and set to work.
+			*page_break
+			*if medicine > 40
+			
+				*set WeaponsSabotage true
+				
+				It's surgery, of a sort. By the time you're done, you are certain the pike will never open. Unfortunately, your sabotage is a little obvious. You bury that pike at the bottom of the stack and resolve to make your less attempt more discreet.
+				
+				You manage to sabotage a dozen pikes before you hear footsteps in the corridor. A dozen isn't many, but is something.
+				
+				*goto SabotageExplosives2
+			*else
+			
+				You can see what must be done, but armed only with a knife, you cannot manage to complete the task before you hear footsteps in the corridor. Frustrated, you are forced to abandon your attempt and bury the not-yet-disabled pike at the bottom of the pile.
+				
+				*goto SabotageExplosives2
+
+	#I wait, patient as a hunter in a jungle, for exactly the right moment to strike.
+	
+		*goto SabotageExplosives4
+		
+*label SabotageExplosives2
+*page_break
+Your next opportunity comes when you learn that gunpowder is being temporarily stored at Callahan's headquarters. Introduce some water into those barrels, and you'll render the contents unusable.
+
+*if stealthy < 50
+	Unfortunately, Callahan's security is too good. You can't get anywhere near the barrels.
+	*goto SabotageExplosives3
+*else
+	*set WeaponsSabotage true
+	
+	You manage to slip into the storage area and adulterate the gunpowder without being caught. Hopefully it will clump within the barrels and be rendered unusable the day of the Rising.
+	
+	*goto SabotageExplosives3
+	
+*label SabotageExplosives3
+*page_break
+*if stealthy < 50
+	Overall, very few of your attempts to sabotage the weapons succeed. You simply aren't stealthy enough.
+	*goto SabotageExplosives4
+*else
+	Overall, many of your attempts to sabotage weapons succeed. You hope you've done enough to make a difference.
+	*goto SabotageExplosives4
+	
+*label SabotageExplosives4
+
+The planned date of the Rising grows ever nearer. 
+
+*if charisma > 70
+	You spend most of your time trying to keep your inner terror off your face.
+	*goto SabotageExplosives5
+*else
+	You are unable to keep your inner terror from showing on your face, but that's all right. Everyone else is plenty nervous too.
+	*goto SabotageExplosives5
+	
+*label SabotageExplosives5
+
+At last you see the chance you have been waiting for. A large collection of explosives (the ones Callahan plans to use to blow up Parliament, in fact) is to be transferred to the garret of a merchant sympathetic to Callahan's cause. The timing is perfect—set this off now, and the Resistance will have no time to regroup. 
+
+What is your plan?
+
+*fake_choice
+
+	#I get myself assigned as a caravan guard, then blow up the wagon of explosives while it is still close to its origin point. 
+	
+	#I get myself assigned as a caravan guard, then blow up the wagon of explosives somewhere between its origin point and the merchant's house. 
+		
+	#I ingratiate myself with the merchant ahead of time, and arrange to be in the house when the shipment is delivered.
+	
+A good plan—one you are confident you can manage to execute. 
+
+The day of the transfer, however, Callahan assigns you to a different task. You dare not protest and risk drawing attention to yourself, so you follow his orders, wondering if he suspects you, wondering if you can somehow get away in time.
+
+Kendall grins at you as you pass him by, and the pieces click. Callahan might still trust you, but Kendall never has. And you learn later that Kendall arranged the day's schedule.
+
+That's for later, however. For now, you have an enormous problem. The stockpile is now safely stored within the merchant's house, guards in the guise of workmen and idlers posted within and without.
+
+What do you do?
+
+*choice
+
+	#I go out to the merchant's house. Perhaps I can find a way after all.
+
+		Late that night finds you staring at a an enormous oak tree at the edge of the merchant's property. The house is located in the outskirts of Kingsford. Starting tomorrow, the stockpile will be discreetly conveyed in bits and pieces to various places about the city. Anything you mean to do has to be done now. 
+		
+		You don't know exactly where Callahan's guards are. The stockpile is supposed to be in the garret, but you can't see into the garret from here. If you could climb to the top of this tree, then maybe that would give you line of sight…
+		
+		You grasp the nearest branches and begin to climb.
+		*page_break
+		*if athleticism < 30
+			But the various injuries you have suffered over the years makes the climb flatly impossible. The second time you half-fall, you can hear one of Callahan's guards starting toward you to investigate.
+			
+			You are forced to flee and wait for a better opportunity.
+			
+			*return
+			
+		*else
+		
+			From the hunter's blind within the oak's sturdy limbs, you look across to the garret. Someone has been sitting watch there, but he isn't there now. He clearly intends to return soon, however. He has left a lamp burning. 
+			
+			It occurs to you that there is at least one surefire way to set off a stockpile of dynamite.
+			
+			And only a crack shot such as yourself could do it.
+			
+			*choice
+			
+				#I pull out my service revolver, steady it carefully, and shoot through the open window at the lamp.
+				
+					*if marksmanship > 60
+					
+						*set MarksmanshipSabotage true
+						*return
+						
+					*elseif (WeaponsSabotage) and (marksmanship > 50)
+					
+						*set MarksmanshipSabotage true
+						*return
+						
+					*else
+					
+						And you miss. 
+						
+						The bullet misses nearest barrel, too, embedding itself harmlessly in the opposite wall. 
+						
+						And then Callahan's guards are alerted. You barely manage to escape.
+						
+						*return
+						
+				#The very idea is insane. I climb down from the tree and resolve to find another opportunity.
+				
+					*return
+					
+	#I abandon this attempt and resolve to look for another stockpile to prematurely explode.
+	
+		*return
+
+*label SabotageAthletics
+
+You haven't ridden horses regularly in many years, and you find the courier route grueling. You ride from Kingsford to Stratmouth to Turndale to Kingsford, and by the end of the first circuit, every bone in your body aches badly enough to bring tears to your eyes.
+
+But you push through. You have to.
+
+Lying in bed that night, in too much pain to sleep, you contemplate your next move.
+
+*choice
+
+	#I will deliver the messages exactly as they are given to me, for now. I must not raise suspicion.
+
+		A wise first step.
+		
+		When you judge enough time has passed, you move on to step two.
+		
+		*goto Test
+		
+	#I do not have time to be as cautious as I would like. I immediately test whether I can alter a message without being caught.
+	
+		*label Test
+		
+		You give the leader of the Turndale Resistance only half of Callahan's message. If your omission gets back to Callahan, you can claim to have forgotten–it won't be an obvious betrayal–but to your relief, there are no reprecussions whatsoever. (None worse than caused by the slap of the saddle, at least.)
+		
+		It's time to try something more daring.
+		*page_break
+		*goto FalseIntel
+		
+	#I immediately begin feeding the leaders of the other Resistance groups false information.
+	
+		A daring stroke—but you're right, there's no time to waste.
+		
+		*label FalseIntel
+		
+		You deliver Callahan's message verbatim, but you add a little something of your own. When the leader of the Resistance in Stratmouth asks whether you think Kingsford will be ready to Rise on the first of autumn, you hesitate.
+
+		*if charisma > 50
+			His brows draw down. "You don't, then?"
+			
+			"This musn't get back to the Professor…" you temporize.
+		
+			"So he [i]is[/i] hiding something from me!" The Resistance leader sits down across from you, coaxing his expression into something like charm. "Come now. I can't possibly make good decisions without good information. Tell me how matters truly stand."
+		
+			Without telling an actual falsehood, you manage to convey that the Kingsford branch is disorganized and demoralized, and even its own foot soldiers think the Rising unlikely to succeed. 
+		
+			The following week, you do the same thing in Turndale.
+	
+			*goto SabotageAthletics2
+	
+		*else
+
+			His brows draw down. "You don't, then?"
+			
+			"Oh, of course, of course I do," you say. You intended it to sound insincere, to prompt him to question you further, but he takes you at your word and sends you off, satisfied.
+
+			The following week, you try the same tactic in Turndale. This time, you do get across the information that the Kingsford Resistance is less prepared than Callahan would like his colleagues to think, but you do it so heavy-handedly that the Resistance leader thinks you are just a pessimistic person, and waves it off. 
+	
+			*goto SabotageAthletics2
+	
+*label SabotageAthletics2
+*page_break
+*if athleticism < 60
+
+	Then disaster strikes.
+	
+	The rigors of riding the courier route prove simply too much for you.
+	
+	"How are you?" Callahan asks with what appears to be real concern as you limp through the stronghold.
+	
+	"Fine, sir." You try to straighten.
+	
+	Callahan smiles sympathetically. "Listen. I can see how hard you are trying, but you aren't managing to ride the route as quickly as I need it done. No, no, I'm not blaming you!" Hands raised, he silences your attempted protest. "Not your fault at all. I appreciate your dedication to the cause, but there is much you can do here. Bancroft will take the courier route instead."
+	
+	You stare at his retreating back in dismay.
+	
+	*return
+*elseif charisma < 50
+	
+	None of your other attempts fare any better.
+
+	*return
+	
+*else
+	*set AthleticsSabotage true
+	*return
+	
+*label SabotageStoryteller
+
+*page_break
+The most convincing arguments are the ones made indirectly. The ones suggested with implications, hinted at with hesitations, conveyed with silences. 
+		
+You know how to do that. 
+
+For instance, one day you wander into Pauline Hart's forge when no one else is about. You strike up a conversation, in the course of which…
+
+*fake_choice
+
+	#I reassure her that there is nothing to worry about, even though few of Callahan's people were ever trained as soldiers.
+	
+	#I advise her not to listen to that ridiculous rumor that the other cities do not intend to support the Rising after all.
+	
+	#I assure her that, despite what the others say, there is no need to worry that the stockpiles of gunpowder will be accidently set off early.
+	
+*if (mythmaker) or (charisma > 75)
+	You say this in as hearty a manner as possible. Pauline agrees, but uncertainly. 
+
+	She looks worried after that, and you see her whispering with some of the others.
+
+	*goto SabotageStoryteller2
+	
+*else
+	Annoyingly, Pauline takes you at your word. "I hadn't heard the rumor, but I'm glad to know it is unfounded."
+	
+	That wasn't the reaction you wanted.
+	
+	*goto SabotageStoryteller2
+	
+*label SabotageStoryteller2
+			
+The following day, you join Bancroft on guard duty. 
+
+*fake_choice
+	
+	#I ask him if he is worried that so few of Callahan's people were ever trained as soldiers.
+	
+	#I ask him if he is worried over that rumor that the other cities do not intend to support the Rising after all.
+	
+	#I ask him if he is worried over the security surrounding the gunpowder stockpiles.
+	
+*if (mythmaker) or (charisma > 75)
+
+	He wasn't before, but he is now.
+	
+	*goto SabotageStoryteller3
+	
+*else
+
+	He reassures you earnestly that there is nothing to worry about.
+	
+	Damnation.
+	
+	*goto SabotageStoryteller3
+	
+*label SabotageStoryteller3
+*page_break
+And so you ooze your way through the stronghold, talking with as many Resistance members as you can. Weaving the narrative. 
+
+*if ((mythmaker) or (charisma > 75)) and (perception > 50)
+	*set CharismaSabotage true
+	*return
+*else
+	*return
+
+*label DiscouragedResistance
+A sense of incompetence spreads like rot through Callahan's organization. His people know they have achieved great things before, but they can't seem to manage it now. It's as though the Rising is cursed. Beginning to believe they have lost before they have started, Callahan's people put in less and less effort. Some steal off home. Others are present in name only. The other cities with which Kingsford is supposed to coordinate hear of Kingsford's disorganization, and rumors begin that they will withdraw their support.
+*return
+
+*label LosingStrength
+*page_break
+"We are losing strength every day," Callahan says in a meeting of his senior staff. To the larger group, he is never anything but optimistic and inspiring; only with you few trusted subordinates does he allow the mask to slip. "We cannot wait until the first of autumn. We must start the Rising now, while we can still command the force necessary to do it."
+			
+"Or we lie low and wait for a more fortuitous occasion," someone suggests. But there are growls of negation from all over the room. Everyone has put too much into this to bear the thought of delay.
+			
+"It is decided," Callahan says. "We strike next Saturday."
+			
+You've succeeded in making the Rising start too soon. Now you can only hope that's enough.
+
+*label LieAwake
+
+That night, you stare at the ceiling, unable to sleep. 
+
+Of whom are you thinking?
+
+*fake_choice
+
+	*if alliance = "clergy"
+		#Taggart. I must succeed. I can't disappoint him.
+		
+	#Woodward. I must succeed. I can't disappoint him.
+	
+	*if alliance = "resistance"
+		#Alexandra. I must succeed, so we can get on with fixing Kingsford's problems.
+		
+	*if alliance != "resistance"
+		#Alexandra. This Rising must fail, so she can get on with fixing Kingsford's problems.
+	
+	*if withFinch
+		#Finch. I have to survive this. I have to make it back to him.
+		
+	*if (((RelFinch != "negative") and (alliance = "government")) and (withFinch = false))
+		#Finch. I have to survive this. I am so close to getting my life back.
+	
+	*if (((withFinch = false) and (RelFinch != "negative")) and (gay))
+		#Finch. I have to make it back. There are things I need to say to him.
+		
+	#Finch. How I wish he were here to help.
+	
+	*if married
+		#Grace. She would understand what I am trying to do.
+		
+	#Callahan. Do I really have any chance of outwitting a mind like his?
+	
+
+Is there any last thing you wish to take care of between now and Saturday?
+		
+*choice
+
+	#No, I'm satisfied with the preparations I have made.
+	
+		*return
+		
+	#Saturday will be ugly. I need to ensure Pauline and $!{Young} at least are safe.
+
+		How?
+		
+		*choice
+		
+			#I talk with Callahan about assigning them roles that keep them away from the fighting.
+			
+				"Pauline's talents are so important to the organization," you say, "it is only good tactical sense to keep her out of the line of fire. And $!{Young} is only a child…"
+				
+				*if marksmanship > 70
+					Callahan nods thoughtfully. "Excellent military strategy; I'd expect no less.
+					*goto CallahanGoodPoint
+				*elseif charisma > 70
+					Callahan nods thoughtfully. "Good point.
+					*label CallahanGoodPoint
+					I'll be sure to assign them both duties that keep them well away from the front lines."
+					
+					*return
+					
+				*else	
+					Callahan nods thoughtfully. "That's a good point, regarding Pauline. I'll be sure to assign her duties that keep her well away from the front lines."
+					
+					"And $!{Young}?"
+					
+					Callahan shakes his head. "I need messengers. And youngsters can go where adults would be questioned. And ${y_he}'s not so young, really. I was fighting for independence when I was that age."
+					
+					With this, you must be content.
+					
+					*return
+				
+			*if (TaggartChoice = false) and (alliance != "clergy")
+				*selectable_if(false) #I try to take them to the Juniper Street temple.
+					*finish
+					
+			*if TaggartChoice
+				#I try to take them to Taggart.
+			
+					*if alliance != "clergy"
+						$!{Young} nods slowly. "$!{Old} always said, if I was ever in desperate trouble, I should go to the Aurifer. $!{O_he} said, ${o_he} and the Aurifer disagreed about almost everything, but the Aurifer would still help someone like me if I needed it."
+					
+						*goto PaulineNo
+					
+					*else
+				
+						$!{Young} reluctantly agrees.
+					
+						*label PaulineNo
+						But Pauline shakes her head in horror. "No, of course not! Hide with the healers? I've work to do here! We're about to re-take our city!"
+					
+						*if charisma > 70
+							At last you persuade her that her talents are so important to the organization that she has a duty to stay away from the front lines, and she agrees to that.
+						
+							*return
+						
+						*else
+							You cannot shake her conviction, so you must be content with having ensured $!{Young}'s safety.
+					
+							*return
+					
+	#I need to warn Finch this is coming. There are some things I can't leave to chance and hope.
+
+		*if (((alliance = "government") or (alliance = "none")) or (WoodwardDeal))
+		
+			He stares at you with an expression in which astonishment, annoyance, and dismay are equally mixed. "Thank you for the warning, but you're risking your cover and the rest of the mission by being here. Get back before you're missed—and for mercy's sake be careful."
+			
+			*return
+			
+		*else
+			
+			He is astonished to see you, then visibly moved by your warning, then dismayed. "Thank you, but what are you doing here? Get back before you're missed—and for mercy's sake be careful."
+			
+			*return
+	
+	*if TaggartChoice
+		#I need to warn Taggart this is coming. There are some things I can't leave to chance and hope.
+	
+			*if alliance = "clergy"
+		
+				He nods, looking pale. "Thank you." He hesitates. "Come home. Stay here."
+			
+				You shake your head. "I can't."
+			
+				He sighs and half-smiles. "I know. I won't tell you to be careful, either. But I'll be praying for your safety." He covers your hands with his own in brief, wordless blessing.
+			
+				*return
+			
+			*else
+		
+				"Thank you." He looks pale. "I'll keep them inside, and safe. I…if you wanted sanctuary…"
+			
+				You shake your head.
+			
+				"That's what I thought." He half-smiles. "I won't tell you to be careful, either. But I wish you all possible good fortune."
+			
+				*return
+	
+	#I fear that even with the premature start, Callahan has the charisma to bring the Rising to victory, or to quickly ferment another afterward. The only way we'll be safe is if he dies that day.
+	
+		Nothing could be more natural than one additional man shot dead in the middle of a city riot.
+		
+		Do you intend to shoot him yourself?
+		
+		*choice
+		
+			#No, I haven't the skill.
+			
+				Then you can do nothing but hope.
+				
+				*return
+			
+			#No, I can't bring myself to do it.
+			
+				*set compassionate %+15
+				
+				Then you can do nothing but hope.
+				
+				*return
+				
+			#Yes.
+		
+				*if alliance = "clergy"
+					As you make your ambush plans, it occurs to you to wonder what Taggart would say.
+			
+					*choice
+			
+						#He would say that my hands must not take life. I hesitate, then return the revolver to its case.
+				
+							You resolve to leave Callahan's fate to…whatever fate there may be. Instead of stalking him, you will execute your assigned duties and hope for the best.
+					
+							*return
+				
+						#He slit the Ripper's throat with his own hands, causing one death to save the lives of many. This is no different.
+				
+							*goto AmbushCallahan
+		
+				*else
+		
+					*label AmbushCallahan
+			
+					In Saturday's gray pre-dawn, you arrive at headquarters to receive your final orders—which coincidentally tell you where Callahan will be. You are meant to be part of the group that takes the old armory, but you slip away from them in the confusion, and find yourself a rooftop to wait upon along the route Callahan will travel.
+					
+					You lie there with the rifle Callahan issued you, and wait.
+			
+					*page_break
+				
+					You wait until he comes within your sights.
+				
+					You exhale.
+						
+					You fire.
+			
+					*page_break
+					
+					*if (marksmanship > 60) 
+						*achieve killcallahan
+						
+						He drops.
+				
+						The square below is a mass of shouting, panicked people.
+				
+						*choice
+				
+							#I flee in the confusion.
+					
+								*if (stealthy < 45) or (athleticism > 50)
+						
+									You get completely away. No one ever suspects you have anything to do with Callahan's death. 
+							
+									There won't be anyone capable of pulling together another Rising any time soon.
+							
+									Now you can only wait to see whether the Rising succeeds or fails.
+							
+									*return
+							
+								*else
+						
+									You dash up one street and down another, and you think you have made it clean away…and then Jack Kendall steps out of a cross-street to confront you, his face red and furious.
+							
+									*goto KendallFight
+								
+							#I hide until they have stopped looking for the shooter. 
+							
+								*if stealthy > 55
+				
+									You tuck yourself into a hiding place so secure that Jack Kendall, searching furiously for Callahan's killer, rushes right past you.
+							
+									No one ever suspects you have anything to do with Callahan's death. 
+							
+									There won't be anyone capable of pulling together another Rising any time soon.
+							
+									Now you can only wait to see whether the Rising succeeds or fails.
+						
+									*return
+						
+								*else
+					
+									You think you have found a secure hiding place…an illusion dispelled when a red and furious Jack Kendall grabs you by the collar and jerks you out to face him.
+							
+									*label KendallFight
+					
+									"I knew it was you," he says in a low, furious voice, and swings one meaty fist.
+
+									You backpedal, trying to avoid the blow long enough to aim the rifle.
+								
+									Your feet slip on the cobblestones. 
+							
+									*page_break
+									*if athleticism > 50
+					
+										For a moment, you think all is lost…and then your finger finds the trigger.
+								
+										Kendall drops, a single hole in his jacket above his heart and a look of surprise on his face.
+
+										You flee.
+								
+										*page_break  
+								
+										No one ever suspects you have anything to do with Callahan's death or with Kendall's. 
+							
+										There won't be anyone capable of pulling together another Rising any time soon.
+							
+										Now you can only wait to see whether the Rising succeeds or fails.
+
+										*return
+					
+									*else
+					
+										Kendall is upon you in an instant, wresting the rifle from your grip. He hammers your face with blows until you are stunned, then presses the muzzle of the rifle to your skull. 
+								
+										There is nothing you can do to stop the killing shot. 
+								
+										But at least you took out Callahan. There won't be anyone capable of pulling together another Rising any time soon. If only this one fails, you will have given your life to save Mercia from a Vlaski invasion.
+								
+										If only you could know for certain you have succeeded.
+								
+										*set dead true
+										*image TheEnd.png
+
+										*goto_scene WrapUp
+						
+					*else
+					
+						You miss. 
+				
+						The bullet embeds itself harmlessly in a nearby wall.
+				
+						The square below turns into bedlam, people shouting and panicking. Kendall protects Callahan's body with his own, hustling the Resistance leader to safety.
+				
+						You've lost your chance to cut off the head of the beast. But you may still have succeeded in stopping this Rising and thus saving Mercia from a Vlaski invasion.
+				
+						You can only wait and see.
+				
+						*return 
+
+	
+*label RisingFails
+*page_break
+In the foggy gray Saturday pre-dawn, the Resistance rises up and takes Kingsford.
+	
+*if MedicalSabotage
+	At least, some of it does. Some of Callahan's soldiers are still too ill to march, and others, convinced of imminent failure, do not appear for duty. 
+	*goto Rising1
+		
+*else
+	At least, some of it does. Many of Callahan's soldiers, convinced of imminent failure, do not appear for duty.
+	*goto Rising1
+		
+*label Rising1
+
+*if MarksmanshipSabotage 
+
+	The original plan called for simultaneous explosions to blow up Parliament, the yard where Merrill's miniaturized mechanical soldiers are stored, the main Army barracks, and most of the railway stations. 
+	
+	But you single-handedly made this plan impossible to execute. After the suspicious explosion at the merchant's house heightened security around the city, it proved impossible to smuggle armament anywhere near Parliament, Merrill's, or the Army barracks. 
+	
+	The best the Resistance can do is some bombs in railway stations. The damage there is admittedly quite severe.
+	
+	*goto Rising2
+
+*else
+	The original plan called for simultaneous explosions to blow up Parliament, the yard where Merrill's miniaturized mechanical soldiers are stored, the main Army barracks, and most of the railway stations. 
+	
+	But you've caused enough attrition to Callahan's forces that he must abandon the Parliament mission. 
+	
+	*if AlexandraAlly
+		And anonymous warnings delivered to Merrill's yard and the Army barracks—by Alexandra, you are fairly certain—makes it impossible to smuggle the explosives inside either building.
+		
+		The damage to the railway stations is admittedly quite severe.
+		
+		*goto Rising2
+	
+	*else
+		The damage to the other targets is severe, but they are not annihilated.
+		
+		*goto Rising2
+		
+*label Rising2
+*page_break
+*if AthleticsSabotage
+
+	As the sun rises, companies of surprisingly well-armed and well-drilled men attempt to take the old city watchtower and the main armory.
+	
+	But there are simply not enough of them. Too many have crept away home. They are repulsed from the armory. 
+	
+	They do occupy the watchtower for several tense hours, but your decision to disrupt communications proves to be the right one. When the expected reinforcements do not arrive from other cities, the Resistance proves unable to hold what they have taken.
+	
+	*goto Rising3
+
+*else
+
+	As the sun rises, companies of surprisingly well-armed and well-drilled men attempt to take the old city watchtower and the main armory.
+	
+	But there are simply not enough of them. They are repulsed from the armory. They do occupy the watchtower for several tense hours, 
+	*if PM = "whitefield"
+		until iron-willed Prime Minister Whitefield pulls together a force to rout them out.
+		
+		*goto Rising3
+		
+	*else
+		while young Prime Minister Waite wrings his hands ineffectually, until Woodward seizes control from him and pulls together a force sufficient to rout them out. 
+		*goto Rising3
+	
+*label Rising3
+*page_break
+*if MedicalSabotage
+	*achieve poison
+	*goto Rising4
+*elseif AthleticsSabotage
+	*achieve wantnail
+	*goto Rising4
+*elseif MarksmanshipSabotage
+	*achieve singleshot
+	*goto Rising4
+*else
+	*achieve bard
+	*goto Rising4
+	
+*label Rising4
+In the end, the Rising that was supposed to crash over Kingsford like a tidal wave and sweep inexorably across the Empire…does nothing of the kind.
+
+Most of the damage done is to property. Some people caught up in the madness are injured; a few are killed. 
+
+Among the last group are two men eventually identified by the authorities as Sean Callahan and John Kendall. Both were killed by a single gunshot wound and left with no clue as to who their assailant might have been–not that the police look all that hard.
+*page_break
+*return
+
+*label RisingFails2
+*achieve walls
+With the Rising in Kingsford fizzled like wet gunpowder, and the ones in outlying cities not even attempted, the threat of a Vlaski invasion dissipates like smoke. Most of the Empire never knows it was even a possibility. 
+
+*return
+
+*label WoodwardGetsBill
+You expected Woodward to pull strings behind the curtain and squeak the Labor Reform Bill through with as little fanfare as possible. It seems you underestimated him. He does you proud.
+
+*return
+
+*label WoodwardGetsBill2
+
+He does not personally campaign for it–he has no publicly-acknowledged weight to throw, after all–but within government walls, it would seem he works tirelessly. All kinds of established and respected Members of Parliament suddenly come out in favor of the bill; true and thoughtful debates are held over its provisions; in no time there is a meaningful coalition behind it.
+*return
+
+*label SecondInCommand
+You are looking at the new second-in-command of the Free Mercia movement—an organization that is, whether you like it or not, one of the pillars of power in this city. You and Woodward and the rest of the government will simply have to learn to take us into account, now and forever after. I will fight shoulder to shoulder to you when we are on the same side, and the rest of the time, I will fight with all my strength to stop your excesses. And it may take years, but someday I [i]will[/i] make you believe I'm right." 
+			
+"I…must admit I look forward to it," Finch says.
+
+*return
+
+
+*label FinchBrandy
+He rises from the desk, stretching. "Come, sit and have a glass with me. I've acquired some truly remarkable old brandy, and it seems like the sort of night that deserves a celebration."
+			
+"In honor of…?"
+			
+"We're both home, we're both safe, and there's absolutely nothing either of us need worry over. Not tonight, anyhow. Doesn't that sound like something worth celebrating?"
+		
+It does, put like that. Finch pours two glasses, hands you one, and lifts the other in a toast. "Here's to tomorrow."
+
+It is the year 1891, and you have walked a long and twisting path since your injury on the Goráskan battlefield—ten years of decisions, large and small, that moved you to this place at this moment in time. 
+
+You settle into your armchair and watch the sun set over the city you've saved. 
+		
+*return
+
+*label NoneResistanceChoice
+
+How do you respond?
+			
+*choice
+			
+	#"Yes. I think I've finally found my place in the world, and it's right here."
+				
+		*return
+			
+	#"No. I…I'm going back to work for Woodward. I want to fix it from the inside."
+				
+		*set AlexandraFinalWords true
+		
+		"Good luck with that," she snorts. Then she says in a more considered tone, "Good luck with that. Maybe…maybe that's what we need. Me on one side and you on the other. Maybe that's how our worlds finally meet halfway.
+					
+		"Well…give Woodward my regards. Tell him that Free Mercia is, whether he likes it or not, one of the pillars of power in this city, and he will simply have to learn to take us into account. Now and forever after. I will fight shoulder to shoulder with him when we are on the same side, and the rest of the time, I will fight with all my strength to stop his excesses. And someday–" She flashes a smile. "–I'll make him believe I'm right."
+					
+		*goto NoneGovtChoice
+				
+	#"No. I'm going back to my practice. But…you may certainly contact me, the next time the stakes are this high."
+				
+		*set AlexandraFinalWords true
+		She smiles. "I certainly shall, then. Free Mercia is, whether Arthur Woodward likes it or not, one of the pillars of power in this city, and he will simply have to learn to take us into account. Now and forever after. I will fight shoulder to shoulder with him when we are on the same side, and the rest of the time, I will fight with all my strength to stop his excesses. And someday–" She flashes a smile. "–I'll make him believe I'm right."
+					
+		*goto NoneGovtChoice
+		
+*label NoneGovtChoice
+*page_break
+*gosub RisingFails2
+*page_break
+Woodward seems to have shed ten years in a night. 
+
+You cannot be publicly honored for your role in saving the Empire–or, Woodward assures you, you would receive a knighthood. 
+
+*fake_choice
+		
+	#A knighthood would be as meaningless to me as Woodward's thanks. 
+		
+	#A knighthood is unnecessary. Her Imperial Majesty's sincere gratitude, expressed privately, is something I will treasure always.
+		
+	#A knighthood is unnecessary. I know what I did to save Kingsford.
+		
+	#A knighthood is unnecessary. Woodward's gratitude and Finch's admiration are far more important to me.
+		
+"You could come back, you know," Finch says quietly. "It could be as it was."
+			
+How do you respond?
+			
+*choice
+			
+	#"There is nothing I want more in the world."
+				
+		You return to the fold. Your once and present colleagues are more than happy to believe your extended absence represented one of Woodward's long-running schemes.
+		
+		*if AlexandraFinalWords = false
+			A few nights later, you are returning home on foot, enjoying the pleasant warm air. You turn a corner to find Alexandra Townsend leaning against a lamp post, arms folded, gaslight gleaming on her bare head. Waiting for you, apparently, for she straightens as soon as you approach. 
+			
+			*gosub AlexandraFinalEncounter
+				
+			*page_break
+			
+		Finch listens with interest when you recount your final conversation with Alexandra. "She'll convince us to share her convictions? That will be interesting to watch. If she chooses different tactics than her predecessor, she might even succeed. And here I was starting to worry we'd find Kingsford dull, with the Vlaskesari back behind their own borders and Callahan safely dead. It seems I needn't have worried. What a splendid multifaceted city we live in."
+		
+		*gosub FinchBrandy
+		
+		*image TheEnd.png
+
+		*goto_scene WrapUp
+		
+	#"I'm willing to try if you are."
+				
+		You return to the fold. Your once and present colleagues are more than happy to believe your extended absence represented one of Woodward's long-running schemes.
+
+		*if AlexandraFinalWords = false
+		
+			A few nights later, you are returning home on foot, enjoying the pleasant warm air. You turn a corner to find Alexandra Townsend leaning against a lamp post, arms folded, gaslight gleaming on her bare head. Waiting for you, apparently, for she straightens as soon as you approach. 
+		
+			*gosub AlexandraFinalEncounter
+				
+			*page_break
+			
+		Finch listens with interest when you recount your final conversation with Alexandra. "She'll convince us to share her convictions? That will be interesting to watch. If she chooses different tactics than her predecessor, she might even succeed…And here I was starting to worry we'd find Kingsford dull, with the Vlaskesari back behind their own borders and Callahan safely dead. It seems I needn't have worried. What a splendid multifaceted city we live in."
+		
+		*gosub FinchBrandy
+		
+		*image TheEnd.png
+
+		*goto_scene WrapUp
+					
+	#"That's not what I want. I did this for the people of Mercia, not for Woodward and not for you."
+				
+		*achieve neutral
+		
+		"So if…" Finch hesitates. "If the people of Mercia were one day threatened again, perhaps you might…?"
+				
+		"Perhaps," you say, and with that, Finch must be content. 
+					
+		It is the year 1891, and you walk through Kingsford's streets entirely your own master. In many ways, you have achieved the best of all possible words: you are an independent operator now, free to throw your weight behind the government or the Resistance as you see fit, from day to day and issue to issue.
+		
+		It was a long and twisting road that started at the Goráskan battlefield and wound up here—ten years of decisions, large and small, that moved you to this place at this moment in time. 
+		
+		You walk through the peaceful streets listening to the hiss of venting steam and the whir of the patrolling mechs through the enveloping fog. 
+					
+		For today at least, all is well.
+					
+		*image TheEnd.png
+
+		*goto_scene WrapUp
+
+*label AlexandraFinalEncounter
+*set AlexandraFinalWords true
+"Nicely done," she says quietly. And then, with a strained smile, in response to the startlement you can't keep off your face, "No, I didn't know the whole time. I tumbled to Callahan's real plan very late in the game. If I hadn't held black-and-white proof in my hands, I would never have believed it of him. That whole time, he'd been manipulating me–manipulating us–manipulating [i]all[/i] of this–" She shakes her head. "When I realized what he really meant to do, and how far along his plan had advanced, I was…terrified. But then I realized what you were doing, and… And all I can say is thank you. For saving us from the worst of ourselves. Right now, Kingsford could be held by those light-eating bastards, and instead they're back behind their borders where they belong. It will take a long time for them to build such a beachhead within our walls again, now that Callahan has been removed from the picture. We live to fight another day.
+	
+"Now, whether that's shoulder to shoulder or on opposite sides…that's up to you." She pushes off the lamp post with easy grace. "You are looking at the new head of the Free Mercia movement. The organization I command is, whether you like it or not, one of the pillars of power in this city, and you and your government will simply have to learn to take us into account. Now and forever after. I will fight shoulder to shoulder to you when we are on the same side, as I hope we may be more often now–my goals really are to improve the lives of the Empire's subjects, not to pretend to do so as an excuse to weaken the Empire for her enemies–and the rest of the time, I will fight with all my strength to stop your excesses. And it may take years, but someday I [i]will[/i] make you believe I'm right." 
+	
+A carriage rattles around the corner, and has barely drawn to a stop when Alexandra leaps lightly inside it. She vanishes into the night.
+
+*achieve balance 
+*return

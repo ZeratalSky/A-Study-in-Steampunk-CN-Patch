@@ -1,0 +1,6 @@
+
+*image 7_partThree.png
+*temp blank ""
+${blank}
+*finish 
+		

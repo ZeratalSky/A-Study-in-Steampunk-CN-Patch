@@ -1,0 +1,19 @@
+Dr. $!{firstname} $!{initial}. $!{lastname}
+
+*stat_chart
+  
+  percent athleticism Athleticism
+  percent charisma Charisma
+  percent healing Healing
+  percent marksmanship Marksmanship
+  percent medicine Medicine
+  percent perception Perception
+  
+  
+  opposed_pair Compassionate
+    Pragmatic
+  opposed_pair Conventional 
+    Unconventional
+  opposed_pair Stealthy
+    Quick
+  

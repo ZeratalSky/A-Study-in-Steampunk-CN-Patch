@@ -1,0 +1,4 @@
+*image 4_prologue.png
+*temp blank ""
+${blank}
+*finish 开启游戏
