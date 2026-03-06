@@ -52,14 +52,14 @@
 为了确保补丁的完整性，协作时请根据文件类型前往对应路径进行修改：
 
 #### 📝 剧情文本 (Scenes)
-- **存放路径**：`unpacked/assets/scenes/`
+- **存放路径**：`unpacked/deploy/scenes/`
 - **修改准则**：
   - 请对照 `/source_en` 中的原文进行翻译。
   - **严禁修改**任何以 `*` 开头的指令行（如 `*if`, `*choice`, `*set`, `*label`）。
   - **缩进规范**：ChoiceScript 极其依赖缩进。请务必保持行首空格数量与原文件完全一致，否则会导致游戏报错。
 
 #### 💻 UI 界面与系统脚本 (UI)
-- **存放路径**：`unpacked/` (根目录)
+- **存放路径**：`unpacked/deploy/` 
 - **核心文件**：重点关注 `index.html`, `ui.js`, `scene.js`, `mygame.js`, `util.js`。
 - **修改准则**：
   - 仅限修改双引号内的文本字符串（如菜单标题、按钮标签）。
@@ -67,7 +67,7 @@
   - 确保文件保存编码为 **UTF-8 (无 BOM)**。
 
 #### 🖼️ 图片资源 (Images)
-- **存放路径**：通常位于 `unpacked/assets/` 或其子目录下。
+- **存放路径**：位于 `unpacked/deploy/`目录下。
 - **替换方法**：
   - 参考 `/images_en` 确认原图位置。
   - 将 `/images_cn` 中汉化好的图片（保持原文件名与格式）覆盖至 `unpacked` 对应的原始路径。
