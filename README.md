@@ -24,6 +24,8 @@
 ├── /manual_cn              # 人工精修版 .txt（人工汉化提交区）
 ├── /images_en              # 原版的图片资源（如标题图、章节题图等）
 ├── /images_cn              # 汉化后的图片资源（如标题图、章节题图等）
+├── /ui_en                  # 原始 UI 文件 (HTML/CSS/JS)
+├── /ui_cn                  # 汉化后的 UI 文件
 ├── GLOSSARY.md             # 汉化术语表（确保专有名词译名统一）
 └── README.md               # 项目说明文档
 ```
