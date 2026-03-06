@@ -15,13 +15,14 @@
 ```text
 /Steampunk-Gaslight-CN
 ├── /tools                  # 汉化工具集
-│   ├── convert.js           # 核心脚本：将翻译后的 .txt 同步至游戏读取的 .json 字典
-│   ├── unpack.bat           # 一键解包工具：提取 app.asar 资源
-│   ├── pack.bat             # 一键封包工具：封装修改后的资源，自动处理二进制依赖
-│   └── convert_all.bat      # 批量处理脚本：一键同步所有场景文本与索引
+│   ├── convert.js          # 核心脚本：将翻译后的 .txt 同步至游戏读取的 .json 字典
+│   ├── unpack.bat          # 一键解包工具：提取 app.asar 资源
+│   ├── pack.bat            # 一键封包工具：封装修改后的资源，自动处理二进制依赖
+│   └── convert_all.bat     # 批量处理脚本：一键同步所有场景文本与索引
 ├── /source_en              # 英文原版 .txt 剧情文件（校对基准）
-├── /ai_draft               # AI 翻译初版 .txt（当前最新版本）
-├── /manual_refined          # 人工精修版 .txt（志愿者协作提交区）
+├── /ai_cn                  # AI 翻译初版 .txt（当前最新版本）
+├── /manual_cn              # 人工精修版 .txt（人工汉化提交区）
+├── /images_en              # 原版的图片资源（如标题图、章节题图等）
 ├── /images_cn              # 汉化后的图片资源（如标题图、章节题图等）
 ├── GLOSSARY.md             # 汉化术语表（确保专有名词译名统一）
 └── README.md               # 项目说明文档
